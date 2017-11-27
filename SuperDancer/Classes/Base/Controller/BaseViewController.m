@@ -27,9 +27,11 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationController.navigationBar.translucent = NO;
     [self updateHttpHeader];
+
+//账户1
 //    self.users.userId = @"1";
 //    self.users.token = @"oaMKIwiR-Qi8QBaJZWEoijFlkuSA";
-    
+//账户2
 //    self.users.userId = @"81516";
 //    self.users.token = @"oaMKIwmXVHfP5r03012sOl5mQP3k";
 
