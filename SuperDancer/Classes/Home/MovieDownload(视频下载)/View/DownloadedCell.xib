@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="DownloadedCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="84.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="dance" translatesAutoresizingMaskIntoConstraints="NO" id="Lxr-NH-c8Q">
+                        <rect key="frame" x="15" y="10" width="112" height="64.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="65" id="SAZ-mZ-F5U"/>
+                            <constraint firstAttribute="width" secondItem="Lxr-NH-c8Q" secondAttribute="height" multiplier="112:65" id="cx5-X9-xIx"/>
+                            <constraint firstAttribute="width" constant="112" id="kp9-MT-QxK"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="菏泽合唱团《小河流淌》菏泽合唱团" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlk-8Z-MbC">
+                        <rect key="frame" x="142" y="10" width="218" height="36"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.12939286229999999" green="0.12942266459999999" blue="0.12939092520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="135M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frs-lm-pOn">
+                        <rect key="frame" x="142" y="59.5" width="218" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.74109476799999996" green="0.74122357370000003" blue="0.74108666180000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="rlk-8Z-MbC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="1kz-qf-qa8"/>
+                    <constraint firstAttribute="bottom" secondItem="frs-lm-pOn" secondAttribute="bottom" constant="10" id="3LJ-l2-NHf"/>
+                    <constraint firstAttribute="trailing" secondItem="rlk-8Z-MbC" secondAttribute="trailing" constant="15" id="42U-qv-9CJ"/>
+                    <constraint firstItem="rlk-8Z-MbC" firstAttribute="leading" secondItem="Lxr-NH-c8Q" secondAttribute="trailing" constant="15" id="CxT-oE-tQa"/>
+                    <constraint firstAttribute="bottom" secondItem="Lxr-NH-c8Q" secondAttribute="bottom" constant="10" id="Jzr-bG-xJU"/>
+                    <constraint firstItem="Lxr-NH-c8Q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="NWb-eX-B4B"/>
+                    <constraint firstItem="frs-lm-pOn" firstAttribute="leading" secondItem="rlk-8Z-MbC" secondAttribute="leading" id="df3-jt-kIK"/>
+                    <constraint firstItem="frs-lm-pOn" firstAttribute="trailing" secondItem="rlk-8Z-MbC" secondAttribute="trailing" id="scj-Lg-Qbm"/>
+                    <constraint firstItem="Lxr-NH-c8Q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ucK-jz-aBY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imgView" destination="Lxr-NH-c8Q" id="ALp-Kz-qTN"/>
+                <outlet property="sizeLabel" destination="frs-lm-pOn" id="nNN-pv-wYU"/>
+                <outlet property="titleLabel" destination="rlk-8Z-MbC" id="ZOa-Wk-Om1"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="dance" width="1024" height="768"/>
+    </resources>
+</document>

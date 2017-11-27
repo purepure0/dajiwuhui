@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditNickNameViewController">
+            <connections>
+                <outlet property="nickNameTextFiled" destination="Eeh-TW-art" id="Fv7-a1-UUh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aud-pk-DOT">
+                    <rect key="frame" x="0.0" y="10" width="375" height="55"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请填写您的昵称" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Eeh-TW-art">
+                            <rect key="frame" x="15" y="0.0" width="345" height="55"/>
+                            <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="1TP-o4-t0m"/>
+                        <constraint firstAttribute="trailing" secondItem="Eeh-TW-art" secondAttribute="trailing" constant="15" id="MKb-gc-Rih"/>
+                        <constraint firstItem="Eeh-TW-art" firstAttribute="leading" secondItem="aud-pk-DOT" secondAttribute="leading" constant="15" id="ROC-nI-YPO"/>
+                        <constraint firstAttribute="bottom" secondItem="Eeh-TW-art" secondAttribute="bottom" id="mcf-vD-85h"/>
+                        <constraint firstItem="Eeh-TW-art" firstAttribute="top" secondItem="aud-pk-DOT" secondAttribute="top" id="ywi-9W-kjg"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="aud-pk-DOT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="Bjw-rO-O7r"/>
+                <constraint firstAttribute="trailing" secondItem="aud-pk-DOT" secondAttribute="trailing" id="IJ5-7p-2Fk"/>
+                <constraint firstItem="aud-pk-DOT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NIe-yB-dDd"/>
+            </constraints>
+            <point key="canvasLocation" x="-162" y="-47"/>
+        </view>
+    </objects>
+</document>

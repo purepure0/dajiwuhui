@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="U6b-Vx-4bR" customClass="PersonalHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="197"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personal_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="QX0-NQ-Hgn">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="197"/>
+                </imageView>
+                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VoY-5r-A3J">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="197"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8WR-ns-Uy4">
+                    <rect key="frame" x="318" y="161" width="42" height="22"/>
+                    <state key="normal" image="my_profile_edit">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="editBtnAction:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="XRg-9C-2up"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYn-xt-vxq">
+                    <rect key="frame" x="24" y="86.5" width="65" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="NGP-Js-fon"/>
+                        <constraint firstAttribute="width" constant="65" id="yh8-C4-Tee"/>
+                    </constraints>
+                    <state key="normal" image="placeholder_img"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我我我123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBI-Sp-TZr">
+                    <rect key="frame" x="107" y="91.5" width="253" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="sCw-bn-pIP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这个家伙很烂，什么也没留下" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLi-JO-ywd">
+                    <rect key="frame" x="107" y="126.5" width="253" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="8jM-16-Zbn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="8WR-ns-Uy4" secondAttribute="bottom" constant="14" id="0CE-sF-Arb"/>
+                <constraint firstItem="cLi-JO-ywd" firstAttribute="width" secondItem="VBI-Sp-TZr" secondAttribute="width" id="2s9-Au-ciT"/>
+                <constraint firstAttribute="bottom" secondItem="VoY-5r-A3J" secondAttribute="bottom" id="9C4-aV-hYK"/>
+                <constraint firstAttribute="trailing" secondItem="VoY-5r-A3J" secondAttribute="trailing" id="9Gq-jY-Oc0"/>
+                <constraint firstItem="QX0-NQ-Hgn" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="ARB-LC-ND8"/>
+                <constraint firstAttribute="trailing" secondItem="8WR-ns-Uy4" secondAttribute="trailing" constant="15" id="AvK-De-rSQ"/>
+                <constraint firstItem="QX0-NQ-Hgn" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="BKH-sJ-9H5"/>
+                <constraint firstItem="bYn-xt-vxq" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="24" id="GQ4-MI-ii1"/>
+                <constraint firstAttribute="bottom" secondItem="QX0-NQ-Hgn" secondAttribute="bottom" id="Mid-Hw-8D9"/>
+                <constraint firstAttribute="trailing" secondItem="QX0-NQ-Hgn" secondAttribute="trailing" id="NRM-Zy-FKH"/>
+                <constraint firstItem="bYn-xt-vxq" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" constant="20" id="WgV-IL-7E3"/>
+                <constraint firstItem="VoY-5r-A3J" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="cN4-O9-QMg"/>
+                <constraint firstItem="VBI-Sp-TZr" firstAttribute="leading" secondItem="bYn-xt-vxq" secondAttribute="trailing" constant="18" id="dyC-p8-Kac"/>
+                <constraint firstAttribute="trailing" secondItem="VBI-Sp-TZr" secondAttribute="trailing" constant="15" id="egr-BK-ETk"/>
+                <constraint firstItem="VoY-5r-A3J" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="f7b-PR-8fH"/>
+                <constraint firstItem="cLi-JO-ywd" firstAttribute="leading" secondItem="VBI-Sp-TZr" secondAttribute="leading" id="nGY-gG-NiD"/>
+                <constraint firstItem="cLi-JO-ywd" firstAttribute="bottom" secondItem="bYn-xt-vxq" secondAttribute="bottom" constant="-5" id="sO3-5U-ZIz"/>
+                <constraint firstItem="VBI-Sp-TZr" firstAttribute="top" secondItem="bYn-xt-vxq" secondAttribute="top" constant="5" id="t2T-aJ-AjR"/>
+            </constraints>
+            <connections>
+                <outlet property="avatarImg" destination="bYn-xt-vxq" id="Ldp-sY-Pct"/>
+                <outlet property="bgImg" destination="QX0-NQ-Hgn" id="zAm-YV-INA"/>
+                <outlet property="blackView" destination="VoY-5r-A3J" id="Z13-m3-jxL"/>
+                <outlet property="editBtn" destination="8WR-ns-Uy4" id="vDN-De-bxX"/>
+                <outlet property="nickNameLabel" destination="VBI-Sp-TZr" id="p6E-IB-7jL"/>
+                <outlet property="signatureLabel" destination="cLi-JO-ywd" id="CSe-SX-rty"/>
+            </connections>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="my_profile_edit" width="42" height="13"/>
+        <image name="personal_placeholder" width="750" height="394"/>
+        <image name="placeholder_img" width="90" height="90"/>
+    </resources>
+</document>

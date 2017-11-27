@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTV-IL-0wX" customClass="ButtonCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="117"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="117"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsJ-CV-92w">
+                        <rect key="frame" x="0.0" y="10" width="125" height="97"/>
+                        <subviews>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPa-RJ-e1B">
+                                <rect key="frame" x="45.5" y="14" width="33" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WPa-RJ-e1B" secondAttribute="height" multiplier="33:46" id="kpc-71-Se3"/>
+                                </constraints>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="50"/>
+                                <state key="normal" image="sq_dancer"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="舞者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPu-vx-UdT">
+                                <rect key="frame" x="49.5" y="71.5" width="25" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <color key="textColor" red="0.43916493654251099" green="0.43924486637115479" blue="0.43915987014770508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WPa-RJ-e1B" firstAttribute="centerY" secondItem="rsJ-CV-92w" secondAttribute="centerY" constant="-11" id="2jR-WS-K3B"/>
+                            <constraint firstAttribute="bottom" secondItem="iPu-vx-UdT" secondAttribute="bottom" constant="11" id="KH6-y7-Hrd"/>
+                            <constraint firstItem="WPa-RJ-e1B" firstAttribute="centerX" secondItem="rsJ-CV-92w" secondAttribute="centerX" id="SZ6-UL-Fbx"/>
+                            <constraint firstItem="iPu-vx-UdT" firstAttribute="centerX" secondItem="WPa-RJ-e1B" secondAttribute="centerX" id="eAB-3m-TS6"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3p-mM-Y1d">
+                        <rect key="frame" x="125" y="10" width="125" height="97"/>
+                        <subviews>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykR-YG-dQe">
+                                <rect key="frame" x="43" y="16.5" width="39" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ykR-YG-dQe" secondAttribute="height" multiplier="13:14" id="Bll-jv-oAd"/>
+                                </constraints>
+                                <state key="normal" image="sq_dancemusic"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌曲" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOr-35-GVp">
+                                <rect key="frame" x="50" y="71.5" width="25" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <color key="textColor" red="0.43916493649999999" green="0.43924486639999999" blue="0.43915987010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tOr-35-GVp" firstAttribute="centerX" secondItem="ykR-YG-dQe" secondAttribute="centerX" id="G5N-mh-oQB"/>
+                            <constraint firstAttribute="bottom" secondItem="tOr-35-GVp" secondAttribute="bottom" constant="11" id="GxR-3C-QEr"/>
+                            <constraint firstItem="ykR-YG-dQe" firstAttribute="centerY" secondItem="o3p-mM-Y1d" secondAttribute="centerY" constant="-11" id="g7a-dD-Q1G"/>
+                            <constraint firstItem="ykR-YG-dQe" firstAttribute="centerX" secondItem="o3p-mM-Y1d" secondAttribute="centerX" id="j0A-fo-lRB"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fop-dF-Mdt">
+                        <rect key="frame" x="250" y="10" width="125" height="97"/>
+                        <subviews>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Des-Li-Ie1">
+                                <rect key="frame" x="44" y="19" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Des-Li-Ie1" secondAttribute="height" multiplier="1:1" id="Wpz-3G-SYU"/>
+                                </constraints>
+                                <state key="normal" image="sq_classify"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分类" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chU-pB-0mb">
+                                <rect key="frame" x="50" y="72" width="25" height="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <color key="textColor" red="0.43916493649999999" green="0.43924486639999999" blue="0.43915987010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Des-Li-Ie1" firstAttribute="centerX" secondItem="fop-dF-Mdt" secondAttribute="centerX" id="7q3-Rd-2xS"/>
+                            <constraint firstItem="chU-pB-0mb" firstAttribute="centerX" secondItem="Des-Li-Ie1" secondAttribute="centerX" id="8Cg-Vg-FHk"/>
+                            <constraint firstItem="Des-Li-Ie1" firstAttribute="centerY" secondItem="fop-dF-Mdt" secondAttribute="centerY" constant="-11" id="jmy-cY-YrD"/>
+                            <constraint firstAttribute="bottom" secondItem="chU-pB-0mb" secondAttribute="bottom" constant="11" id="nRI-Mg-eJP"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fop-dF-Mdt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="0zp-wi-Avj"/>
+                <constraint firstAttribute="trailing" secondItem="fop-dF-Mdt" secondAttribute="trailing" id="1RY-H6-PwR"/>
+                <constraint firstItem="rsJ-CV-92w" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="6wZ-Eq-IED"/>
+                <constraint firstItem="o3p-mM-Y1d" firstAttribute="leading" secondItem="rsJ-CV-92w" secondAttribute="trailing" id="9RW-Tf-H8B"/>
+                <constraint firstItem="fop-dF-Mdt" firstAttribute="leading" secondItem="o3p-mM-Y1d" secondAttribute="trailing" id="CDo-Lt-leZ"/>
+                <constraint firstItem="o3p-mM-Y1d" firstAttribute="width" secondItem="rsJ-CV-92w" secondAttribute="width" id="Jdu-el-Kyd"/>
+                <constraint firstItem="rsJ-CV-92w" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TDC-ya-zkQ"/>
+                <constraint firstAttribute="bottom" secondItem="rsJ-CV-92w" secondAttribute="bottom" constant="10" id="XYH-bI-wjv"/>
+                <constraint firstItem="fop-dF-Mdt" firstAttribute="width" secondItem="rsJ-CV-92w" secondAttribute="width" id="pfL-Ox-Vne"/>
+                <constraint firstItem="o3p-mM-Y1d" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="rOY-oP-usg"/>
+                <constraint firstAttribute="bottom" secondItem="fop-dF-Mdt" secondAttribute="bottom" constant="10" id="w2k-Ks-UpR"/>
+                <constraint firstAttribute="bottom" secondItem="o3p-mM-Y1d" secondAttribute="bottom" constant="10" id="zXr-MP-phi"/>
+            </constraints>
+            <connections>
+                <outletCollection property="btns" destination="WPa-RJ-e1B" id="Pg7-k1-OLo"/>
+                <outletCollection property="btns" destination="ykR-YG-dQe" id="fBq-8M-WMb"/>
+                <outletCollection property="btns" destination="Des-Li-Ie1" id="tj5-6V-bVH"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="sq_classify" width="37" height="37"/>
+        <image name="sq_dancemusic" width="39" height="42"/>
+        <image name="sq_dancer" width="33" height="46"/>
+    </resources>
+</document>

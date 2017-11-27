@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MsgCommentCellIdentifier" rowHeight="112" id="KGk-i7-Jjw" customClass="MsgCommentCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="112"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="111.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="b7E-jo-4p5">
+                        <rect key="frame" x="15" y="12" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="2Nm-f8-C7n"/>
+                            <constraint firstAttribute="width" constant="40" id="8EZ-gy-ODh"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="随波逐流  回复:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT8-0D-PDe">
+                        <rect key="frame" x="63" y="12" width="97.5" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="eeg-K5-gvx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1分钟前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAM-Fo-l8p">
+                        <rect key="frame" x="63" y="33" width="42.5" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="dh3-Gb-lPT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="床前明月光疑是地上霜欲穷千里目更上一层楼" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8an-uH-Cxn">
+                        <rect key="frame" x="63" y="59" width="242" height="42.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group Copy 3" translatesAutoresizingMaskIntoConstraints="NO" id="GJg-Th-uq6">
+                        <rect key="frame" x="235" y="10" width="70" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="GVx-0h-QvX"/>
+                            <constraint firstAttribute="width" constant="70" id="t7g-L7-O7a"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7JJ-kP-7jN">
+                        <rect key="frame" x="235" y="10" width="70" height="40"/>
+                        <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <state key="normal" image="video_play"/>
+                        <connections>
+                            <action selector="vidoePlay:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rbX-rq-Q3u"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8an-uH-Cxn" firstAttribute="top" secondItem="b7E-jo-4p5" secondAttribute="bottom" constant="7" id="1Oe-ng-nqu"/>
+                    <constraint firstItem="7JJ-kP-7jN" firstAttribute="width" secondItem="GJg-Th-uq6" secondAttribute="width" id="5em-BL-SyP"/>
+                    <constraint firstAttribute="trailing" secondItem="8an-uH-Cxn" secondAttribute="trailing" constant="15" id="9Ln-hu-J42"/>
+                    <constraint firstItem="GJg-Th-uq6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="G7g-dt-ipd"/>
+                    <constraint firstItem="b7E-jo-4p5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="KM9-4T-dNs"/>
+                    <constraint firstItem="GJg-Th-uq6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dT8-0D-PDe" secondAttribute="trailing" constant="10" id="RV6-6g-Bih"/>
+                    <constraint firstItem="7JJ-kP-7jN" firstAttribute="height" secondItem="GJg-Th-uq6" secondAttribute="height" id="SSB-ce-Zph"/>
+                    <constraint firstItem="dT8-0D-PDe" firstAttribute="leading" secondItem="b7E-jo-4p5" secondAttribute="trailing" constant="8" id="YgA-qD-Rc7"/>
+                    <constraint firstItem="7JJ-kP-7jN" firstAttribute="centerX" secondItem="GJg-Th-uq6" secondAttribute="centerX" id="a8p-oj-6Ym"/>
+                    <constraint firstItem="hAM-Fo-l8p" firstAttribute="leading" secondItem="b7E-jo-4p5" secondAttribute="trailing" constant="8" id="c3O-MA-i51"/>
+                    <constraint firstAttribute="trailing" secondItem="GJg-Th-uq6" secondAttribute="trailing" constant="15" id="cdL-hT-Cjc"/>
+                    <constraint firstItem="b7E-jo-4p5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="fgx-7p-PLg"/>
+                    <constraint firstItem="8an-uH-Cxn" firstAttribute="leading" secondItem="b7E-jo-4p5" secondAttribute="trailing" constant="8" id="iUd-0w-2Xm"/>
+                    <constraint firstItem="7JJ-kP-7jN" firstAttribute="centerY" secondItem="GJg-Th-uq6" secondAttribute="centerY" id="o16-9h-txU"/>
+                    <constraint firstAttribute="bottom" secondItem="8an-uH-Cxn" secondAttribute="bottom" constant="10" id="pOB-bO-Yrh"/>
+                    <constraint firstItem="hAM-Fo-l8p" firstAttribute="top" secondItem="dT8-0D-PDe" secondAttribute="bottom" constant="1" id="pqV-bI-TAl"/>
+                    <constraint firstItem="dT8-0D-PDe" firstAttribute="top" secondItem="b7E-jo-4p5" secondAttribute="top" id="ygY-5L-cNt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="avatarView" destination="b7E-jo-4p5" id="YXU-al-ffx"/>
+                <outlet property="contentLabel" destination="8an-uH-Cxn" id="JV2-6t-4zD"/>
+                <outlet property="dateLabel" destination="hAM-Fo-l8p" id="1Em-73-Dac"/>
+                <outlet property="playerBtn" destination="7JJ-kP-7jN" id="5Om-ss-mbv"/>
+                <outlet property="videoImgView" destination="GJg-Th-uq6" id="p0S-hz-enw"/>
+                <outlet property="whoCommentLabel" destination="dT8-0D-PDe" id="uw7-QR-Bie"/>
+            </connections>
+            <point key="canvasLocation" x="-72" y="87"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Group" width="334" height="362"/>
+        <image name="Group Copy 3" width="334" height="362"/>
+        <image name="video_play" width="12" height="15"/>
+    </resources>
+</document>

@@ -1,0 +1,50 @@
+//
+//  SuperDancerHeader.pch
+//  SuperDancer
+//
+//  Created by yu on 2017/10/5.
+//  Copyright © 2017年 yu. All rights reserved.
+//
+
+#ifndef SuperDancerHeader_pch
+#define SuperDancerHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+
+#pragma mark - base
+    #import "BaseViewController.h"
+
+#pragma mark - system
+    #import "SuperDancerConfig.h"
+
+#pragma mark - config
+    #import "YYKit.h"
+    #import "UIButton+Block.h"
+    #import "SDInterfacedConst.h"
+    #import "PPNetworkHelper.h"
+    #import "SDAutoLayout.h"
+    #import "UIImageView+WebCache.h"
+    #import <SDWebImage/UIButton+WebCache.h>
+    #import <UINavigationController+FDFullscreenPopGesture.h>
+    #import <AFNetworking.h>
+    #import <UIImage+AFNetworking.h>
+    #import "MBProgressHUD.h"
+    #import "MBProgressHUD+MJ.h"
+    #import <MJRefresh.h>
+    #import "UIScrollView+EmptyDataSet.h"
+    #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+
+#pragma mark -- Umeng
+
+#define UMengAppkey @"59e061b0aed179475c0001d7"
+#define WXAppID @"wx1853e374396d4726"
+#define WXAppSecret @"6441b3e9ca2e1dcf898e206f33e87e50"
+
+#define QQAppID @"1106426315"
+#define QQAppKEY @"MVEKZCZjLT13kpat"
+
+#endif /* SuperDancerHeader_pch */
+
