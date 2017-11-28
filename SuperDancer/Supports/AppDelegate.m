@@ -11,13 +11,14 @@
 #import "SDHomeViewController.h"
 #import <UMSocialCore/UMSocialCore.h>
 #import <UMSocialWechatHandler.h>
-#import "WRNavigationBar.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <AMapLocationKit/AMapLocationKit.h>
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import "SDUser.h"
 #import <JPUSHService.h>
 #import <UserNotifications/UserNotifications.h>
+#import "SDTabBarController.h"
+
 #define kAMapApiKey @"2b9d644cfa86764d460dff45bf4f7842"
 #define JPushAppKey @"fdf767381c7291e4b8a98a7b"
 
@@ -39,14 +40,10 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    
-    SDNavigationController *nav = [[SDNavigationController alloc] initWithRootViewController:[[SDHomeViewController alloc] init]];
-    
-    self.window.rootViewController = nav;
-
+    self.window.rootViewController = [[SDTabBarController alloc] init];
     ///<5>.适配iOS 11
-    [self configureScrollView];
-    [UIColor wr_setDefaultStatusBarStyle:UIStatusBarStyleLightContent];
+    [self configureIos11];
+    
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -69,7 +66,7 @@
     
 }
 
-- (void)configureScrollView {
+- (void)configureIos11 {
     if (@available(iOS 11.0, *)) {
         [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
     }

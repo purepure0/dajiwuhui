@@ -41,6 +41,23 @@
     [super viewWillAppear:animated];
 }
 
+- (void)setNavBarShadowImageHidden:(BOOL)hidden {
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    if (hidden) {
+        [navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        [navigationBar setShadowImage:[UIImage new]];
+    } else {
+        [navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+        [navigationBar setShadowImage:nil];
+    }
+}
+
+- (void)setStatusBarStyle:(UIStatusBarStyle)style
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:style];
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
 - (SDUser *)users
 {
     if (_users == nil) {
@@ -194,7 +211,7 @@
 }
 
 - (void)setRightItemTitle:(NSString *)title action:(SEL)action {
-    [self setRightItemTitle:title titleColor:kDefaultColor action:action];
+    [self setRightItemTitle:title titleColor:kTextBlackColor action:action];
 }
 
 - (void)setRightItemTitle:(NSString *)title titleColor:(UIColor *)color action:(SEL)action {
@@ -311,7 +328,7 @@
         _badge.textColor = [UIColor whiteColor];
         _badge.textAlignment = NSTextAlignmentCenter;
         _badge.layer.cornerRadius = _badge.height/2.0;
-        _badge.backgroundColor = kDefaultColor;
+        _badge.backgroundColor = kTextBlackColor;
     }
     return _badge;
 }

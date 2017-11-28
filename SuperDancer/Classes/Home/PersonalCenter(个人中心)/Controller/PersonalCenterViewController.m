@@ -9,7 +9,6 @@
 #import "PersonalCenterViewController.h"
 #import <QiniuSDK.h>
 #import "HomeCell.h"
-#import "WRNavigationBar.h"
 #import "PersonalHeaderView.h"
 #import "VideoListModel.h"
 #import "MovePlayerViewController.h"
@@ -94,32 +93,61 @@
 - (void)configureNavBar
 {
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back_white"] style:UIBarButtonItemStylePlain target:self action:@selector(returnAction)];
-    [self.navigationController.navigationBar setBackIndicatorImage:[[UIImage alloc]init]];
-    [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:[[UIImage alloc] init]];
+    [self.navigationController.navigationBar setBackIndicatorImage:[UIImage new]];
+    [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:[UIImage new]];
     self.navigationItem.leftBarButtonItem = backButtonItem;
     
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_share_white"] style:UIBarButtonItemStylePlain target:self action:@selector(returnAction)];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-    
-    [self wr_setNavBarBarTintColor:[UIColor colorWithRed:247/255.0 green:247/255.0 blue:247/255.0 alpha:1.0]];
-    [self wr_setNavBarBackgroundAlpha:0];
-    [self wr_setNavBarTintColor:[UIColor whiteColor]];
-    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.translucent = YES;
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [self wr_setNavBarShadowImageHidden:YES];
+    [self setStatusBarStyle:UIStatusBarStyleLightContent];
+    [self setNavBarShadowImageHidden:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.translucent = NO;
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    [self wr_setNavBarShadowImageHidden:NO];
+    [self setStatusBarStyle:UIStatusBarStyleDefault];
+    [self setNavBarShadowImageHidden:NO];
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat offsetY = scrollView.contentOffset.y;
+    
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    UIView *barBackgroundView = navigationBar.subviews.firstObject;
+    
+//    PPLog(@"%lf",offsetY);
+    if (offsetY > NAVBAR_COLORCHANGE_POINT)
+    {
+        CGFloat alpha = (offsetY - NAVBAR_COLORCHANGE_POINT) / NAV_HEIGHT;
+
+        [self setStatusBarStyle:UIStatusBarStyleDefault];
+        [navigationBar setBarTintColor:[UIColor whiteColor]];
+        [navigationBar setTintColor:[UIColor blackColor]];
+        barBackgroundView.alpha = alpha;
+        barBackgroundView.backgroundColor = [UIColor whiteColor];
+        
+        self.navigationItem.title = self.userInfo.nick_name;
+    }
+    else
+    {
+        [self setStatusBarStyle:UIStatusBarStyleLightContent];
+        [navigationBar setBarTintColor:[UIColor whiteColor]];
+        [navigationBar setTintColor:[UIColor whiteColor]];
+        barBackgroundView.alpha = 0;
+        barBackgroundView.backgroundColor = [UIColor clearColor];
+        
+        self.navigationItem.title = @"";
+    }
+}
+
 
 - (void)returnAction
 {
@@ -231,32 +259,6 @@
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
     return CGSizeMake(kScreenWidth, kAutoWidth(197));
-}
-
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGFloat offsetY = scrollView.contentOffset.y;
-//    PPLog(@"%lf",offsetY);
-    if (offsetY > NAVBAR_COLORCHANGE_POINT)
-    {
-        CGFloat alpha = (offsetY - NAVBAR_COLORCHANGE_POINT) / NAV_HEIGHT;
-        [self wr_setNavBarBackgroundAlpha:alpha];
-        [self wr_setNavBarTintColor:[[UIColor blackColor] colorWithAlphaComponent:alpha]];
-        [self wr_setNavBarTitleColor:[[UIColor blackColor] colorWithAlphaComponent:alpha]];
-        [self wr_setStatusBarStyle:UIStatusBarStyleDefault];
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-        self.navigationItem.title = self.userInfo.nick_name;
-    }
-    else
-    {
-        [self wr_setNavBarBackgroundAlpha:0];
-        [self wr_setNavBarTintColor:[UIColor whiteColor]];
-        [self wr_setNavBarTitleColor:[UIColor whiteColor]];
-        [self wr_setStatusBarStyle:UIStatusBarStyleLightContent];
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-        self.navigationItem.title = @"";
-    }
 }
 
 - (NSMutableArray *)videoList {

@@ -28,7 +28,6 @@
 #import "PersonalCenterViewController.h"
 #import "MyCollectionViewController.h"
 #import "MsgCenterViewController.h"
-#import "WRNavigationBar.h"
 #import "CitySelectViewController.h"
 #import "UserAgreeViewController.h"
 #import "AboutUsViewController.h"
@@ -88,18 +87,16 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self wr_setNavBarShadowImageHidden:YES];
-
+    [self setNavBarShadowImageHidden:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self wr_setNavBarShadowImageHidden:NO];
+    [self setNavBarShadowImageHidden:NO];
 }
 
 - (void)updateAcountBtnImage {
     [self.leftItemBtn sd_setImageWithURL:[NSURL URLWithString:self.users.avatarURL] forState:UIControlStateNormal placeholderImage:IMAGE_NAMED(@"myaccount")];
-//    PPLog(@"+++++++<>>>>%@",self.users.avatarURL);
 }
 
 - (void)setupUploadBtn

@@ -43,6 +43,18 @@ typedef void(^RightItemBlock)(NSInteger index);
 
 @property (nonatomic, assign)NSInteger page;
 
+/**
+ 隐藏导航底部黑线
+ */
+- (void)setNavBarShadowImageHidden:(BOOL)hidden;
+
+/**
+ 设置状态栏风格
+
+ @param style 状态栏风格
+ */
+- (void)setStatusBarStyle:(UIStatusBarStyle)style;
+
 /**隐藏导航栏
  */
 - (void)hideNavigationBar:(BOOL)hidden
