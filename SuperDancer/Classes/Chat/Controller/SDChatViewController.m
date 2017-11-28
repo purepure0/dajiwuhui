@@ -1,24 +1,29 @@
 //
-//  ChatViewController.m
+//  SDChatViewController.m
 //  SuperDancer
 //
 //  Created by yu on 2017/11/27.
 //  Copyright © 2017年 yu. All rights reserved.
 //
 
-#import "ChatViewController.h"
+#import "SDChatViewController.h"
 
-@interface ChatViewController ()
+@interface SDChatViewController ()
 
 @end
 
-@implementation ChatViewController
+@implementation SDChatViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.navigationItem.title = @"舞 队";
+    [self setRightImageNamed:@"wd_nav_btn_add" action:@selector(addTeamAction)];
 }
 
+- (void)addTeamAction
+{
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

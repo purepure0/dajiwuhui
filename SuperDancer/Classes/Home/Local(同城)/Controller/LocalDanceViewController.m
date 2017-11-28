@@ -11,8 +11,6 @@
 #import "VideoListModel.h"
 #import "MovePlayerViewController.h"
 
-
-
 #define kLocalCellIdentifier @"LocalCellIdentifier"
 #define kReloadWithDistrictID @"ReloadWithDistrictID"
 #define kLocationFailNotification @"locationFailNotification"

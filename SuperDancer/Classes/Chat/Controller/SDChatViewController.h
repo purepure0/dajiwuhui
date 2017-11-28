@@ -1,5 +1,5 @@
 //
-//  ChatViewController.h
+//  SDChatViewController.h
 //  SuperDancer
 //
 //  Created by yu on 2017/11/27.
@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface ChatViewController : BaseViewController
+@interface SDChatViewController : BaseViewController
 
 @end

@@ -1,5 +1,5 @@
 //
-//  MineViewController.h
+//  SDMineViewController.h
 //  SuperDancer
 //
 //  Created by yu on 2017/11/27.
@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface MineViewController : BaseViewController
+@interface SDMineViewController : BaseViewController
 
 @end

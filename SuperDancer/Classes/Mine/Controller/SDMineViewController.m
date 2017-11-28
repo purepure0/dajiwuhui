@@ -1,22 +1,22 @@
 //
-//  MineViewController.m
+//  SDMineViewController.m
 //  SuperDancer
 //
 //  Created by yu on 2017/11/27.
 //  Copyright © 2017年 yu. All rights reserved.
 //
 
-#import "MineViewController.h"
+#import "SDMineViewController.h"
 
-@interface MineViewController ()
+@interface SDMineViewController ()
 
 @end
 
-@implementation MineViewController
+@implementation SDMineViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.navigationItem.title = @"我 的";
 }
 
 - (void)didReceiveMemoryWarning {
