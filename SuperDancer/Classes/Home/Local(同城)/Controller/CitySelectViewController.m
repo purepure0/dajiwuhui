@@ -40,7 +40,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldValueDidChanged:) name:UITextFieldTextDidChangeNotification object:nil];
     self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
-    self.tableView.sectionIndexColor = kDefaultColor;
+    self.tableView.sectionIndexColor = kTextBlackColor;
     
 }
 

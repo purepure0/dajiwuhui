@@ -20,15 +20,20 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
++ (void)initialize {
+    
+    UINavigationBar *navigationBar = [UINavigationBar appearance];
+    
+    [navigationBar setTintColor:[UIColor whiteColor]];
+    [navigationBar setBarTintColor:[UIColor whiteColor]];
+    
+    [navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:kTextBlackColor,NSFontAttributeName:[UIFont systemFontOfSize:19]}];
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     
     if(self.childViewControllers.count > 0) {
-//        viewController.hidesBottomBarWhenPushed = YES;
+        viewController.hidesBottomBarWhenPushed = YES;
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"nav_back_black"] target:self action:@selector(returnAction) forControlEvents:UIControlEventTouchUpInside];
 //        UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_back_black"] style:UIBarButtonItemStylePlain target:self action:@selector(returnAction)];
 //        [self.navigationBar setBackIndicatorImage:[[UIImage alloc]init]];
@@ -41,6 +46,11 @@
 #pragma mark - 返回
 - (void)returnAction {
     [self popViewControllerAnimated:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 

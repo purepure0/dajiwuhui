@@ -26,16 +26,21 @@
 #define kKeyWindow [UIApplication sharedApplication].keyWindow
 
 // 紫色
-#define kBaseColor [UIColor colorWithHexString:@"#8C32B4"]
-#define kDefaultColor    [UIColor colorWithHexString:@"#212121"]
-#define kLineColor       [UIColor colorWithHexString:@"#D9DDE0"]
+#define kBaseColor       [UIColor colorWithHexString:@"#8C32B4"]
+// 文字黑
+#define kTextBlackColor  [UIColor colorWithHexString:@"#212121"]
+// 文字灰
 #define kTextGrayColor   [UIColor colorWithHexString:@"#BDBDBD"]
+// 线条灰
+#define kLineColor       [UIColor colorWithHexString:@"#D9DDE0"]
+// 背景灰
 #define kBackgroundColor [UIColor colorWithHexString:@"#F9F9F9"]
-
+// RGB颜色
 #define kColorRGB(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
-#define kColorHexStr(_HexString_) [UIColor colorWithHexString:_HexString_]
+// Hex颜色
+#define kColorHexStr(HexString) [UIColor colorWithHexString:HexString]
 
-// 屏幕宽高
+// 物理尺寸
 #define kScreenBounds [UIScreen mainScreen].bounds
 #define kScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
