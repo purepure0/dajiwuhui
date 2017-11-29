@@ -18,6 +18,7 @@
 #import <JPUSHService.h>
 #import <UserNotifications/UserNotifications.h>
 #import "SDTabBarController.h"
+#import <Bugtags/Bugtags.h>
 
 #define kAMapApiKey @"2b9d644cfa86764d460dff45bf4f7842"
 #define JPushAppKey @"fdf767381c7291e4b8a98a7b"
@@ -37,6 +38,8 @@
     [self initLocationManager];
     ///<4>推送
     [self configureJPushWithLaunchOptions:launchOptions];
+    ///<5>bugtags测试工具
+    [Bugtags startWithAppKey:@"08202dec433c4ed124ec3d36ee834d3e" invocationEvent:BTGInvocationEventBubble];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];

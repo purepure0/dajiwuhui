@@ -15,6 +15,8 @@ pod 'WMPageController', '~> 2.4.3'
 pod 'KLCPopup', '~> 1.0'
 
 pod 'SDAutoLayout', '~> 2.2.0'
+#测试工具
+pod 'Bugtags'
 
 #ZFDownload相关
 #pod 'ZFDownload', '~> 1.0.2'
