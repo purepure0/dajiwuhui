@@ -21,13 +21,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"舞 队";
+    //防止searchbar向上偏移64px
+    self.definesPresentationContext = YES;
     [self setRightImageNamed:@"wd_nav_btn_add" action:@selector(addTeamAction)];
-    [self.chatListTableView setTableHeaderView:self.chatVCSearchVC.searchBar];
+    
     [self upDataWithUI];
 }
 
 -(void)upDataWithUI{
+    
+    UIView *searchBarBackView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
+    [searchBarBackView addSubview:self.chatVCSearchVC.searchBar];
+    [self.view addSubview:searchBarBackView];
     [self.view addSubview:self.chatListTableView];
+    
 }
 
 - (void)addTeamAction
@@ -75,7 +82,7 @@
 
 -(UITableView *)chatListTableView{
     if(!_chatListTableView){
-        _chatListTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        _chatListTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64)];
         _chatListTableView.delegate = self;
         _chatListTableView.dataSource = self;
         _chatListTableView.separatorStyle = NO;
@@ -89,7 +96,7 @@
 -(UISearchController *)chatVCSearchVC{
     if (!_chatVCSearchVC) {
         _chatVCSearchVC = [[UISearchController alloc]initWithSearchResultsController:[[UIViewController alloc]init]];
-        _chatVCSearchVC.hidesNavigationBarDuringPresentation = NO;
+        _chatVCSearchVC.hidesNavigationBarDuringPresentation = YES;
         _chatVCSearchVC.searchResultsUpdater = self;
         _chatVCSearchVC.dimsBackgroundDuringPresentation = YES;
         _chatVCSearchVC.searchBar.placeholder = @"搜索";
