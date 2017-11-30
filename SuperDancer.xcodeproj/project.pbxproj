@@ -94,13 +94,17 @@
 		9A08B2A11F88D3E700232661 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08B2A01F88D3E700232661 /* UIButton+Block.m */; };
 		9A08B2B21F88DEF700232661 /* MovePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08B2B01F88DEF700232661 /* MovePlayerViewController.m */; };
 		9A08B2B31F88DEF700232661 /* MovePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A08B2B11F88DEF700232661 /* MovePlayerViewController.xib */; };
-		9A08C2261FCC3F0300F6C54B /* SDMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C2241FCC3F0300F6C54B /* SDMineViewController.m */; };
-		9A08C2271FCC3F0300F6C54B /* SDMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A08C2251FCC3F0300F6C54B /* SDMineViewController.xib */; };
 		9A08C22B1FCC3F2400F6C54B /* SDChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C2291FCC3F2400F6C54B /* SDChatViewController.m */; };
 		9A08C22C1FCC3F2400F6C54B /* SDChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A08C22A1FCC3F2400F6C54B /* SDChatViewController.xib */; };
 		9A08C2331FCCF17100F6C54B /* SDTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C2311FCCF17100F6C54B /* SDTabBarController.m */; };
 		9A08C2341FCCF17100F6C54B /* SDTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A08C2321FCCF17100F6C54B /* SDTabBarController.xib */; };
 		9A08C2381FCCF32C00F6C54B /* UIImage+CLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C2361FCCF32B00F6C54B /* UIImage+CLImage.m */; };
+		9A08C2571FD0300700F6C54B /* SDMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C24D1FD0300700F6C54B /* SDMineViewController.m */; };
+		9A08C2581FD0300700F6C54B /* SDMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A08C24E1FD0300700F6C54B /* SDMineViewController.xib */; };
+		9A08C2591FD0300700F6C54B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C2501FD0300700F6C54B /* SettingViewController.m */; };
+		9A08C25A1FD0300700F6C54B /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A08C2511FD0300700F6C54B /* SettingViewController.xib */; };
+		9A08C25B1FD0300700F6C54B /* MineHandleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C2551FD0300700F6C54B /* MineHandleCell.m */; };
+		9A08C25C1FD0300700F6C54B /* MineHandleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A08C2561FD0300700F6C54B /* MineHandleCell.xib */; };
 		9A1BB3DC1F85DA590067C12C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1BB3DB1F85DA590067C12C /* Assets.xcassets */; };
 		9A1BB3DF1F85DA590067C12C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1BB3DD1F85DA590067C12C /* LaunchScreen.storyboard */; };
 		9A1BB3EC1F85DA590067C12C /* SuperDancerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BB3EB1F85DA590067C12C /* SuperDancerTests.m */; };
@@ -353,9 +357,6 @@
 		9A08B2AF1F88DEF700232661 /* MovePlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovePlayerViewController.h; sourceTree = "<group>"; };
 		9A08B2B01F88DEF700232661 /* MovePlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovePlayerViewController.m; sourceTree = "<group>"; };
 		9A08B2B11F88DEF700232661 /* MovePlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovePlayerViewController.xib; sourceTree = "<group>"; };
-		9A08C2231FCC3F0300F6C54B /* SDMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDMineViewController.h; sourceTree = "<group>"; };
-		9A08C2241FCC3F0300F6C54B /* SDMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDMineViewController.m; sourceTree = "<group>"; };
-		9A08C2251FCC3F0300F6C54B /* SDMineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDMineViewController.xib; sourceTree = "<group>"; };
 		9A08C2281FCC3F2400F6C54B /* SDChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDChatViewController.h; sourceTree = "<group>"; };
 		9A08C2291FCC3F2400F6C54B /* SDChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDChatViewController.m; sourceTree = "<group>"; };
 		9A08C22A1FCC3F2400F6C54B /* SDChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDChatViewController.xib; sourceTree = "<group>"; };
@@ -364,6 +365,15 @@
 		9A08C2321FCCF17100F6C54B /* SDTabBarController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDTabBarController.xib; sourceTree = "<group>"; };
 		9A08C2361FCCF32B00F6C54B /* UIImage+CLImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CLImage.m"; sourceTree = "<group>"; };
 		9A08C2371FCCF32B00F6C54B /* UIImage+CLImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CLImage.h"; sourceTree = "<group>"; };
+		9A08C24C1FD0300700F6C54B /* SDMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMineViewController.h; sourceTree = "<group>"; };
+		9A08C24D1FD0300700F6C54B /* SDMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMineViewController.m; sourceTree = "<group>"; };
+		9A08C24E1FD0300700F6C54B /* SDMineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDMineViewController.xib; sourceTree = "<group>"; };
+		9A08C24F1FD0300700F6C54B /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		9A08C2501FD0300700F6C54B /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		9A08C2511FD0300700F6C54B /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		9A08C2541FD0300700F6C54B /* MineHandleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineHandleCell.h; sourceTree = "<group>"; };
+		9A08C2551FD0300700F6C54B /* MineHandleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineHandleCell.m; sourceTree = "<group>"; };
+		9A08C2561FD0300700F6C54B /* MineHandleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineHandleCell.xib; sourceTree = "<group>"; };
 		9A1BB3CF1F85DA590067C12C /* SuperDancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperDancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1BB3DB1F85DA590067C12C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A1BB3DE1F85DA590067C12C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -993,36 +1003,43 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		9A08C21F1FCC3EC900F6C54B /* Mine */ = {
+		9A08C24A1FD0300700F6C54B /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				9A08C2201FCC3EC900F6C54B /* Controller */,
-				9A08C2211FCC3EC900F6C54B /* Model */,
-				9A08C2221FCC3EC900F6C54B /* View */,
+				9A08C24B1FD0300700F6C54B /* Controller */,
+				9A08C2521FD0300700F6C54B /* Model */,
+				9A08C2531FD0300700F6C54B /* View */,
 			);
-			path = Mine;
+			name = Mine;
+			path = ../../../SuperDancer/SuperDancer/Classes/Mine;
 			sourceTree = "<group>";
 		};
-		9A08C2201FCC3EC900F6C54B /* Controller */ = {
+		9A08C24B1FD0300700F6C54B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9A08C2231FCC3F0300F6C54B /* SDMineViewController.h */,
-				9A08C2241FCC3F0300F6C54B /* SDMineViewController.m */,
-				9A08C2251FCC3F0300F6C54B /* SDMineViewController.xib */,
+				9A08C24C1FD0300700F6C54B /* SDMineViewController.h */,
+				9A08C24D1FD0300700F6C54B /* SDMineViewController.m */,
+				9A08C24E1FD0300700F6C54B /* SDMineViewController.xib */,
+				9A08C24F1FD0300700F6C54B /* SettingViewController.h */,
+				9A08C2501FD0300700F6C54B /* SettingViewController.m */,
+				9A08C2511FD0300700F6C54B /* SettingViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		9A08C2211FCC3EC900F6C54B /* Model */ = {
+		9A08C2521FD0300700F6C54B /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		9A08C2221FCC3EC900F6C54B /* View */ = {
+		9A08C2531FD0300700F6C54B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9A08C2541FD0300700F6C54B /* MineHandleCell.h */,
+				9A08C2551FD0300700F6C54B /* MineHandleCell.m */,
+				9A08C2561FD0300700F6C54B /* MineHandleCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1084,7 +1101,7 @@
 				9A1BB4051F85DBB30067C12C /* Base */,
 				9A1BB4091F85DBB30067C12C /* Home */,
 				9A08C21B1FCC3EC000F6C54B /* Chat */,
-				9A08C21F1FCC3EC900F6C54B /* Mine */,
+				9A08C24A1FD0300700F6C54B /* Mine */,
 				9A1BB40D1F85DBB30067C12C /* Main */,
 				9A1BB4111F85DBB30067C12C /* Other */,
 				9A1BB4181F85DBB30067C12C /* Tool */,
@@ -1935,19 +1952,21 @@
 				9A1BB3DF1F85DA590067C12C /* LaunchScreen.storyboard in Resources */,
 				04F41DB61FA36154002EF921 /* UploadVideoViewController.xib in Resources */,
 				04F41DC81FA3B120002EF921 /* EditVideoImageViewController.xib in Resources */,
+				9A08C25C1FD0300700F6C54B /* MineHandleCell.xib in Resources */,
 				9A1BB3DC1F85DA590067C12C /* Assets.xcassets in Resources */,
 				9A1DC6B01FA49D200014E739 /* MusicDownloadViewController.xib in Resources */,
 				9A79BBFC1F8DF13D004C3879 /* MovieDownloadViewController.xib in Resources */,
 				049E50C31FA0E0E7006C3BF1 /* LocalCell.xib in Resources */,
+				9A08C25A1FD0300700F6C54B /* SettingViewController.xib in Resources */,
 				9A08C2341FCCF17100F6C54B /* SDTabBarController.xib in Resources */,
 				9A2CB88E1F868D5400907C72 /* LocalDanceViewController.xib in Resources */,
+				9A08C2581FD0300700F6C54B /* SDMineViewController.xib in Resources */,
 				9A71FE7D1F8DF37500738680 /* DownloadingCell.xib in Resources */,
 				9A1BB42A1F85E2850067C12C /* SDHomeViewController.xib in Resources */,
 				04EB25071F9A4E71000E2137 /* CommentView.xib in Resources */,
 				04AE23B61FA07EA10034635C /* MyCollectionViewController.xib in Resources */,
 				041C47451F9B896000A65AC8 /* DancerListCell.xib in Resources */,
 				9AD960F21F8F2F050024DA43 /* MBProgressHUD.bundle in Resources */,
-				9A08C2271FCC3F0300F6C54B /* SDMineViewController.xib in Resources */,
 				049E50CD1FA1C081006C3BF1 /* MusicVideoViewController.xib in Resources */,
 				049E50B61FA0D23F006C3BF1 /* MusicViewCell.xib in Resources */,
 				04ECB8781F92024500186C5B /* HistoryCell.xib in Resources */,
@@ -2062,7 +2081,6 @@
 				9ACD9B751FA35E2A003FF1BB /* UserAgreeViewController.m in Sources */,
 				9A2CB89A1F868DAA00907C72 /* RecommendViewController.m in Sources */,
 				9A1BB41F1F85DFA40067C12C /* SDNavigationController.m in Sources */,
-				9A08C2261FCC3F0300F6C54B /* SDMineViewController.m in Sources */,
 				04ECB8771F92024500186C5B /* HistoryCell.m in Sources */,
 				048C53271F9D946000607784 /* DanceTypeModel.m in Sources */,
 				9A247F7C1F9B0369007AEABE /* PersonalCenterViewController.m in Sources */,
@@ -2098,6 +2116,7 @@
 				9ACA8AF91F98574C00B73B29 /* ZFBrightnessView.m in Sources */,
 				04927BFB1F974A2300CDD58E /* KeepModel.m in Sources */,
 				049E50BD1FA0DDEC006C3BF1 /* LocalSelectViewController.m in Sources */,
+				9A08C2591FD0300700F6C54B /* SettingViewController.m in Sources */,
 				9A992DF21FA2392400FBAC21 /* UploadVideoView.m in Sources */,
 				040F832A1F95B276003DA2A0 /* CommentModel.m in Sources */,
 				049E51141FA30AAB006C3BF1 /* MsgCommentCell.m in Sources */,
@@ -2136,6 +2155,7 @@
 				9ACA8B0B1F985B4400B73B29 /* ZFHttpRequest.m in Sources */,
 				049E51191FA31050006C3BF1 /* MsgCommentModel.m in Sources */,
 				04AE236A1F9F43730034635C /* DancerModel.m in Sources */,
+				9A08C25B1FD0300700F6C54B /* MineHandleCell.m in Sources */,
 				3F6868CB1FCEA759001EB5BD /* TeamListForChatTableViewCell.m in Sources */,
 				9AD960CA1F8F14590024DA43 /* Utility.m in Sources */,
 				04AE237B1F9F87D50034635C /* CollectionCell.m in Sources */,
@@ -2153,6 +2173,7 @@
 				049E50C71FA0E51C006C3BF1 /* LocalHeaderReusableView.m in Sources */,
 				9A1DC6AF1FA49D200014E739 /* MusicDownloadViewController.m in Sources */,
 				04F41DC71FA3B120002EF921 /* EditVideoImageViewController.m in Sources */,
+				9A08C2571FD0300700F6C54B /* SDMineViewController.m in Sources */,
 				9ACA8AFC1F98574C00B73B29 /* ZFPlayerModel.m in Sources */,
 				04AE23771F9F7D450034635C /* CollectionModel.m in Sources */,
 				9A2CB8B41F8765B000907C72 /* ButtonCell.m in Sources */,
