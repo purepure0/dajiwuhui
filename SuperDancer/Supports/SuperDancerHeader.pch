@@ -36,7 +36,8 @@
     #import <MJRefresh.h>
     #import "UIScrollView+EmptyDataSet.h"
     #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
-
+    #import "UIImage+circleImage.h"
+    
 #pragma mark -- Umeng
 
 #define UMengAppkey @"59e061b0aed179475c0001d7"

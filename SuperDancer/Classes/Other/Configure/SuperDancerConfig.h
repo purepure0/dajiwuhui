@@ -40,6 +40,7 @@
 // Hex颜色
 #define kColorHexStr(HexString) [UIColor colorWithHexString:HexString]
 
+
 // 物理尺寸
 #define kScreenBounds [UIScreen mainScreen].bounds
 #define kScreenWidth  [UIScreen mainScreen].bounds.size.width
@@ -48,5 +49,11 @@
 // 自适应宽高(以6/6s为基准)
 #define kAutoWidth(w) (kScreenWidth/375) * (w)
 #define kAutoHeight(h) (kScreenHeight/667) * (h)
+//导航栏与状态栏高度和
+#define kNAVHeight (self.navigationController.navigationBar.frame.size.height + [[UIApplication sharedApplication] statusBarFrame].size.height)
+//tabbar高度
+#define ktabbarHeight [[UITabBarController alloc] init].tabBar.frame.size.height
+//判断是否是iphonex
+#define Device_Is_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
 #endif /* SuperDancerConfig_h */

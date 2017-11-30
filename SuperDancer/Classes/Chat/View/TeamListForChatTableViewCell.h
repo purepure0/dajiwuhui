@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TeamListForChatTableViewCell : UITableViewCell
-
+-(void)updateCellWithData:(NSDictionary *)infoData;
 @end

@@ -85,6 +85,7 @@
 		04F41DC31FA38808002EF921 /* SelectTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F41DC11FA38808002EF921 /* SelectTypeCell.xib */; };
 		04F41DC71FA3B120002EF921 /* EditVideoImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F41DC51FA3B120002EF921 /* EditVideoImageViewController.m */; };
 		04F41DC81FA3B120002EF921 /* EditVideoImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F41DC61FA3B120002EF921 /* EditVideoImageViewController.xib */; };
+		3F573A811FCFB6AE007E81DC /* UIImage+circleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F573A801FCFB6AE007E81DC /* UIImage+circleImage.m */; };
 		3F6868C81FCEA711001EB5BD /* ChatListHeaderSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6868C71FCEA711001EB5BD /* ChatListHeaderSelectTableViewCell.m */; };
 		3F6868CB1FCEA759001EB5BD /* TeamListForChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6868CA1FCEA759001EB5BD /* TeamListForChatTableViewCell.m */; };
 		9A08B2921F88ACAD00232661 /* SCVerifyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08B2911F88ACAD00232661 /* SCVerifyButton.m */; };
@@ -334,6 +335,8 @@
 		04F41DC51FA3B120002EF921 /* EditVideoImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditVideoImageViewController.m; sourceTree = "<group>"; };
 		04F41DC61FA3B120002EF921 /* EditVideoImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditVideoImageViewController.xib; sourceTree = "<group>"; };
 		36689CA9C617A6BAF5B282E1 /* Pods-SuperDancer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperDancer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperDancer/Pods-SuperDancer.debug.xcconfig"; sourceTree = "<group>"; };
+		3F573A7F1FCFB6AE007E81DC /* UIImage+circleImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+circleImage.h"; sourceTree = "<group>"; };
+		3F573A801FCFB6AE007E81DC /* UIImage+circleImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+circleImage.m"; sourceTree = "<group>"; };
 		3F6868C61FCEA711001EB5BD /* ChatListHeaderSelectTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatListHeaderSelectTableViewCell.h; sourceTree = "<group>"; };
 		3F6868C71FCEA711001EB5BD /* ChatListHeaderSelectTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatListHeaderSelectTableViewCell.m; sourceTree = "<group>"; };
 		3F6868C91FCEA759001EB5BD /* TeamListForChatTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamListForChatTableViewCell.h; sourceTree = "<group>"; };
@@ -1230,6 +1233,8 @@
 				9A08B2A01F88D3E700232661 /* UIButton+Block.m */,
 				9A08B29C1F88C75500232661 /* UIBarButtonItem+SCItem.h */,
 				9A08B29D1F88C75500232661 /* UIBarButtonItem+SCItem.m */,
+				3F573A7F1FCFB6AE007E81DC /* UIImage+circleImage.h */,
+				3F573A801FCFB6AE007E81DC /* UIImage+circleImage.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2136,6 +2141,7 @@
 				04AE237B1F9F87D50034635C /* CollectionCell.m in Sources */,
 				9ACA8AFD1F98574C00B73B29 /* ZFPlayerView.m in Sources */,
 				049E50F81FA237BF006C3BF1 /* EditNickNameViewController.m in Sources */,
+				3F573A811FCFB6AE007E81DC /* UIImage+circleImage.m in Sources */,
 				9AD960F41F8F2F050024DA43 /* MBProgressHUD.m in Sources */,
 				9ACA8AF71F98574C00B73B29 /* UIWindow+CurrentViewController.m in Sources */,
 				9A79BBFB1F8DF13D004C3879 /* MovieDownloadViewController.m in Sources */,

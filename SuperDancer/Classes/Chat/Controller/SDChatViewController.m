@@ -10,7 +10,8 @@
 #import "ChatListHeaderSelectTableViewCell.h"
 #import "TeamListForChatTableViewCell.h"
 
-@interface SDChatViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource>
+
+@interface SDChatViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
 @property(strong,nonatomic)UITableView              *chatListTableView;
 @property(strong,nonatomic)UISearchController       *chatVCSearchVC;
 @property(strong,nonatomic)NSString                 *searchKeyWords;
@@ -30,7 +31,8 @@
 
 -(void)upDataWithUI{
     
-    UIView *searchBarBackView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
+    UIView *searchBarBackView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 54)];
+    searchBarBackView.backgroundColor = kBackgroundColor;
     [searchBarBackView addSubview:self.chatVCSearchVC.searchBar];
     [self.view addSubview:searchBarBackView];
     [self.view addSubview:self.chatListTableView];
@@ -43,7 +45,11 @@
 }
 #pragma mark UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
+    if(indexPath.section == 0){
+        return 44;
+    }else{
+        return 60;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -53,10 +59,25 @@
 #pragma mark UITableViewDataSource
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0){
-        ChatListHeaderSelectTableViewCell * chatListHeaderSelectTableViewCell = [[ChatListHeaderSelectTableViewCell alloc]init];
+        ChatListHeaderSelectTableViewCell * chatListHeaderSelectTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"ChatListHeaderSelectTableViewCell"];
+        if(!chatListHeaderSelectTableViewCell){
+            chatListHeaderSelectTableViewCell = [[ChatListHeaderSelectTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ChatListHeaderSelectTableViewCell"];
+        }
+        if(indexPath.row == 0){
+            [chatListHeaderSelectTableViewCell updateCellWithData:@{@"states":@"0",@"numOfNews":@"5"}];
+        }else{
+            [chatListHeaderSelectTableViewCell updateCellWithData:@{@"states":@"1"}];
+        }
+        
+        
         return chatListHeaderSelectTableViewCell;
     }else{
-        TeamListForChatTableViewCell *teamListForChatTableViewCell = [[TeamListForChatTableViewCell alloc]init];
+        TeamListForChatTableViewCell *teamListForChatTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"TeamListForChatTableViewCell"];
+        if(!teamListForChatTableViewCell){
+            teamListForChatTableViewCell = [[TeamListForChatTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TeamListForChatTableViewCell"];
+            
+        }
+        [teamListForChatTableViewCell updateCellWithData:nil];
         return teamListForChatTableViewCell;
     }
 }
@@ -67,6 +88,22 @@
         return 10;
     }
 }
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 2;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 1) {
+        return 10;
+    }else{
+        return 0;
+    }
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *sectionHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 10)];
+    sectionHeaderView.backgroundColor = kBackgroundColor;
+    return sectionHeaderView;
+}
+
 
 #pragma mark UISearchResultsUpdating
 -(void)updateSearchResultsForSearchController:(UISearchController *)searchController{
@@ -75,6 +112,11 @@
         //刷新列表
     }
 }
+#pragma mark searchBarDelegate
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    
+    return YES;
+}
 
 
 
@@ -82,10 +124,17 @@
 
 -(UITableView *)chatListTableView{
     if(!_chatListTableView){
-        _chatListTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64)];
+        
+        if(Device_Is_iPhoneX){
+            _chatListTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 54, kScreenWidth, kScreenHeight-kNAVHeight-54-83)];
+        }else{
+            _chatListTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 54, kScreenWidth, kScreenHeight-kNAVHeight-54-49)];
+        }
+        NSLog(@"%f",kNAVHeight);
         _chatListTableView.delegate = self;
         _chatListTableView.dataSource = self;
         _chatListTableView.separatorStyle = NO;
+        _chatListTableView.backgroundColor = [UIColor redColor];
         [_chatListTableView registerClass:[ChatListHeaderSelectTableViewCell class] forCellReuseIdentifier:@"ChatListHeaderSelectTableViewCell"];
         [_chatListTableView registerClass:[TeamListForChatTableViewCell class] forCellReuseIdentifier:@"TeamListForChatTableViewCell"];
     }
@@ -98,9 +147,10 @@
         _chatVCSearchVC = [[UISearchController alloc]initWithSearchResultsController:[[UIViewController alloc]init]];
         _chatVCSearchVC.hidesNavigationBarDuringPresentation = YES;
         _chatVCSearchVC.searchResultsUpdater = self;
-        _chatVCSearchVC.dimsBackgroundDuringPresentation = YES;
+        _chatVCSearchVC.dimsBackgroundDuringPresentation = NO;
+        
         _chatVCSearchVC.searchBar.placeholder = @"搜索";
-        _chatVCSearchVC.searchBar.searchBarStyle = UISearchBarStyleDefault;
+        _chatVCSearchVC.searchBar.searchBarStyle = UISearchBarStyleMinimal;
     }
     return _chatVCSearchVC;
 }
