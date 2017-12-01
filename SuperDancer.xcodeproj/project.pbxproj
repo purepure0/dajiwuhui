@@ -119,8 +119,6 @@
 		9A08B2A11F88D3E700232661 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08B2A01F88D3E700232661 /* UIButton+Block.m */; };
 		9A08B2B21F88DEF700232661 /* MovePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08B2B01F88DEF700232661 /* MovePlayerViewController.m */; };
 		9A08B2B31F88DEF700232661 /* MovePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A08B2B11F88DEF700232661 /* MovePlayerViewController.xib */; };
-		9A08C2261FCC3F0300F6C54B /* SDMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C2241FCC3F0300F6C54B /* SDMineViewController.m */; };
-		9A08C2271FCC3F0300F6C54B /* SDMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A08C2251FCC3F0300F6C54B /* SDMineViewController.xib */; };
 		9A08C22B1FCC3F2400F6C54B /* SDChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C2291FCC3F2400F6C54B /* SDChatViewController.m */; };
 		9A08C22C1FCC3F2400F6C54B /* SDChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A08C22A1FCC3F2400F6C54B /* SDChatViewController.xib */; };
 		9A08C2331FCCF17100F6C54B /* SDTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C2311FCCF17100F6C54B /* SDTabBarController.m */; };
@@ -163,6 +161,12 @@
 		9A2CB8B01F875A6D00907C72 /* HeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2CB8AE1F875A6D00907C72 /* HeaderReusableView.xib */; };
 		9A2CB8B41F8765B000907C72 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2CB8B21F8765B000907C72 /* ButtonCell.m */; };
 		9A2CB8B51F8765B000907C72 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2CB8B31F8765B000907C72 /* ButtonCell.xib */; };
+		9A61BEFD1FD1371F00F30888 /* SDMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A61BEF61FD1371F00F30888 /* SDMineViewController.m */; };
+		9A61BEFE1FD1371F00F30888 /* SDMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A61BEF71FD1371F00F30888 /* SDMineViewController.xib */; };
+		9A61BEFF1FD1371F00F30888 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A61BEF91FD1371F00F30888 /* SettingViewController.m */; };
+		9A61BF001FD1371F00F30888 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A61BEFA1FD1371F00F30888 /* SettingViewController.xib */; };
+		9A61BF041FD1433C00F30888 /* MineHandleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A61BF021FD1433C00F30888 /* MineHandleCell.m */; };
+		9A61BF051FD1433C00F30888 /* MineHandleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A61BF031FD1433C00F30888 /* MineHandleCell.xib */; };
 		9A71FE7C1F8DF37500738680 /* DownloadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A71FE7A1F8DF37500738680 /* DownloadingCell.m */; };
 		9A71FE7D1F8DF37500738680 /* DownloadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A71FE7B1F8DF37500738680 /* DownloadingCell.xib */; };
 		9A71FE811F8E01A100738680 /* DownloadedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A71FE7F1F8E01A100738680 /* DownloadedCell.m */; };
@@ -424,9 +428,6 @@
 		9A08B2AF1F88DEF700232661 /* MovePlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovePlayerViewController.h; sourceTree = "<group>"; };
 		9A08B2B01F88DEF700232661 /* MovePlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovePlayerViewController.m; sourceTree = "<group>"; };
 		9A08B2B11F88DEF700232661 /* MovePlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovePlayerViewController.xib; sourceTree = "<group>"; };
-		9A08C2231FCC3F0300F6C54B /* SDMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDMineViewController.h; sourceTree = "<group>"; };
-		9A08C2241FCC3F0300F6C54B /* SDMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDMineViewController.m; sourceTree = "<group>"; };
-		9A08C2251FCC3F0300F6C54B /* SDMineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDMineViewController.xib; sourceTree = "<group>"; };
 		9A08C2281FCC3F2400F6C54B /* SDChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDChatViewController.h; sourceTree = "<group>"; };
 		9A08C2291FCC3F2400F6C54B /* SDChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDChatViewController.m; sourceTree = "<group>"; };
 		9A08C22A1FCC3F2400F6C54B /* SDChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDChatViewController.xib; sourceTree = "<group>"; };
@@ -499,6 +500,15 @@
 		9A2CB8B11F8765B000907C72 /* ButtonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonCell.h; sourceTree = "<group>"; };
 		9A2CB8B21F8765B000907C72 /* ButtonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
 		9A2CB8B31F8765B000907C72 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		9A61BEF51FD1371F00F30888 /* SDMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMineViewController.h; sourceTree = "<group>"; };
+		9A61BEF61FD1371F00F30888 /* SDMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMineViewController.m; sourceTree = "<group>"; };
+		9A61BEF71FD1371F00F30888 /* SDMineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDMineViewController.xib; sourceTree = "<group>"; };
+		9A61BEF81FD1371F00F30888 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		9A61BEF91FD1371F00F30888 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		9A61BEFA1FD1371F00F30888 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		9A61BF011FD1433C00F30888 /* MineHandleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineHandleCell.h; sourceTree = "<group>"; };
+		9A61BF021FD1433C00F30888 /* MineHandleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineHandleCell.m; sourceTree = "<group>"; };
+		9A61BF031FD1433C00F30888 /* MineHandleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineHandleCell.xib; sourceTree = "<group>"; };
 		9A71FE791F8DF37500738680 /* DownloadingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadingCell.h; sourceTree = "<group>"; };
 		9A71FE7A1F8DF37500738680 /* DownloadingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadingCell.m; sourceTree = "<group>"; };
 		9A71FE7B1F8DF37500738680 /* DownloadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadingCell.xib; sourceTree = "<group>"; };
@@ -1149,40 +1159,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		9A08C21F1FCC3EC900F6C54B /* Mine */ = {
-			isa = PBXGroup;
-			children = (
-				9A08C2201FCC3EC900F6C54B /* Controller */,
-				9A08C2211FCC3EC900F6C54B /* Model */,
-				9A08C2221FCC3EC900F6C54B /* View */,
-			);
-			path = Mine;
-			sourceTree = "<group>";
-		};
-		9A08C2201FCC3EC900F6C54B /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				9A08C2231FCC3F0300F6C54B /* SDMineViewController.h */,
-				9A08C2241FCC3F0300F6C54B /* SDMineViewController.m */,
-				9A08C2251FCC3F0300F6C54B /* SDMineViewController.xib */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		9A08C2211FCC3EC900F6C54B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		9A08C2221FCC3EC900F6C54B /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		9A1BB3C61F85DA590067C12C = {
 			isa = PBXGroup;
 			children = (
@@ -1240,7 +1216,7 @@
 				9A1BB4051F85DBB30067C12C /* Base */,
 				9A1BB4091F85DBB30067C12C /* Home */,
 				9A08C21B1FCC3EC000F6C54B /* Chat */,
-				9A08C21F1FCC3EC900F6C54B /* Mine */,
+				9A61BEF31FD1371F00F30888 /* Mine */,
 				9A1BB40D1F85DBB30067C12C /* Main */,
 				9A1BB4111F85DBB30067C12C /* Other */,
 				9A1BB4181F85DBB30067C12C /* Tool */,
@@ -1680,6 +1656,46 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9A61BEF31FD1371F00F30888 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				9A61BEF41FD1371F00F30888 /* Controller */,
+				9A61BEFB1FD1371F00F30888 /* Model */,
+				9A61BEFC1FD1371F00F30888 /* View */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		9A61BEF41FD1371F00F30888 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9A61BEF51FD1371F00F30888 /* SDMineViewController.h */,
+				9A61BEF61FD1371F00F30888 /* SDMineViewController.m */,
+				9A61BEF71FD1371F00F30888 /* SDMineViewController.xib */,
+				9A61BEF81FD1371F00F30888 /* SettingViewController.h */,
+				9A61BEF91FD1371F00F30888 /* SettingViewController.m */,
+				9A61BEFA1FD1371F00F30888 /* SettingViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9A61BEFB1FD1371F00F30888 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9A61BEFC1FD1371F00F30888 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A61BF011FD1433C00F30888 /* MineHandleCell.h */,
+				9A61BF021FD1433C00F30888 /* MineHandleCell.m */,
+				9A61BF031FD1433C00F30888 /* MineHandleCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9A79BBF41F8DF11B004C3879 /* MovieDownload(视频下载) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2093,19 +2109,21 @@
 				9A1BB3DF1F85DA590067C12C /* LaunchScreen.storyboard in Resources */,
 				04F41DB61FA36154002EF921 /* UploadVideoViewController.xib in Resources */,
 				04F41DC81FA3B120002EF921 /* EditVideoImageViewController.xib in Resources */,
+				9A61BF051FD1433C00F30888 /* MineHandleCell.xib in Resources */,
 				9A1BB3DC1F85DA590067C12C /* Assets.xcassets in Resources */,
 				9A1DC6B01FA49D200014E739 /* MusicDownloadViewController.xib in Resources */,
 				9A79BBFC1F8DF13D004C3879 /* MovieDownloadViewController.xib in Resources */,
 				049E50C31FA0E0E7006C3BF1 /* LocalCell.xib in Resources */,
+				9A61BF001FD1371F00F30888 /* SettingViewController.xib in Resources */,
 				9A08C2341FCCF17100F6C54B /* SDTabBarController.xib in Resources */,
 				9A2CB88E1F868D5400907C72 /* LocalDanceViewController.xib in Resources */,
+				9A61BEFE1FD1371F00F30888 /* SDMineViewController.xib in Resources */,
 				9A71FE7D1F8DF37500738680 /* DownloadingCell.xib in Resources */,
 				9A1BB42A1F85E2850067C12C /* SDHomeViewController.xib in Resources */,
 				04EB25071F9A4E71000E2137 /* CommentView.xib in Resources */,
 				04AE23B61FA07EA10034635C /* MyCollectionViewController.xib in Resources */,
 				041C47451F9B896000A65AC8 /* DancerListCell.xib in Resources */,
 				9AD960F21F8F2F050024DA43 /* MBProgressHUD.bundle in Resources */,
-				9A08C2271FCC3F0300F6C54B /* SDMineViewController.xib in Resources */,
 				049E50CD1FA1C081006C3BF1 /* MusicVideoViewController.xib in Resources */,
 				049E50B61FA0D23F006C3BF1 /* MusicViewCell.xib in Resources */,
 				3F5A44441FD10CAF00BAE622 /* TZImagePickerController.bundle in Resources */,
@@ -2192,7 +2210,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F5928D23462641CFC738E420 /* [CP] Embed Pods Frameworks */ = {
@@ -2223,7 +2241,6 @@
 				9ACD9B751FA35E2A003FF1BB /* UserAgreeViewController.m in Sources */,
 				9A2CB89A1F868DAA00907C72 /* RecommendViewController.m in Sources */,
 				9A1BB41F1F85DFA40067C12C /* SDNavigationController.m in Sources */,
-				9A08C2261FCC3F0300F6C54B /* SDMineViewController.m in Sources */,
 				04ECB8771F92024500186C5B /* HistoryCell.m in Sources */,
 				3F5A444C1FD10CAF00BAE622 /* UIView+Layout.m in Sources */,
 				048C53271F9D946000607784 /* DanceTypeModel.m in Sources */,
@@ -2264,6 +2281,7 @@
 				9ACA8AF91F98574C00B73B29 /* ZFBrightnessView.m in Sources */,
 				04927BFB1F974A2300CDD58E /* KeepModel.m in Sources */,
 				049E50BD1FA0DDEC006C3BF1 /* LocalSelectViewController.m in Sources */,
+				9A61BEFF1FD1371F00F30888 /* SettingViewController.m in Sources */,
 				9A992DF21FA2392400FBAC21 /* UploadVideoView.m in Sources */,
 				040F832A1F95B276003DA2A0 /* CommentModel.m in Sources */,
 				3F5A444A1FD10CAF00BAE622 /* TZProgressView.m in Sources */,
@@ -2310,6 +2328,7 @@
 				049E51191FA31050006C3BF1 /* MsgCommentModel.m in Sources */,
 				3F5A44471FD10CAF00BAE622 /* TZPhotoPickerController.m in Sources */,
 				04AE236A1F9F43730034635C /* DancerModel.m in Sources */,
+				9A61BF041FD1433C00F30888 /* MineHandleCell.m in Sources */,
 				3F6868CB1FCEA759001EB5BD /* TeamListForChatTableViewCell.m in Sources */,
 				9AD960CA1F8F14590024DA43 /* Utility.m in Sources */,
 				3F5A44461FD10CAF00BAE622 /* TZLocationManager.m in Sources */,
@@ -2334,6 +2353,7 @@
 				9A1DC6AF1FA49D200014E739 /* MusicDownloadViewController.m in Sources */,
 				3F5A44401FD10CAF00BAE622 /* TZAssetModel.m in Sources */,
 				04F41DC71FA3B120002EF921 /* EditVideoImageViewController.m in Sources */,
+				9A61BEFD1FD1371F00F30888 /* SDMineViewController.m in Sources */,
 				9ACA8AFC1F98574C00B73B29 /* ZFPlayerModel.m in Sources */,
 				04AE23771F9F7D450034635C /* CollectionModel.m in Sources */,
 				9A2CB8B41F8765B000907C72 /* ButtonCell.m in Sources */,

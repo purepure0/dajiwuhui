@@ -104,9 +104,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self scrollViewDidScroll:_collectionView];
+    });
     self.navigationController.navigationBar.translucent = YES;
     [self setStatusBarStyle:UIStatusBarStyleLightContent];
     [self setNavBarShadowImageHidden:YES];
+    
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -114,8 +119,10 @@
     self.navigationController.navigationBar.translucent = NO;
     [self setStatusBarStyle:UIStatusBarStyleDefault];
     [self setNavBarShadowImageHidden:NO];
+    
 }
 
+    
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat offsetY = scrollView.contentOffset.y;
@@ -123,7 +130,7 @@
     UINavigationBar *navigationBar = self.navigationController.navigationBar;
     UIView *barBackgroundView = navigationBar.subviews.firstObject;
     
-//    PPLog(@"%lf",offsetY);
+    PPLog(@"%lf",offsetY);
     if (offsetY > NAVBAR_COLORCHANGE_POINT)
     {
         CGFloat alpha = (offsetY - NAVBAR_COLORCHANGE_POINT) / NAV_HEIGHT;

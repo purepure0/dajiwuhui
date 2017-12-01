@@ -1,5 +1,5 @@
 //
-//  SDMineViewController.h
+//  SettingViewController.h
 //  SuperDancer
 //
 //  Created by yu on 2017/12/1.
@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface SDMineViewController : BaseViewController
+@interface SettingViewController : BaseViewController
 
 @end
