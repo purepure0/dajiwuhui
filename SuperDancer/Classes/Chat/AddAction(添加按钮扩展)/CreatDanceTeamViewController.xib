@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreatDanceTeamViewController">
+            <connections>
+                <outlet property="changeTemeHeaderImageViewButton" destination="kpp-IZ-mx8" id="zeI-Qi-CRA"/>
+                <outlet property="commitButton" destination="LHD-R0-HS1" id="0HK-zQ-gzR"/>
+                <outlet property="teamNameTextField" destination="ofm-Ay-cih" id="q7n-bM-S4x"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpp-IZ-mx8">
+                    <rect key="frame" x="127.5" y="70" width="120" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="0YR-PW-cAl"/>
+                        <constraint firstAttribute="width" constant="120" id="DpG-OD-WTg"/>
+                    </constraints>
+                    <state key="normal" image="wdxx_btn_invite"/>
+                    <connections>
+                        <action selector="changeTemeHeaderImageViewButtonAction:" destination="-1" eventType="touchUpInside" id="eQ4-7b-uKm"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="舞队名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ofm-Ay-cih">
+                    <rect key="frame" x="88" y="220" width="200" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="zfO-wV-lCN"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBw-T4-VHy">
+                    <rect key="frame" x="88" y="242" width="200" height="1"/>
+                    <color key="backgroundColor" red="0.54370421171188354" green="0.2248818576335907" blue="0.70848274230957031" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="EpQ-5d-515"/>
+                        <constraint firstAttribute="height" constant="1" id="Ezb-Yn-eRx"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHD-R0-HS1">
+                    <rect key="frame" x="30" y="574" width="315" height="50"/>
+                    <color key="backgroundColor" red="0.76517230272293091" green="0.76874881982803345" blue="0.77200239896774292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="d1f-xb-oCd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="提 交">
+                        <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </state>
+                    <connections>
+                        <action selector="commitButtonAction:" destination="-1" eventType="touchUpInside" id="pFd-rt-mVD"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="kpp-IZ-mx8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="09M-fO-u7P"/>
+                <constraint firstItem="hBw-T4-VHy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3R9-Hw-zo9"/>
+                <constraint firstItem="kpp-IZ-mx8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="74o-rZ-kOu"/>
+                <constraint firstAttribute="trailing" secondItem="LHD-R0-HS1" secondAttribute="trailing" constant="30" id="7TE-o3-Dx3"/>
+                <constraint firstAttribute="bottom" secondItem="LHD-R0-HS1" secondAttribute="bottom" constant="43" id="Abs-z5-DcI"/>
+                <constraint firstItem="ofm-Ay-cih" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EEz-eD-XhI"/>
+                <constraint firstItem="hBw-T4-VHy" firstAttribute="top" secondItem="ofm-Ay-cih" secondAttribute="bottom" constant="5" id="EoN-qn-6Vb"/>
+                <constraint firstItem="LHD-R0-HS1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="bVn-hd-dVK"/>
+                <constraint firstItem="ofm-Ay-cih" firstAttribute="top" secondItem="kpp-IZ-mx8" secondAttribute="bottom" constant="30" id="p6U-9g-6ft"/>
+            </constraints>
+            <point key="canvasLocation" x="26.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="wdxx_btn_invite" width="120" height="120"/>
+    </resources>
+</document>

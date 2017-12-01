@@ -25,10 +25,10 @@
     if(infoData[@"states"]&&[infoData[@"states"] isEqualToString:@"0"]){
         self.imageView.image = [UIImage imageNamed:@"wd_list_icomessage"];
         NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@(%@)",@"消息通知",infoData[@"numOfNews"]]];
-        [str addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,3)];
+        [str addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,4)];
         [str addAttribute:NSForegroundColorAttributeName value:kTextGrayColor range:NSMakeRange(4,str.length-4)];
         
-        [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(0, 3)];
+        [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(0, 4)];
         [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13] range:NSMakeRange(4,str.length-4)];
         
         self.textLabel.attributedText = str;

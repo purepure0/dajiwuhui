@@ -16,6 +16,7 @@
 
 #pragma mark - base
     #import "BaseViewController.h"
+    #import "DJWYAlertView.h"
 
 #pragma mark - system
     #import "SuperDancerConfig.h"

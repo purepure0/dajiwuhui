@@ -9,12 +9,15 @@
 #import "SDChatViewController.h"
 #import "ChatListHeaderSelectTableViewCell.h"
 #import "TeamListForChatTableViewCell.h"
+#import "ThreeRightView.h"
+#import "CreatDanceTeamViewController.h"
+#import "SearchTeamViewController.h"
 
 
-@interface SDChatViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
+@interface SDChatViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchControllerDelegate>
 @property(strong,nonatomic)UITableView              *chatListTableView;
 @property(strong,nonatomic)UISearchController       *chatVCSearchVC;
-@property(strong,nonatomic)NSString                 *searchKeyWords;
+@property(strong,nonatomic)NSString                 *searchKeyWords;//搜索关键词
 @end
 
 @implementation SDChatViewController
@@ -37,11 +40,37 @@
     [self.view addSubview:searchBarBackView];
     [self.view addSubview:self.chatListTableView];
     
+    
 }
 
 - (void)addTeamAction
 {
-    
+    //加号按钮
+    ThreeRightView *view = [[ThreeRightView alloc]initCustomImageArray:@[@"001",@"2.jpg"] textArray:@[@"创建舞队",@"查找舞队"] selfFrame:CGRectMake(kScreenWidth-155,49,150,115)];
+    view.selectRowBlock = ^(NSString *row) {
+        switch (row.intValue) {
+            case 0:
+            { CreatDanceTeamViewController *CDTVC = [[CreatDanceTeamViewController alloc]init];
+                self.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:CDTVC animated:YES];
+                self.hidesBottomBarWhenPushed = NO;
+            }
+                break;
+            case 1:
+            {
+                SearchTeamViewController *STVC = [[SearchTeamViewController alloc]init];
+                self.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:STVC animated:YES];
+                self.hidesBottomBarWhenPushed = NO;
+            }
+                break;
+                
+            default:
+                break;
+        }
+        
+    };
+    [view show:YES];
 }
 #pragma mark UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -54,6 +83,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if(self.chatVCSearchVC.searchBar.isFirstResponder){
+        [self.chatVCSearchVC.searchBar resignFirstResponder];
+    }
 }
 
 #pragma mark UITableViewDataSource
@@ -119,6 +153,22 @@
 }
 
 
+#pragma mark - UISearchControllerDelegate代理
+//测试UISearchController的执行过程
+
+- (void)willPresentSearchController:(UISearchController *)searchController
+{
+    self.chatListTableView.height =  self.chatListTableView.height + 54;
+}
+
+
+
+- (void)willDismissSearchController:(UISearchController *)searchController
+{
+    self.chatListTableView.height =  self.chatListTableView.height - 54;
+}
+
+
 
 #pragma mark SETTER
 
@@ -130,11 +180,10 @@
         }else{
             _chatListTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 54, kScreenWidth, kScreenHeight-kNAVHeight-54-49)];
         }
-        NSLog(@"%f",kNAVHeight);
         _chatListTableView.delegate = self;
         _chatListTableView.dataSource = self;
         _chatListTableView.separatorStyle = NO;
-        _chatListTableView.backgroundColor = [UIColor redColor];
+        _chatListTableView.backgroundColor = kBackgroundColor;
         [_chatListTableView registerClass:[ChatListHeaderSelectTableViewCell class] forCellReuseIdentifier:@"ChatListHeaderSelectTableViewCell"];
         [_chatListTableView registerClass:[TeamListForChatTableViewCell class] forCellReuseIdentifier:@"TeamListForChatTableViewCell"];
     }
@@ -144,13 +193,17 @@
 
 -(UISearchController *)chatVCSearchVC{
     if (!_chatVCSearchVC) {
-        _chatVCSearchVC = [[UISearchController alloc]initWithSearchResultsController:[[UIViewController alloc]init]];
+        _chatVCSearchVC = [[UISearchController alloc]initWithSearchResultsController:nil];
         _chatVCSearchVC.hidesNavigationBarDuringPresentation = YES;
         _chatVCSearchVC.searchResultsUpdater = self;
         _chatVCSearchVC.dimsBackgroundDuringPresentation = NO;
+        _chatVCSearchVC.delegate = self;
         
         _chatVCSearchVC.searchBar.placeholder = @"搜索";
         _chatVCSearchVC.searchBar.searchBarStyle = UISearchBarStyleMinimal;
+        _chatVCSearchVC.searchBar.delegate = self;
+        
+        
     }
     return _chatVCSearchVC;
 }

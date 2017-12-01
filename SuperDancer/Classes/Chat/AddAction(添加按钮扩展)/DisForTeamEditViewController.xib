@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DisForTeamEditViewController">
+            <connections>
+                <outlet property="dicOfTeamTextView" destination="jMp-IV-wMf" id="4Fy-Sb-kIP"/>
+                <outlet property="strNumLastLabel" destination="oxD-Cq-aw5" id="Rbi-wA-N2H"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3av-q5-EI4">
+                    <rect key="frame" x="0.0" y="25" width="375" height="120"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="输入舞队介绍" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jMp-IV-wMf">
+                            <rect key="frame" x="20" y="0.0" width="335" height="120"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="Ci4-Ty-V8L"/>
+                            </constraints>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxD-Cq-aw5">
+                            <rect key="frame" x="313" y="91" width="42" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="BrY-S1-V2f"/>
+                                <constraint firstAttribute="width" constant="42" id="hY2-hE-OMW"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="2av-pR-VSQ"/>
+                        <constraint firstAttribute="trailing" secondItem="oxD-Cq-aw5" secondAttribute="trailing" constant="20" id="BKl-r8-gyD"/>
+                        <constraint firstAttribute="trailing" secondItem="jMp-IV-wMf" secondAttribute="trailing" constant="20" id="ELD-gB-lxU"/>
+                        <constraint firstItem="jMp-IV-wMf" firstAttribute="top" secondItem="3av-q5-EI4" secondAttribute="top" id="KET-r7-JXF"/>
+                        <constraint firstItem="jMp-IV-wMf" firstAttribute="leading" secondItem="3av-q5-EI4" secondAttribute="leading" constant="20" id="bsj-Ug-QV7"/>
+                        <constraint firstItem="oxD-Cq-aw5" firstAttribute="top" secondItem="3av-q5-EI4" secondAttribute="top" constant="91" id="p1a-6Q-KAj"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.94162815809249878" green="0.94522863626480103" blue="0.94845277070999146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="3av-q5-EI4" secondAttribute="trailing" id="0Sr-hz-qB7"/>
+                <constraint firstItem="3av-q5-EI4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="b3C-V6-8sx"/>
+                <constraint firstItem="3av-q5-EI4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="j2A-pN-ZIn"/>
+            </constraints>
+            <point key="canvasLocation" x="26.5" y="51.5"/>
+        </view>
+    </objects>
+</document>

@@ -42,6 +42,7 @@
     .rightSpaceToView(self, 0)
     .heightIs(1)
     .bottomSpaceToView(self, 0);
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     
 }
 
