@@ -11,7 +11,7 @@
 #import "SDNavigationController.h"
 #import "SDHomeViewController.h"
 #import "SDChatViewController.h"
-//#import "SDMineViewController.h"
+#import "SDMineViewController.h"
 #import "UIImage+CLImage.h"
 
 @interface SDTabBarController ()
@@ -33,8 +33,8 @@
     SDChatViewController *chat = [[SDChatViewController alloc] init];
     [self setupChildViewController:chat image:[UIImage imageNamed:@"wd_tab_btnl_chat_nor"] selectImage:[UIImage imageWithOriginalName:@"wd_tab_btnl_chat_sel"] title:@"舞队"];
     
-//    SDMineViewController *mine = [[SDMineViewController alloc] init];
-//    [self setupChildViewController:mine image:[UIImage imageNamed:@"wd_tab_btn_my_nor"] selectImage:[UIImage imageWithOriginalName:@"wd_tab_btn_my_sel"] title:@"我的"];
+    SDMineViewController *mine = [[SDMineViewController alloc] init];
+    [self setupChildViewController:mine image:[UIImage imageNamed:@"wd_tab_btn_my_nor"] selectImage:[UIImage imageWithOriginalName:@"wd_tab_btn_my_sel"] title:@"我的"];
 }
 
 /**

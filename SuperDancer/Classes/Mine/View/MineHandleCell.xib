@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="MineHandleCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63L-kR-jgH">
+                        <rect key="frame" x="0.0" y="0.0" width="94" height="99.5"/>
+                        <subviews>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOc-72-VKZ">
+                                <rect key="frame" x="25" y="18" width="44" height="44"/>
+                                <state key="normal" image="my_ico_collection"/>
+                                <connections>
+                                    <action selector="btnsAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="QEd-Go-16s"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJb-WI-74k">
+                                <rect key="frame" x="20.5" y="70" width="53.5" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.1764705882" green="0.18039215689999999" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="AOc-72-VKZ" firstAttribute="centerX" secondItem="63L-kR-jgH" secondAttribute="centerX" id="367-Q0-LMn"/>
+                            <constraint firstItem="RJb-WI-74k" firstAttribute="top" secondItem="AOc-72-VKZ" secondAttribute="bottom" constant="8" id="JQ9-YW-QGv"/>
+                            <constraint firstItem="AOc-72-VKZ" firstAttribute="centerY" secondItem="63L-kR-jgH" secondAttribute="centerY" constant="-10" id="VyX-wi-nt2"/>
+                            <constraint firstItem="RJb-WI-74k" firstAttribute="centerX" secondItem="63L-kR-jgH" secondAttribute="centerX" id="Xvd-dY-OSF"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dhd-r5-rZq">
+                        <rect key="frame" x="94" y="0.0" width="93.5" height="99.5"/>
+                        <subviews>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWw-fu-f0S">
+                                <rect key="frame" x="24" y="18" width="44" height="44"/>
+                                <state key="normal" image="my_ico_news"/>
+                                <connections>
+                                    <action selector="btnsAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mEZ-4T-n1t"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消息中心" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYN-iL-V5c">
+                                <rect key="frame" x="20" y="70" width="53.5" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.1764705882" green="0.18039215689999999" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="fYN-iL-V5c" firstAttribute="centerX" secondItem="Dhd-r5-rZq" secondAttribute="centerX" id="ghA-Ex-PBm"/>
+                            <constraint firstItem="fYN-iL-V5c" firstAttribute="top" secondItem="xWw-fu-f0S" secondAttribute="bottom" constant="8" id="izq-2R-pHF"/>
+                            <constraint firstItem="xWw-fu-f0S" firstAttribute="centerY" secondItem="Dhd-r5-rZq" secondAttribute="centerY" constant="-10" id="jB0-cs-O6a"/>
+                            <constraint firstItem="xWw-fu-f0S" firstAttribute="centerX" secondItem="Dhd-r5-rZq" secondAttribute="centerX" id="uVn-SG-uhp"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lNH-Wg-3KU">
+                        <rect key="frame" x="281.5" y="0.0" width="93.5" height="99.5"/>
+                        <subviews>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaJ-Oa-tiM">
+                                <rect key="frame" x="25" y="18" width="44" height="44"/>
+                                <state key="normal" image="my_ico_cache"/>
+                                <connections>
+                                    <action selector="btnsAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rxA-kl-gzY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="离线缓存" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLe-Ek-weo">
+                                <rect key="frame" x="20" y="67" width="53.5" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.1764705882" green="0.18039215689999999" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="qaJ-Oa-tiM" firstAttribute="centerX" secondItem="lNH-Wg-3KU" secondAttribute="centerX" id="0mU-Xk-Zcu"/>
+                            <constraint firstItem="qaJ-Oa-tiM" firstAttribute="centerY" secondItem="lNH-Wg-3KU" secondAttribute="centerY" constant="-10" id="9yZ-nh-uBf"/>
+                            <constraint firstItem="kLe-Ek-weo" firstAttribute="top" secondItem="qaJ-Oa-tiM" secondAttribute="bottom" constant="5" id="F2x-J1-J1g"/>
+                            <constraint firstItem="kLe-Ek-weo" firstAttribute="centerX" secondItem="lNH-Wg-3KU" secondAttribute="centerX" id="VgA-q7-Wed"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zma-ms-aXO">
+                        <rect key="frame" x="187.5" y="0.0" width="94" height="99.5"/>
+                        <subviews>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGY-4I-mqJ">
+                                <rect key="frame" x="25" y="18" width="44" height="44"/>
+                                <state key="normal" image="my_ico_record"/>
+                                <connections>
+                                    <action selector="btnsAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Aem-Ol-6nx"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浏览记录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fxf-Mh-mvR">
+                                <rect key="frame" x="21" y="67" width="53.5" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.1764705882" green="0.18039215689999999" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fxf-Mh-mvR" firstAttribute="centerX" secondItem="Zma-ms-aXO" secondAttribute="centerX" id="Kpg-ll-Thv"/>
+                            <constraint firstItem="LGY-4I-mqJ" firstAttribute="centerX" secondItem="Zma-ms-aXO" secondAttribute="centerX" id="NEK-VF-4ik"/>
+                            <constraint firstItem="LGY-4I-mqJ" firstAttribute="centerY" secondItem="Zma-ms-aXO" secondAttribute="centerY" constant="-10" id="rBq-AI-Gf0"/>
+                            <constraint firstItem="Fxf-Mh-mvR" firstAttribute="top" secondItem="LGY-4I-mqJ" secondAttribute="bottom" constant="5" id="u5x-cQ-ieP"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="63L-kR-jgH" secondAttribute="bottom" id="2Bp-ry-16K"/>
+                    <constraint firstAttribute="bottom" secondItem="Zma-ms-aXO" secondAttribute="bottom" id="3Gm-Tn-0nu"/>
+                    <constraint firstAttribute="bottom" secondItem="Dhd-r5-rZq" secondAttribute="bottom" id="3cq-oX-Ma6"/>
+                    <constraint firstItem="Zma-ms-aXO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8lX-d7-GR3"/>
+                    <constraint firstItem="lNH-Wg-3KU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ali-iL-T8X"/>
+                    <constraint firstAttribute="trailing" secondItem="lNH-Wg-3KU" secondAttribute="trailing" id="Pid-FQ-gtR"/>
+                    <constraint firstItem="lNH-Wg-3KU" firstAttribute="width" secondItem="63L-kR-jgH" secondAttribute="width" id="VMA-rd-P7q"/>
+                    <constraint firstItem="Dhd-r5-rZq" firstAttribute="leading" secondItem="63L-kR-jgH" secondAttribute="trailing" id="aA3-ZU-mG2"/>
+                    <constraint firstItem="63L-kR-jgH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="b8r-UL-0Qj"/>
+                    <constraint firstItem="Dhd-r5-rZq" firstAttribute="width" secondItem="63L-kR-jgH" secondAttribute="width" id="gHT-c2-qSK"/>
+                    <constraint firstItem="Dhd-r5-rZq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kGY-Ah-3Vp"/>
+                    <constraint firstItem="63L-kR-jgH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mJT-8g-QSs"/>
+                    <constraint firstItem="lNH-Wg-3KU" firstAttribute="leading" secondItem="Zma-ms-aXO" secondAttribute="trailing" id="n1t-WB-h4w"/>
+                    <constraint firstItem="Zma-ms-aXO" firstAttribute="leading" secondItem="Dhd-r5-rZq" secondAttribute="trailing" id="sZa-XA-lmS"/>
+                    <constraint firstItem="Zma-ms-aXO" firstAttribute="width" secondItem="63L-kR-jgH" secondAttribute="width" id="tKF-Vj-UVm"/>
+                    <constraint firstAttribute="bottom" secondItem="lNH-Wg-3KU" secondAttribute="bottom" id="uBV-EW-alY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="24.5" y="52"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="my_ico_cache" width="44" height="44"/>
+        <image name="my_ico_collection" width="44" height="44"/>
+        <image name="my_ico_news" width="44" height="44"/>
+        <image name="my_ico_record" width="44" height="44"/>
+    </resources>
+</document>
