@@ -33,5 +33,5 @@ pod 'Qiniu', '~> 7.1'
 
 pod 'AMapLocation'
 
-pod 'JPush', '~> 3.0.5'
+pod 'JPush', '3.0.6'
 end

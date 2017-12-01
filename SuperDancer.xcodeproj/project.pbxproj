@@ -99,12 +99,6 @@
 		9A08C2331FCCF17100F6C54B /* SDTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C2311FCCF17100F6C54B /* SDTabBarController.m */; };
 		9A08C2341FCCF17100F6C54B /* SDTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A08C2321FCCF17100F6C54B /* SDTabBarController.xib */; };
 		9A08C2381FCCF32C00F6C54B /* UIImage+CLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C2361FCCF32B00F6C54B /* UIImage+CLImage.m */; };
-		9A08C2571FD0300700F6C54B /* SDMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C24D1FD0300700F6C54B /* SDMineViewController.m */; };
-		9A08C2581FD0300700F6C54B /* SDMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A08C24E1FD0300700F6C54B /* SDMineViewController.xib */; };
-		9A08C2591FD0300700F6C54B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C2501FD0300700F6C54B /* SettingViewController.m */; };
-		9A08C25A1FD0300700F6C54B /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A08C2511FD0300700F6C54B /* SettingViewController.xib */; };
-		9A08C25B1FD0300700F6C54B /* MineHandleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C2551FD0300700F6C54B /* MineHandleCell.m */; };
-		9A08C25C1FD0300700F6C54B /* MineHandleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A08C2561FD0300700F6C54B /* MineHandleCell.xib */; };
 		9A1BB3DC1F85DA590067C12C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1BB3DB1F85DA590067C12C /* Assets.xcassets */; };
 		9A1BB3DF1F85DA590067C12C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1BB3DD1F85DA590067C12C /* LaunchScreen.storyboard */; };
 		9A1BB3EC1F85DA590067C12C /* SuperDancerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BB3EB1F85DA590067C12C /* SuperDancerTests.m */; };
@@ -1952,15 +1946,12 @@
 				9A1BB3DF1F85DA590067C12C /* LaunchScreen.storyboard in Resources */,
 				04F41DB61FA36154002EF921 /* UploadVideoViewController.xib in Resources */,
 				04F41DC81FA3B120002EF921 /* EditVideoImageViewController.xib in Resources */,
-				9A08C25C1FD0300700F6C54B /* MineHandleCell.xib in Resources */,
 				9A1BB3DC1F85DA590067C12C /* Assets.xcassets in Resources */,
 				9A1DC6B01FA49D200014E739 /* MusicDownloadViewController.xib in Resources */,
 				9A79BBFC1F8DF13D004C3879 /* MovieDownloadViewController.xib in Resources */,
 				049E50C31FA0E0E7006C3BF1 /* LocalCell.xib in Resources */,
-				9A08C25A1FD0300700F6C54B /* SettingViewController.xib in Resources */,
 				9A08C2341FCCF17100F6C54B /* SDTabBarController.xib in Resources */,
 				9A2CB88E1F868D5400907C72 /* LocalDanceViewController.xib in Resources */,
-				9A08C2581FD0300700F6C54B /* SDMineViewController.xib in Resources */,
 				9A71FE7D1F8DF37500738680 /* DownloadingCell.xib in Resources */,
 				9A1BB42A1F85E2850067C12C /* SDHomeViewController.xib in Resources */,
 				04EB25071F9A4E71000E2137 /* CommentView.xib in Resources */,
@@ -2116,7 +2107,6 @@
 				9ACA8AF91F98574C00B73B29 /* ZFBrightnessView.m in Sources */,
 				04927BFB1F974A2300CDD58E /* KeepModel.m in Sources */,
 				049E50BD1FA0DDEC006C3BF1 /* LocalSelectViewController.m in Sources */,
-				9A08C2591FD0300700F6C54B /* SettingViewController.m in Sources */,
 				9A992DF21FA2392400FBAC21 /* UploadVideoView.m in Sources */,
 				040F832A1F95B276003DA2A0 /* CommentModel.m in Sources */,
 				049E51141FA30AAB006C3BF1 /* MsgCommentCell.m in Sources */,
@@ -2155,7 +2145,6 @@
 				9ACA8B0B1F985B4400B73B29 /* ZFHttpRequest.m in Sources */,
 				049E51191FA31050006C3BF1 /* MsgCommentModel.m in Sources */,
 				04AE236A1F9F43730034635C /* DancerModel.m in Sources */,
-				9A08C25B1FD0300700F6C54B /* MineHandleCell.m in Sources */,
 				3F6868CB1FCEA759001EB5BD /* TeamListForChatTableViewCell.m in Sources */,
 				9AD960CA1F8F14590024DA43 /* Utility.m in Sources */,
 				04AE237B1F9F87D50034635C /* CollectionCell.m in Sources */,
@@ -2173,7 +2162,6 @@
 				049E50C71FA0E51C006C3BF1 /* LocalHeaderReusableView.m in Sources */,
 				9A1DC6AF1FA49D200014E739 /* MusicDownloadViewController.m in Sources */,
 				04F41DC71FA3B120002EF921 /* EditVideoImageViewController.m in Sources */,
-				9A08C2571FD0300700F6C54B /* SDMineViewController.m in Sources */,
 				9ACA8AFC1F98574C00B73B29 /* ZFPlayerModel.m in Sources */,
 				04AE23771F9F7D450034635C /* CollectionModel.m in Sources */,
 				9A2CB8B41F8765B000907C72 /* ButtonCell.m in Sources */,
