@@ -34,7 +34,11 @@
 //账户2
 //    self.users.userId = @"81516";
 //    self.users.token = @"oaMKIwmXVHfP5r03012sOl5mQP3k";
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification) name:NOTIFICATION_KTUSER_HAS_LOGOUT object:nil];
+}
 
+- (void)receiveNotification {
+    [self updateHttpHeader];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -378,7 +382,7 @@
             self.users.avatarURL = userModel.user_headimg;
             self.users.background = userModel.background;
             self.users.signature = userModel.signature;
-            [[NSNotificationCenter defaultCenter] postNotificationName:kAcountBtnImgNotification object:nil];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:kAcountBtnImgNotification object:nil];
         }
     } failure:^(NSError *error) {
         

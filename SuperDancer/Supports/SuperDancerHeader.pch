@@ -20,6 +20,7 @@
 
 #pragma mark - system
     #import "SuperDancerConfig.h"
+    #import "NotificationNames.h"
 
 #pragma mark - config
     #import "YYKit.h"

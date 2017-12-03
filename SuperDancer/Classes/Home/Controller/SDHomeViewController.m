@@ -15,7 +15,6 @@
 
 #import "WMPageController.h"
 
-#import "MineView.h"
 #import "UploadVideoView.h"
 
 #import "KLCPopup.h"
@@ -33,8 +32,6 @@
 #import "AboutUsViewController.h"
 #import "FeedbackViewController.h"
 #import "UploadVideoViewController.h"
-#import <Masonry.h>
-#define kAcountBtnImgNotification @"AcountBtnImgNotification"
 
 @interface SDHomeViewController ()<WMPageControllerDelegate,WMPageControllerDataSource,WMMenuViewDelegate>
 
@@ -43,8 +40,6 @@
 @property (nonatomic, strong) KLCPopup *popup;
 
 @property (nonatomic, strong) KLCPopup *popup_s;
-
-@property (nonatomic, strong) MineView *mineView;
 
 @property (nonatomic, strong) UploadVideoView *uploadVideoView;
 
@@ -57,32 +52,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupLeftBarButtonItem];
-    
     [self setTitleView:@"nav_logo"];
-
+    
     [self initPageController];
     //注：一期不加视频上传功能
     [self setupUploadBtn];
     
-    [self updateAcountBtnImage];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateAcountBtnImage) name:kAcountBtnImgNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDistrict) name:@"ChangeDistrict" object:nil];
-}
-
-- (void)setupLeftBarButtonItem {
-    self.leftItemBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 34, 34)];
-    [self.leftItemBtn setImage:IMAGE_NAMED(@"myaccount") forState:UIControlStateNormal];
-    [self.leftItemBtn addTarget:self action:@selector(accountAction) forControlEvents:UIControlEventTouchUpInside];
-    self.leftItemBtn.layer.masksToBounds = YES;
-    self.leftItemBtn.layer.cornerRadius = 17;
-    
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.leftItemBtn];
-    [self.leftItemBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(34);
-        make.height.mas_equalTo(34);
-    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -93,10 +69,6 @@
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self setNavBarShadowImageHidden:NO];
-}
-
-- (void)updateAcountBtnImage {
-    [self.leftItemBtn sd_setImageWithURL:[NSURL URLWithString:self.users.avatarURL] forState:UIControlStateNormal placeholderImage:IMAGE_NAMED(@"myaccount")];
 }
 
 - (void)setupUploadBtn
@@ -176,114 +148,17 @@
     }
 }
 
-
-#pragma mark - Handle Action
-
-- (void)accountAction
-{
-    [self.mineView updateView];
-    [self.popup showWithLayout:KLCPopupLayoutMake(KLCPopupHorizontalLayoutLeft, KLCPopupVerticalLayoutBottom)];
-}
-
 - (instancetype)init
 {
     if (self = [super init])
     {
-        [self setupMineView];
-        [self setupHandleView];
-        [self setupPopupView];
+        [self setupUploadVideoView];
         [self setupPopupView_s];
     }
     return self;
 }
 
-- (void)setupMineView
-{
-    if (self.mineView == nil) {
-        self.mineView = [[MineView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth * 0.8, kScreenHeight)];
-        
-        @weakify(self);
-        self.mineView.switchAccountBlock = ^{
-            @strongify(self);
-            [self.popup dismiss:YES];
-            [self presentLoginPage];
-        };
-        
-        self.mineView.fourBtnBlock = ^(NSInteger index) {
-            @strongify(self);
-            [self.popup dismiss:YES];
-            
-            switch (index) {
-                case 100: {
-                    if (self.users.userId) {
-                        MyCollectionViewController *collection = [[MyCollectionViewController alloc] init];
-                        collection.title = @"我的收藏";
-                        [self.navigationController pushViewController:collection animated:YES];
-                    } else {
-                        [self presentLoginPage];
-                    }
-                } break;
-                case 101: {
-                    if (self.users.userId) {
-                        MsgCenterViewController *messageCenter = [[MsgCenterViewController alloc] init];
-                        [self.navigationController pushViewController:messageCenter animated:YES];
-                    } else {
-                        [self presentLoginPage];
-                    }
-                }
-                    break;
-                case 102: {
-                    if (self.users.userId) {
-                        BrowsingHistoryViewController *browsingHistory = [[BrowsingHistoryViewController alloc] init];
-                        browsingHistory.title = @"浏览记录";
-                        [self.navigationController pushViewController:browsingHistory animated:YES];
-                    } else {
-                        [self presentLoginPage];
-                    }
-                }
-                    break;
-                case 103:
-                {
-                    MovieDownloadViewController *download = [[MovieDownloadViewController alloc] init];
-                    [self.navigationController pushViewController:download animated:YES];
-                }
-                    break;
-                default:
-                    break;
-            }
-        };
-        
-        self.mineView.threeBtnBlock = ^(NSInteger index) {
-            @strongify(self);
-            [self.popup dismiss:YES];
-            if (index == 200) {
-                UserAgreeViewController *agreement = [[UserAgreeViewController alloc] init];
-                [self.navigationController pushViewController:agreement animated:YES];
-            } else if (index == 201) {
-                AboutUsViewController *aboutUs = [[AboutUsViewController alloc] init];
-                [self.navigationController pushViewController:aboutUs animated:YES];
-            } else {
-                UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:@"该功能暂未开放" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                [alertView show];
-            }
-            
-        };
-        
-        self.mineView.avatarBtnBlock = ^{
-            @strongify(self);
-            [self.popup dismiss:YES];
-            if (self.users.userId) {
-                PersonalCenterViewController *personalCenter = [[PersonalCenterViewController alloc] init];
-                personalCenter.userId = self.users.userId;
-                [self.navigationController pushViewController:personalCenter animated:YES];
-            } else {
-               [self presentLoginPage];
-            }
-        };
-    }
-}
-
-- (void)setupHandleView
+- (void)setupUploadVideoView
 {
     if (self.uploadVideoView == nil) {
         self.uploadVideoView = [[[NSBundle mainBundle]loadNibNamed:@"UploadVideoView" owner:self options:nil] lastObject];
@@ -324,25 +199,6 @@
     }
 }
 
-
-- (void)presentLoginPage {
-    LoginViewController *login = [[LoginViewController alloc] init];
-    SDNavigationController *nav = [[SDNavigationController alloc] initWithRootViewController:login];
-    [self presentViewController:nav animated:YES completion:nil];
-}
-
-- (void)setupPopupView
-{
-    if (self.popup == nil) {
-        self.popup = [KLCPopup popupWithContentView:self.mineView
-                                           showType:KLCPopupShowTypeSlideInFromLeft
-                                        dismissType:KLCPopupDismissTypeSlideOutToLeft
-                                           maskType:KLCPopupMaskTypeDimmed
-                           dismissOnBackgroundTouch:YES
-                              dismissOnContentTouch:NO];
-    }
-}
-
 - (void)setupPopupView_s {
     if (self.popup_s == nil) {
         self.popup_s = [KLCPopup popupWithContentView:self.uploadVideoView
@@ -354,10 +210,6 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 @end

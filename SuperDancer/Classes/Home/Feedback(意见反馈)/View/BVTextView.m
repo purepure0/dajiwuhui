@@ -16,7 +16,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.textColor = [UIColor blueColor];
+        self.textColor = kTextBlackColor;
         self.delegate = self;
         [self resignFirstResponder];
         [self layoutUI];
@@ -26,7 +26,7 @@
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     if (self = [super initWithCoder:aDecoder]) {
-        self.textColor = [UIColor blueColor];
+        self.textColor = kTextBlackColor;
         self.delegate = self;
         [self resignFirstResponder];
         [self layoutUI];
@@ -37,19 +37,30 @@
 - (void)layoutUI {
     
     _placeholderLabel = [[UILabel alloc] init];
-    _placeholderLabel.frame = CGRectMake(5, 11, kScreenWidth - 10 * 3, 10);
-    _placeholderLabel.text = @"您想对卖家说点什么...";
+    _placeholderLabel.text = @"您想对我们说点什么...";
     _placeholderLabel.font = [UIFont systemFontOfSize:14];
     _placeholderLabel.textColor = kColorHexStr(@"#BDBDBD");
     [self addSubview:_placeholderLabel];
     
     _numLabel = [[UILabel alloc] init];
-    _numLabel.frame = CGRectMake(kScreenWidth - 60 - 10 - 5, 170 - 20, 60, 20);
     _numLabel.text = @"0/100";
-    _numLabel.textAlignment = NSTextAlignmentCenter;
+    _numLabel.textAlignment = NSTextAlignmentRight;
     _numLabel.font = [UIFont systemFontOfSize:13];
     _numLabel.textColor = kColorHexStr(@"#BDBDBD");
     [self addSubview:_numLabel];
+    
+    
+    _placeholderLabel.sd_layout
+    .leftSpaceToView(self, 5)
+    .rightSpaceToView(self, 5)
+    .topSpaceToView(self, 10)
+    .heightIs(10);
+    
+    _numLabel.sd_layout
+    .rightSpaceToView(self, 15)
+    .bottomSpaceToView(self, 10)
+    .widthIs(100)
+    .heightIs(20);
 }
 
 #pragma mark -
@@ -58,7 +69,7 @@
     long long remainNum ;
     NSString * textContent;
     if (textView.text.length == 0) {
-        _placeholderLabel.text = @"您想对卖家说点什么...";
+        _placeholderLabel.text = @"您想对我们说点什么...";
         _numLabel.text = [NSString stringWithFormat:@"0/100"];
     }else if(textView.text.length >= 100){
         textView.text = [textView.text substringToIndex:100];
