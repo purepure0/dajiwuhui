@@ -17,6 +17,15 @@
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
+    UIView *lineView = [[UIView alloc]init];
+    lineView.backgroundColor = kLineColor;
+    [self sd_addSubviews:@[lineView]];
+    lineView.sd_layout
+    .leftSpaceToView(self, 0)
+    .rightSpaceToView(self, 0)
+    .heightIs(1)
+    .bottomSpaceToView(self, 0);
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     return self;
 }
 
@@ -34,16 +43,15 @@
     self.textLabel.text = @"舞队名称1";
     self.detailTextLabel.text = @"所在地区：山东省菏泽市";
     self.detailTextLabel.textColor = kTextGrayColor;
-    UIView *lineView = [[UIView alloc]init];
-    lineView.backgroundColor = kLineColor;
-    [self sd_addSubviews:@[lineView]];
-    lineView.sd_layout
-    .leftSpaceToView(self, 0)
-    .rightSpaceToView(self, 0)
-    .heightIs(1)
-    .bottomSpaceToView(self, 0);
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    
+}
+-(void)updateCellWithArray:(NSArray *)infoData{
+    
+    self.imageView.image = [[UIImage imageNamed:infoData[0]] circleImage];
+    self.textLabel.text = infoData[1];
+    self.detailTextLabel.text = infoData[2];
+    self.detailTextLabel.textColor = kTextGrayColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

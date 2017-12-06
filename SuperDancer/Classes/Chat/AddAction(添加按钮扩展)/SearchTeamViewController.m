@@ -8,13 +8,16 @@
 
 #import "SearchTeamViewController.h"
 #import "TeamListForChatTableViewCell.h"
+#import "SGQRCodeScanningVC.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface SearchTeamViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchControllerDelegate>
 
 @property(strong,nonatomic)UISearchController       *classifyVCSearchVC;
-@property(strong,nonatomic)NSString                 *classifySearchKeyWords;
+@property(copy,nonatomic)NSString                   *classifySearchKeyWords;
 
 @property (weak, nonatomic) IBOutlet UITableView    *classifyListTableView;
+@property(strong,nonatomic) NSArray                 *searchClassifyDic;//搜索的类型
 
 @end
 
@@ -53,7 +56,41 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if(indexPath.row == 2){
+        // 1、 获取摄像设备
+        AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        if (device) {
+            AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+            if (status == AVAuthorizationStatusNotDetermined) {
+                [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+                    if (granted) {
+                        dispatch_sync(dispatch_get_main_queue(), ^{
+                            SGQRCodeScanningVC *vc = [[SGQRCodeScanningVC alloc] init];
+                            [self.navigationController pushViewController:vc animated:YES];
+                        });
+                        // 用户第一次同意了访问相机权限
+                        NSLog(@"用户第一次同意了访问相机权限 - - %@", [NSThread currentThread]);
+                        
+                    } else {
+                        // 用户第一次拒绝了访问相机权限
+                        NSLog(@"用户第一次拒绝了访问相机权限 - - %@", [NSThread currentThread]);
+                    }
+                }];
+            } else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
+                SGQRCodeScanningVC *vc = [[SGQRCodeScanningVC alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            } else if (status == AVAuthorizationStatusDenied) { // 用户拒绝当前应用访问相机
+                
+                [DJWYAlertView showOneButtonWithTitle:@"温馨提示" message:@"请去-> [设置 - 隐私 - 相机 - SGQRCodeExample] 打开访问开关" buttonTitle:@"确定"];
+                
+            } else if (status == AVAuthorizationStatusRestricted) {
+                NSLog(@"因为系统原因, 无法访问相册");
+            }
+        } else {
+            [DJWYAlertView showOneButtonWithTitle:@"温馨提示" message:@"未检测到您的摄像头" buttonTitle:@"确定"];
+        }
+
+    }
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if(self.classifyVCSearchVC.searchBar.isFirstResponder){
@@ -69,7 +106,7 @@
         teamListForChatTableViewCell = [[TeamListForChatTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TeamListForChatTableViewCell"];
         
     }
-    [teamListForChatTableViewCell updateCellWithData:nil];
+    [teamListForChatTableViewCell updateCellWithArray:self.searchClassifyDic[indexPath.row]];
     return teamListForChatTableViewCell;
     
 }
@@ -129,6 +166,12 @@
         
     }
     return _classifyVCSearchVC;
+}
+-(NSArray *)searchClassifyDic{
+    if (!_searchClassifyDic) {
+        _searchClassifyDic = @[@[@"wd_ico_invite",@"邀请队员",@"您可以邀请队员加入舞队"],@[@"wd_ico_vicinity",@"查看附近的舞队",@""],@[@"wd_ico_sao",@"扫一扫加舞队",@"扫描群二维码名片"]];
+    }
+    return _searchClassifyDic;
 }
 
 - (void)didReceiveMemoryWarning {

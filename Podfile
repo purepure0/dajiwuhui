@@ -17,6 +17,7 @@ pod 'KLCPopup', '~> 1.0'
 pod 'SDAutoLayout', '~> 2.2.0'
 #测试工具
 pod 'Bugtags'
+pod 'SGQRCode'
 
 #ZFDownload相关
 #pod 'ZFDownload', '~> 1.0.2'

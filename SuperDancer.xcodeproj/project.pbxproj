@@ -111,6 +111,10 @@
 		3F5A44701FD154FD00BAE622 /* SearchTeamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F5A446E1FD154FD00BAE622 /* SearchTeamViewController.xib */; };
 		3F6868C81FCEA711001EB5BD /* ChatListHeaderSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6868C71FCEA711001EB5BD /* ChatListHeaderSelectTableViewCell.m */; };
 		3F6868CB1FCEA759001EB5BD /* TeamListForChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6868CA1FCEA759001EB5BD /* TeamListForChatTableViewCell.m */; };
+		3F92940C1FD4F3B9004CC1E7 /* QRCodeGenerateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9294071FD4F3B9004CC1E7 /* QRCodeGenerateVC.m */; };
+		3F92940D1FD4F3B9004CC1E7 /* ScanSuccessJumpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9294091FD4F3B9004CC1E7 /* ScanSuccessJumpVC.m */; };
+		3F92940E1FD4F3B9004CC1E7 /* SGQRCodeScanningVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F92940B1FD4F3B9004CC1E7 /* SGQRCodeScanningVC.m */; };
+		3F9294121FD4F4B2004CC1E7 /* SGWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9294111FD4F4B2004CC1E7 /* SGWebView.m */; };
 		3F97B3681FD0F8CC00D0799A /* ThirdRightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F97B3651FD0F8CC00D0799A /* ThirdRightTableViewCell.m */; };
 		3F97B3691FD0F8CC00D0799A /* ThreeRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F97B3671FD0F8CC00D0799A /* ThreeRightView.m */; };
 		9A08B2921F88ACAD00232661 /* SCVerifyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08B2911F88ACAD00232661 /* SCVerifyButton.m */; };
@@ -412,6 +416,14 @@
 		3F6868C71FCEA711001EB5BD /* ChatListHeaderSelectTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatListHeaderSelectTableViewCell.m; sourceTree = "<group>"; };
 		3F6868C91FCEA759001EB5BD /* TeamListForChatTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamListForChatTableViewCell.h; sourceTree = "<group>"; };
 		3F6868CA1FCEA759001EB5BD /* TeamListForChatTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamListForChatTableViewCell.m; sourceTree = "<group>"; };
+		3F9294061FD4F3B9004CC1E7 /* QRCodeGenerateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeGenerateVC.h; sourceTree = "<group>"; };
+		3F9294071FD4F3B9004CC1E7 /* QRCodeGenerateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeGenerateVC.m; sourceTree = "<group>"; };
+		3F9294081FD4F3B9004CC1E7 /* ScanSuccessJumpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanSuccessJumpVC.h; sourceTree = "<group>"; };
+		3F9294091FD4F3B9004CC1E7 /* ScanSuccessJumpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanSuccessJumpVC.m; sourceTree = "<group>"; };
+		3F92940A1FD4F3B9004CC1E7 /* SGQRCodeScanningVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGQRCodeScanningVC.h; sourceTree = "<group>"; };
+		3F92940B1FD4F3B9004CC1E7 /* SGQRCodeScanningVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGQRCodeScanningVC.m; sourceTree = "<group>"; };
+		3F9294101FD4F4B2004CC1E7 /* SGWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGWebView.h; sourceTree = "<group>"; };
+		3F9294111FD4F4B2004CC1E7 /* SGWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGWebView.m; sourceTree = "<group>"; };
 		3F97B3641FD0F8CC00D0799A /* ThirdRightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdRightTableViewCell.h; sourceTree = "<group>"; };
 		3F97B3651FD0F8CC00D0799A /* ThirdRightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdRightTableViewCell.m; sourceTree = "<group>"; };
 		3F97B3661FD0F8CC00D0799A /* ThreeRightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeRightView.h; sourceTree = "<group>"; };
@@ -990,6 +1002,7 @@
 		3F5A444D1FD11C9700BAE622 /* AddAction(添加按钮扩展) */ = {
 			isa = PBXGroup;
 			children = (
+				3F9294051FD4F3B9004CC1E7 /* DJWYCodeScanning(二维码) */,
 				3F5A444E1FD11D4C00BAE622 /* CreatDanceTeamViewController.h */,
 				3F5A444F1FD11D4C00BAE622 /* CreatDanceTeamViewController.m */,
 				3F5A44501FD11D4C00BAE622 /* CreatDanceTeamViewController.xib */,
@@ -1040,6 +1053,36 @@
 				3F6868CA1FCEA759001EB5BD /* TeamListForChatTableViewCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3F9294051FD4F3B9004CC1E7 /* DJWYCodeScanning(二维码) */ = {
+			isa = PBXGroup;
+			children = (
+				3F92940F1FD4F4B2004CC1E7 /* View */,
+				3F9294061FD4F3B9004CC1E7 /* QRCodeGenerateVC.h */,
+				3F9294071FD4F3B9004CC1E7 /* QRCodeGenerateVC.m */,
+				3F9294081FD4F3B9004CC1E7 /* ScanSuccessJumpVC.h */,
+				3F9294091FD4F3B9004CC1E7 /* ScanSuccessJumpVC.m */,
+				3F92940A1FD4F3B9004CC1E7 /* SGQRCodeScanningVC.h */,
+				3F92940B1FD4F3B9004CC1E7 /* SGQRCodeScanningVC.m */,
+			);
+			path = "DJWYCodeScanning(二维码)";
+			sourceTree = "<group>";
+		};
+		3F92940F1FD4F4B2004CC1E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F9294101FD4F4B2004CC1E7 /* SGWebView.h */,
+				3F9294111FD4F4B2004CC1E7 /* SGWebView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F9294131FD50030004CC1E7 /* DanceTeam */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DanceTeam;
 			sourceTree = "<group>";
 		};
 		3F97B3631FD0F8CC00D0799A /* Menu */ = {
@@ -1134,6 +1177,7 @@
 		9A08C21B1FCC3EC000F6C54B /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				3F9294131FD50030004CC1E7 /* DanceTeam */,
 				3F5A444D1FD11C9700BAE622 /* AddAction(添加按钮扩展) */,
 				3F6868C51FCEA6A4001EB5BD /* View */,
 				9A08C21C1FCC3EC000F6C54B /* Controller */,
@@ -2182,6 +2226,7 @@
 				"${PODS_ROOT}/Bugtags/Bugtags.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SGQRCode/SGQRCode/SGQRCode.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/QQ/QQSDK/TencentOpenApi_IOS_Bundle.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialUI/UMSocialSDKResources.bundle",
@@ -2210,7 +2255,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F5928D23462641CFC738E420 /* [CP] Embed Pods Frameworks */ = {
@@ -2258,6 +2303,7 @@
 				04F41DBE1FA385E8002EF921 /* SelectTypeView.m in Sources */,
 				9AD960C71F8F13860024DA43 /* SDHTTPRequest.m in Sources */,
 				9A1DC6A11FA36BCF0014E739 /* BVTextView.m in Sources */,
+				3F92940C1FD4F3B9004CC1E7 /* QRCodeGenerateVC.m in Sources */,
 				04F41D8E1FA33542002EF921 /* MsgAttentionModel.m in Sources */,
 				04927BF81F97355000CDD58E /* LikeModel.m in Sources */,
 				3F5A443E1FD10CAF00BAE622 /* NSBundle+TZImagePicker.m in Sources */,
@@ -2289,6 +2335,7 @@
 				9ACA8AFB1F98574C00B73B29 /* ZFPlayerControlView.m in Sources */,
 				9A08B2921F88ACAD00232661 /* SCVerifyButton.m in Sources */,
 				9A08B2B21F88DEF700232661 /* MovePlayerViewController.m in Sources */,
+				3F92940E1FD4F3B9004CC1E7 /* SGQRCodeScanningVC.m in Sources */,
 				049E50B01FA0D220006C3BF1 /* MusicViewController.m in Sources */,
 				3F5A445A1FD137FD00BAE622 /* DisForTeamEditViewController.m in Sources */,
 				9A906AE51F886B2400AB9A70 /* LoginViewController.m in Sources */,
@@ -2310,6 +2357,7 @@
 				9A2CB8AF1F875A6D00907C72 /* HeaderReusableView.m in Sources */,
 				9A1DC6A51FA49CF10014E739 /* DownloadViewController.m in Sources */,
 				9ACA8AF31F98574C00B73B29 /* UINavigationController+ZFPlayerRotation.m in Sources */,
+				3F9294121FD4F4B2004CC1E7 /* SGWebView.m in Sources */,
 				9A08C2381FCCF32C00F6C54B /* UIImage+CLImage.m in Sources */,
 				041C473E1F9B86AF00A65AC8 /* SaveBrowseRecord.m in Sources */,
 				049E50D11FA1D278006C3BF1 /* CitySelectViewController.m in Sources */,
@@ -2362,6 +2410,7 @@
 				049E50CC1FA1C081006C3BF1 /* MusicVideoViewController.m in Sources */,
 				049E51091FA2FF00006C3BF1 /* MsgCenterViewController.m in Sources */,
 				04927C2E1F98E76A00CDD58E /* ReplyCommentModel.m in Sources */,
+				3F92940D1FD4F3B9004CC1E7 /* ScanSuccessJumpVC.m in Sources */,
 				9ACA8B0A1F985B4400B73B29 /* ZFFileModel.m in Sources */,
 				9AD960C41F8F10280024DA43 /* SDRequestManager.m in Sources */,
 				048C53341F9D998800607784 /* DanceTypeViewController.m in Sources */,

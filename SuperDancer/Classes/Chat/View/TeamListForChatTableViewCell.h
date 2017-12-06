@@ -10,4 +10,5 @@
 
 @interface TeamListForChatTableViewCell : UITableViewCell
 -(void)updateCellWithData:(NSDictionary *)infoData;
+-(void)updateCellWithArray:(NSArray *)infoData;
 @end
