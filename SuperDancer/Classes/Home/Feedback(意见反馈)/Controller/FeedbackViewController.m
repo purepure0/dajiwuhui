@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"意见反馈";
+    self.view.backgroundColor = kBackgroundColor;
     
     self.textView = [[BVTextView alloc] init];
     [self.view addSubview:self.textView];
@@ -29,7 +30,7 @@
     .leftEqualToView(self.view)
     .rightEqualToView(self.view)
     .topSpaceToView(self.view, 10)
-    .heightIs(200);
+    .heightIs(kAutoHeight(200));
     
 }
 

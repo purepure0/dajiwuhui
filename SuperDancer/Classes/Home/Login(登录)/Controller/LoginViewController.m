@@ -127,6 +127,7 @@
                         self.users.token = NSStringFormat(@"%@",responseObject[@"data"][@"token"]);
                         [MBProgressHUD showSuccess:@"登录成功" toView:self.view];
                         [self updateHttpHeader];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_HAS_LOGIN object:nil];
                         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                     }else {
                         BindingMobileViewController *binding = [[BindingMobileViewController alloc] init];

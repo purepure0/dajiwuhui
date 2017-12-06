@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -91,7 +91,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwR-vu-5Jr">
-                    <rect key="frame" x="35" y="520" width="305" height="42"/>
+                    <rect key="frame" x="35" y="510" width="305" height="42"/>
                     <color key="backgroundColor" red="0.54942578077316284" green="0.19848364591598511" blue="0.70378297567367554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="XwR-vu-5Jr" secondAttribute="height" multiplier="305:42" id="Pds-kM-rEp"/>
@@ -105,7 +105,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Txy-Vh-svA">
-                    <rect key="frame" x="35" y="577" width="305" height="42"/>
+                    <rect key="frame" x="35" y="567" width="305" height="42"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Txy-Vh-svA" secondAttribute="height" multiplier="305:42" id="Pbw-x8-rTq"/>
@@ -121,7 +121,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录即代表同意" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOi-dZ-plN">
-                    <rect key="frame" x="82.5" y="627" width="90" height="20"/>
+                    <rect key="frame" x="82.5" y="617" width="90" height="20"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="CxS-LU-GOt"/>
@@ -132,7 +132,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfw-F0-vPW">
-                    <rect key="frame" x="167.5" y="627" width="123" height="20"/>
+                    <rect key="frame" x="167.5" y="617" width="123" height="20"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Yv7-KI-SKa"/>
@@ -193,7 +193,7 @@
                 <constraint firstItem="cLH-Sr-KsH" firstAttribute="leading" secondItem="52o-xU-UB9" secondAttribute="leading" id="O6g-xH-Qjq"/>
                 <constraint firstItem="eqN-6r-38Z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="QDF-i7-dVl"/>
                 <constraint firstItem="XwR-vu-5Jr" firstAttribute="leading" secondItem="v8q-K8-sZf" secondAttribute="leading" id="R19-5p-MIs"/>
-                <constraint firstAttribute="bottom" secondItem="tOi-dZ-plN" secondAttribute="bottom" constant="20" id="V0G-9R-N1L"/>
+                <constraint firstAttribute="bottom" secondItem="tOi-dZ-plN" secondAttribute="bottom" constant="30" id="V0G-9R-N1L"/>
                 <constraint firstAttribute="trailing" secondItem="v8q-K8-sZf" secondAttribute="trailing" constant="35" id="V8d-9F-CMF"/>
                 <constraint firstItem="5mw-Rl-riM" firstAttribute="trailing" secondItem="v8q-K8-sZf" secondAttribute="trailing" id="VQj-dd-XJr"/>
                 <constraint firstItem="XwR-vu-5Jr" firstAttribute="trailing" secondItem="v8q-K8-sZf" secondAttribute="trailing" id="Wtd-EG-Jv5"/>

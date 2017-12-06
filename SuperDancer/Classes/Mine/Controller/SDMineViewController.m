@@ -12,7 +12,6 @@
 #import "MineHandleCell.h"
 
 #import "MyCollectionViewController.h"
-//#import "MsgCommentViewController.h"
 #import "MsgCenterViewController.h"
 #import "BrowsingHistoryViewController.h"
 #import "DownloadViewController.h"
@@ -21,6 +20,10 @@
 #import "UserAgreeViewController.h"
 #import "AboutUsViewController.h"
 #import "FeedbackViewController.h"
+
+#import "SDNavigationController.h"
+#import "LoginViewController.h"
+#import "PersonalCenterViewController.h"
 
 #define NAVBAR_COLORCHANGE_POINT (-IMAGE_HEIGHT + NAV_HEIGHT*1)
 #define NAV_HEIGHT 64
@@ -47,6 +50,7 @@
 @property (nonatomic, strong) UIButton *rightItem;
 // 我的
 @property (nonatomic, strong) UILabel *mineLabel;
+// 导航栏底部线
 @property (nonatomic, strong) UIView *lineView;
 
 @end
@@ -60,9 +64,22 @@ static NSString *kDefaultCellIdentifier = @"DefaultCellIdentifier";
     [super viewDidLoad];
     self.fd_prefersNavigationBarHidden = YES;
     self.tableView.contentInset = UIEdgeInsetsMake(IMAGE_HEIGHT, 0, 0, 0);
-    [self.tableView registerNib:NIB_NAMED(@"MineHandleCell") forCellReuseIdentifier:kMineHandleCellIdentifier];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification) name:@"AcountBtnImgNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification) name:NOTIFICATION_USER_HAS_LOGIN object:nil];
+    
     [self setupHeaderView];
     [self setupTopView];
+    [self updateUserInfo];
+}
+
+- (void)receiveNotification {
+    [self updateUserInfo];
+}
+
+- (void)updateUserInfo
+{
+    [_portraitButton setImageWithURL:[NSURL URLWithString:self.users.avatarURL] forState:UIControlStateNormal placeholder:IMAGE_NAMED(@"placeholder_img")];
+    _nicknameLabel.text = self.users.nickName ? : @"";
 }
 
 - (void)setupTopView
@@ -120,10 +137,13 @@ static NSString *kDefaultCellIdentifier = @"DefaultCellIdentifier";
     
 }
 
-- (void)settingAction
-{
-    SettingViewController *setting = [[SettingViewController alloc] init];
-    [self.navigationController pushViewController:setting animated:YES];
+- (void)settingAction {
+    if (self.users.userId) {
+        SettingViewController *setting = [[SettingViewController alloc] init];
+        [self.navigationController pushViewController:setting animated:YES];
+    } else {
+        [self presentLoginPage];
+    }
 }
 
 - (void)setupHeaderView
@@ -134,6 +154,7 @@ static NSString *kDefaultCellIdentifier = @"DefaultCellIdentifier";
     
     _portraitButton = [[UIButton alloc] init];
     _portraitButton.backgroundColor = [UIColor whiteColor];
+    [_portraitButton addTarget:self action:@selector(portraitAction) forControlEvents:UIControlEventTouchUpInside];
     [_headerView addSubview:_portraitButton];
     
     _nicknameLabel = [[UILabel alloc] init];
@@ -161,6 +182,16 @@ static NSString *kDefaultCellIdentifier = @"DefaultCellIdentifier";
     .heightIs(25);
 }
 
+- (void)portraitAction {
+    if (self.users.userId) {
+        PersonalCenterViewController *p = [[PersonalCenterViewController alloc] init];
+        p.userId = self.users.userId;
+        [self.navigationController pushViewController:p animated:YES];
+    } else {
+        [self presentLoginPage];
+    }
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat offsetY = scrollView.contentOffset.y;
@@ -168,7 +199,6 @@ static NSString *kDefaultCellIdentifier = @"DefaultCellIdentifier";
     if (offsetY > NAVBAR_COLORCHANGE_POINT)
     {
         CGFloat alpha = (offsetY - NAVBAR_COLORCHANGE_POINT) / NAV_HEIGHT;
-//        PPLog(@"***==%lf",alpha);
         _topView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:alpha];
         _mineLabel.textColor = [kTextBlackColor colorWithAlphaComponent:alpha];
         [_rightItem setTitleColor:kTextBlackColor  forState:UIControlStateNormal];
@@ -220,21 +250,39 @@ static NSString *kDefaultCellIdentifier = @"DefaultCellIdentifier";
         cell.textLabel.text = titles[indexPath.row];
         cell.textLabel.textColor = kTextBlackColor;
         
+        UIImageView *arrowImg = [[UIImageView alloc] initWithImage:IMAGE_NAMED(@"right_arrow")];
+        cell.accessoryView = arrowImg;
+        
         return cell;
     } else {
         MineHandleCell *cell = [tableView dequeueReusableCellWithIdentifier:kMineHandleCellIdentifier];
+        if (cell == nil) {
+            cell = [[NSBundle mainBundle] loadNibNamed:@"MineHandleCell" owner:self options:nil].firstObject;
+        }
         [cell setHandleBlock:^(NSInteger index) {
             switch (index) {
-                case 1:
-                    [self pushToNextPageWithClass:[MyCollectionViewController class]];
+                case 1: // 收藏
+                    if (self.users.userId) {
+                        [self pushToNextPageWithClass:[MyCollectionViewController class]];
+                    } else {
+                        [self presentLoginPage];
+                    }
                     break;
-                case 2:
-                    [self pushToNextPageWithClass:[MsgCenterViewController class]];
+                case 2: // 消息
+                    if (self.users.userId) {
+                       [self pushToNextPageWithClass:[MsgCenterViewController class]];
+                    } else {
+                        [self presentLoginPage];
+                    }
                     break;
-                case 3:
-                     [self pushToNextPageWithClass:[BrowsingHistoryViewController class]];
+                case 3: // 浏览记录
+                    if (self.users.userId) {
+                        [self pushToNextPageWithClass:[BrowsingHistoryViewController class]];
+                    } else {
+                        [self presentLoginPage];
+                    }
                     break;
-                case 4:
+                case 4: // 下载
                     [self pushToNextPageWithClass:[MovieDownloadViewController class]];
                     break;
                 default:
@@ -245,6 +293,12 @@ static NSString *kDefaultCellIdentifier = @"DefaultCellIdentifier";
     }
 }
 
+- (void)presentLoginPage {
+    LoginViewController *login = [[LoginViewController alloc] init];
+    SDNavigationController *nav = [[SDNavigationController alloc] initWithRootViewController:login];
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section) {
@@ -253,7 +307,11 @@ static NSString *kDefaultCellIdentifier = @"DefaultCellIdentifier";
         } else if (indexPath.row == 1) {
             [self pushToNextPageWithClass:[AboutUsViewController class]];
         } else {
-            [self pushToNextPageWithClass:[FeedbackViewController class]];
+            if (self.users.userId) {
+                [self pushToNextPageWithClass:[FeedbackViewController class]];
+            } else {
+                [self presentLoginPage];
+            }
         }
     }
 }

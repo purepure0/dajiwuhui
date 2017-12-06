@@ -9,13 +9,12 @@
 #import "SDUser.h"
 
 #define USER_USER_ID @"userId"
-#define USER_DEPT_ID @"deptId"
 #define USER_NICK_NAME @"nickName"
 #define USER_MOBILE @"mobile"
 #define USER_EMAIL @"email"
 #define USER_AVATARURL @"avatarURL"
 #define USER_ACCOUNT @"account"
-#define USER_ACCOUNT_PASSWORD @"password"
+#define USER_PASSWORD @"password"
 #define USER_TOKEN @"token"
 #define USER_SIGNATURE @"signature"
 #define USER_BACKGROUND @"background"
@@ -26,6 +25,7 @@
 #define USER_CITY_SELECTED @"city_selected"
 #define USER_DISTRICT_SELECTED @"district_selected"
 #define USER_DISTRICTID @"districtid"
+
 @implementation SDUser
 
 + (SDUser *)sharedUser {
@@ -95,11 +95,11 @@
 
 // 密码
 - (NSString *)password {
-    return [self.userDefaults objectForKey:USER_ACCOUNT_PASSWORD];
+    return [self.userDefaults objectForKey:USER_PASSWORD];
 }
 
 - (void)setPassword:(NSString *)password {
-    [self.userDefaults setObject:password forKey:USER_ACCOUNT_PASSWORD];
+    [self.userDefaults setObject:password forKey:USER_PASSWORD];
 }
 
 // 临时token
@@ -202,7 +202,29 @@
     return _userDefaults;
 }
 
-- (void)logout {}
+/* 退出登录 */
+- (void)logout {
+    [self.userDefaults setObject:nil forKey:USER_USER_ID];//Id
+    [self.userDefaults setObject:nil forKey:USER_EMAIL];//邮箱
+    [self.userDefaults setObject:nil forKey:USER_NICK_NAME];//昵称
+    [self.userDefaults setObject:nil forKey:USER_MOBILE];//电话
+    [self.userDefaults setObject:nil forKey:USER_AVATARURL];//头像
+    [self.userDefaults setObject:nil forKey:USER_ACCOUNT];//帐号
+    [self.userDefaults setObject:nil forKey:USER_PASSWORD];//密码
+    [self.userDefaults setObject:nil forKey:USER_TOKEN];//临时token
+    [self.userDefaults setObject:nil forKey:USER_SIGNATURE];//签名
+    [self.userDefaults setObject:nil forKey:USER_BACKGROUND];//背景
+    [self.userDefaults setObject:nil forKey:USER_SEX];//性别
+    [self.userDefaults setObject:nil forKey:USER_BIRITHDAY];//生日
+    //用户当前城市不能清空，因为要在首页上显示
+//    [self.userDefaults setObject:nil forKey:USER_CITY_LOCATION];//定位城市
+//    [self.userDefaults setObject:nil forKey:USER_DISTRICT_LOCATION];
+//    [self.userDefaults setObject:nil forKey:USER_CITY_SELECTED];
+//    [self.userDefaults setObject:nil forKey:USER_DISTRICT_SELECTED];
+//    [self.userDefaults setObject:nil forKey:USER_DISTRICTID];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_KTUSER_HAS_LOGOUT object:nil];
+}
 
 
 @end

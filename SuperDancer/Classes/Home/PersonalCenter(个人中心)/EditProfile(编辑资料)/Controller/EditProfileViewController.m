@@ -112,7 +112,6 @@ UINavigationControllerDelegate, UITextViewDelegate>
                 .rightSpaceToView(cell.contentView, 33)
                 .centerYEqualToView(cell.contentView)
                 .heightIs(21);
-                
             }
         } else {
             if (indexPath.row != 0) {
@@ -169,7 +168,6 @@ UINavigationControllerDelegate, UITextViewDelegate>
             [self uploadImage];
         } else {
             PPLog(@"修改昵称");
-            NSLog(@"%@", self.nickNameLabel.text);
             EditNickNameViewController *editNickName = [[EditNickNameViewController alloc] init];
             editNickName.nickNameLabel = self.nickNameLabel;
             [self.navigationController pushViewController:editNickName animated:YES];
@@ -238,7 +236,8 @@ UINavigationControllerDelegate, UITextViewDelegate>
                                   [MBProgressHUD showSuccess:responseObject[@"message"] toView:self.view];
                                   self.avatarImgView.image = avatar;
                                   self.users.avatarURL = responseObject[@"data"][@"res"][@"user_headimg"];
-                                  [[NSNotificationCenter defaultCenter] postNotificationName:kAcountBtnImgNotification object:nil];
+                                  // 更新我的头像信息
+                                  [[NSNotificationCenter defaultCenter] postNotificationName:@"AcountBtnImgNotification" object:nil];
                                   
                               }
                           } failure:^(NSError *error) {
