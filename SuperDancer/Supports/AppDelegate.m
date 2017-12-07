@@ -22,7 +22,8 @@
 
 #define kAMapApiKey @"2b9d644cfa86764d460dff45bf4f7842"
 #define JPushAppKey @"fdf767381c7291e4b8a98a7b"
-
+//app key :45f097c6ebe072b28422e670ce15824b
+//App Secret :745b8f862ca9
 @interface AppDelegate ()<AMapLocationManagerDelegate, JPUSHRegisterDelegate>
 @property (nonatomic, strong) AMapLocationManager *locationManager;
 @end
@@ -36,15 +37,17 @@
     [self configureAMapService];
     ///<3>定位.
     [self initLocationManager];
-    ///<4>推送
-    [self configureJPushWithLaunchOptions:launchOptions];
+    ///<4>极光推送
+//    [self configureJPushWithLaunchOptions:launchOptions];
     ///<5>bugtags测试工具
     [Bugtags startWithAppKey:@"08202dec433c4ed124ec3d36ee834d3e" invocationEvent:BTGInvocationEventBubble];
+    ///<6>
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[SDTabBarController alloc] init];
-    ///<5>.适配iOS 11
+    ///<7>.适配iOS 11
     [self configureIos11];
     
     [self.window makeKeyAndVisible];
@@ -113,7 +116,8 @@
     }];
 }
 
-
+// 极光推送
+/*
 - (void)configureJPushWithLaunchOptions:(NSDictionary *)launchOptions {
     JPUSHRegisterEntity *entity = [[JPUSHRegisterEntity alloc] init];
     entity.types = JPAuthorizationOptionAlert | JPAuthorizationOptionBadge | JPAuthorizationOptionSound;
@@ -127,6 +131,7 @@
         }
     }];
 }
+*/
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(nonnull NSData *)deviceToken {
     [JPUSHService registerDeviceToken:deviceToken];
