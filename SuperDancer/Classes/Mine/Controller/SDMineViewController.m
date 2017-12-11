@@ -252,7 +252,7 @@ static NSString *kDefaultCellIdentifier = @"DefaultCellIdentifier";
         
         UIImageView *arrowImg = [[UIImageView alloc] initWithImage:IMAGE_NAMED(@"right_arrow")];
         cell.accessoryView = arrowImg;
-        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else {
         MineHandleCell *cell = [tableView dequeueReusableCellWithIdentifier:kMineHandleCellIdentifier];
@@ -289,6 +289,7 @@ static NSString *kDefaultCellIdentifier = @"DefaultCellIdentifier";
                     break;
             }
         }];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
 }
