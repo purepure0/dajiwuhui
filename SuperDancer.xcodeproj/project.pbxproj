@@ -165,6 +165,26 @@
 		9A2CB8B01F875A6D00907C72 /* HeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2CB8AE1F875A6D00907C72 /* HeaderReusableView.xib */; };
 		9A2CB8B41F8765B000907C72 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2CB8B21F8765B000907C72 /* ButtonCell.m */; };
 		9A2CB8B51F8765B000907C72 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2CB8B31F8765B000907C72 /* ButtonCell.xib */; };
+		9A53C0631FDFA9C5003CBFD3 /* MessageNotiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C0611FDFA9C5003CBFD3 /* MessageNotiViewController.m */; };
+		9A53C0641FDFA9C5003CBFD3 /* MessageNotiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C0621FDFA9C5003CBFD3 /* MessageNotiViewController.xib */; };
+		9A53C0691FDFAE8F003CBFD3 /* MessageNotiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C0671FDFAE8F003CBFD3 /* MessageNotiCell.m */; };
+		9A53C06A1FDFAE8F003CBFD3 /* MessageNotiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C0681FDFAE8F003CBFD3 /* MessageNotiCell.xib */; };
+		9A53C06F1FDFC2FA003CBFD3 /* PublicNoticeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C06D1FDFC2FA003CBFD3 /* PublicNoticeDetailViewController.xib */; };
+		9A53C0731FDFC86F003CBFD3 /* PublicNoticeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C0711FDFC86F003CBFD3 /* PublicNoticeListViewController.m */; };
+		9A53C0741FDFC86F003CBFD3 /* PublicNoticeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C0721FDFC86F003CBFD3 /* PublicNoticeListViewController.xib */; };
+		9A53C0781FDFC900003CBFD3 /* PublicNoticeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C0761FDFC900003CBFD3 /* PublicNoticeListCell.m */; };
+		9A53C0791FDFC900003CBFD3 /* PublicNoticeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C0771FDFC900003CBFD3 /* PublicNoticeListCell.xib */; };
+		9A53C07B1FDFCF73003CBFD3 /* PublicNoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C07A1FDFCF73003CBFD3 /* PublicNoticeDetailViewController.m */; };
+		9A53C08F1FDFD3EC003CBFD3 /* RefuseApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C08D1FDFD3EC003CBFD3 /* RefuseApplyViewController.m */; };
+		9A53C0901FDFD3EC003CBFD3 /* RefuseApplyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C08E1FDFD3EC003CBFD3 /* RefuseApplyViewController.xib */; };
+		9A53C0941FDFD470003CBFD3 /* ApplyMessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C0921FDFD470003CBFD3 /* ApplyMessageListViewController.m */; };
+		9A53C0951FDFD470003CBFD3 /* ApplyMessageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C0931FDFD470003CBFD3 /* ApplyMessageListViewController.xib */; };
+		9A53C0991FDFD482003CBFD3 /* ApplyMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C0971FDFD482003CBFD3 /* ApplyMessageDetailViewController.m */; };
+		9A53C09A1FDFD482003CBFD3 /* ApplyMessageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C0981FDFD482003CBFD3 /* ApplyMessageDetailViewController.xib */; };
+		9A53C09E1FDFD502003CBFD3 /* ApplyMessageListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C09C1FDFD502003CBFD3 /* ApplyMessageListCell.m */; };
+		9A53C09F1FDFD502003CBFD3 /* ApplyMessageListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C09D1FDFD502003CBFD3 /* ApplyMessageListCell.xib */; };
+		9A53C0A31FE00C00003CBFD3 /* ApplyDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C0A11FE00C00003CBFD3 /* ApplyDetailCell.m */; };
+		9A53C0A41FE00C00003CBFD3 /* ApplyDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C0A21FE00C00003CBFD3 /* ApplyDetailCell.xib */; };
 		9A61BEFD1FD1371F00F30888 /* SDMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A61BEF61FD1371F00F30888 /* SDMineViewController.m */; };
 		9A61BEFE1FD1371F00F30888 /* SDMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A61BEF71FD1371F00F30888 /* SDMineViewController.xib */; };
 		9A61BEFF1FD1371F00F30888 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A61BEF91FD1371F00F30888 /* SettingViewController.m */; };
@@ -511,6 +531,36 @@
 		9A2CB8B11F8765B000907C72 /* ButtonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonCell.h; sourceTree = "<group>"; };
 		9A2CB8B21F8765B000907C72 /* ButtonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
 		9A2CB8B31F8765B000907C72 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		9A53C0601FDFA9C5003CBFD3 /* MessageNotiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageNotiViewController.h; sourceTree = "<group>"; };
+		9A53C0611FDFA9C5003CBFD3 /* MessageNotiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageNotiViewController.m; sourceTree = "<group>"; };
+		9A53C0621FDFA9C5003CBFD3 /* MessageNotiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageNotiViewController.xib; sourceTree = "<group>"; };
+		9A53C0661FDFAE8F003CBFD3 /* MessageNotiCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageNotiCell.h; sourceTree = "<group>"; };
+		9A53C0671FDFAE8F003CBFD3 /* MessageNotiCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageNotiCell.m; sourceTree = "<group>"; };
+		9A53C0681FDFAE8F003CBFD3 /* MessageNotiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageNotiCell.xib; sourceTree = "<group>"; };
+		9A53C06B1FDFC2FA003CBFD3 /* PublicNoticeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicNoticeDetailViewController.h; sourceTree = "<group>"; };
+		9A53C06D1FDFC2FA003CBFD3 /* PublicNoticeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicNoticeDetailViewController.xib; sourceTree = "<group>"; };
+		9A53C0701FDFC86F003CBFD3 /* PublicNoticeListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicNoticeListViewController.h; sourceTree = "<group>"; };
+		9A53C0711FDFC86F003CBFD3 /* PublicNoticeListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicNoticeListViewController.m; sourceTree = "<group>"; };
+		9A53C0721FDFC86F003CBFD3 /* PublicNoticeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicNoticeListViewController.xib; sourceTree = "<group>"; };
+		9A53C0751FDFC900003CBFD3 /* PublicNoticeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicNoticeListCell.h; sourceTree = "<group>"; };
+		9A53C0761FDFC900003CBFD3 /* PublicNoticeListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicNoticeListCell.m; sourceTree = "<group>"; };
+		9A53C0771FDFC900003CBFD3 /* PublicNoticeListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicNoticeListCell.xib; sourceTree = "<group>"; };
+		9A53C07A1FDFCF73003CBFD3 /* PublicNoticeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicNoticeDetailViewController.m; sourceTree = "<group>"; };
+		9A53C08C1FDFD3EC003CBFD3 /* RefuseApplyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RefuseApplyViewController.h; sourceTree = "<group>"; };
+		9A53C08D1FDFD3EC003CBFD3 /* RefuseApplyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefuseApplyViewController.m; sourceTree = "<group>"; };
+		9A53C08E1FDFD3EC003CBFD3 /* RefuseApplyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RefuseApplyViewController.xib; sourceTree = "<group>"; };
+		9A53C0911FDFD470003CBFD3 /* ApplyMessageListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyMessageListViewController.h; sourceTree = "<group>"; };
+		9A53C0921FDFD470003CBFD3 /* ApplyMessageListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyMessageListViewController.m; sourceTree = "<group>"; };
+		9A53C0931FDFD470003CBFD3 /* ApplyMessageListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyMessageListViewController.xib; sourceTree = "<group>"; };
+		9A53C0961FDFD482003CBFD3 /* ApplyMessageDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyMessageDetailViewController.h; sourceTree = "<group>"; };
+		9A53C0971FDFD482003CBFD3 /* ApplyMessageDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyMessageDetailViewController.m; sourceTree = "<group>"; };
+		9A53C0981FDFD482003CBFD3 /* ApplyMessageDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyMessageDetailViewController.xib; sourceTree = "<group>"; };
+		9A53C09B1FDFD502003CBFD3 /* ApplyMessageListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyMessageListCell.h; sourceTree = "<group>"; };
+		9A53C09C1FDFD502003CBFD3 /* ApplyMessageListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyMessageListCell.m; sourceTree = "<group>"; };
+		9A53C09D1FDFD502003CBFD3 /* ApplyMessageListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyMessageListCell.xib; sourceTree = "<group>"; };
+		9A53C0A01FE00C00003CBFD3 /* ApplyDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyDetailCell.h; sourceTree = "<group>"; };
+		9A53C0A11FE00C00003CBFD3 /* ApplyDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyDetailCell.m; sourceTree = "<group>"; };
+		9A53C0A21FE00C00003CBFD3 /* ApplyDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyDetailCell.xib; sourceTree = "<group>"; };
 		9A61BEF51FD1371F00F30888 /* SDMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMineViewController.h; sourceTree = "<group>"; };
 		9A61BEF61FD1371F00F30888 /* SDMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMineViewController.m; sourceTree = "<group>"; };
 		9A61BEF71FD1371F00F30888 /* SDMineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDMineViewController.xib; sourceTree = "<group>"; };
@@ -1175,6 +1225,7 @@
 		9A08C21B1FCC3EC000F6C54B /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				9A53C05F1FDFA95D003CBFD3 /* MessageNotification(消息通知) */,
 				3F9294131FD50030004CC1E7 /* DanceTeam */,
 				3F5A444D1FD11C9700BAE622 /* AddAction(添加按钮扩展) */,
 				3F6868C51FCEA6A4001EB5BD /* View */,
@@ -1698,6 +1749,75 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9A53C05F1FDFA95D003CBFD3 /* MessageNotification(消息通知) */ = {
+			isa = PBXGroup;
+			children = (
+				9A53C07C1FDFD2EA003CBFD3 /* Controller */,
+				9A53C0651FDFAD8D003CBFD3 /* View */,
+			);
+			path = "MessageNotification(消息通知)";
+			sourceTree = "<group>";
+		};
+		9A53C0651FDFAD8D003CBFD3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A53C0661FDFAE8F003CBFD3 /* MessageNotiCell.h */,
+				9A53C0671FDFAE8F003CBFD3 /* MessageNotiCell.m */,
+				9A53C0681FDFAE8F003CBFD3 /* MessageNotiCell.xib */,
+				9A53C0751FDFC900003CBFD3 /* PublicNoticeListCell.h */,
+				9A53C0761FDFC900003CBFD3 /* PublicNoticeListCell.m */,
+				9A53C0771FDFC900003CBFD3 /* PublicNoticeListCell.xib */,
+				9A53C09B1FDFD502003CBFD3 /* ApplyMessageListCell.h */,
+				9A53C09C1FDFD502003CBFD3 /* ApplyMessageListCell.m */,
+				9A53C09D1FDFD502003CBFD3 /* ApplyMessageListCell.xib */,
+				9A53C0A01FE00C00003CBFD3 /* ApplyDetailCell.h */,
+				9A53C0A11FE00C00003CBFD3 /* ApplyDetailCell.m */,
+				9A53C0A21FE00C00003CBFD3 /* ApplyDetailCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9A53C07C1FDFD2EA003CBFD3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9A53C0601FDFA9C5003CBFD3 /* MessageNotiViewController.h */,
+				9A53C0611FDFA9C5003CBFD3 /* MessageNotiViewController.m */,
+				9A53C0621FDFA9C5003CBFD3 /* MessageNotiViewController.xib */,
+				9A53C07E1FDFD312003CBFD3 /* 申请 */,
+				9A53C07D1FDFD300003CBFD3 /* 公告 */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9A53C07D1FDFD300003CBFD3 /* 公告 */ = {
+			isa = PBXGroup;
+			children = (
+				9A53C0701FDFC86F003CBFD3 /* PublicNoticeListViewController.h */,
+				9A53C0711FDFC86F003CBFD3 /* PublicNoticeListViewController.m */,
+				9A53C0721FDFC86F003CBFD3 /* PublicNoticeListViewController.xib */,
+				9A53C06B1FDFC2FA003CBFD3 /* PublicNoticeDetailViewController.h */,
+				9A53C07A1FDFCF73003CBFD3 /* PublicNoticeDetailViewController.m */,
+				9A53C06D1FDFC2FA003CBFD3 /* PublicNoticeDetailViewController.xib */,
+			);
+			path = "公告";
+			sourceTree = "<group>";
+		};
+		9A53C07E1FDFD312003CBFD3 /* 申请 */ = {
+			isa = PBXGroup;
+			children = (
+				9A53C0911FDFD470003CBFD3 /* ApplyMessageListViewController.h */,
+				9A53C0921FDFD470003CBFD3 /* ApplyMessageListViewController.m */,
+				9A53C0931FDFD470003CBFD3 /* ApplyMessageListViewController.xib */,
+				9A53C0961FDFD482003CBFD3 /* ApplyMessageDetailViewController.h */,
+				9A53C0971FDFD482003CBFD3 /* ApplyMessageDetailViewController.m */,
+				9A53C0981FDFD482003CBFD3 /* ApplyMessageDetailViewController.xib */,
+				9A53C08C1FDFD3EC003CBFD3 /* RefuseApplyViewController.h */,
+				9A53C08D1FDFD3EC003CBFD3 /* RefuseApplyViewController.m */,
+				9A53C08E1FDFD3EC003CBFD3 /* RefuseApplyViewController.xib */,
+			);
+			path = "申请";
+			sourceTree = "<group>";
+		};
 		9A61BEF31FD1371F00F30888 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -2125,7 +2245,9 @@
 				04C926D31FAC1D96008F5C0D /* UploadVideoView.xib in Resources */,
 				9A08B2B31F88DEF700232661 /* MovePlayerViewController.xib in Resources */,
 				9A1DC6A61FA49CF10014E739 /* DownloadViewController.xib in Resources */,
+				9A53C06F1FDFC2FA003CBFD3 /* PublicNoticeDetailViewController.xib in Resources */,
 				04ECB8721F9200B000186C5B /* BrowsingHistoryViewController.xib in Resources */,
+				9A53C0641FDFA9C5003CBFD3 /* MessageNotiViewController.xib in Resources */,
 				9AC223851F8B139B00919072 /* HandleCell.xib in Resources */,
 				9A247F881FA0DE2B007AEABE /* EditProfileViewController.xib in Resources */,
 				04ECB87C1F93349C00186C5B /* DancersViewController.xib in Resources */,
@@ -2140,6 +2262,7 @@
 				048C53351F9D998800607784 /* DanceTypeViewController.xib in Resources */,
 				049E50F91FA237BF006C3BF1 /* EditNickNameViewController.xib in Resources */,
 				9A1BB3DF1F85DA590067C12C /* LaunchScreen.storyboard in Resources */,
+				9A53C0A41FE00C00003CBFD3 /* ApplyDetailCell.xib in Resources */,
 				04F41DB61FA36154002EF921 /* UploadVideoViewController.xib in Resources */,
 				04F41DC81FA3B120002EF921 /* EditVideoImageViewController.xib in Resources */,
 				9A61BF051FD1433C00F30888 /* MineHandleCell.xib in Resources */,
@@ -2149,7 +2272,9 @@
 				049E50C31FA0E0E7006C3BF1 /* LocalCell.xib in Resources */,
 				9A61BF001FD1371F00F30888 /* SettingViewController.xib in Resources */,
 				9A08C2341FCCF17100F6C54B /* SDTabBarController.xib in Resources */,
+				9A53C09A1FDFD482003CBFD3 /* ApplyMessageDetailViewController.xib in Resources */,
 				9A2CB88E1F868D5400907C72 /* LocalDanceViewController.xib in Resources */,
+				9A53C0901FDFD3EC003CBFD3 /* RefuseApplyViewController.xib in Resources */,
 				9A61BEFE1FD1371F00F30888 /* SDMineViewController.xib in Resources */,
 				9A71FE7D1F8DF37500738680 /* DownloadingCell.xib in Resources */,
 				9A1BB42A1F85E2850067C12C /* SDHomeViewController.xib in Resources */,
@@ -2160,6 +2285,7 @@
 				049E50CD1FA1C081006C3BF1 /* MusicVideoViewController.xib in Resources */,
 				049E50B61FA0D23F006C3BF1 /* MusicViewCell.xib in Resources */,
 				3F5A44441FD10CAF00BAE622 /* TZImagePickerController.bundle in Resources */,
+				9A53C0951FDFD470003CBFD3 /* ApplyMessageListViewController.xib in Resources */,
 				04ECB8781F92024500186C5B /* HistoryCell.xib in Resources */,
 				9A247F7D1F9B0369007AEABE /* PersonalCenterViewController.xib in Resources */,
 				049E50B11FA0D220006C3BF1 /* MusicViewController.xib in Resources */,
@@ -2173,14 +2299,18 @@
 				9ACD9B761FA35E2A003FF1BB /* UserAgreeViewController.xib in Resources */,
 				049E51001FA2FECD006C3BF1 /* MsgCommentViewController.xib in Resources */,
 				9A2CB8B51F8765B000907C72 /* ButtonCell.xib in Resources */,
+				9A53C09F1FDFD502003CBFD3 /* ApplyMessageListCell.xib in Resources */,
+				9A53C0791FDFC900003CBFD3 /* PublicNoticeListCell.xib in Resources */,
 				049E51151FA30AAB006C3BF1 /* MsgCommentCell.xib in Resources */,
 				9A08C22C1FCC3F2400F6C54B /* SDChatViewController.xib in Resources */,
 				9ACA8AFA1F98574C00B73B29 /* ZFPlayer.bundle in Resources */,
 				9A2CB8A81F8725A300907C72 /* HomeCell.xib in Resources */,
+				9A53C06A1FDFAE8F003CBFD3 /* MessageNotiCell.xib in Resources */,
 				04ECB8671F91F9E000186C5B /* MoreVideoViewController.xib in Resources */,
 				9A79BBF31F8D0738004C3879 /* BindingMobileViewController.xib in Resources */,
 				04AE237C1F9F87D50034635C /* CollectionCell.xib in Resources */,
 				3F5A44701FD154FD00BAE622 /* SearchTeamViewController.xib in Resources */,
+				9A53C0741FDFC86F003CBFD3 /* PublicNoticeListViewController.xib in Resources */,
 				9ACD9B7F1FA36635003FF1BB /* AboutUsViewController.xib in Resources */,
 				048C53231F9D943200607784 /* DanceTypeCell.xib in Resources */,
 				049E50C81FA0E51C006C3BF1 /* LocalHeaderReusableView.xib in Resources */,
@@ -2286,6 +2416,7 @@
 				3F5A44491FD10CAF00BAE622 /* TZPhotoPreviewController.m in Sources */,
 				9A1BB4221F85DFB70067C12C /* BaseViewController.m in Sources */,
 				04498FBC1FA4361D007CACEA /* VideoImageCell.m in Sources */,
+				9A53C0731FDFC86F003CBFD3 /* PublicNoticeListViewController.m in Sources */,
 				9ACA8AF11F98574C00B73B29 /* UIAlertController+ZFPlayerRotation.m in Sources */,
 				04ECB8661F91F9E000186C5B /* MoreVideoViewController.m in Sources */,
 				9AC2237C1F8B107100919072 /* ContentCell.m in Sources */,
@@ -2297,7 +2428,9 @@
 				04F41D8E1FA33542002EF921 /* MsgAttentionModel.m in Sources */,
 				04927BF81F97355000CDD58E /* LikeModel.m in Sources */,
 				3F5A443E1FD10CAF00BAE622 /* NSBundle+TZImagePicker.m in Sources */,
+				9A53C0691FDFAE8F003CBFD3 /* MessageNotiCell.m in Sources */,
 				9A1BB41A1F85DC210067C12C /* main.m in Sources */,
+				9A53C07B1FDFCF73003CBFD3 /* PublicNoticeDetailViewController.m in Sources */,
 				9AD960F31F8F2F050024DA43 /* MBProgressHUD+MJ.m in Sources */,
 				9AD960EC1F8F2EEA0024DA43 /* SDInterfacedConst.m in Sources */,
 				9A2CB8A71F8725A300907C72 /* HomeCell.m in Sources */,
@@ -2312,13 +2445,16 @@
 				04AE23631F9F18C90034635C /* UserModel.m in Sources */,
 				041C473B1F9B86A700A65AC8 /* DateMarkTool.m in Sources */,
 				048C53221F9D943200607784 /* DanceTypeCell.m in Sources */,
+				9A53C0A31FE00C00003CBFD3 /* ApplyDetailCell.m in Sources */,
 				049E50FF1FA2FECD006C3BF1 /* MsgCommentViewController.m in Sources */,
 				04AE23B41FA07E990034635C /* MyCollectionViewController.m in Sources */,
 				9ACA8AF91F98574C00B73B29 /* ZFBrightnessView.m in Sources */,
 				04927BFB1F974A2300CDD58E /* KeepModel.m in Sources */,
+				9A53C0941FDFD470003CBFD3 /* ApplyMessageListViewController.m in Sources */,
 				049E50BD1FA0DDEC006C3BF1 /* LocalSelectViewController.m in Sources */,
 				9A61BEFF1FD1371F00F30888 /* SettingViewController.m in Sources */,
 				9A992DF21FA2392400FBAC21 /* UploadVideoView.m in Sources */,
+				9A53C08F1FDFD3EC003CBFD3 /* RefuseApplyViewController.m in Sources */,
 				040F832A1F95B276003DA2A0 /* CommentModel.m in Sources */,
 				3F5A444A1FD10CAF00BAE622 /* TZProgressView.m in Sources */,
 				049E51141FA30AAB006C3BF1 /* MsgCommentCell.m in Sources */,
@@ -2330,6 +2466,7 @@
 				3F5A445A1FD137FD00BAE622 /* DisForTeamEditViewController.m in Sources */,
 				9A906AE51F886B2400AB9A70 /* LoginViewController.m in Sources */,
 				04F41D8A1FA3302D002EF921 /* MsgAttentionCell.m in Sources */,
+				9A53C0781FDFC900003CBFD3 /* PublicNoticeListCell.m in Sources */,
 				9ACA8AF41F98574C00B73B29 /* UITabBarController+ZFPlayerRotation.m in Sources */,
 				9A08B2A11F88D3E700232661 /* UIButton+Block.m in Sources */,
 				9A08B29E1F88C75500232661 /* UIBarButtonItem+SCItem.m in Sources */,
@@ -2356,6 +2493,7 @@
 				049E510E1FA305DD006C3BF1 /* MsgAttentionViewController.m in Sources */,
 				3F5A446B1FD149F000BAE622 /* UIBounceButton.m in Sources */,
 				9AD960DC1F8F180D0024DA43 /* PPNetworkCache.m in Sources */,
+				9A53C09E1FDFD502003CBFD3 /* ApplyMessageListCell.m in Sources */,
 				9A79BBF21F8D0738004C3879 /* BindingMobileViewController.m in Sources */,
 				9ACA8AF61F98574C00B73B29 /* UIViewController+ZFPlayerRotation.m in Sources */,
 				9AD960DD1F8F180D0024DA43 /* PPNetworkHelper.m in Sources */,
@@ -2380,6 +2518,7 @@
 				3F5A44411FD10CAF00BAE622 /* TZGifPhotoPreviewController.m in Sources */,
 				9ACA8AF71F98574C00B73B29 /* UIWindow+CurrentViewController.m in Sources */,
 				9A79BBFB1F8DF13D004C3879 /* MovieDownloadViewController.m in Sources */,
+				9A53C0991FDFD482003CBFD3 /* ApplyMessageDetailViewController.m in Sources */,
 				9ACA8B081F985B4400B73B29 /* ZFCommonHelper.m in Sources */,
 				9ACA8AF51F98574C00B73B29 /* UIView+CustomControlView.m in Sources */,
 				9A247F7E1F9B0369007AEABE /* PersonalHeaderView.m in Sources */,
@@ -2398,6 +2537,7 @@
 				3F5A44671FD149AC00BAE622 /* DJWYAlertView.m in Sources */,
 				049E50CC1FA1C081006C3BF1 /* MusicVideoViewController.m in Sources */,
 				049E51091FA2FF00006C3BF1 /* MsgCenterViewController.m in Sources */,
+				9A53C0631FDFA9C5003CBFD3 /* MessageNotiViewController.m in Sources */,
 				04927C2E1F98E76A00CDD58E /* ReplyCommentModel.m in Sources */,
 				3F92940D1FD4F3B9004CC1E7 /* ScanSuccessJumpVC.m in Sources */,
 				9ACA8B0A1F985B4400B73B29 /* ZFFileModel.m in Sources */,

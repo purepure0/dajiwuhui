@@ -12,7 +12,7 @@
 #import "ThreeRightView.h"
 #import "CreatDanceTeamViewController.h"
 #import "SearchTeamViewController.h"
-
+#import "MessageNotiViewController.h"
 
 @interface SDChatViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchControllerDelegate>
 @property(strong,nonatomic)UITableView              *chatListTableView;
@@ -82,7 +82,16 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            MessageNotiViewController *msgNoti = [[MessageNotiViewController alloc] init];
+            self.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:msgNoti animated:YES];
+            self.hidesBottomBarWhenPushed = NO;
+        }else {
+            
+        }
+    }
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if(self.chatVCSearchVC.searchBar.isFirstResponder){
@@ -92,6 +101,7 @@
 
 #pragma mark UITableViewDataSource
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     if (indexPath.section == 0){
         ChatListHeaderSelectTableViewCell * chatListHeaderSelectTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"ChatListHeaderSelectTableViewCell"];
         if(!chatListHeaderSelectTableViewCell){
@@ -137,6 +147,7 @@
     sectionHeaderView.backgroundColor = kBackgroundColor;
     return sectionHeaderView;
 }
+
 
 
 #pragma mark UISearchResultsUpdating
