@@ -8,6 +8,7 @@
 
 #import "ApplyMessageDetailViewController.h"
 #import "ApplyDetailCell.h"
+#import "RefuseApplyViewController.h"
 @interface ApplyMessageDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)NSArray *data;
@@ -99,6 +100,7 @@
         refuseBtn.layer.cornerRadius = 3;
         refuseBtn.layer.borderWidth = 1;
         refuseBtn.layer.borderColor = kLineColor.CGColor;
+        [refuseBtn addTarget:self action:@selector(refuseAction:) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:refuseBtn];
         
         UIButton *agreeBtn = [[UIButton alloc] initWithFrame:CGRectMake(15 * 2 + width, 15, width, 45)];
@@ -106,11 +108,23 @@
         agreeBtn.backgroundColor = kColorRGB(75, 169, 39);
         agreeBtn.layer.masksToBounds = YES;
         agreeBtn .layer.cornerRadius = 3;
+        [agreeBtn addTarget:self action:@selector(agreeAction:) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:agreeBtn];
         return view;
     }
     return nil;
     
+}
+
+- (void)refuseAction:(UIButton *)btn {
+    RefuseApplyViewController *refuseApply = [[RefuseApplyViewController alloc] init];
+    
+    [self.navigationController pushViewController:refuseApply animated:YES];
+    
+}
+
+- (void)agreeAction:(UIButton *)btn {
+    NSLog(@"同意");
 }
 
 

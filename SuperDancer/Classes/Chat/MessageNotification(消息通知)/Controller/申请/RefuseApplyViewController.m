@@ -8,7 +8,9 @@
 
 #import "RefuseApplyViewController.h"
 
-@interface RefuseApplyViewController ()
+@interface RefuseApplyViewController ()<UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *placeHolder;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -17,7 +19,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = @"拒绝申请";
+    [self setRightItemTitle:@"发送" action:@selector(sendReason)];
+    self.view.backgroundColor = kColorRGB(237, 237, 237);
+    _textView.backgroundColor = [UIColor whiteColor];
+    [_textView becomeFirstResponder];
+    
 }
+
+- (void)sendReason {
+    NSLog(@"%@", _textView.text);
+}
+
+
+- (void)textViewDidChange:(UITextView *)textView {
+    if (textView.text.length == 0) {
+        [_placeHolder setHidden:NO];
+    }else {
+        [_placeHolder setHidden:YES];
+    }
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
