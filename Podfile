@@ -36,7 +36,6 @@ pod 'AMapLocation'
 
 pod 'JPush', '3.0.6'
 
-#pod 'NIMSDK'
 pod 'NIMKit/Full'
 
 
