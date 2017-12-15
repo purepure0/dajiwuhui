@@ -187,6 +187,8 @@
 		9A906AE51F886B2400AB9A70 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A906AE31F886B2400AB9A70 /* LoginViewController.m */; };
 		9A906AE61F886B2400AB9A70 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A906AE41F886B2400AB9A70 /* LoginViewController.xib */; };
 		9A992DF21FA2392400FBAC21 /* UploadVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A992DF11FA2392400FBAC21 /* UploadVideoView.m */; };
+		9AB10E831FE27FF000B68794 /* ApplyedMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB10E811FE27FF000B68794 /* ApplyedMessageDetailViewController.m */; };
+		9AB10E841FE27FF000B68794 /* ApplyedMessageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AB10E821FE27FF000B68794 /* ApplyedMessageDetailViewController.xib */; };
 		9AC2237C1F8B107100919072 /* ContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2237A1F8B107100919072 /* ContentCell.m */; };
 		9AC2237D1F8B107100919072 /* ContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC2237B1F8B107100919072 /* ContentCell.xib */; };
 		9AC223841F8B139B00919072 /* HandleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC223821F8B139B00919072 /* HandleCell.m */; };
@@ -544,6 +546,9 @@
 		9A97F8BC1FD29B9B007D0838 /* NotificationNames.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationNames.h; sourceTree = "<group>"; };
 		9A992DF01FA2392400FBAC21 /* UploadVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadVideoView.h; sourceTree = "<group>"; };
 		9A992DF11FA2392400FBAC21 /* UploadVideoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadVideoView.m; sourceTree = "<group>"; };
+		9AB10E801FE27FF000B68794 /* ApplyedMessageDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyedMessageDetailViewController.h; sourceTree = "<group>"; };
+		9AB10E811FE27FF000B68794 /* ApplyedMessageDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyedMessageDetailViewController.m; sourceTree = "<group>"; };
+		9AB10E821FE27FF000B68794 /* ApplyedMessageDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyedMessageDetailViewController.xib; sourceTree = "<group>"; };
 		9AC223791F8B107100919072 /* ContentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentCell.h; sourceTree = "<group>"; };
 		9AC2237A1F8B107100919072 /* ContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentCell.m; sourceTree = "<group>"; };
 		9AC2237B1F8B107100919072 /* ContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentCell.xib; sourceTree = "<group>"; };
@@ -1733,6 +1738,9 @@
 				9A53C08C1FDFD3EC003CBFD3 /* RefuseApplyViewController.h */,
 				9A53C08D1FDFD3EC003CBFD3 /* RefuseApplyViewController.m */,
 				9A53C08E1FDFD3EC003CBFD3 /* RefuseApplyViewController.xib */,
+				9AB10E801FE27FF000B68794 /* ApplyedMessageDetailViewController.h */,
+				9AB10E811FE27FF000B68794 /* ApplyedMessageDetailViewController.m */,
+				9AB10E821FE27FF000B68794 /* ApplyedMessageDetailViewController.xib */,
 			);
 			path = "申请";
 			sourceTree = "<group>";
@@ -2188,6 +2196,7 @@
 				9A1BB3DC1F85DA590067C12C /* Assets.xcassets in Resources */,
 				9A1DC6B01FA49D200014E739 /* MusicDownloadViewController.xib in Resources */,
 				9A79BBFC1F8DF13D004C3879 /* MovieDownloadViewController.xib in Resources */,
+				9AB10E841FE27FF000B68794 /* ApplyedMessageDetailViewController.xib in Resources */,
 				049E50C31FA0E0E7006C3BF1 /* LocalCell.xib in Resources */,
 				9A61BF001FD1371F00F30888 /* SettingViewController.xib in Resources */,
 				9A08C2341FCCF17100F6C54B /* SDTabBarController.xib in Resources */,
@@ -2364,6 +2373,7 @@
 				04AE23B41FA07E990034635C /* MyCollectionViewController.m in Sources */,
 				9ACA8AF91F98574C00B73B29 /* ZFBrightnessView.m in Sources */,
 				04927BFB1F974A2300CDD58E /* KeepModel.m in Sources */,
+				9AB10E831FE27FF000B68794 /* ApplyedMessageDetailViewController.m in Sources */,
 				9A53C0941FDFD470003CBFD3 /* ApplyMessageListViewController.m in Sources */,
 				049E50BD1FA0DDEC006C3BF1 /* LocalSelectViewController.m in Sources */,
 				9A61BEFF1FD1371F00F30888 /* SettingViewController.m in Sources */,
