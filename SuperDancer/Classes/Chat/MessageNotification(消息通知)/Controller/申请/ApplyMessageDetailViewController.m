@@ -8,7 +8,7 @@
 
 #import "ApplyMessageDetailViewController.h"
 #import "ApplyDetailCell.h"
-#import "RefuseApplyViewController.h"
+#import "RefuseApplyOrInviteViewController.h"
 @interface ApplyMessageDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)NSArray *data;
@@ -117,8 +117,8 @@
 }
 
 - (void)refuseAction:(UIButton *)btn {
-    RefuseApplyViewController *refuseApply = [[RefuseApplyViewController alloc] init];
-    
+    RefuseApplyOrInviteViewController *refuseApply = [[RefuseApplyOrInviteViewController alloc] init];
+    refuseApply.title = @"拒绝申请";
     [self.navigationController pushViewController:refuseApply animated:YES];
     
 }

@@ -10,6 +10,7 @@
 #import "MessageNotiCell.h"
 #import "PublicNoticeListViewController.h"
 #import "ApplyMessageListViewController.h"
+#import "InviteMesageViewController.h"
 @interface MessageNotiViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)NSArray *messageData;
@@ -63,6 +64,9 @@
         self.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:applyMessage animated:YES];
         self.hidesBottomBarWhenPushed = NO;
+    }else {
+        InviteMesageViewController *inviteMessage = [[InviteMesageViewController alloc] init];
+        [self.navigationController pushViewController:inviteMessage animated:YES];
     }
 }
 
