@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RefuseApplyOrInviteViewController">
+            <connections>
+                <outlet property="placeHolder" destination="F2R-Ef-nmI" id="l8g-1K-Txn"/>
+                <outlet property="textView" destination="NRe-Uh-5qE" id="AnE-Dp-80l"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRe-Uh-5qE">
+                    <rect key="frame" x="0.0" y="24" width="375" height="120"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="rYm-bH-GOk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="9K8-qw-k5H"/>
+                    </connections>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请填写拒绝的原因!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2R-Ef-nmI">
+                    <rect key="frame" x="5" y="27" width="370" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Gd8-gb-JZf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59993284940000002" green="0.60003870729999997" blue="0.59992617370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lb4-Jf-WEC">
+                    <rect key="frame" x="340" y="109" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="4wH-u6-8JE"/>
+                        <constraint firstAttribute="height" constant="20" id="g8c-pK-czD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="NRe-Uh-5qE" secondAttribute="trailing" id="853-XI-y3P"/>
+                <constraint firstItem="lb4-Jf-WEC" firstAttribute="top" secondItem="NRe-Uh-5qE" secondAttribute="bottom" constant="-35" id="AK7-9n-bSc"/>
+                <constraint firstItem="NRe-Uh-5qE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FaI-a6-d8l"/>
+                <constraint firstItem="NRe-Uh-5qE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="24" id="GGe-e5-IlU"/>
+                <constraint firstItem="lb4-Jf-WEC" firstAttribute="leading" secondItem="NRe-Uh-5qE" secondAttribute="trailing" constant="-35" id="SYa-hc-br8"/>
+                <constraint firstItem="F2R-Ef-nmI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="27" id="adM-1f-mv7"/>
+                <constraint firstAttribute="trailing" secondItem="F2R-Ef-nmI" secondAttribute="trailing" id="dnV-jn-NDo"/>
+                <constraint firstItem="F2R-Ef-nmI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="emc-EU-cBe"/>
+            </constraints>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+</document>

@@ -6,20 +6,20 @@
 //  Copyright © 2017年 yu. All rights reserved.
 //
 
-#import "RefuseApplyViewController.h"
+#import "RefuseApplyOrInviteViewController.h"
 
-@interface RefuseApplyViewController ()<UITextViewDelegate>
+@interface RefuseApplyOrInviteViewController ()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *placeHolder;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
-@implementation RefuseApplyViewController
+@implementation RefuseApplyOrInviteViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"拒绝申请";
+    
     [self setRightItemTitle:@"发送" action:@selector(sendReason)];
     self.view.backgroundColor = kColorRGB(237, 237, 237);
     _textView.backgroundColor = [UIColor whiteColor];

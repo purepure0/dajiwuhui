@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RefuseApplyViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RefuseApplyOrInviteViewController">
             <connections>
                 <outlet property="placeHolder" destination="F2R-Ef-nmI" id="l8g-1K-Txn"/>
                 <outlet property="textView" destination="NRe-Uh-5qE" id="AnE-Dp-80l"/>

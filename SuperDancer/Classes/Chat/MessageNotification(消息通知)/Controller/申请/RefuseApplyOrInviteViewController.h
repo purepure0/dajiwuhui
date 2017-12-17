@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface RefuseApplyViewController : BaseViewController
+@interface RefuseApplyOrInviteViewController : BaseViewController
 
 @end
