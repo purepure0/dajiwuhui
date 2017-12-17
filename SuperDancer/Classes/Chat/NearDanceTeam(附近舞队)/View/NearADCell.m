@@ -9,7 +9,7 @@
 #import "NearADCell.h"
 #import "ScrollViewCell.h"
 
-@interface NearADCell ()
+@interface NearADCell ()<ScrollViewCellDelegate>
 
 
 @end
@@ -46,8 +46,15 @@ static NSString *kScrollViewCellIdentifier = @"kScrollViewCellIdentifier";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ScrollViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kScrollViewCellIdentifier forIndexPath:indexPath];
-    
+    cell.delegate = self;
     return cell;
+}
+
+#pragma mark - ScrollViewCellDelegate
+
+- (void)applyJoinTeamButtonAction:(ScrollViewCell *)scrollViewCell
+{
+    PPLog(@"申请加入！！");
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section

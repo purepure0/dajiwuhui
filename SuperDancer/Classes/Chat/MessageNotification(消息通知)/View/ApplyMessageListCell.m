@@ -24,7 +24,7 @@
     if ([data[@"apply"] isEqualToString:@"0"]) {
         [_btn setTitle:@"同 意" forState:UIControlStateNormal];
         [_btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        _btn.backgroundColor = [UIColor colorWithHexString:@"5AB433"];
+        _btn.backgroundColor = UIColorHex(@"5AB433");
         _btn.enabled = YES;
     }else if ([data[@"apply"] isEqualToString:@"1"]) {
         [_btn setTitle:@"已同意" forState:UIControlStateNormal];

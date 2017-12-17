@@ -9,8 +9,9 @@
 #import "NearTeamListViewController.h"
 #import "NearTeamCell.h"
 #import "NearADCell.h"
+#import "ScrollViewCell.h"
 
-@interface NearTeamListViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface NearTeamListViewController ()<UITableViewDelegate,UITableViewDataSource,ScrollViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -99,6 +100,19 @@ static NSString *kNearADCell = @"kNearADCell";
     .heightRatioToView(whiteView, 1);
     
     return bgView;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"->查看[舞者]信息" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确 定", nil];
+        [alert show];
+    }
+    
+    if (!indexPath.section && indexPath.row != 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"->申请加入[舞队]" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确 定", nil];
+        [alert show];
+    }
 }
 
 

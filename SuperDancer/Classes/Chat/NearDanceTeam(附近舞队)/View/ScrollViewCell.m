@@ -16,5 +16,12 @@
     self.layer.borderWidth = 1;
     self.layer.borderColor = kLineColor.CGColor;
 }
+- (IBAction)applyJoinAction:(id)sender {
+    
+    if ([self.delegate respondsToSelector:@selector(applyJoinTeamButtonAction:)])
+    {
+        [self.delegate applyJoinTeamButtonAction:self];
+    }
+}
 
 @end

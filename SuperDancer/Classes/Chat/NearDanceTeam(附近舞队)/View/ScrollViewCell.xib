@@ -21,6 +21,15 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LhI-5r-Yjh">
                         <rect key="frame" x="0.0" y="0.0" width="345" height="90"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="视频播放" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05v-w7-Ble">
+                                <rect key="frame" x="136" y="38" width="73" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="LhI-5r-Yjh" secondAttribute="height" multiplier="23:6" id="ETw-lV-5XV"/>
@@ -91,10 +100,13 @@
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="applyJoinAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="xhE-oJ-bb5"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
-            <color key="backgroundColor" red="1" green="0.85686222855437666" blue="0.021280405690964233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="iXD-H2-wbW" firstAttribute="leading" secondItem="x8t-iE-bma" secondAttribute="leading" id="0LC-vq-tWu"/>
                 <constraint firstAttribute="trailing" secondItem="Rc1-BU-WHD" secondAttribute="trailing" constant="10" id="2SI-NJ-iNP"/>
@@ -112,6 +124,13 @@
                 <constraint firstItem="iXD-H2-wbW" firstAttribute="top" secondItem="x8t-iE-bma" secondAttribute="bottom" constant="5" id="hNH-0i-yaY"/>
                 <constraint firstItem="zNK-VY-M6e" firstAttribute="bottom" secondItem="o8e-by-3TV" secondAttribute="bottom" id="ksK-S5-wLo"/>
             </constraints>
+            <connections>
+                <outlet property="applyJoinBtn" destination="zNK-VY-M6e" id="jg0-hA-7b8"/>
+                <outlet property="distanceLabel" destination="Rc1-BU-WHD" id="ZZt-26-yIK"/>
+                <outlet property="leaderLabel" destination="o8e-by-3TV" id="YaH-C7-apE"/>
+                <outlet property="teamNameLabel" destination="x8t-iE-bma" id="fOU-8T-QRr"/>
+                <outlet property="totalCountLabel" destination="iXD-H2-wbW" id="ADn-fj-RJg"/>
+            </connections>
             <point key="canvasLocation" x="24.5" y="52"/>
         </collectionViewCell>
     </objects>
