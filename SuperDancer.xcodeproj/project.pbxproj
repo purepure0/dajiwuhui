@@ -150,6 +150,14 @@
 		9A2CB8B01F875A6D00907C72 /* HeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2CB8AE1F875A6D00907C72 /* HeaderReusableView.xib */; };
 		9A2CB8B41F8765B000907C72 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2CB8B21F8765B000907C72 /* ButtonCell.m */; };
 		9A2CB8B51F8765B000907C72 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2CB8B31F8765B000907C72 /* ButtonCell.xib */; };
+		9A33C7F81FE4161B006F7A50 /* RefuseApplyOrInviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A33C7EF1FE41618006F7A50 /* RefuseApplyOrInviteViewController.xib */; };
+		9A33C7F91FE4161B006F7A50 /* InviteMesageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A33C7F01FE41619006F7A50 /* InviteMesageViewController.xib */; };
+		9A33C7FA1FE4161B006F7A50 /* InviteMesageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A33C7F11FE41619006F7A50 /* InviteMesageViewController.m */; };
+		9A33C7FB1FE4161B006F7A50 /* TeamJoinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A33C7F21FE41619006F7A50 /* TeamJoinViewController.xib */; };
+		9A33C7FC1FE4161B006F7A50 /* RefuseApplyOrInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A33C7F51FE4161A006F7A50 /* RefuseApplyOrInviteViewController.m */; };
+		9A33C7FD1FE4161B006F7A50 /* TeamJoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A33C7F71FE4161A006F7A50 /* TeamJoinViewController.m */; };
+		9A33C8021FE41696006F7A50 /* TeamJoinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A33C8001FE41696006F7A50 /* TeamJoinCell.m */; };
+		9A33C8031FE4169B006F7A50 /* TeamJoinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A33C8051FE4169B006F7A50 /* TeamJoinCell.xib */; };
 		9A52EFF51FE3730000125087 /* NearTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52EFF31FE3730000125087 /* NearTeamViewController.m */; };
 		9A52EFF61FE3730000125087 /* NearTeamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A52EFF41FE3730000125087 /* NearTeamViewController.xib */; };
 		9A52EFFA1FE37B8000125087 /* NearTeamListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52EFF81FE37B8000125087 /* NearTeamListViewController.m */; };
@@ -160,14 +168,10 @@
 		9A52F0051FE3B1DD00125087 /* NearADCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A52F0031FE3B1DD00125087 /* NearADCell.xib */; };
 		9A52F0091FE3CAD400125087 /* ScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52F0071FE3CAD400125087 /* ScrollViewCell.m */; };
 		9A52F00A1FE3CAD400125087 /* ScrollViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A52F0081FE3CAD400125087 /* ScrollViewCell.xib */; };
-		9A33C7F81FE4161B006F7A50 /* RefuseApplyOrInviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A33C7EF1FE41618006F7A50 /* RefuseApplyOrInviteViewController.xib */; };
-		9A33C7F91FE4161B006F7A50 /* InviteMesageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A33C7F01FE41619006F7A50 /* InviteMesageViewController.xib */; };
-		9A33C7FA1FE4161B006F7A50 /* InviteMesageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A33C7F11FE41619006F7A50 /* InviteMesageViewController.m */; };
-		9A33C7FB1FE4161B006F7A50 /* TeamJoinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A33C7F21FE41619006F7A50 /* TeamJoinViewController.xib */; };
-		9A33C7FC1FE4161B006F7A50 /* RefuseApplyOrInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A33C7F51FE4161A006F7A50 /* RefuseApplyOrInviteViewController.m */; };
-		9A33C7FD1FE4161B006F7A50 /* TeamJoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A33C7F71FE4161A006F7A50 /* TeamJoinViewController.m */; };
-		9A33C8021FE41696006F7A50 /* TeamJoinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A33C8001FE41696006F7A50 /* TeamJoinCell.m */; };
-		9A33C8031FE4169B006F7A50 /* TeamJoinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A33C8051FE4169B006F7A50 /* TeamJoinCell.xib */; };
+		9A52F00E1FE6B5B100125087 /* CompleteTeamInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52F00C1FE6B5B000125087 /* CompleteTeamInfoViewController.m */; };
+		9A52F00F1FE6B5B100125087 /* CompleteTeamInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A52F00D1FE6B5B000125087 /* CompleteTeamInfoViewController.xib */; };
+		9A52F0131FE7536F00125087 /* CompleteTeamInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52F0111FE7536F00125087 /* CompleteTeamInfoCell.m */; };
+		9A52F0141FE7536F00125087 /* CompleteTeamInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A52F0121FE7536F00125087 /* CompleteTeamInfoCell.xib */; };
 		9A53C0631FDFA9C5003CBFD3 /* MessageNotiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C0611FDFA9C5003CBFD3 /* MessageNotiViewController.m */; };
 		9A53C0641FDFA9C5003CBFD3 /* MessageNotiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C0621FDFA9C5003CBFD3 /* MessageNotiViewController.xib */; };
 		9A53C0691FDFAE8F003CBFD3 /* MessageNotiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C0671FDFAE8F003CBFD3 /* MessageNotiCell.m */; };
@@ -504,6 +508,18 @@
 		9A2CB8B11F8765B000907C72 /* ButtonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonCell.h; sourceTree = "<group>"; };
 		9A2CB8B21F8765B000907C72 /* ButtonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
 		9A2CB8B31F8765B000907C72 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		9A33C7EF1FE41618006F7A50 /* RefuseApplyOrInviteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefuseApplyOrInviteViewController.xib; sourceTree = "<group>"; };
+		9A33C7F01FE41619006F7A50 /* InviteMesageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteMesageViewController.xib; sourceTree = "<group>"; };
+		9A33C7F11FE41619006F7A50 /* InviteMesageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteMesageViewController.m; sourceTree = "<group>"; };
+		9A33C7F21FE41619006F7A50 /* TeamJoinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamJoinViewController.xib; sourceTree = "<group>"; };
+		9A33C7F31FE41619006F7A50 /* TeamJoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamJoinViewController.h; sourceTree = "<group>"; };
+		9A33C7F41FE4161A006F7A50 /* InviteMesageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteMesageViewController.h; sourceTree = "<group>"; };
+		9A33C7F51FE4161A006F7A50 /* RefuseApplyOrInviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefuseApplyOrInviteViewController.m; sourceTree = "<group>"; };
+		9A33C7F61FE4161A006F7A50 /* RefuseApplyOrInviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefuseApplyOrInviteViewController.h; sourceTree = "<group>"; };
+		9A33C7F71FE4161A006F7A50 /* TeamJoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamJoinViewController.m; sourceTree = "<group>"; };
+		9A33C7FF1FE41696006F7A50 /* TeamJoinCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamJoinCell.h; sourceTree = "<group>"; };
+		9A33C8001FE41696006F7A50 /* TeamJoinCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamJoinCell.m; sourceTree = "<group>"; };
+		9A33C8041FE4169B006F7A50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TeamJoinCell.xib; sourceTree = "<group>"; };
 		9A52EFF21FE3730000125087 /* NearTeamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearTeamViewController.h; sourceTree = "<group>"; };
 		9A52EFF31FE3730000125087 /* NearTeamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearTeamViewController.m; sourceTree = "<group>"; };
 		9A52EFF41FE3730000125087 /* NearTeamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearTeamViewController.xib; sourceTree = "<group>"; };
@@ -519,18 +535,12 @@
 		9A52F0061FE3CAD400125087 /* ScrollViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollViewCell.h; sourceTree = "<group>"; };
 		9A52F0071FE3CAD400125087 /* ScrollViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollViewCell.m; sourceTree = "<group>"; };
 		9A52F0081FE3CAD400125087 /* ScrollViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollViewCell.xib; sourceTree = "<group>"; };
-		9A33C7EF1FE41618006F7A50 /* RefuseApplyOrInviteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefuseApplyOrInviteViewController.xib; sourceTree = "<group>"; };
-		9A33C7F01FE41619006F7A50 /* InviteMesageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteMesageViewController.xib; sourceTree = "<group>"; };
-		9A33C7F11FE41619006F7A50 /* InviteMesageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteMesageViewController.m; sourceTree = "<group>"; };
-		9A33C7F21FE41619006F7A50 /* TeamJoinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamJoinViewController.xib; sourceTree = "<group>"; };
-		9A33C7F31FE41619006F7A50 /* TeamJoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamJoinViewController.h; sourceTree = "<group>"; };
-		9A33C7F41FE4161A006F7A50 /* InviteMesageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteMesageViewController.h; sourceTree = "<group>"; };
-		9A33C7F51FE4161A006F7A50 /* RefuseApplyOrInviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefuseApplyOrInviteViewController.m; sourceTree = "<group>"; };
-		9A33C7F61FE4161A006F7A50 /* RefuseApplyOrInviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefuseApplyOrInviteViewController.h; sourceTree = "<group>"; };
-		9A33C7F71FE4161A006F7A50 /* TeamJoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamJoinViewController.m; sourceTree = "<group>"; };
-		9A33C7FF1FE41696006F7A50 /* TeamJoinCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamJoinCell.h; sourceTree = "<group>"; };
-		9A33C8001FE41696006F7A50 /* TeamJoinCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamJoinCell.m; sourceTree = "<group>"; };
-		9A33C8041FE4169B006F7A50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TeamJoinCell.xib; sourceTree = "<group>"; };
+		9A52F00B1FE6B5B000125087 /* CompleteTeamInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompleteTeamInfoViewController.h; sourceTree = "<group>"; };
+		9A52F00C1FE6B5B000125087 /* CompleteTeamInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompleteTeamInfoViewController.m; sourceTree = "<group>"; };
+		9A52F00D1FE6B5B000125087 /* CompleteTeamInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompleteTeamInfoViewController.xib; sourceTree = "<group>"; };
+		9A52F0101FE7536F00125087 /* CompleteTeamInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompleteTeamInfoCell.h; sourceTree = "<group>"; };
+		9A52F0111FE7536F00125087 /* CompleteTeamInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompleteTeamInfoCell.m; sourceTree = "<group>"; };
+		9A52F0121FE7536F00125087 /* CompleteTeamInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompleteTeamInfoCell.xib; sourceTree = "<group>"; };
 		9A53C0601FDFA9C5003CBFD3 /* MessageNotiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageNotiViewController.h; sourceTree = "<group>"; };
 		9A53C0611FDFA9C5003CBFD3 /* MessageNotiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageNotiViewController.m; sourceTree = "<group>"; };
 		9A53C0621FDFA9C5003CBFD3 /* MessageNotiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageNotiViewController.xib; sourceTree = "<group>"; };
@@ -1023,6 +1033,9 @@
 				3F5A446C1FD154FD00BAE622 /* SearchTeamViewController.h */,
 				3F5A446D1FD154FD00BAE622 /* SearchTeamViewController.m */,
 				3F5A446E1FD154FD00BAE622 /* SearchTeamViewController.xib */,
+				9A52F00B1FE6B5B000125087 /* CompleteTeamInfoViewController.h */,
+				9A52F00C1FE6B5B000125087 /* CompleteTeamInfoViewController.m */,
+				9A52F00D1FE6B5B000125087 /* CompleteTeamInfoViewController.xib */,
 			);
 			path = "AddAction(添加按钮扩展)";
 			sourceTree = "<group>";
@@ -1062,6 +1075,9 @@
 				3F6868C71FCEA711001EB5BD /* ChatListHeaderSelectTableViewCell.m */,
 				3F6868C91FCEA759001EB5BD /* TeamListForChatTableViewCell.h */,
 				3F6868CA1FCEA759001EB5BD /* TeamListForChatTableViewCell.m */,
+				9A52F0101FE7536F00125087 /* CompleteTeamInfoCell.h */,
+				9A52F0111FE7536F00125087 /* CompleteTeamInfoCell.m */,
+				9A52F0121FE7536F00125087 /* CompleteTeamInfoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2272,6 +2288,7 @@
 				9A247F881FA0DE2B007AEABE /* EditProfileViewController.xib in Resources */,
 				04ECB87C1F93349C00186C5B /* DancersViewController.xib in Resources */,
 				9A2CB8B01F875A6D00907C72 /* HeaderReusableView.xib in Resources */,
+				9A52F0141FE7536F00125087 /* CompleteTeamInfoCell.xib in Resources */,
 				9A247F7F1F9B0369007AEABE /* PersonalHeaderView.xib in Resources */,
 				04498FBD1FA4361D007CACEA /* VideoImageCell.xib in Resources */,
 				049E510F1FA305DD006C3BF1 /* MsgAttentionViewController.xib in Resources */,
@@ -2313,6 +2330,7 @@
 				3F5A445B1FD137FD00BAE622 /* DisForTeamEditViewController.xib in Resources */,
 				9AC2237D1F8B107100919072 /* ContentCell.xib in Resources */,
 				9A52EFFB1FE37B8000125087 /* NearTeamListViewController.xib in Resources */,
+				9A52F00F1FE6B5B100125087 /* CompleteTeamInfoViewController.xib in Resources */,
 				9A2CB89B1F868DAA00907C72 /* RecommendViewController.xib in Resources */,
 				049E510A1FA2FF00006C3BF1 /* MsgCenterViewController.xib in Resources */,
 				049E50BE1FA0DDEC006C3BF1 /* LocalSelectViewController.xib in Resources */,
@@ -2464,6 +2482,7 @@
 				3F5A446F1FD154FD00BAE622 /* SearchTeamViewController.m in Sources */,
 				041C47421F9B886000A65AC8 /* DancerListCell.m in Sources */,
 				3F6868C81FCEA711001EB5BD /* ChatListHeaderSelectTableViewCell.m in Sources */,
+				9A52F00E1FE6B5B100125087 /* CompleteTeamInfoViewController.m in Sources */,
 				044CBCF11F8F53A30067C5CA /* VideoListModel.m in Sources */,
 				9A71FE811F8E01A100738680 /* DownloadedCell.m in Sources */,
 				9A1BB4191F85DC0C0067C12C /* AppDelegate.m in Sources */,
@@ -2552,6 +2571,7 @@
 				9A61BEFD1FD1371F00F30888 /* SDMineViewController.m in Sources */,
 				9ACA8AFC1F98574C00B73B29 /* ZFPlayerModel.m in Sources */,
 				04AE23771F9F7D450034635C /* CollectionModel.m in Sources */,
+				9A52F0131FE7536F00125087 /* CompleteTeamInfoCell.m in Sources */,
 				9A2CB8B41F8765B000907C72 /* ButtonCell.m in Sources */,
 				049E50B91FA0D253006C3BF1 /* MusicModel.m in Sources */,
 				3F5A44671FD149AC00BAE622 /* DJWYAlertView.m in Sources */,
