@@ -217,6 +217,9 @@
 
 - (void)onLogin:(NIMLoginStep)step {
     PPLog(@"STEP:%ld", step);
+    if (step == 5) {
+        NSLog(@"%@", [[[NIMSDK sharedSDK] teamManager] allMyTeams]);
+    }
 }
 
 - (void)onAutoLoginFailed:(NSError *)error {

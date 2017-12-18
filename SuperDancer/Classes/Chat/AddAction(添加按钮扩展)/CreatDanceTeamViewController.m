@@ -9,12 +9,12 @@
 #import "CreatDanceTeamViewController.h"
 #import "TZImagePickerController.h"
 #import "CompleteTeamInfoViewController.h"
-
+#import <QiniuSDK.h>
 @interface CreatDanceTeamViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *changeTemeHeaderImageViewButton;
 @property (weak, nonatomic) IBOutlet UITextField *teamNameTextField;
 @property (weak, nonatomic) IBOutlet UIButton *commitButton;
-
+@property (nonatomic, strong)UIImage *teamImg;
 @end
 
 @implementation CreatDanceTeamViewController
@@ -39,7 +39,8 @@
     imagePickerVc.allowCrop = YES;
     imagePickerVc.needCircleCrop = YES;
     [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
-        [weakSelf.changeTemeHeaderImageViewButton setImage:photos[0] forState:UIControlStateNormal];
+        _teamImg = photos[0];
+        [weakSelf.changeTemeHeaderImageViewButton setImage:_teamImg forState:UIControlStateNormal];
         if(!weakSelf.changeTemeHeaderImageViewButton.selected){
             weakSelf.changeTemeHeaderImageViewButton.selected = YES;
         }
@@ -54,18 +55,49 @@
     
 }
 - (IBAction)commitButtonAction:(UIButton *)sender {
-    CompleteTeamInfoViewController *teamInfo = [[CompleteTeamInfoViewController alloc] init];
-    [self.navigationController pushViewController:teamInfo animated:YES];
+
+    
+    [PPNetworkHelper POST:NSStringFormat(@"%@%@",kApiPrefix,KQiniuToken) parameters:nil success:^(id responseObject) {
+        
+        NSString *token = responseObject[@"data"][@"res"][@"token"];
+        PPLog(@"七牛token = %@",token);
+        NSData *imageData = UIImageJPEGRepresentation(_teamImg, 0.5f);
+        QNUploadManager *upManager = [[QNUploadManager alloc] init];
+        
+        [upManager putData:imageData key:nil token:token
+                  complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+                      PPLog(@"Qiniu info = %@", info);
+                      PPLog(@"Qiniu resp = %@", resp);
+                      PPLog(@"Qiniu key = %@", key);
+                      
+                      if (info.ok) {
+                          PPLog(@"成功");
+                          NSString *avatarURL = NSStringFormat(@"%@%@", kQiniuURLHost, resp[@"key"]);
+                          CompleteTeamInfoViewController *teamInfo = [[CompleteTeamInfoViewController alloc] init];
+                          teamInfo.teamName = _teamNameTextField.text;
+                          teamInfo.avatarURL = avatarURL;
+                          [self.navigationController pushViewController:teamInfo animated:YES];
+                      } else {
+                          PPLog(@"失败");
+                      }
+                  } option:nil];
+    } failure:^(NSError *error) {
+        [self hideLoading];
+    }];
+    
+    
 }
 
 #pragma mark------UItextFieldDelegate
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
-    if(![textField.text isEqualToString:@""]&&self.changeTemeHeaderImageViewButton.selected){
+    if(![textField.text isEqualToString:@""]&&self.changeTemeHeaderImageViewButton.selected) {
         self.commitButton.backgroundColor = [UIColor colorWithHexString:@"#9a00b9"];
         self.commitButton.userInteractionEnabled = YES;
     }
     return YES;
 }
+
+
 
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
