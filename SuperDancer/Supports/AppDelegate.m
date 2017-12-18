@@ -24,7 +24,7 @@
 #define JPushAppKey @"fdf767381c7291e4b8a98a7b"
 //app key :45f097c6ebe072b28422e670ce15824b
 //App Secret :745b8f862ca9
-@interface AppDelegate ()<AMapLocationManagerDelegate, JPUSHRegisterDelegate>
+@interface AppDelegate ()<AMapLocationManagerDelegate, JPUSHRegisterDelegate, NIMLoginManagerDelegate, NIMLoginManager>
 @property (nonatomic, strong) AMapLocationManager *locationManager;
 @end
 
@@ -187,7 +187,7 @@
 
 - (void)setupNIMSDK
 {
-    //配置额外配置信息 （需要在注册 appkey 前完成
+    //配置额外配置信息 （需要在注册 appkey 前完成)
     //略
     
     //appkey 是应用的标识，不同应用之间的数据（用户、消息、群组等）是完全隔离的。
@@ -195,7 +195,7 @@
     //并请对应更换 Demo 代码中的获取好友列表、个人信息等网易云信 SDK 未提供的接口。
     NSString *appKey        = @"45f097c6ebe072b28422e670ce15824b";
     NIMSDKOption *option    = [NIMSDKOption optionWithAppKey:appKey];
-    option.apnsCername      = nil;
+    option.apnsCername      = @"DJWHPushDevelopment";
     option.pkCername        = nil;
     [[NIMSDK sharedSDK] registerWithOption:option];
     
@@ -205,8 +205,23 @@
     
     //注册 NIMKit 自定义排版配置
 //    [[NIMKit sharedKit] registerLayoutConfig:[NTESCellLayoutConfig new]];
+    SDUser *user = [SDUser sharedUser];
+    if (user.userId != nil && user.token != nil) {
+        NSLog(@"自动登录");
+        [[[NIMSDK sharedSDK] loginManager] addDelegate:self];
+        [[[NIMSDK sharedSDK] loginManager] autoLogin:user.userId token:user.token];
+        
+    }
+    
 }
 
+- (void)onLogin:(NIMLoginStep)step {
+    PPLog(@"STEP:%ld", step);
+}
+
+- (void)onAutoLoginFailed:(NSError *)error {
+    PPLog(@"自动登录失败:%@", error);
+}
 
 
 

@@ -94,6 +94,9 @@
             [self toast:result[@"message"]];
         } else {
             [self toast:@"登录成功"];
+            //登录IM
+            [self loginNIMSDK];
+            //设置请求头
             [self updateHttpHeader];
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }
@@ -126,6 +129,9 @@
                         self.users.userId = NSStringFormat(@"%@",responseObject[@"data"][@"uid"]);
                         self.users.token = NSStringFormat(@"%@",responseObject[@"data"][@"token"]);
                         [MBProgressHUD showSuccess:@"登录成功" toView:self.view];
+                        //登录IM
+                        [self loginNIMSDK];
+                        //设置请求头
                         [self updateHttpHeader];
                         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_HAS_LOGIN object:nil];
                         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
@@ -197,5 +203,18 @@
     _verifTextField = verifTextField;
     _verifTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"点击输入验证码" attributes:@{NSFontAttributeName:SYSTEM_FONT(13),NSForegroundColorAttributeName:kColorHexStr(@"#BDBDBD")}];
 }
+
+
+- (void)loginNIMSDK {
+    SDUser *user = [SDUser sharedUser];
+    //用户userId对应IM的account
+    [[[NIMSDK sharedSDK] loginManager] login:user.userId token:user.token completion:^(NSError * _Nullable error) {
+        PPLog(@"网易云信登录error：%@", error);
+    }];
+    
+}
+
+
+
 
 @end

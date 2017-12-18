@@ -85,6 +85,9 @@
 - (void)logoutAction
 {
     [self.users logout];
+    [[[NIMSDK sharedSDK] loginManager] logout:^(NSError * _Nullable error) {
+        PPLog(@"IM登出：%@", error);
+    }];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
