@@ -9,5 +9,7 @@
 #import "BaseViewController.h"
 
 @interface CompleteTeamInfoViewController : BaseViewController
+@property (nonatomic, strong)NSString *teamName;
+@property (nonatomic, strong)NSString *avatarURL;
 
 @end

@@ -20,6 +20,7 @@
 @property(strong,nonatomic)UITableView              *chatListTableView;
 @property(strong,nonatomic)UISearchController       *chatVCSearchVC;
 @property(strong,nonatomic)NSString                 *searchKeyWords;//搜索关键词
+@property (nonatomic, strong)NSArray *teamList;
 @end
 
 @implementation SDChatViewController
@@ -30,7 +31,7 @@
     //防止searchbar向上偏移64px
     self.definesPresentationContext = YES;
     [self setRightImageNamed:@"wd_nav_btn_add" action:@selector(addTeamAction)];
-    
+    _teamList = [[[NIMSDK sharedSDK] teamManager] allMyTeams];
     [self upDataWithUI];
 }
 
@@ -132,7 +133,7 @@
     if (section == 0){
         return 2;
     }else{
-        return 10;
+        return _teamList.count;
     }
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
