@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^HandleBtnBlock)(NSInteger index);
+
 @interface TeamJoinCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -30,6 +32,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightPadding;
 
+@property (nonatomic, copy) HandleBtnBlock handleBtnBlock;
 
 + (instancetype)initTableViewCellWith:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath joined:(BOOL)joined;
 

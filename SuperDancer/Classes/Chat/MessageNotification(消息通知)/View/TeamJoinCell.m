@@ -94,7 +94,7 @@
 
 
 - (void)updateFourthCellWithData:(NSDictionary *)data {
-    NSLog(@"%@", data);
+//    NSLog(@"%@", data);
     NSArray *imgs = @[@"wd_ico_announcement", @"wd_ico_video", @"wd_ico_vote", @"wd_ico_Sign"];
     NSArray *titles = @[@"公 告", @"视 频", @"投 票", @"签 到"];
     CGFloat width = kScreenSize.width / 4;
@@ -153,7 +153,10 @@
 
 
 - (void)actionWithButton:(UIButton *)btn {
-    NSLog(@"%ld--%@", btn.tag, btn.titleLabel.text);
+//    NSLog(@"%ld--%@", btn.tag, btn.titleLabel.text);
+    if (_handleBtnBlock) {
+        _handleBtnBlock(btn.tag);
+    }
 }
 
 

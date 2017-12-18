@@ -64,7 +64,7 @@
     } else if (indexPath.section == 1 || indexPath.section == 2) {
 
         if (indexPath.section == 1 && indexPath.row == 1) {
-            return 90;
+            return 70;
         }
         
         return 50;
@@ -138,7 +138,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 3) {
         DisForTeamEditViewController *DDTVC = [[DisForTeamEditViewController alloc]init];
-        self.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:DDTVC animated:YES];
     }
 }

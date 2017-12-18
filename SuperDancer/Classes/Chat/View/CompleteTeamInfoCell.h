@@ -12,4 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *introduceLabel;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @end

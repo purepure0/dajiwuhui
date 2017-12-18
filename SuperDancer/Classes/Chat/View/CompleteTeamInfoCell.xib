@@ -79,7 +79,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovd-tt-O8I">
                         <rect key="frame" x="15" y="31" width="345" height="53.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -103,8 +103,33 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DnG-Yq-Gf6" id="PEs-3S-XCp">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZDb-e6-C3m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="RGq-1B-Dp2">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="PEs-3S-XCp" id="s3j-YI-2qo"/>
+                            <outlet property="delegate" destination="PEs-3S-XCp" id="vgu-Ld-DHp"/>
+                        </connections>
+                    </collectionView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ZDb-e6-C3m" firstAttribute="top" secondItem="PEs-3S-XCp" secondAttribute="top" id="8lM-o3-wqF"/>
+                    <constraint firstAttribute="trailing" secondItem="ZDb-e6-C3m" secondAttribute="trailing" id="IPv-al-1CZ"/>
+                    <constraint firstItem="ZDb-e6-C3m" firstAttribute="leading" secondItem="PEs-3S-XCp" secondAttribute="leading" id="Zcg-Gm-mXx"/>
+                    <constraint firstAttribute="bottom" secondItem="ZDb-e6-C3m" secondAttribute="bottom" id="otB-1P-Qx8"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="26" y="598"/>
+            <connections>
+                <outlet property="collectionView" destination="ZDb-e6-C3m" id="9T7-lG-3lY"/>
+            </connections>
+            <point key="canvasLocation" x="25.5" y="598"/>
         </tableViewCell>
     </objects>
     <resources>

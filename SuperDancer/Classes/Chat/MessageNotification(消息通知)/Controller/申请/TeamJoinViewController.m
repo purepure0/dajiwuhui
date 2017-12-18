@@ -9,6 +9,7 @@
 #import "TeamJoinViewController.h"
 #import "TeamJoinCell.h"
 #import "RefuseApplyOrInviteViewController.h"
+#import "GroupNoticeViewController.h"
 @interface TeamJoinViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, assign)JoinState joinState;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -115,6 +116,28 @@
             
         }
     }
+#pragma mark - 公告/视频/投票/签到
+    // 公告/视频/投票/签到
+    @weakify(self);
+    [cell setHandleBtnBlock:^(NSInteger index) {
+        @strongify(self);
+//        [self handle];
+        switch (index) {
+            case 10:{
+                GroupNoticeViewController *gn = [[GroupNoticeViewController alloc] init];
+                [self.navigationController pushViewController:gn animated:YES];
+            }
+                break;
+            case 11:
+                break;
+            case 12:
+                break;
+            case 13:
+                break;
+            default:
+                break;
+        }
+    }];
 
     return cell;
 }
