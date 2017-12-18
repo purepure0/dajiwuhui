@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,25 +26,26 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpp-IZ-mx8">
                     <rect key="frame" x="127.5" y="70" width="120" height="120"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="120" id="0YR-PW-cAl"/>
                         <constraint firstAttribute="width" constant="120" id="DpG-OD-WTg"/>
+                        <constraint firstAttribute="width" secondItem="kpp-IZ-mx8" secondAttribute="height" multiplier="1:1" id="alQ-Me-4qd"/>
                     </constraints>
                     <state key="normal" image="wdxx_btn_invite"/>
                     <connections>
                         <action selector="changeTemeHeaderImageViewButtonAction:" destination="-1" eventType="touchUpInside" id="eQ4-7b-uKm"/>
                     </connections>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="舞队名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ofm-Ay-cih">
-                    <rect key="frame" x="88" y="220" width="200" height="17"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="舞队名称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ofm-Ay-cih">
+                    <rect key="frame" x="88" y="225" width="200" height="25"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="25" id="thd-sQ-xx7"/>
                         <constraint firstAttribute="width" constant="200" id="zfO-wV-lCN"/>
                     </constraints>
                     <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBw-T4-VHy">
-                    <rect key="frame" x="88" y="242" width="200" height="1"/>
+                    <rect key="frame" x="88" y="255" width="200" height="1"/>
                     <color key="backgroundColor" red="0.54370421171188354" green="0.2248818576335907" blue="0.70848274230957031" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="EpQ-5d-515"/>
@@ -51,12 +53,13 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHD-R0-HS1">
-                    <rect key="frame" x="30" y="574" width="315" height="50"/>
+                    <rect key="frame" x="30" y="577" width="315" height="45"/>
                     <color key="backgroundColor" red="0.76517230272293091" green="0.76874881982803345" blue="0.77200239896774292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="d1f-xb-oCd"/>
+                        <constraint firstAttribute="width" secondItem="LHD-R0-HS1" secondAttribute="height" multiplier="7:1" id="DFF-so-29p"/>
+                        <constraint firstAttribute="height" constant="45" id="rSr-HL-SOq"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="提 交">
                         <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </state>
@@ -71,11 +74,11 @@
                 <constraint firstItem="hBw-T4-VHy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3R9-Hw-zo9"/>
                 <constraint firstItem="kpp-IZ-mx8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="74o-rZ-kOu"/>
                 <constraint firstAttribute="trailing" secondItem="LHD-R0-HS1" secondAttribute="trailing" constant="30" id="7TE-o3-Dx3"/>
-                <constraint firstAttribute="bottom" secondItem="LHD-R0-HS1" secondAttribute="bottom" constant="43" id="Abs-z5-DcI"/>
+                <constraint firstAttribute="bottom" secondItem="LHD-R0-HS1" secondAttribute="bottom" constant="45" id="Abs-z5-DcI"/>
                 <constraint firstItem="ofm-Ay-cih" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EEz-eD-XhI"/>
                 <constraint firstItem="hBw-T4-VHy" firstAttribute="top" secondItem="ofm-Ay-cih" secondAttribute="bottom" constant="5" id="EoN-qn-6Vb"/>
                 <constraint firstItem="LHD-R0-HS1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="bVn-hd-dVK"/>
-                <constraint firstItem="ofm-Ay-cih" firstAttribute="top" secondItem="kpp-IZ-mx8" secondAttribute="bottom" constant="30" id="p6U-9g-6ft"/>
+                <constraint firstItem="ofm-Ay-cih" firstAttribute="top" secondItem="kpp-IZ-mx8" secondAttribute="bottom" constant="35" id="p6U-9g-6ft"/>
             </constraints>
             <point key="canvasLocation" x="26.5" y="51.5"/>
         </view>

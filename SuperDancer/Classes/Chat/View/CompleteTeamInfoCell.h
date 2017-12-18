@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CompleteTeamInfoCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *introduceLabel;
 
 @end

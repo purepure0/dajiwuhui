@@ -10,6 +10,7 @@
 #import "TeamListForChatTableViewCell.h"
 #import "SGQRCodeScanningVC.h"
 #import <AVFoundation/AVFoundation.h>
+#import "NearTeamViewController.h"
 
 @interface SearchTeamViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchControllerDelegate>
 
@@ -90,6 +91,9 @@
             [DJWYAlertView showOneButtonWithTitle:@"温馨提示" message:@"未检测到您的摄像头" buttonTitle:@"确定"];
         }
 
+    } else if (indexPath.row == 1) {
+        NearTeamViewController *nearTeam = [[NearTeamViewController alloc] init];
+        [self.navigationController pushViewController:nearTeam animated:YES];
     }
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{

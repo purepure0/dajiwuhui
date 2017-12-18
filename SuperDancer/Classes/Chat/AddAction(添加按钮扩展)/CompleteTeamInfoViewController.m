@@ -7,12 +7,13 @@
 //
 
 #import "CompleteTeamInfoViewController.h"
-
+#import "DisForTeamEditViewController.h"
 #import "CompleteTeamInfoCell.h"
 
 @interface CompleteTeamInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong)NSArray *data;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -31,8 +32,8 @@
     if (_data == nil) {
         _data = @[
   @[@{}],
-  @[@{@"title": @"舞队成员", @"content": @"1人"},@{}],
-  @[@{@"title": @"领队名称", @"content": @"舞者名称007"},
+  @[@{},@{}],
+  @[@{@"title": @"领队名称", @"content": @"舞者名称11"},
     @{@"title": @"成立时间", @"content": @"2017-10-10"},
     @{@"title": @"所在地区", @"content": @"山东省菏泽市牡丹区"},
     @{@"title": @"允许成员邀请队员", @"content": @""}],
@@ -80,15 +81,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
-    CompleteTeamInfoCell *completeTeamInfoCell;
     if (indexPath.section == 0)
     {
-        completeTeamInfoCell = [tableView dequeueReusableCellWithIdentifier:@"CompleteTeamInfoCellIdentifier0"];
-        if (completeTeamInfoCell == nil) {
-            completeTeamInfoCell = [[NSBundle mainBundle] loadNibNamed:@"CompleteTeamInfoCell" owner:self options:nil].firstObject;
+        cell = [tableView dequeueReusableCellWithIdentifier:@"CompleteTeamInfoCellIdentifier0"];
+        if (cell == nil) {
+            cell = [[NSBundle mainBundle] loadNibNamed:@"CompleteTeamInfoCell" owner:self options:nil][0];
         }
-        return completeTeamInfoCell;
-        
     }
     else if (indexPath.section == 1)
     {
@@ -99,13 +97,11 @@
             }
             cell.textLabel.text = @"舞队成员";
             cell.detailTextLabel.text = @"1人";
-            return cell;
         } else {
-            completeTeamInfoCell = [tableView dequeueReusableCellWithIdentifier:@"CompleteTeamInfoCell2"];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"CompleteTeamInfoCell2"];
             if (cell == nil) {
                 cell = [[NSBundle mainBundle] loadNibNamed:@"CompleteTeamInfoCell" owner:self options:nil][2];
             }
-            return cell;
         }
     }
     else if (indexPath.section == 2)
@@ -126,17 +122,25 @@
         
         cell.textLabel.text = self.data[indexPath.section][indexPath.row][@"title"];
         cell.detailTextLabel.text = self.data[indexPath.section][indexPath.row][@"content"];
-        return cell;
     }
     else
     {
-        completeTeamInfoCell = [tableView dequeueReusableCellWithIdentifier:@"CompleteTeamInfoCellIdentifier1"];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"CompleteTeamInfoCellIdentifier1"];
         if (cell == nil) {
             cell = [[NSBundle mainBundle] loadNibNamed:@"CompleteTeamInfoCell" owner:self options:nil][1];
         }
-        return cell;
+
+        ((CompleteTeamInfoCell *)cell).introduceLabel.text = @"嚼啊嚼啊纠结啊嚼啊嚼阿姐阿姐啊纠结啊嚼啊嚼阿姐啊嚼啊嚼阿姐啊纠结啊阿姐啊嚼啊嚼阿姐啊姐姐啊啊纠结啊嚼啊嚼嚼啊嚼啊姐姐阿姐啊嚼啊嚼阿姐啊纠结啊嚼啊嚼阿姐啊嚼啊嚼123";
     }
-    return nil;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 3) {
+        DisForTeamEditViewController *DDTVC = [[DisForTeamEditViewController alloc]init];
+        self.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:DDTVC animated:YES];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

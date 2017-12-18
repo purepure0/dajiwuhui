@@ -8,7 +8,6 @@
 
 #import "CreatDanceTeamViewController.h"
 #import "TZImagePickerController.h"
-#import "DisForTeamEditViewController.h"
 #import "CompleteTeamInfoViewController.h"
 
 @interface CreatDanceTeamViewController ()<UITextFieldDelegate>
@@ -24,7 +23,7 @@
     [super viewDidLoad];
     self.title = @"创建舞队";
     self.commitButton.layer.masksToBounds = YES;
-    self.commitButton.layer.cornerRadius = 10;
+    self.commitButton.layer.cornerRadius = 5;
     self.commitButton.userInteractionEnabled = NO;
     self.teamNameTextField.delegate = self;
     self.changeTemeHeaderImageViewButton.selected = NO;
@@ -55,9 +54,6 @@
     
 }
 - (IBAction)commitButtonAction:(UIButton *)sender {
-//    DisForTeamEditViewController *DDTVC = [[DisForTeamEditViewController alloc]init];
-//    self.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:DDTVC animated:YES];
     CompleteTeamInfoViewController *teamInfo = [[CompleteTeamInfoViewController alloc] init];
     [self.navigationController pushViewController:teamInfo animated:YES];
 }

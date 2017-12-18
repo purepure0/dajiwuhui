@@ -58,9 +58,6 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.82745098039999998" green="0.69019607839999997" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <connections>
-                <outlet property="introduceLabel" destination="Ovd-tt-O8I" id="4pL-N5-IeH"/>
-            </connections>
             <point key="canvasLocation" x="25.5" y="268"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="89" id="m6E-cf-oN7" userLabel="CompleteTeamInfoCell1" customClass="CompleteTeamInfoCell">
@@ -95,6 +92,9 @@
                     <constraint firstAttribute="trailing" secondItem="Ovd-tt-O8I" secondAttribute="trailing" constant="15" id="jcg-JL-NPK"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="introduceLabel" destination="Ovd-tt-O8I" id="J08-U4-IKj"/>
+            </connections>
             <point key="canvasLocation" x="25.5" y="444.5"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="89" id="DnG-Yq-Gf6" userLabel="CompleteTeamInfoCell2" customClass="CompleteTeamInfoCell">

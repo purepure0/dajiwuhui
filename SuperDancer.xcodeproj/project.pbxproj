@@ -1027,15 +1027,15 @@
 				3F5A444E1FD11D4C00BAE622 /* CreatDanceTeamViewController.h */,
 				3F5A444F1FD11D4C00BAE622 /* CreatDanceTeamViewController.m */,
 				3F5A44501FD11D4C00BAE622 /* CreatDanceTeamViewController.xib */,
-				3F5A44571FD137FD00BAE622 /* DisForTeamEditViewController.h */,
-				3F5A44581FD137FD00BAE622 /* DisForTeamEditViewController.m */,
-				3F5A44591FD137FD00BAE622 /* DisForTeamEditViewController.xib */,
 				3F5A446C1FD154FD00BAE622 /* SearchTeamViewController.h */,
 				3F5A446D1FD154FD00BAE622 /* SearchTeamViewController.m */,
 				3F5A446E1FD154FD00BAE622 /* SearchTeamViewController.xib */,
 				9A52F00B1FE6B5B000125087 /* CompleteTeamInfoViewController.h */,
 				9A52F00C1FE6B5B000125087 /* CompleteTeamInfoViewController.m */,
 				9A52F00D1FE6B5B000125087 /* CompleteTeamInfoViewController.xib */,
+				3F5A44571FD137FD00BAE622 /* DisForTeamEditViewController.h */,
+				3F5A44581FD137FD00BAE622 /* DisForTeamEditViewController.m */,
+				3F5A44591FD137FD00BAE622 /* DisForTeamEditViewController.xib */,
 			);
 			path = "AddAction(添加按钮扩展)";
 			sourceTree = "<group>";
