@@ -61,9 +61,7 @@
         
     }else if (indexPath.row == 1) {
         ApplyMessageListViewController *applyMessage = [[ApplyMessageListViewController alloc] init];
-        self.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:applyMessage animated:YES];
-        self.hidesBottomBarWhenPushed = NO;
     }else {
         InviteMesageViewController *inviteMessage = [[InviteMesageViewController alloc] init];
         [self.navigationController pushViewController:inviteMessage animated:YES];

@@ -150,6 +150,16 @@
 		9A2CB8B01F875A6D00907C72 /* HeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2CB8AE1F875A6D00907C72 /* HeaderReusableView.xib */; };
 		9A2CB8B41F8765B000907C72 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2CB8B21F8765B000907C72 /* ButtonCell.m */; };
 		9A2CB8B51F8765B000907C72 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2CB8B31F8765B000907C72 /* ButtonCell.xib */; };
+		9A52EFF51FE3730000125087 /* NearTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52EFF31FE3730000125087 /* NearTeamViewController.m */; };
+		9A52EFF61FE3730000125087 /* NearTeamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A52EFF41FE3730000125087 /* NearTeamViewController.xib */; };
+		9A52EFFA1FE37B8000125087 /* NearTeamListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52EFF81FE37B8000125087 /* NearTeamListViewController.m */; };
+		9A52EFFB1FE37B8000125087 /* NearTeamListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A52EFF91FE37B8000125087 /* NearTeamListViewController.xib */; };
+		9A52EFFF1FE3AAE000125087 /* NearTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52EFFD1FE3AAE000125087 /* NearTeamCell.m */; };
+		9A52F0001FE3AAE000125087 /* NearTeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A52EFFE1FE3AAE000125087 /* NearTeamCell.xib */; };
+		9A52F0041FE3B1DD00125087 /* NearADCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52F0021FE3B1DD00125087 /* NearADCell.m */; };
+		9A52F0051FE3B1DD00125087 /* NearADCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A52F0031FE3B1DD00125087 /* NearADCell.xib */; };
+		9A52F0091FE3CAD400125087 /* ScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52F0071FE3CAD400125087 /* ScrollViewCell.m */; };
+		9A52F00A1FE3CAD400125087 /* ScrollViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A52F0081FE3CAD400125087 /* ScrollViewCell.xib */; };
 		9A33C7F81FE4161B006F7A50 /* RefuseApplyOrInviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A33C7EF1FE41618006F7A50 /* RefuseApplyOrInviteViewController.xib */; };
 		9A33C7F91FE4161B006F7A50 /* InviteMesageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A33C7F01FE41619006F7A50 /* InviteMesageViewController.xib */; };
 		9A33C7FA1FE4161B006F7A50 /* InviteMesageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A33C7F11FE41619006F7A50 /* InviteMesageViewController.m */; };
@@ -494,6 +504,21 @@
 		9A2CB8B11F8765B000907C72 /* ButtonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonCell.h; sourceTree = "<group>"; };
 		9A2CB8B21F8765B000907C72 /* ButtonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
 		9A2CB8B31F8765B000907C72 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		9A52EFF21FE3730000125087 /* NearTeamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearTeamViewController.h; sourceTree = "<group>"; };
+		9A52EFF31FE3730000125087 /* NearTeamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearTeamViewController.m; sourceTree = "<group>"; };
+		9A52EFF41FE3730000125087 /* NearTeamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearTeamViewController.xib; sourceTree = "<group>"; };
+		9A52EFF71FE37B8000125087 /* NearTeamListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearTeamListViewController.h; sourceTree = "<group>"; };
+		9A52EFF81FE37B8000125087 /* NearTeamListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearTeamListViewController.m; sourceTree = "<group>"; };
+		9A52EFF91FE37B8000125087 /* NearTeamListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearTeamListViewController.xib; sourceTree = "<group>"; };
+		9A52EFFC1FE3AAE000125087 /* NearTeamCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearTeamCell.h; sourceTree = "<group>"; };
+		9A52EFFD1FE3AAE000125087 /* NearTeamCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearTeamCell.m; sourceTree = "<group>"; };
+		9A52EFFE1FE3AAE000125087 /* NearTeamCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearTeamCell.xib; sourceTree = "<group>"; };
+		9A52F0011FE3B1DD00125087 /* NearADCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearADCell.h; sourceTree = "<group>"; };
+		9A52F0021FE3B1DD00125087 /* NearADCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearADCell.m; sourceTree = "<group>"; };
+		9A52F0031FE3B1DD00125087 /* NearADCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearADCell.xib; sourceTree = "<group>"; };
+		9A52F0061FE3CAD400125087 /* ScrollViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollViewCell.h; sourceTree = "<group>"; };
+		9A52F0071FE3CAD400125087 /* ScrollViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollViewCell.m; sourceTree = "<group>"; };
+		9A52F0081FE3CAD400125087 /* ScrollViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollViewCell.xib; sourceTree = "<group>"; };
 		9A33C7EF1FE41618006F7A50 /* RefuseApplyOrInviteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefuseApplyOrInviteViewController.xib; sourceTree = "<group>"; };
 		9A33C7F01FE41619006F7A50 /* InviteMesageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InviteMesageViewController.xib; sourceTree = "<group>"; };
 		9A33C7F11FE41619006F7A50 /* InviteMesageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteMesageViewController.m; sourceTree = "<group>"; };
@@ -1163,6 +1188,7 @@
 		9A08C21B1FCC3EC000F6C54B /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				9A52EFEE1FE372C300125087 /* NearDanceTeam(附近舞队) */,
 				9A53C05F1FDFA95D003CBFD3 /* MessageNotification(消息通知) */,
 				3F9294131FD50030004CC1E7 /* DanceTeam */,
 				3F5A444D1FD11C9700BAE622 /* AddAction(添加按钮扩展) */,
@@ -1684,6 +1710,52 @@
 				049E50C41FA0E51C006C3BF1 /* LocalHeaderReusableView.h */,
 				049E50C51FA0E51C006C3BF1 /* LocalHeaderReusableView.m */,
 				049E50C61FA0E51C006C3BF1 /* LocalHeaderReusableView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9A52EFEE1FE372C300125087 /* NearDanceTeam(附近舞队) */ = {
+			isa = PBXGroup;
+			children = (
+				9A52EFF01FE372EA00125087 /* Controller */,
+				9A52EFEF1FE372EA00125087 /* Model */,
+				9A52EFF11FE372EA00125087 /* View */,
+			);
+			path = "NearDanceTeam(附近舞队)";
+			sourceTree = "<group>";
+		};
+		9A52EFEF1FE372EA00125087 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9A52EFF01FE372EA00125087 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9A52EFF21FE3730000125087 /* NearTeamViewController.h */,
+				9A52EFF31FE3730000125087 /* NearTeamViewController.m */,
+				9A52EFF41FE3730000125087 /* NearTeamViewController.xib */,
+				9A52EFF71FE37B8000125087 /* NearTeamListViewController.h */,
+				9A52EFF81FE37B8000125087 /* NearTeamListViewController.m */,
+				9A52EFF91FE37B8000125087 /* NearTeamListViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9A52EFF11FE372EA00125087 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A52EFFC1FE3AAE000125087 /* NearTeamCell.h */,
+				9A52EFFD1FE3AAE000125087 /* NearTeamCell.m */,
+				9A52EFFE1FE3AAE000125087 /* NearTeamCell.xib */,
+				9A52F0011FE3B1DD00125087 /* NearADCell.h */,
+				9A52F0021FE3B1DD00125087 /* NearADCell.m */,
+				9A52F0031FE3B1DD00125087 /* NearADCell.xib */,
+				9A52F0061FE3CAD400125087 /* ScrollViewCell.h */,
+				9A52F0071FE3CAD400125087 /* ScrollViewCell.m */,
+				9A52F0081FE3CAD400125087 /* ScrollViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2223,6 +2295,7 @@
 				9A53C09A1FDFD482003CBFD3 /* ApplyMessageDetailViewController.xib in Resources */,
 				9A2CB88E1F868D5400907C72 /* LocalDanceViewController.xib in Resources */,
 				9A61BEFE1FD1371F00F30888 /* SDMineViewController.xib in Resources */,
+				9A52F00A1FE3CAD400125087 /* ScrollViewCell.xib in Resources */,
 				9A71FE7D1F8DF37500738680 /* DownloadingCell.xib in Resources */,
 				9A1BB42A1F85E2850067C12C /* SDHomeViewController.xib in Resources */,
 				04EB25071F9A4E71000E2137 /* CommentView.xib in Resources */,
@@ -2235,9 +2308,11 @@
 				04ECB8781F92024500186C5B /* HistoryCell.xib in Resources */,
 				9A247F7D1F9B0369007AEABE /* PersonalCenterViewController.xib in Resources */,
 				049E50B11FA0D220006C3BF1 /* MusicViewController.xib in Resources */,
+				9A52F0051FE3B1DD00125087 /* NearADCell.xib in Resources */,
 				04F41DC31FA38808002EF921 /* SelectTypeCell.xib in Resources */,
 				3F5A445B1FD137FD00BAE622 /* DisForTeamEditViewController.xib in Resources */,
 				9AC2237D1F8B107100919072 /* ContentCell.xib in Resources */,
+				9A52EFFB1FE37B8000125087 /* NearTeamListViewController.xib in Resources */,
 				9A2CB89B1F868DAA00907C72 /* RecommendViewController.xib in Resources */,
 				049E510A1FA2FF00006C3BF1 /* MsgCenterViewController.xib in Resources */,
 				049E50BE1FA0DDEC006C3BF1 /* LocalSelectViewController.xib in Resources */,
@@ -2259,6 +2334,8 @@
 				04AE237C1F9F87D50034635C /* CollectionCell.xib in Resources */,
 				3F5A44701FD154FD00BAE622 /* SearchTeamViewController.xib in Resources */,
 				9A53C0741FDFC86F003CBFD3 /* PublicNoticeListViewController.xib in Resources */,
+				9A52F0001FE3AAE000125087 /* NearTeamCell.xib in Resources */,
+				9A52EFF61FE3730000125087 /* NearTeamViewController.xib in Resources */,
 				9ACD9B7F1FA36635003FF1BB /* AboutUsViewController.xib in Resources */,
 				048C53231F9D943200607784 /* DanceTypeCell.xib in Resources */,
 				9A33C7F81FE4161B006F7A50 /* RefuseApplyOrInviteViewController.xib in Resources */,
@@ -2364,6 +2441,7 @@
 				9A2CB88D1F868D5400907C72 /* LocalDanceViewController.m in Sources */,
 				9A1BB4221F85DFB70067C12C /* BaseViewController.m in Sources */,
 				04498FBC1FA4361D007CACEA /* VideoImageCell.m in Sources */,
+				9A52EFFA1FE37B8000125087 /* NearTeamListViewController.m in Sources */,
 				9A53C0731FDFC86F003CBFD3 /* PublicNoticeListViewController.m in Sources */,
 				9ACA8AF11F98574C00B73B29 /* UIAlertController+ZFPlayerRotation.m in Sources */,
 				04ECB8661F91F9E000186C5B /* MoreVideoViewController.m in Sources */,
@@ -2444,6 +2522,7 @@
 				9ACA8AF61F98574C00B73B29 /* UIViewController+ZFPlayerRotation.m in Sources */,
 				9AD960DD1F8F180D0024DA43 /* PPNetworkHelper.m in Sources */,
 				3F5A44511FD11D4C00BAE622 /* CreatDanceTeamViewController.m in Sources */,
+				9A52EFFF1FE3AAE000125087 /* NearTeamCell.m in Sources */,
 				9AC223841F8B139B00919072 /* HandleCell.m in Sources */,
 				9ACA8B0B1F985B4400B73B29 /* ZFHttpRequest.m in Sources */,
 				049E51191FA31050006C3BF1 /* MsgCommentModel.m in Sources */,
@@ -2452,6 +2531,7 @@
 				3F6868CB1FCEA759001EB5BD /* TeamListForChatTableViewCell.m in Sources */,
 				9AD960CA1F8F14590024DA43 /* Utility.m in Sources */,
 				3F97B3691FD0F8CC00D0799A /* ThreeRightView.m in Sources */,
+				9A52F0091FE3CAD400125087 /* ScrollViewCell.m in Sources */,
 				04AE237B1F9F87D50034635C /* CollectionCell.m in Sources */,
 				9ACA8AFD1F98574C00B73B29 /* ZFPlayerView.m in Sources */,
 				049E50F81FA237BF006C3BF1 /* EditNickNameViewController.m in Sources */,
@@ -2476,6 +2556,7 @@
 				049E50B91FA0D253006C3BF1 /* MusicModel.m in Sources */,
 				3F5A44671FD149AC00BAE622 /* DJWYAlertView.m in Sources */,
 				049E50CC1FA1C081006C3BF1 /* MusicVideoViewController.m in Sources */,
+				9A52EFF51FE3730000125087 /* NearTeamViewController.m in Sources */,
 				049E51091FA2FF00006C3BF1 /* MsgCenterViewController.m in Sources */,
 				9A53C0631FDFA9C5003CBFD3 /* MessageNotiViewController.m in Sources */,
 				04927C2E1F98E76A00CDD58E /* ReplyCommentModel.m in Sources */,
@@ -2485,6 +2566,7 @@
 				048C53341F9D998800607784 /* DanceTypeViewController.m in Sources */,
 				04AE23911FA070320034635C /* CollectionDancersViewController.m in Sources */,
 				04ECB8711F9200B000186C5B /* BrowsingHistoryViewController.m in Sources */,
+				9A52F0041FE3B1DD00125087 /* NearADCell.m in Sources */,
 				049E50C21FA0E0E7006C3BF1 /* LocalCell.m in Sources */,
 				9ACA8AF21F98574C00B73B29 /* UIImageView+ZFCache.m in Sources */,
 				9A2CB89F1F868DBC00907C72 /* SquareDanceViewController.m in Sources */,
