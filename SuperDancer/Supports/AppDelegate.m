@@ -41,8 +41,8 @@
 //    [self configureJPushWithLaunchOptions:launchOptions];
     ///<5>bugtags测试工具
     [Bugtags startWithAppKey:@"08202dec433c4ed124ec3d36ee834d3e" invocationEvent:BTGInvocationEventBubble];
-    ///<6>
-    
+    ///<6>网易IM
+    [self setupNIMSDK];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -183,6 +183,56 @@
 }
 
 #endif
+
+
+- (void)setupNIMSDK
+{
+    //配置额外配置信息 （需要在注册 appkey 前完成
+    //略
+    
+    //appkey 是应用的标识，不同应用之间的数据（用户、消息、群组等）是完全隔离的。
+    //如需打网易云信 Demo 包，请勿修改 appkey ，开发自己的应用时，请替换为自己的 appkey 。
+    //并请对应更换 Demo 代码中的获取好友列表、个人信息等网易云信 SDK 未提供的接口。
+    NSString *appKey        = @"45f097c6ebe072b28422e670ce15824b";
+    NIMSDKOption *option    = [NIMSDKOption optionWithAppKey:appKey];
+    option.apnsCername      = nil;
+    option.pkCername        = nil;
+    [[NIMSDK sharedSDK] registerWithOption:option];
+    
+    NSLog(@"appKey:%@", [[NIMSDK sharedSDK] appKey]);
+    //注册自定义消息的解析器
+//    [NIMCustomObject registerCustomDecoder:[NTESCustomAttachmentDecoder new]];
+    
+    //注册 NIMKit 自定义排版配置
+//    [[NIMKit sharedKit] registerLayoutConfig:[NTESCellLayoutConfig new]];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

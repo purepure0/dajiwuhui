@@ -39,7 +39,8 @@
     #import "UIScrollView+EmptyDataSet.h"
     #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
     #import "UIImage+circleImage.h"
-    
+    #import <NIMSDK/NIMSDK.h>
+    #import <NIMKit.h>
 #pragma mark -- Umeng
 
 #define UMengAppkey @"59e061b0aed179475c0001d7"
@@ -48,6 +49,9 @@
 
 #define QQAppID @"1106426315"
 #define QQAppKEY @"MVEKZCZjLT13kpat"
+
+
+
 
 #endif /* SuperDancerHeader_pch */
 
