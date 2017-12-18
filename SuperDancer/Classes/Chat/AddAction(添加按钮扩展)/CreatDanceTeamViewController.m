@@ -9,6 +9,7 @@
 #import "CreatDanceTeamViewController.h"
 #import "TZImagePickerController.h"
 #import "DisForTeamEditViewController.h"
+#import "CompleteTeamInfoViewController.h"
 
 @interface CreatDanceTeamViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *changeTemeHeaderImageViewButton;
@@ -54,9 +55,11 @@
     
 }
 - (IBAction)commitButtonAction:(UIButton *)sender {
-    DisForTeamEditViewController *DDTVC = [[DisForTeamEditViewController alloc]init];
-    self.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:DDTVC animated:YES];
+//    DisForTeamEditViewController *DDTVC = [[DisForTeamEditViewController alloc]init];
+//    self.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:DDTVC animated:YES];
+    CompleteTeamInfoViewController *teamInfo = [[CompleteTeamInfoViewController alloc] init];
+    [self.navigationController pushViewController:teamInfo animated:YES];
 }
 
 #pragma mark------UItextFieldDelegate
