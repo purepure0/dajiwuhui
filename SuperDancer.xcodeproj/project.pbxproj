@@ -217,6 +217,12 @@
 		9A7D62E41FE7C0DD0078DD2B /* GroupNoticeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D62E21FE7C0DD0078DD2B /* GroupNoticeDetailViewController.xib */; };
 		9A7D62E81FE801980078DD2B /* MemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D62E61FE801980078DD2B /* MemberCell.m */; };
 		9A7D62E91FE801980078DD2B /* MemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D62E71FE801980078DD2B /* MemberCell.xib */; };
+		9A7D62ED1FE8A48E0078DD2B /* SubmitImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D62EB1FE8A48E0078DD2B /* SubmitImageCell.m */; };
+		9A7D62EE1FE8A48E0078DD2B /* SubmitImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D62EC1FE8A48E0078DD2B /* SubmitImageCell.xib */; };
+		9A7D62F11FE8E34D0078DD2B /* GroupNoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D62F01FE8E34D0078DD2B /* GroupNoticeModel.m */; };
+		9A7D62F51FE8EA7C0078DD2B /* GroupNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D62F31FE8EA7C0078DD2B /* GroupNoticeCell.m */; };
+		9A7D62F61FE8EA7C0078DD2B /* GroupNoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D62F41FE8EA7C0078DD2B /* GroupNoticeCell.xib */; };
+		9A7D62F91FE8EEE90078DD2B /* PhotosContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D62F81FE8EEE80078DD2B /* PhotosContainerView.m */; };
 		9A906AE51F886B2400AB9A70 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A906AE31F886B2400AB9A70 /* LoginViewController.m */; };
 		9A906AE61F886B2400AB9A70 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A906AE41F886B2400AB9A70 /* LoginViewController.xib */; };
 		9A992DF21FA2392400FBAC21 /* UploadVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A992DF11FA2392400FBAC21 /* UploadVideoView.m */; };
@@ -621,6 +627,16 @@
 		9A7D62E51FE801980078DD2B /* MemberCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberCell.h; sourceTree = "<group>"; };
 		9A7D62E61FE801980078DD2B /* MemberCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberCell.m; sourceTree = "<group>"; };
 		9A7D62E71FE801980078DD2B /* MemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCell.xib; sourceTree = "<group>"; };
+		9A7D62EA1FE8A48E0078DD2B /* SubmitImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubmitImageCell.h; sourceTree = "<group>"; };
+		9A7D62EB1FE8A48E0078DD2B /* SubmitImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubmitImageCell.m; sourceTree = "<group>"; };
+		9A7D62EC1FE8A48E0078DD2B /* SubmitImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmitImageCell.xib; sourceTree = "<group>"; };
+		9A7D62EF1FE8E34D0078DD2B /* GroupNoticeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupNoticeModel.h; sourceTree = "<group>"; };
+		9A7D62F01FE8E34D0078DD2B /* GroupNoticeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupNoticeModel.m; sourceTree = "<group>"; };
+		9A7D62F21FE8EA7C0078DD2B /* GroupNoticeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupNoticeCell.h; sourceTree = "<group>"; };
+		9A7D62F31FE8EA7C0078DD2B /* GroupNoticeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupNoticeCell.m; sourceTree = "<group>"; };
+		9A7D62F41FE8EA7C0078DD2B /* GroupNoticeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupNoticeCell.xib; sourceTree = "<group>"; };
+		9A7D62F71FE8EEE80078DD2B /* PhotosContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotosContainerView.h; sourceTree = "<group>"; };
+		9A7D62F81FE8EEE80078DD2B /* PhotosContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotosContainerView.m; sourceTree = "<group>"; };
 		9A906AE21F886B2400AB9A70 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9A906AE31F886B2400AB9A70 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9A906AE41F886B2400AB9A70 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -1847,6 +1863,8 @@
 		9A52F0171FE7AED400125087 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9A7D62EF1FE8E34D0078DD2B /* GroupNoticeModel.h */,
+				9A7D62F01FE8E34D0078DD2B /* GroupNoticeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1854,6 +1872,14 @@
 		9A52F0181FE7AED400125087 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9A7D62EA1FE8A48E0078DD2B /* SubmitImageCell.h */,
+				9A7D62EB1FE8A48E0078DD2B /* SubmitImageCell.m */,
+				9A7D62EC1FE8A48E0078DD2B /* SubmitImageCell.xib */,
+				9A7D62F21FE8EA7C0078DD2B /* GroupNoticeCell.h */,
+				9A7D62F31FE8EA7C0078DD2B /* GroupNoticeCell.m */,
+				9A7D62F41FE8EA7C0078DD2B /* GroupNoticeCell.xib */,
+				9A7D62F71FE8EEE80078DD2B /* PhotosContainerView.h */,
+				9A7D62F81FE8EEE80078DD2B /* PhotosContainerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2416,6 +2442,7 @@
 				04F41DC31FA38808002EF921 /* SelectTypeCell.xib in Resources */,
 				3F5A445B1FD137FD00BAE622 /* DisForTeamEditViewController.xib in Resources */,
 				9AC2237D1F8B107100919072 /* ContentCell.xib in Resources */,
+				9A7D62EE1FE8A48E0078DD2B /* SubmitImageCell.xib in Resources */,
 				9A52EFFB1FE37B8000125087 /* NearTeamListViewController.xib in Resources */,
 				9A52F00F1FE6B5B100125087 /* CompleteTeamInfoViewController.xib in Resources */,
 				9A2CB89B1F868DAA00907C72 /* RecommendViewController.xib in Resources */,
@@ -2429,6 +2456,7 @@
 				9A2CB8B51F8765B000907C72 /* ButtonCell.xib in Resources */,
 				9A53C09F1FDFD502003CBFD3 /* ApplyMessageListCell.xib in Resources */,
 				9A53C0791FDFC900003CBFD3 /* PublicNoticeListCell.xib in Resources */,
+				9A7D62F61FE8EA7C0078DD2B /* GroupNoticeCell.xib in Resources */,
 				049E51151FA30AAB006C3BF1 /* MsgCommentCell.xib in Resources */,
 				9A08C22C1FCC3F2400F6C54B /* SDChatViewController.xib in Resources */,
 				9A33C7FB1FE4161B006F7A50 /* TeamJoinViewController.xib in Resources */,
@@ -2551,6 +2579,7 @@
 				9A2CB88D1F868D5400907C72 /* LocalDanceViewController.m in Sources */,
 				9A1BB4221F85DFB70067C12C /* BaseViewController.m in Sources */,
 				9A3E24A91FE8F53300F961AA /* AddMembersViewController.m in Sources */,
+				9A7D62F91FE8EEE90078DD2B /* PhotosContainerView.m in Sources */,
 				04498FBC1FA4361D007CACEA /* VideoImageCell.m in Sources */,
 				9A52EFFA1FE37B8000125087 /* NearTeamListViewController.m in Sources */,
 				9A53C0731FDFC86F003CBFD3 /* PublicNoticeListViewController.m in Sources */,
@@ -2624,6 +2653,7 @@
 				9A08C2381FCCF32C00F6C54B /* UIImage+CLImage.m in Sources */,
 				041C473E1F9B86AF00A65AC8 /* SaveBrowseRecord.m in Sources */,
 				049E50D11FA1D278006C3BF1 /* CitySelectViewController.m in Sources */,
+				9A7D62F51FE8EA7C0078DD2B /* GroupNoticeCell.m in Sources */,
 				04F41DC21FA38808002EF921 /* SelectTypeCell.m in Sources */,
 				9A08B2991F88BFEC00232661 /* DancersViewController.m in Sources */,
 				049E510E1FA305DD006C3BF1 /* MsgAttentionViewController.m in Sources */,
@@ -2643,6 +2673,8 @@
 				9A7D62DE1FE7C0840078DD2B /* PublishNoticeViewController.m in Sources */,
 				04AE236A1F9F43730034635C /* DancerModel.m in Sources */,
 				9A61BF041FD1433C00F30888 /* MineHandleCell.m in Sources */,
+				9A7D62F11FE8E34D0078DD2B /* GroupNoticeModel.m in Sources */,
+				3F6868CB1FCEA759001EB5BD /* TeamListForChatTableViewCell.m in Sources */,
 				9AD960CA1F8F14590024DA43 /* Utility.m in Sources */,
 				3F97B3691FD0F8CC00D0799A /* ThreeRightView.m in Sources */,
 				9A52F0091FE3CAD400125087 /* ScrollViewCell.m in Sources */,
@@ -2656,6 +2688,7 @@
 				9A53C0991FDFD482003CBFD3 /* ApplyMessageDetailViewController.m in Sources */,
 				9ACA8B081F985B4400B73B29 /* ZFCommonHelper.m in Sources */,
 				9ACA8AF51F98574C00B73B29 /* UIView+CustomControlView.m in Sources */,
+				9A7D62ED1FE8A48E0078DD2B /* SubmitImageCell.m in Sources */,
 				9A247F7E1F9B0369007AEABE /* PersonalHeaderView.m in Sources */,
 				9A1BB4251F85DFCB0067C12C /* SDUser.m in Sources */,
 				3F97B3681FD0F8CC00D0799A /* ThirdRightTableViewCell.m in Sources */,
