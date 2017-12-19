@@ -10,6 +10,7 @@
 #import "TeamJoinCell.h"
 #import "RefuseApplyOrInviteViewController.h"
 #import "GroupNoticeViewController.h"
+#import "GroupVideoViewController.h"
 @interface TeamJoinViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, assign)JoinState joinState;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -121,14 +122,18 @@
     @weakify(self);
     [cell setHandleBtnBlock:^(NSInteger index) {
         @strongify(self);
-//        [self handle];
         switch (index) {
-            case 10:{
+            case 10:
+            {//群公告
                 GroupNoticeViewController *gn = [[GroupNoticeViewController alloc] init];
                 [self.navigationController pushViewController:gn animated:YES];
             }
                 break;
             case 11:
+            {//群视频
+                GroupVideoViewController *gv = [[GroupVideoViewController alloc] init];
+                [self.navigationController pushViewController:gv animated:YES];
+            }
                 break;
             case 12:
                 break;

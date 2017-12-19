@@ -10,6 +10,7 @@
 #import "PublishNoticeViewController.h"
 #import "GroupNoticeCell.h"
 #import "GroupNoticeModel.h"
+#import "GroupNoticeDetailViewController.h"
 
 @interface GroupNoticeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -29,7 +30,7 @@ static NSString *kGroupNoticeCellIdentifier = @"GroupNoticeCellIdentifier";
     self.view.backgroundColor = kBackgroundColor;
     [self setRightItemTitle:@"发布" action:@selector(publishAction)];
     
-    [self creatModelsWithCount:4];
+    [self creatModelsWithCount:10];
     
     [self.tableView registerNib:NIB_NAMED(@"GroupNoticeCell") forCellReuseIdentifier:kGroupNoticeCellIdentifier];
 }
@@ -113,7 +114,8 @@ static NSString *kGroupNoticeCellIdentifier = @"GroupNoticeCellIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    GroupNoticeDetailViewController *detail = [[GroupNoticeDetailViewController alloc] init];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

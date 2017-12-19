@@ -223,6 +223,10 @@
 		9A7D62F51FE8EA7C0078DD2B /* GroupNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D62F31FE8EA7C0078DD2B /* GroupNoticeCell.m */; };
 		9A7D62F61FE8EA7C0078DD2B /* GroupNoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D62F41FE8EA7C0078DD2B /* GroupNoticeCell.xib */; };
 		9A7D62F91FE8EEE90078DD2B /* PhotosContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D62F81FE8EEE80078DD2B /* PhotosContainerView.m */; };
+		9A7D63121FE962DA0078DD2B /* GroupVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D630F1FE962DA0078DD2B /* GroupVideoViewController.m */; };
+		9A7D63131FE962DA0078DD2B /* GroupVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D63101FE962DA0078DD2B /* GroupVideoViewController.xib */; };
+		9A7D63171FE9633D0078DD2B /* GroupVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D63151FE9633D0078DD2B /* GroupVideoCell.m */; };
+		9A7D63181FE9633D0078DD2B /* GroupVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D63161FE9633D0078DD2B /* GroupVideoCell.xib */; };
 		9A906AE51F886B2400AB9A70 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A906AE31F886B2400AB9A70 /* LoginViewController.m */; };
 		9A906AE61F886B2400AB9A70 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A906AE41F886B2400AB9A70 /* LoginViewController.xib */; };
 		9A992DF21FA2392400FBAC21 /* UploadVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A992DF11FA2392400FBAC21 /* UploadVideoView.m */; };
@@ -637,6 +641,12 @@
 		9A7D62F41FE8EA7C0078DD2B /* GroupNoticeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupNoticeCell.xib; sourceTree = "<group>"; };
 		9A7D62F71FE8EEE80078DD2B /* PhotosContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotosContainerView.h; sourceTree = "<group>"; };
 		9A7D62F81FE8EEE80078DD2B /* PhotosContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotosContainerView.m; sourceTree = "<group>"; };
+		9A7D630E1FE962DA0078DD2B /* GroupVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupVideoViewController.h; sourceTree = "<group>"; };
+		9A7D630F1FE962DA0078DD2B /* GroupVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupVideoViewController.m; sourceTree = "<group>"; };
+		9A7D63101FE962DA0078DD2B /* GroupVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupVideoViewController.xib; sourceTree = "<group>"; };
+		9A7D63141FE9633D0078DD2B /* GroupVideoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GroupVideoCell.h; path = "SuperDancer/Classes/Chat/MessageNotification(消息通知)/Controller/申请/群视频/GroupVideoCell.h"; sourceTree = SOURCE_ROOT; };
+		9A7D63151FE9633D0078DD2B /* GroupVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GroupVideoCell.m; path = "SuperDancer/Classes/Chat/MessageNotification(消息通知)/Controller/申请/群视频/GroupVideoCell.m"; sourceTree = SOURCE_ROOT; };
+		9A7D63161FE9633D0078DD2B /* GroupVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GroupVideoCell.xib; path = "SuperDancer/Classes/Chat/MessageNotification(消息通知)/Controller/申请/群视频/GroupVideoCell.xib"; sourceTree = SOURCE_ROOT; };
 		9A906AE21F886B2400AB9A70 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9A906AE31F886B2400AB9A70 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9A906AE41F886B2400AB9A70 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -1959,6 +1969,7 @@
 				9A33C7F71FE4161A006F7A50 /* TeamJoinViewController.m */,
 				9A33C7F21FE41619006F7A50 /* TeamJoinViewController.xib */,
 				9A52F0151FE7AED400125087 /* 群公告 */,
+				9A7D63041FE9625E0078DD2B /* 群视频 */,
 			);
 			path = "申请";
 			sourceTree = "<group>";
@@ -2045,6 +2056,43 @@
 				9A71FE7E1F8E01A100738680 /* DownloadedCell.h */,
 				9A71FE7F1F8E01A100738680 /* DownloadedCell.m */,
 				9A71FE801F8E01A100738680 /* DownloadedCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9A7D63041FE9625E0078DD2B /* 群视频 */ = {
+			isa = PBXGroup;
+			children = (
+				9A7D630D1FE962DA0078DD2B /* Controller */,
+				9A7D630C1FE962DA0078DD2B /* Model */,
+				9A7D63111FE962DA0078DD2B /* View */,
+			);
+			path = "群视频";
+			sourceTree = "<group>";
+		};
+		9A7D630C1FE962DA0078DD2B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9A7D630D1FE962DA0078DD2B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9A7D630E1FE962DA0078DD2B /* GroupVideoViewController.h */,
+				9A7D630F1FE962DA0078DD2B /* GroupVideoViewController.m */,
+				9A7D63101FE962DA0078DD2B /* GroupVideoViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9A7D63111FE962DA0078DD2B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A7D63141FE9633D0078DD2B /* GroupVideoCell.h */,
+				9A7D63151FE9633D0078DD2B /* GroupVideoCell.m */,
+				9A7D63161FE9633D0078DD2B /* GroupVideoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2391,6 +2439,7 @@
 				9A08B2B31F88DEF700232661 /* MovePlayerViewController.xib in Resources */,
 				9A1DC6A61FA49CF10014E739 /* DownloadViewController.xib in Resources */,
 				9A53C06F1FDFC2FA003CBFD3 /* PublicNoticeDetailViewController.xib in Resources */,
+				9A7D63131FE962DA0078DD2B /* GroupVideoViewController.xib in Resources */,
 				04ECB8721F9200B000186C5B /* BrowsingHistoryViewController.xib in Resources */,
 				9A53C0641FDFA9C5003CBFD3 /* MessageNotiViewController.xib in Resources */,
 				9AC223851F8B139B00919072 /* HandleCell.xib in Resources */,
@@ -2476,6 +2525,7 @@
 				9A3E24AA1FE8F53300F961AA /* AddMembersViewController.xib in Resources */,
 				049E50C81FA0E51C006C3BF1 /* LocalHeaderReusableView.xib in Resources */,
 				9A3E24AF1FE9010500F961AA /* EditTeamAddressViewController.xib in Resources */,
+				9A7D63181FE9633D0078DD2B /* GroupVideoCell.xib in Resources */,
 				9A2CB8A01F868DBC00907C72 /* SquareDanceViewController.xib in Resources */,
 				9A33C7F91FE4161B006F7A50 /* InviteMesageViewController.xib in Resources */,
 			);
@@ -2674,7 +2724,6 @@
 				04AE236A1F9F43730034635C /* DancerModel.m in Sources */,
 				9A61BF041FD1433C00F30888 /* MineHandleCell.m in Sources */,
 				9A7D62F11FE8E34D0078DD2B /* GroupNoticeModel.m in Sources */,
-				3F6868CB1FCEA759001EB5BD /* TeamListForChatTableViewCell.m in Sources */,
 				9AD960CA1F8F14590024DA43 /* Utility.m in Sources */,
 				3F97B3691FD0F8CC00D0799A /* ThreeRightView.m in Sources */,
 				9A52F0091FE3CAD400125087 /* ScrollViewCell.m in Sources */,
@@ -2691,6 +2740,7 @@
 				9A7D62ED1FE8A48E0078DD2B /* SubmitImageCell.m in Sources */,
 				9A247F7E1F9B0369007AEABE /* PersonalHeaderView.m in Sources */,
 				9A1BB4251F85DFCB0067C12C /* SDUser.m in Sources */,
+				9A7D63121FE962DA0078DD2B /* GroupVideoViewController.m in Sources */,
 				3F97B3681FD0F8CC00D0799A /* ThirdRightTableViewCell.m in Sources */,
 				04927BEE1F95F81E00CDD58E /* TimeDifference.m in Sources */,
 				049E50C71FA0E51C006C3BF1 /* LocalHeaderReusableView.m in Sources */,
@@ -2708,6 +2758,7 @@
 				049E51091FA2FF00006C3BF1 /* MsgCenterViewController.m in Sources */,
 				9A53C0631FDFA9C5003CBFD3 /* MessageNotiViewController.m in Sources */,
 				04927C2E1F98E76A00CDD58E /* ReplyCommentModel.m in Sources */,
+				9A7D63171FE9633D0078DD2B /* GroupVideoCell.m in Sources */,
 				3F92940D1FD4F3B9004CC1E7 /* ScanSuccessJumpVC.m in Sources */,
 				9ACA8B0A1F985B4400B73B29 /* ZFFileModel.m in Sources */,
 				9AD960C41F8F10280024DA43 /* SDRequestManager.m in Sources */,
