@@ -9,7 +9,10 @@
 #import "CompleteTeamInfoViewController.h"
 #import "DisForTeamEditViewController.h"
 #import "CompleteTeamInfoCell.h"
-
+#import <QiniuSDK.h>
+#import "AddMembersViewController.h"
+#import "TZImagePickerController.h"
+#import "EditTeamAddressViewController.h"
 @interface CompleteTeamInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong)NSArray *data;
@@ -34,7 +37,8 @@
     _allowMemberInvite = NO;
     _teamIntro = @"未填写";
     [self setRightItemTitle:@"完成" action:@selector(finishAction)];
-
+    _members = [NSMutableArray arrayWithObject:[SDUser sharedUser].userId];
+    
 }
 
 
@@ -54,21 +58,52 @@
 
 - (void)finishAction
 {
-    NIMCreateTeamOption *option = [[NIMCreateTeamOption alloc] init];
-    option.name = self.teamName;
-    option.type = NIMTeamTypeAdvanced;
-    option.avatarUrl = self.avatarURL;
-    option.joinMode = NIMTeamJoinModeNeedAuth;
-    option.inviteMode = NIMTeamInviteModeManager;
-    option.beInviteMode = NIMTeamBeInviteModeNeedAuth;
-    NSArray *users = [NSArray arrayWithObject:[SDUser sharedUser].userId];
-    [[[NIMSDK sharedSDK] teamManager] createTeam:option users:users completion:^(NSError * _Nullable error, NSString * _Nullable teamId, NSArray<NSString *> * _Nullable failedUserIds) {
-        if (error == nil) {
-            NSLog(@"%@--%@", teamId, failedUserIds);
-        }else {
-            [self toast:@"创建失败"];
-        }
+    [self showLoading];
+    [PPNetworkHelper POST:NSStringFormat(@"%@%@",kApiPrefix,KQiniuToken) parameters:nil success:^(id responseObject) {
+        
+        NSString *token = responseObject[@"data"][@"res"][@"token"];
+        PPLog(@"七牛token = %@",token);
+        NSData *imageData = UIImageJPEGRepresentation(_avatarImage, 0.5f);
+        QNUploadManager *upManager = [[QNUploadManager alloc] init];
+        
+        [upManager putData:imageData key:nil token:token
+                  complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+                      PPLog(@"Qiniu info = %@", info);
+                      PPLog(@"Qiniu resp = %@", resp);
+                      PPLog(@"Qiniu key = %@", key);
+                      
+                      if (info.ok) {
+                          [self hideLoading];
+                          PPLog(@"成功");
+                          NSString *avatarURL = NSStringFormat(@"%@%@", kQiniuURLHost, resp[@"key"]);
+                          NIMCreateTeamOption *option = [[NIMCreateTeamOption alloc] init];
+                          option.name = self.teamName;
+                          option.type = NIMTeamTypeAdvanced;
+                          option.avatarUrl = avatarURL;
+                          option.joinMode = NIMTeamJoinModeNeedAuth;
+                          option.inviteMode = _allowMemberInvite;
+                          option.beInviteMode = NIMTeamBeInviteModeNeedAuth;
+                          option.intro = _teamIntro;
+                          
+                          [[[NIMSDK sharedSDK] teamManager] createTeam:option users:_members completion:^(NSError * _Nullable error, NSString * _Nullable teamId, NSArray<NSString *> * _Nullable failedUserIds) {
+                              if (error == nil) {
+                                  NSLog(@"%@--%@", teamId, failedUserIds);
+                                  [self.navigationController popToRootViewControllerAnimated:YES];
+                              }else {
+                                  NSLog(@"error:%@", error);
+                                  [self toast:@"创建失败"];
+                              }
+                          }];
+                      }else {
+                          [self hideLoading];
+                          PPLog(@"失败");
+                      }
+                  } option:nil];
+    } failure:^(NSError *error) {
+        [self hideLoading];
     }];
+    
+    
     
 }
 
@@ -85,7 +120,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return 160;
+        return 176;
     } else if (indexPath.section == 1 || indexPath.section == 2) {
 
         if (indexPath.section == 1 && indexPath.row == 1) {
@@ -105,39 +140,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell;
-    if (indexPath.section == 0)
-    {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"CompleteTeamInfoCellIdentifier0"];
-        if (cell == nil) {
-            cell = [[NSBundle mainBundle] loadNibNamed:@"CompleteTeamInfoCell" owner:self options:nil][0];
-        }
-    }
-    else if (indexPath.section == 1)
-    {
+    CompleteTeamInfoCell *cell = [[CompleteTeamInfoCell alloc] initWithTableView:tableView andIndexPath:indexPath];
+    
+    if (indexPath.section == 0) {
+        cell.avatarImageView.image = _avatarImage;
+        cell.teamName.text = _teamName;
+        [cell.changeAvatarBtn addTarget:self action:@selector(changeAvatar) forControlEvents:UIControlEventTouchUpInside];
+        
+    }else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"SystemCellIdentifier0"];
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"SystemCellIdentifier0"];
-            }
             cell.textLabel.text = @"舞队成员";
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld人", _members.count];
+            cell.detailLabel.text = [NSString stringWithFormat:@"%ld人", _members.count];
         } else {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"CompleteTeamInfoCell2"];
-            if (cell == nil) {
-                cell = [[NSBundle mainBundle] loadNibNamed:@"CompleteTeamInfoCell" owner:self options:nil][2];
-            }
+            cell.dataSource = _members;
         }
-    }
-    else if (indexPath.section == 2)
-    {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"SystemCellIdentifier1"];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"SystemCellIdentifier1"];
-        }
+    }else if (indexPath.section == 2) {
         
         if (indexPath.row <= 2) {
-//            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         } else {
             UISwitch *s = [[UISwitch alloc] init];
             s.on = _allowMemberInvite;
@@ -147,23 +167,41 @@
         }
         
         cell.textLabel.text = self.data[indexPath.section][indexPath.row][@"title"];
-        cell.detailTextLabel.text = self.data[indexPath.section][indexPath.row][@"content"];
+        cell.detailLabel.text = self.data[indexPath.section][indexPath.row][@"content"];
+    }else {
+        cell.introduceLabel.text = _teamIntro;
     }
-    else
-    {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"CompleteTeamInfoCellIdentifier1"];
-        if (cell == nil) {
-            cell = [[NSBundle mainBundle] loadNibNamed:@"CompleteTeamInfoCell" owner:self options:nil][1];
-        }
-
-        ((CompleteTeamInfoCell *)cell).introduceLabel.text = _teamIntro;
-    }
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 3) {
+    __weak typeof(self) weakSelf = self;
+    
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        AddMembersViewController *addMembers = [[AddMembersViewController alloc] init];
+        addMembers.members = _members;
+        addMembers.finished = ^{
+            NSLog(@"%@", weakSelf.members);
+            [weakSelf.tableView reloadData];
+        };
+        [self.navigationController pushViewController:addMembers animated:YES];
+    }else if (indexPath.section == 3) {
+        if (indexPath.row == 2) {
+            EditTeamAddressViewController *editTeamAddress = [[EditTeamAddressViewController alloc] init];
+            [self.navigationController pushViewController:editTeamAddress animated:YES];
+        }
+    }else if (indexPath.section == 3) {
         DisForTeamEditViewController *DDTVC = [[DisForTeamEditViewController alloc]init];
+        if (![_teamIntro isEqualToString:@"未填写"]) {
+            DDTVC.teamIntro = _teamIntro;
+        }
+        
+        DDTVC.editFinised = ^(NSString *teamIntro) {
+            _teamIntro = teamIntro;
+            [weakSelf.tableView reloadData];
+        };
+        
         [self.navigationController pushViewController:DDTVC animated:YES];
     }
 }
@@ -188,6 +226,22 @@
 
 - (void)swChangedvalue:(UISwitch *)sw {
     _allowMemberInvite = sw.isOn;
+}
+
+- (void)changeAvatar {
+    NSLog(@"更换头像");
+    __weak typeof(self) weakSelf = self;
+    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc]init];
+    imagePickerVc.maxImagesCount = 1;
+    imagePickerVc.showSelectBtn = NO;
+    imagePickerVc.allowCrop = YES;
+    imagePickerVc.needCircleCrop = YES;
+    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        _avatarImage = photos[0];
+        [weakSelf.tableView reloadData];
+    }];
+    
+    [self presentViewController:imagePickerVc animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -32,13 +32,34 @@
 }
 
 
-- (void)textViewDidChange:(UITextView *)textView {
-    if (textView.text.length == 0) {
-        [_placeHolder setHidden:NO];
-    }else {
-        [_placeHolder setHidden:YES];
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    if ([textView.text isEqualToString:@""]) {
+        self.textView.text = @"";
+        self.textView.textColor = kTextBlackColor;
     }
 }
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    if ([textView.text isEqualToString:@""]) {
+        self.textView.text = @"请填写拒绝的原因!";
+        self.textView.textColor = [UIColor darkTextColor];
+    }
+}
+
+-(void)textViewDidChange:(UITextView *)textView{
+    if ([self.textView.text isEqualToString:@"请填写拒绝的原因!"]) {
+        self.wordNumberLabel.text = @"30";
+    }else{
+        NSInteger lastNum = 30 - self.textView.text.length;
+        if(lastNum<0){
+            [DJWYAlertView showOneButtonWithTitle:@"系统提示" message:@"超过文字个数限制" buttonTitle:@"知道了"];
+            self.textView.text = [self.textView.text substringToIndex:30];
+        }else{
+            self.wordNumberLabel.text = [NSString stringWithFormat:@"%ld",(long)lastNum];
+        }
+        
+    }
+}
+
 
 
 

@@ -110,7 +110,8 @@
         teamListForChatTableViewCell = [[TeamListForChatTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TeamListForChatTableViewCell"];
         
     }
-    [teamListForChatTableViewCell updateCellWithArray:self.searchClassifyDic[indexPath.row]];
+    
+//    [teamListForChatTableViewCell updateCellWithArray:self.searchClassifyDic[indexPath.row]];
     return teamListForChatTableViewCell;
     
 }

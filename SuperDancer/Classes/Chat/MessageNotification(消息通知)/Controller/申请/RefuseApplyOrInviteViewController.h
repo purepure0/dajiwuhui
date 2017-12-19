@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface RefuseApplyOrInviteViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet UILabel *wordNumberLabel;
 
 @end

@@ -95,7 +95,6 @@
 		3F5A446F1FD154FD00BAE622 /* SearchTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A446D1FD154FD00BAE622 /* SearchTeamViewController.m */; };
 		3F5A44701FD154FD00BAE622 /* SearchTeamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F5A446E1FD154FD00BAE622 /* SearchTeamViewController.xib */; };
 		3F6868C81FCEA711001EB5BD /* ChatListHeaderSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6868C71FCEA711001EB5BD /* ChatListHeaderSelectTableViewCell.m */; };
-		3F6868CB1FCEA759001EB5BD /* TeamListForChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6868CA1FCEA759001EB5BD /* TeamListForChatTableViewCell.m */; };
 		3F92940C1FD4F3B9004CC1E7 /* QRCodeGenerateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9294071FD4F3B9004CC1E7 /* QRCodeGenerateVC.m */; };
 		3F92940D1FD4F3B9004CC1E7 /* ScanSuccessJumpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9294091FD4F3B9004CC1E7 /* ScanSuccessJumpVC.m */; };
 		3F92940E1FD4F3B9004CC1E7 /* SGQRCodeScanningVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F92940B1FD4F3B9004CC1E7 /* SGQRCodeScanningVC.m */; };
@@ -158,6 +157,12 @@
 		9A33C7FD1FE4161B006F7A50 /* TeamJoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A33C7F71FE4161A006F7A50 /* TeamJoinViewController.m */; };
 		9A33C8021FE41696006F7A50 /* TeamJoinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A33C8001FE41696006F7A50 /* TeamJoinCell.m */; };
 		9A33C8031FE4169B006F7A50 /* TeamJoinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A33C8051FE4169B006F7A50 /* TeamJoinCell.xib */; };
+		9A3E24A91FE8F53300F961AA /* AddMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3E24A71FE8F53300F961AA /* AddMembersViewController.m */; };
+		9A3E24AA1FE8F53300F961AA /* AddMembersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3E24A81FE8F53300F961AA /* AddMembersViewController.xib */; };
+		9A3E24AE1FE9010500F961AA /* EditTeamAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3E24AC1FE9010500F961AA /* EditTeamAddressViewController.m */; };
+		9A3E24AF1FE9010500F961AA /* EditTeamAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3E24AD1FE9010500F961AA /* EditTeamAddressViewController.xib */; };
+		9A3E24B51FE9109F00F961AA /* TeamListForChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A3E24B31FE9109F00F961AA /* TeamListForChatTableViewCell.m */; };
+		9A3E24B61FE9109F00F961AA /* TeamListForChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A3E24B41FE9109F00F961AA /* TeamListForChatTableViewCell.xib */; };
 		9A52EFF51FE3730000125087 /* NearTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52EFF31FE3730000125087 /* NearTeamViewController.m */; };
 		9A52EFF61FE3730000125087 /* NearTeamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A52EFF41FE3730000125087 /* NearTeamViewController.xib */; };
 		9A52EFFA1FE37B8000125087 /* NearTeamListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52EFF81FE37B8000125087 /* NearTeamListViewController.m */; };
@@ -418,8 +423,6 @@
 		3F5A446E1FD154FD00BAE622 /* SearchTeamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTeamViewController.xib; sourceTree = "<group>"; };
 		3F6868C61FCEA711001EB5BD /* ChatListHeaderSelectTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatListHeaderSelectTableViewCell.h; sourceTree = "<group>"; };
 		3F6868C71FCEA711001EB5BD /* ChatListHeaderSelectTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatListHeaderSelectTableViewCell.m; sourceTree = "<group>"; };
-		3F6868C91FCEA759001EB5BD /* TeamListForChatTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamListForChatTableViewCell.h; sourceTree = "<group>"; };
-		3F6868CA1FCEA759001EB5BD /* TeamListForChatTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamListForChatTableViewCell.m; sourceTree = "<group>"; };
 		3F9294061FD4F3B9004CC1E7 /* QRCodeGenerateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeGenerateVC.h; sourceTree = "<group>"; };
 		3F9294071FD4F3B9004CC1E7 /* QRCodeGenerateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeGenerateVC.m; sourceTree = "<group>"; };
 		3F9294081FD4F3B9004CC1E7 /* ScanSuccessJumpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanSuccessJumpVC.h; sourceTree = "<group>"; };
@@ -528,6 +531,15 @@
 		9A33C7FF1FE41696006F7A50 /* TeamJoinCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamJoinCell.h; sourceTree = "<group>"; };
 		9A33C8001FE41696006F7A50 /* TeamJoinCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamJoinCell.m; sourceTree = "<group>"; };
 		9A33C8041FE4169B006F7A50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TeamJoinCell.xib; sourceTree = "<group>"; };
+		9A3E24A61FE8F53300F961AA /* AddMembersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddMembersViewController.h; sourceTree = "<group>"; };
+		9A3E24A71FE8F53300F961AA /* AddMembersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddMembersViewController.m; sourceTree = "<group>"; };
+		9A3E24A81FE8F53300F961AA /* AddMembersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMembersViewController.xib; sourceTree = "<group>"; };
+		9A3E24AB1FE9010500F961AA /* EditTeamAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTeamAddressViewController.h; sourceTree = "<group>"; };
+		9A3E24AC1FE9010500F961AA /* EditTeamAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTeamAddressViewController.m; sourceTree = "<group>"; };
+		9A3E24AD1FE9010500F961AA /* EditTeamAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditTeamAddressViewController.xib; sourceTree = "<group>"; };
+		9A3E24B21FE9109F00F961AA /* TeamListForChatTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamListForChatTableViewCell.h; sourceTree = "<group>"; };
+		9A3E24B31FE9109F00F961AA /* TeamListForChatTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamListForChatTableViewCell.m; sourceTree = "<group>"; };
+		9A3E24B41FE9109F00F961AA /* TeamListForChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamListForChatTableViewCell.xib; sourceTree = "<group>"; };
 		9A52EFF21FE3730000125087 /* NearTeamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearTeamViewController.h; sourceTree = "<group>"; };
 		9A52EFF31FE3730000125087 /* NearTeamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearTeamViewController.m; sourceTree = "<group>"; };
 		9A52EFF41FE3730000125087 /* NearTeamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearTeamViewController.xib; sourceTree = "<group>"; };
@@ -1056,6 +1068,12 @@
 				3F5A44571FD137FD00BAE622 /* DisForTeamEditViewController.h */,
 				3F5A44581FD137FD00BAE622 /* DisForTeamEditViewController.m */,
 				3F5A44591FD137FD00BAE622 /* DisForTeamEditViewController.xib */,
+				9A3E24A61FE8F53300F961AA /* AddMembersViewController.h */,
+				9A3E24A71FE8F53300F961AA /* AddMembersViewController.m */,
+				9A3E24A81FE8F53300F961AA /* AddMembersViewController.xib */,
+				9A3E24AB1FE9010500F961AA /* EditTeamAddressViewController.h */,
+				9A3E24AC1FE9010500F961AA /* EditTeamAddressViewController.m */,
+				9A3E24AD1FE9010500F961AA /* EditTeamAddressViewController.xib */,
 			);
 			path = "AddAction(添加按钮扩展)";
 			sourceTree = "<group>";
@@ -1093,8 +1111,9 @@
 				3F97B3631FD0F8CC00D0799A /* Menu */,
 				3F6868C61FCEA711001EB5BD /* ChatListHeaderSelectTableViewCell.h */,
 				3F6868C71FCEA711001EB5BD /* ChatListHeaderSelectTableViewCell.m */,
-				3F6868C91FCEA759001EB5BD /* TeamListForChatTableViewCell.h */,
-				3F6868CA1FCEA759001EB5BD /* TeamListForChatTableViewCell.m */,
+				9A3E24B21FE9109F00F961AA /* TeamListForChatTableViewCell.h */,
+				9A3E24B31FE9109F00F961AA /* TeamListForChatTableViewCell.m */,
+				9A3E24B41FE9109F00F961AA /* TeamListForChatTableViewCell.xib */,
 				9A52F0101FE7536F00125087 /* CompleteTeamInfoCell.h */,
 				9A52F0111FE7536F00125087 /* CompleteTeamInfoCell.m */,
 				9A52F0121FE7536F00125087 /* CompleteTeamInfoCell.xib */,
@@ -2361,6 +2380,7 @@
 				049E50D21FA1D278006C3BF1 /* CitySelectViewController.xib in Resources */,
 				9ACD9B881FA368DC003FF1BB /* FeedbackViewController.xib in Resources */,
 				048C53351F9D998800607784 /* DanceTypeViewController.xib in Resources */,
+				9A3E24B61FE9109F00F961AA /* TeamListForChatTableViewCell.xib in Resources */,
 				049E50F91FA237BF006C3BF1 /* EditNickNameViewController.xib in Resources */,
 				9A1BB3DF1F85DA590067C12C /* LaunchScreen.storyboard in Resources */,
 				9A53C0A41FE00C00003CBFD3 /* ApplyDetailCell.xib in Resources */,
@@ -2425,7 +2445,9 @@
 				9ACD9B7F1FA36635003FF1BB /* AboutUsViewController.xib in Resources */,
 				048C53231F9D943200607784 /* DanceTypeCell.xib in Resources */,
 				9A33C7F81FE4161B006F7A50 /* RefuseApplyOrInviteViewController.xib in Resources */,
+				9A3E24AA1FE8F53300F961AA /* AddMembersViewController.xib in Resources */,
 				049E50C81FA0E51C006C3BF1 /* LocalHeaderReusableView.xib in Resources */,
+				9A3E24AF1FE9010500F961AA /* EditTeamAddressViewController.xib in Resources */,
 				9A2CB8A01F868DBC00907C72 /* SquareDanceViewController.xib in Resources */,
 				9A33C7F91FE4161B006F7A50 /* InviteMesageViewController.xib in Resources */,
 			);
@@ -2523,10 +2545,12 @@
 				9A7D62E81FE801980078DD2B /* MemberCell.m in Sources */,
 				048C53271F9D946000607784 /* DanceTypeModel.m in Sources */,
 				9A247F7C1F9B0369007AEABE /* PersonalCenterViewController.m in Sources */,
+				9A3E24AE1FE9010500F961AA /* EditTeamAddressViewController.m in Sources */,
 				9A247F871FA0DE2B007AEABE /* EditProfileViewController.m in Sources */,
 				04927C021F97583700CDD58E /* HistoryModel.m in Sources */,
 				9A2CB88D1F868D5400907C72 /* LocalDanceViewController.m in Sources */,
 				9A1BB4221F85DFB70067C12C /* BaseViewController.m in Sources */,
+				9A3E24A91FE8F53300F961AA /* AddMembersViewController.m in Sources */,
 				04498FBC1FA4361D007CACEA /* VideoImageCell.m in Sources */,
 				9A52EFFA1FE37B8000125087 /* NearTeamListViewController.m in Sources */,
 				9A53C0731FDFC86F003CBFD3 /* PublicNoticeListViewController.m in Sources */,
@@ -2606,6 +2630,7 @@
 				3F5A446B1FD149F000BAE622 /* UIBounceButton.m in Sources */,
 				9A33C7FA1FE4161B006F7A50 /* InviteMesageViewController.m in Sources */,
 				9AD960DC1F8F180D0024DA43 /* PPNetworkCache.m in Sources */,
+				9A3E24B51FE9109F00F961AA /* TeamListForChatTableViewCell.m in Sources */,
 				9A53C09E1FDFD502003CBFD3 /* ApplyMessageListCell.m in Sources */,
 				9A79BBF21F8D0738004C3879 /* BindingMobileViewController.m in Sources */,
 				9ACA8AF61F98574C00B73B29 /* UIViewController+ZFPlayerRotation.m in Sources */,
@@ -2618,7 +2643,6 @@
 				9A7D62DE1FE7C0840078DD2B /* PublishNoticeViewController.m in Sources */,
 				04AE236A1F9F43730034635C /* DancerModel.m in Sources */,
 				9A61BF041FD1433C00F30888 /* MineHandleCell.m in Sources */,
-				3F6868CB1FCEA759001EB5BD /* TeamListForChatTableViewCell.m in Sources */,
 				9AD960CA1F8F14590024DA43 /* Utility.m in Sources */,
 				3F97B3691FD0F8CC00D0799A /* ThreeRightView.m in Sources */,
 				9A52F0091FE3CAD400125087 /* ScrollViewCell.m in Sources */,

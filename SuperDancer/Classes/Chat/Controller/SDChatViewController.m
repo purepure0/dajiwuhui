@@ -31,8 +31,13 @@
     //防止searchbar向上偏移64px
     self.definesPresentationContext = YES;
     [self setRightImageNamed:@"wd_nav_btn_add" action:@selector(addTeamAction)];
-    _teamList = [[[NIMSDK sharedSDK] teamManager] allMyTeams];
     [self upDataWithUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    _teamList = [[[NIMSDK sharedSDK] teamManager] allMyTeams];
+    [_chatListTableView reloadData];
 }
 
 -(void)upDataWithUI{
@@ -80,7 +85,7 @@
     if(indexPath.section == 0){
         return 44;
     }else{
-        return 60;
+        return 70;
     }
 }
 
@@ -88,13 +93,16 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             MessageNotiViewController *msgNoti = [[MessageNotiViewController alloc] init];
-//            self.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:msgNoti animated:YES];
-//            self.hidesBottomBarWhenPushed = NO;
         }else {
             NearTeamViewController *near = [[NearTeamViewController alloc] init];
             [self.navigationController pushViewController:near animated:YES];
         }
+    }else {
+        NIMTeam *team = _teamList[indexPath.row];
+        NIMSession *session = [NIMSession session:team.teamId type:NIMSessionTypeTeam];
+        NIMSessionViewController *vc = [[NIMSessionViewController alloc] initWithSession:session];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -120,12 +128,9 @@
         
         return chatListHeaderSelectTableViewCell;
     }else{
-        TeamListForChatTableViewCell *teamListForChatTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"TeamListForChatTableViewCell"];
-        if(!teamListForChatTableViewCell){
-            teamListForChatTableViewCell = [[TeamListForChatTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TeamListForChatTableViewCell"];
-            
-        }
-        [teamListForChatTableViewCell updateCellWithData:nil];
+        TeamListForChatTableViewCell *teamListForChatTableViewCell = [[TeamListForChatTableViewCell alloc] initCellWithTableView:tableView indexPath:indexPath];
+        NIMTeam *teamData = _teamList[indexPath.row];
+        [teamListForChatTableViewCell updateCellWithTeamData:teamData];
         return teamListForChatTableViewCell;
     }
 }

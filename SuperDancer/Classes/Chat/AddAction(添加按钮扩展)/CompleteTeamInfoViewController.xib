@@ -11,8 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompleteTeamInfoViewController">
             <connections>
-                <outlet property="tableView" destination="fX8-Ja-qH9" id="hcq-So-KvW"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="tableView" destination="V37-cw-Kl4" id="i7r-f7-qlh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="84r-J7-Epz"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,23 +20,24 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="fX8-Ja-qH9">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="V37-cw-Kl4">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="NXg-gK-or7"/>
-                        <outlet property="delegate" destination="-1" id="SZI-0b-Kwo"/>
+                        <outlet property="dataSource" destination="-1" id="4Zp-DU-KMZ"/>
+                        <outlet property="delegate" destination="-1" id="ReX-AV-xBL"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="fX8-Ja-qH9" secondAttribute="bottom" id="2Y4-0c-idg"/>
-                <constraint firstAttribute="trailing" secondItem="fX8-Ja-qH9" secondAttribute="trailing" id="GHU-3h-YxN"/>
-                <constraint firstItem="fX8-Ja-qH9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KEl-91-Thl"/>
-                <constraint firstItem="fX8-Ja-qH9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="era-cE-MXi"/>
+                <constraint firstItem="V37-cw-Kl4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IlF-5U-AHq"/>
+                <constraint firstItem="V37-cw-Kl4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NUf-Ws-bSO"/>
+                <constraint firstAttribute="bottom" secondItem="V37-cw-Kl4" secondAttribute="bottom" id="Pah-Hx-CpU"/>
+                <constraint firstAttribute="trailing" secondItem="V37-cw-Kl4" secondAttribute="trailing" id="Win-ta-m5e"/>
             </constraints>
+            <point key="canvasLocation" x="-77" y="55"/>
         </view>
     </objects>
 </document>

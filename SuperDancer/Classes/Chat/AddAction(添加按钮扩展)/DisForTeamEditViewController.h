@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void(^EditFinishedBlock) (NSString *teamIntro);
 @interface DisForTeamEditViewController : BaseViewController
+
+@property (nonatomic, copy)NSString *teamIntro;
+
+@property (nonatomic, copy)EditFinishedBlock editFinised;
 
 @end

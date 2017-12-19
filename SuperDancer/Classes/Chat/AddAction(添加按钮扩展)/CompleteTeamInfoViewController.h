@@ -11,5 +11,5 @@
 @interface CompleteTeamInfoViewController : BaseViewController
 @property (nonatomic, strong)NSString *teamName;
 @property (nonatomic, strong)NSString *avatarURL;
-
+@property (nonatomic, strong)UIImage *avatarImage;
 @end
