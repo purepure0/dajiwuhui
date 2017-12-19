@@ -212,6 +212,8 @@
 		9A7D62E41FE7C0DD0078DD2B /* GroupNoticeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D62E21FE7C0DD0078DD2B /* GroupNoticeDetailViewController.xib */; };
 		9A7D62E81FE801980078DD2B /* MemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D62E61FE801980078DD2B /* MemberCell.m */; };
 		9A7D62E91FE801980078DD2B /* MemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D62E71FE801980078DD2B /* MemberCell.xib */; };
+		9A7D62ED1FE8A48E0078DD2B /* SubmitImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D62EB1FE8A48E0078DD2B /* SubmitImageCell.m */; };
+		9A7D62EE1FE8A48E0078DD2B /* SubmitImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D62EC1FE8A48E0078DD2B /* SubmitImageCell.xib */; };
 		9A906AE51F886B2400AB9A70 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A906AE31F886B2400AB9A70 /* LoginViewController.m */; };
 		9A906AE61F886B2400AB9A70 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A906AE41F886B2400AB9A70 /* LoginViewController.xib */; };
 		9A992DF21FA2392400FBAC21 /* UploadVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A992DF11FA2392400FBAC21 /* UploadVideoView.m */; };
@@ -609,6 +611,9 @@
 		9A7D62E51FE801980078DD2B /* MemberCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberCell.h; sourceTree = "<group>"; };
 		9A7D62E61FE801980078DD2B /* MemberCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberCell.m; sourceTree = "<group>"; };
 		9A7D62E71FE801980078DD2B /* MemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCell.xib; sourceTree = "<group>"; };
+		9A7D62EA1FE8A48E0078DD2B /* SubmitImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubmitImageCell.h; sourceTree = "<group>"; };
+		9A7D62EB1FE8A48E0078DD2B /* SubmitImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubmitImageCell.m; sourceTree = "<group>"; };
+		9A7D62EC1FE8A48E0078DD2B /* SubmitImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmitImageCell.xib; sourceTree = "<group>"; };
 		9A906AE21F886B2400AB9A70 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9A906AE31F886B2400AB9A70 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9A906AE41F886B2400AB9A70 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -1835,6 +1840,9 @@
 		9A52F0181FE7AED400125087 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9A7D62EA1FE8A48E0078DD2B /* SubmitImageCell.h */,
+				9A7D62EB1FE8A48E0078DD2B /* SubmitImageCell.m */,
+				9A7D62EC1FE8A48E0078DD2B /* SubmitImageCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2396,6 +2404,7 @@
 				04F41DC31FA38808002EF921 /* SelectTypeCell.xib in Resources */,
 				3F5A445B1FD137FD00BAE622 /* DisForTeamEditViewController.xib in Resources */,
 				9AC2237D1F8B107100919072 /* ContentCell.xib in Resources */,
+				9A7D62EE1FE8A48E0078DD2B /* SubmitImageCell.xib in Resources */,
 				9A52EFFB1FE37B8000125087 /* NearTeamListViewController.xib in Resources */,
 				9A52F00F1FE6B5B100125087 /* CompleteTeamInfoViewController.xib in Resources */,
 				9A2CB89B1F868DAA00907C72 /* RecommendViewController.xib in Resources */,
@@ -2632,6 +2641,7 @@
 				9A53C0991FDFD482003CBFD3 /* ApplyMessageDetailViewController.m in Sources */,
 				9ACA8B081F985B4400B73B29 /* ZFCommonHelper.m in Sources */,
 				9ACA8AF51F98574C00B73B29 /* UIView+CustomControlView.m in Sources */,
+				9A7D62ED1FE8A48E0078DD2B /* SubmitImageCell.m in Sources */,
 				9A247F7E1F9B0369007AEABE /* PersonalHeaderView.m in Sources */,
 				9A1BB4251F85DFCB0067C12C /* SDUser.m in Sources */,
 				3F97B3681FD0F8CC00D0799A /* ThirdRightTableViewCell.m in Sources */,

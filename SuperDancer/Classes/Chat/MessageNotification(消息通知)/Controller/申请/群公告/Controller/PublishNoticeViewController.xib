@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PublishNoticeViewController">
             <connections>
+                <outlet property="collectionView" destination="Pt5-ie-2bq" id="LrT-aN-jJ6"/>
                 <outlet property="contentTextView" destination="jbA-fR-yC3" id="Ebk-st-Hwb"/>
                 <outlet property="imageBgView" destination="nEu-H5-dLR" id="zGk-HU-8sP"/>
                 <outlet property="placeholderLabel" destination="aqR-1g-ZaL" id="JC3-lV-nXm"/>
@@ -39,23 +40,30 @@
                     </connections>
                 </textView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEu-H5-dLR">
-                    <rect key="frame" x="0.0" y="240" width="375" height="75"/>
+                    <rect key="frame" x="0.0" y="240" width="375" height="80"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Pt5-ie-2bq">
-                            <rect key="frame" x="52" y="19" width="210" height="36"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Pt5-ie-2bq">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z6e-p1-Mqo">
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Z6e-p1-Mqo">
                                 <size key="itemSize" width="50" height="50"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="XDS-cU-hGO"/>
+                                <outlet property="delegate" destination="-1" id="ZYV-RB-G9q"/>
+                            </connections>
                         </collectionView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="75" id="P14-dY-tXX"/>
+                        <constraint firstAttribute="trailing" secondItem="Pt5-ie-2bq" secondAttribute="trailing" id="G1j-vh-kBR"/>
+                        <constraint firstAttribute="height" constant="80" id="P14-dY-tXX"/>
+                        <constraint firstItem="Pt5-ie-2bq" firstAttribute="leading" secondItem="nEu-H5-dLR" secondAttribute="leading" id="QDe-M0-fcl"/>
+                        <constraint firstAttribute="bottom" secondItem="Pt5-ie-2bq" secondAttribute="bottom" id="dEq-qO-0iT"/>
+                        <constraint firstItem="Pt5-ie-2bq" firstAttribute="top" secondItem="nEu-H5-dLR" secondAttribute="top" id="kQa-9A-2Fn"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正文(必填)，15~500字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqR-1g-ZaL">

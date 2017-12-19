@@ -7,8 +7,12 @@
 //  发布公告
 
 #import "PublishNoticeViewController.h"
+#import "SubmitImageCell.h"
+#import "TZImagePickerController.h"
 
-@interface PublishNoticeViewController ()<UITextViewDelegate>
+#define kSizeHeight (kAutoWidth(70))
+
+@interface PublishNoticeViewController ()<UITextViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UIView *titleBgView;
 @property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
@@ -16,9 +20,14 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet UIView *imageBgView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) NSMutableArray *photos;
 
 
 @end
+
+static NSString *kImageCellIdentifier = @"kImageCellIdentifier";
 
 @implementation PublishNoticeViewController
 
@@ -36,9 +45,14 @@
     self.view.backgroundColor = kBackgroundColor;
     
     [self setRightItemTitle:@"发布" action:@selector(publishGroupNoticeAction)];
+    
+//    self.photos = [NSMutableArray array];
+    
+    [self.collectionView registerNib:NIB_NAMED(@"SubmitImageCell") forCellWithReuseIdentifier:kImageCellIdentifier];
 }
 
-- (void)publishGroupNoticeAction {
+- (void)publishGroupNoticeAction
+{
     PPLog(@"发布公告");
 }
 
@@ -66,6 +80,71 @@
     }
     return YES;
 }
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [self.photos count] + 1;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(kSizeHeight, kSizeHeight);
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    SubmitImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kImageCellIdentifier forIndexPath:indexPath];
+    if (indexPath.row == [self.photos count]) {
+        cell.imageView.image = IMAGE_NAMED(@"wd_announcement_ico_add");
+        cell.deleteBtn.hidden = YES;
+    } else {
+        cell.imageView.image = self.photos[indexPath.row];
+        cell.deleteBtn.hidden = NO;
+    }
+    
+    cell.deleteBtn.tag = indexPath.row;
+    [cell.deleteBtn addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
+    return cell;
+}
+
+- (void)deleteAction:(UIButton *)btn {
+    
+    [self.photos removeObjectAtIndex:btn.tag];
+    [self.collectionView performBatchUpdates:^{
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:btn.tag inSection:0];
+        [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+    } completion:^(BOOL finished) {
+        [self.collectionView reloadData];
+    }];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == self.photos.count) {
+        @weakify(self);
+        TZImagePickerController *imagePicker = [[TZImagePickerController alloc]init];
+        imagePicker.maxImagesCount = 1;
+        imagePicker.showSelectBtn = NO;
+        imagePicker.allowCrop = NO;
+        imagePicker.needCircleCrop = NO;
+        
+        [imagePicker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+            @strongify(self);
+            // 本期只允许上传一张
+            self.photos = [NSMutableArray array];
+            [self.photos addObject:photos[0]];
+
+            [self.collectionView reloadData];
+        }];
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake((80-kSizeHeight)/2, 19, (80-kSizeHeight)/2, 19);
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
