@@ -15,7 +15,7 @@
 #import "MessageNotiViewController.h"
 
 #import "NearTeamViewController.h"
-
+#import "TeamSessionViewController.h"
 @interface SDChatViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchControllerDelegate>
 @property(strong,nonatomic)UITableView              *chatListTableView;
 @property(strong,nonatomic)UISearchController       *chatVCSearchVC;
@@ -101,7 +101,8 @@
     }else {
         NIMTeam *team = _teamList[indexPath.row];
         NIMSession *session = [NIMSession session:team.teamId type:NIMSessionTypeTeam];
-        NIMSessionViewController *vc = [[NIMSessionViewController alloc] initWithSession:session];
+        TeamSessionViewController *vc = [[TeamSessionViewController alloc] initWithSession:session];
+        vc.team = team;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

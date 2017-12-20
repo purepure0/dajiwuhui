@@ -32,6 +32,11 @@ typedef void(^HandleBtnBlock)(NSInteger index);
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightPadding;
 
+@property (weak, nonatomic) IBOutlet UIImageView *rightArrow;
+
+
+
+
 @property (nonatomic, copy) HandleBtnBlock handleBtnBlock;
 
 + (instancetype)initTableViewCellWith:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath joined:(BOOL)joined;
@@ -46,4 +51,8 @@ typedef void(^HandleBtnBlock)(NSInteger index);
 - (void)updateFourthCellWithData:(NSDictionary *)data;
 
 - (void)updateFifthCellWithData:(NSDictionary *)data;
+
+
+//是否显示右边的箭头
+- (void)showRigthArrow:(BOOL)isShow;
 @end

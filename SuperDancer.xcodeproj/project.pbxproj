@@ -112,6 +112,11 @@
 		9A08C2331FCCF17100F6C54B /* SDTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C2311FCCF17100F6C54B /* SDTabBarController.m */; };
 		9A08C2341FCCF17100F6C54B /* SDTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A08C2321FCCF17100F6C54B /* SDTabBarController.xib */; };
 		9A08C2381FCCF32C00F6C54B /* UIImage+CLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08C2361FCCF32B00F6C54B /* UIImage+CLImage.m */; };
+		9A0EBBD51FE9F9DD00F31F94 /* TeamSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0EBBD41FE9F9DD00F31F94 /* TeamSessionViewController.m */; };
+		9A0EBBD91FEA170B00F31F94 /* TeamInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0EBBD71FEA170B00F31F94 /* TeamInfoViewController.m */; };
+		9A0EBBDA1FEA170B00F31F94 /* TeamInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A0EBBD81FEA170B00F31F94 /* TeamInfoViewController.xib */; };
+		9A0EBBDE1FEAA21E00F31F94 /* TeamMemmberInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0EBBDC1FEAA21E00F31F94 /* TeamMemmberInfoViewController.m */; };
+		9A0EBBDF1FEAA21E00F31F94 /* TeamMemmberInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A0EBBDD1FEAA21E00F31F94 /* TeamMemmberInfoViewController.xib */; };
 		9A1BB3DC1F85DA590067C12C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1BB3DB1F85DA590067C12C /* Assets.xcassets */; };
 		9A1BB3DF1F85DA590067C12C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1BB3DD1F85DA590067C12C /* LaunchScreen.storyboard */; };
 		9A1BB3EC1F85DA590067C12C /* SuperDancerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BB3EB1F85DA590067C12C /* SuperDancerTests.m */; };
@@ -465,6 +470,14 @@
 		9A08C2321FCCF17100F6C54B /* SDTabBarController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDTabBarController.xib; sourceTree = "<group>"; };
 		9A08C2361FCCF32B00F6C54B /* UIImage+CLImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CLImage.m"; sourceTree = "<group>"; };
 		9A08C2371FCCF32B00F6C54B /* UIImage+CLImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CLImage.h"; sourceTree = "<group>"; };
+		9A0EBBD31FE9F9DD00F31F94 /* TeamSessionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamSessionViewController.h; sourceTree = "<group>"; };
+		9A0EBBD41FE9F9DD00F31F94 /* TeamSessionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamSessionViewController.m; sourceTree = "<group>"; };
+		9A0EBBD61FEA170B00F31F94 /* TeamInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamInfoViewController.h; sourceTree = "<group>"; };
+		9A0EBBD71FEA170B00F31F94 /* TeamInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamInfoViewController.m; sourceTree = "<group>"; };
+		9A0EBBD81FEA170B00F31F94 /* TeamInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamInfoViewController.xib; sourceTree = "<group>"; };
+		9A0EBBDB1FEAA21E00F31F94 /* TeamMemmberInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamMemmberInfoViewController.h; sourceTree = "<group>"; };
+		9A0EBBDC1FEAA21E00F31F94 /* TeamMemmberInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamMemmberInfoViewController.m; sourceTree = "<group>"; };
+		9A0EBBDD1FEAA21E00F31F94 /* TeamMemmberInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamMemmberInfoViewController.xib; sourceTree = "<group>"; };
 		9A1BB3CF1F85DA590067C12C /* SuperDancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperDancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1BB3DB1F85DA590067C12C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A1BB3DE1F85DA590067C12C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1289,6 +1302,14 @@
 				9A08C2281FCC3F2400F6C54B /* SDChatViewController.h */,
 				9A08C2291FCC3F2400F6C54B /* SDChatViewController.m */,
 				9A08C22A1FCC3F2400F6C54B /* SDChatViewController.xib */,
+				9A0EBBD31FE9F9DD00F31F94 /* TeamSessionViewController.h */,
+				9A0EBBD41FE9F9DD00F31F94 /* TeamSessionViewController.m */,
+				9A0EBBD61FEA170B00F31F94 /* TeamInfoViewController.h */,
+				9A0EBBD71FEA170B00F31F94 /* TeamInfoViewController.m */,
+				9A0EBBD81FEA170B00F31F94 /* TeamInfoViewController.xib */,
+				9A0EBBDB1FEAA21E00F31F94 /* TeamMemmberInfoViewController.h */,
+				9A0EBBDC1FEAA21E00F31F94 /* TeamMemmberInfoViewController.m */,
+				9A0EBBDD1FEAA21E00F31F94 /* TeamMemmberInfoViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2441,12 +2462,14 @@
 				9A53C06F1FDFC2FA003CBFD3 /* PublicNoticeDetailViewController.xib in Resources */,
 				9A7D63131FE962DA0078DD2B /* GroupVideoViewController.xib in Resources */,
 				04ECB8721F9200B000186C5B /* BrowsingHistoryViewController.xib in Resources */,
+				9A0EBBDF1FEAA21E00F31F94 /* TeamMemmberInfoViewController.xib in Resources */,
 				9A53C0641FDFA9C5003CBFD3 /* MessageNotiViewController.xib in Resources */,
 				9AC223851F8B139B00919072 /* HandleCell.xib in Resources */,
 				9A247F881FA0DE2B007AEABE /* EditProfileViewController.xib in Resources */,
 				04ECB87C1F93349C00186C5B /* DancersViewController.xib in Resources */,
 				9A2CB8B01F875A6D00907C72 /* HeaderReusableView.xib in Resources */,
 				9A52F0141FE7536F00125087 /* CompleteTeamInfoCell.xib in Resources */,
+				9A0EBBDA1FEA170B00F31F94 /* TeamInfoViewController.xib in Resources */,
 				9A247F7F1F9B0369007AEABE /* PersonalHeaderView.xib in Resources */,
 				04498FBD1FA4361D007CACEA /* VideoImageCell.xib in Resources */,
 				049E510F1FA305DD006C3BF1 /* MsgAttentionViewController.xib in Resources */,
@@ -2695,6 +2718,7 @@
 				04AE23851FA06F3A0034635C /* CollectionVideoViewController.m in Sources */,
 				049E50B51FA0D23F006C3BF1 /* MusicViewCell.m in Sources */,
 				9ACA8AF01F98574C00B73B29 /* ASValueTrackingSlider.m in Sources */,
+				9A0EBBD91FEA170B00F31F94 /* TeamInfoViewController.m in Sources */,
 				9A08C2331FCCF17100F6C54B /* SDTabBarController.m in Sources */,
 				9A2CB8AF1F875A6D00907C72 /* HeaderReusableView.m in Sources */,
 				9A1DC6A51FA49CF10014E739 /* DownloadViewController.m in Sources */,
@@ -2709,6 +2733,7 @@
 				049E510E1FA305DD006C3BF1 /* MsgAttentionViewController.m in Sources */,
 				3F5A446B1FD149F000BAE622 /* UIBounceButton.m in Sources */,
 				9A33C7FA1FE4161B006F7A50 /* InviteMesageViewController.m in Sources */,
+				9A0EBBD51FE9F9DD00F31F94 /* TeamSessionViewController.m in Sources */,
 				9AD960DC1F8F180D0024DA43 /* PPNetworkCache.m in Sources */,
 				9A3E24B51FE9109F00F961AA /* TeamListForChatTableViewCell.m in Sources */,
 				9A53C09E1FDFD502003CBFD3 /* ApplyMessageListCell.m in Sources */,
@@ -2772,6 +2797,7 @@
 				9A2CB89F1F868DBC00907C72 /* SquareDanceViewController.m in Sources */,
 				9A71FE7C1F8DF37500738680 /* DownloadingCell.m in Sources */,
 				9A2CB8921F868D7C00907C72 /* ChildDanceViewController.m in Sources */,
+				9A0EBBDE1FEAA21E00F31F94 /* TeamMemmberInfoViewController.m in Sources */,
 				9A08C22B1FCC3F2400F6C54B /* SDChatViewController.m in Sources */,
 				9ACD9B871FA368DC003FF1BB /* FeedbackViewController.m in Sources */,
 			);

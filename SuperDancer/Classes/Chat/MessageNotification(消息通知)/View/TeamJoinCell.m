@@ -76,6 +76,7 @@
 
 - (void)updateSecondCellWithData:(NSDictionary *)data {
     NSLog(@"%@", data);
+    [self showRigthArrow:NO];
     self.leftLabel.text = data[@"title"];
     self.rightLabel.text = data[@"content"];
     if (self.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
@@ -151,6 +152,11 @@
     NSLog(@"添加队员");
 }
 
+
+//是否显示右边的箭头
+- (void)showRigthArrow:(BOOL)isShow {
+    _rightArrow.hidden = !isShow;
+}
 
 - (void)actionWithButton:(UIButton *)btn {
 //    NSLog(@"%ld--%@", btn.tag, btn.titleLabel.text);
