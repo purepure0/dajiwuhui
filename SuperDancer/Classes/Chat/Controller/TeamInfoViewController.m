@@ -12,6 +12,7 @@
 #import "GroupVideoViewController.h"
 #import "MemberManageViewController.h"
 #import "TeamManageViewController.h"
+#import "TeamQRCodeViewController.h"
 
 @interface TeamInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -155,6 +156,13 @@
             default:
                 break;
         }
+    }];
+    
+#pragma mark - 舞队二维码
+    [cell setQRCodeBlock:^{
+        @strongify(self);
+        TeamQRCodeViewController *qRCode = [[TeamQRCodeViewController alloc] init];
+        [self.navigationController pushViewController:qRCode animated:YES];
     }];
     
     return cell;

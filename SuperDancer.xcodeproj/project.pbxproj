@@ -274,12 +274,14 @@
 		9AD960F31F8F2F050024DA43 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD960EF1F8F2F040024DA43 /* MBProgressHUD+MJ.m */; };
 		9AD960F41F8F2F050024DA43 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD960F11F8F2F040024DA43 /* MBProgressHUD.m */; };
 		9AE3A3F81FE51FAE004108A4 /* AppDelegate+NIM.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE3A3F71FE51FAE004108A4 /* AppDelegate+NIM.m */; };
-		9AFB536B1FEB978A008E5BAD /* MemberManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53691FEB978A008E5BAD /* MemberManageViewController.m */; };
-		9AFB536C1FEB978A008E5BAD /* MemberManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB536A1FEB978A008E5BAD /* MemberManageViewController.xib */; };
-		9AFB53751FEBB299008E5BAD /* MemberManageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53731FEBB299008E5BAD /* MemberManageCell.m */; };
-		9AFB53761FEBB299008E5BAD /* MemberManageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB53741FEBB299008E5BAD /* MemberManageCell.xib */; };
 		9AFB537E1FECA8BD008E5BAD /* TeamManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB537C1FECA8BD008E5BAD /* TeamManageViewController.m */; };
 		9AFB537F1FECA8BD008E5BAD /* TeamManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB537D1FECA8BD008E5BAD /* TeamManageViewController.xib */; };
+		9AFB538A1FECE7F9008E5BAD /* MemberManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53831FECE7F9008E5BAD /* MemberManageViewController.m */; };
+		9AFB538B1FECE7F9008E5BAD /* MemberManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB53841FECE7F9008E5BAD /* MemberManageViewController.xib */; };
+		9AFB538C1FECE7F9008E5BAD /* MemberManageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53881FECE7F9008E5BAD /* MemberManageCell.m */; };
+		9AFB538D1FECE7F9008E5BAD /* MemberManageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB53891FECE7F9008E5BAD /* MemberManageCell.xib */; };
+		9AFB53951FECE887008E5BAD /* TeamQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53931FECE887008E5BAD /* TeamQRCodeViewController.m */; };
+		9AFB53961FECE887008E5BAD /* TeamQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB53941FECE887008E5BAD /* TeamQRCodeViewController.xib */; };
 		E152D60CBDFD2BCB040DAFDF /* libPods-SuperDancer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74CFE79521653D649A02295 /* libPods-SuperDancer.a */; };
 /* End PBXBuildFile section */
 
@@ -746,15 +748,18 @@
 		9AD960F11F8F2F040024DA43 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9AE3A3F61FE51FAE004108A4 /* AppDelegate+NIM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+NIM.h"; sourceTree = "<group>"; };
 		9AE3A3F71FE51FAE004108A4 /* AppDelegate+NIM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+NIM.m"; sourceTree = "<group>"; };
-		9AFB53681FEB978A008E5BAD /* MemberManageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberManageViewController.h; sourceTree = "<group>"; };
-		9AFB53691FEB978A008E5BAD /* MemberManageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberManageViewController.m; sourceTree = "<group>"; };
-		9AFB536A1FEB978A008E5BAD /* MemberManageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberManageViewController.xib; sourceTree = "<group>"; };
-		9AFB53721FEBB299008E5BAD /* MemberManageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberManageCell.h; sourceTree = "<group>"; };
-		9AFB53731FEBB299008E5BAD /* MemberManageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberManageCell.m; sourceTree = "<group>"; };
-		9AFB53741FEBB299008E5BAD /* MemberManageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberManageCell.xib; sourceTree = "<group>"; };
 		9AFB537B1FECA8BD008E5BAD /* TeamManageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamManageViewController.h; sourceTree = "<group>"; };
 		9AFB537C1FECA8BD008E5BAD /* TeamManageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamManageViewController.m; sourceTree = "<group>"; };
 		9AFB537D1FECA8BD008E5BAD /* TeamManageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamManageViewController.xib; sourceTree = "<group>"; };
+		9AFB53821FECE7F9008E5BAD /* MemberManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberManageViewController.h; sourceTree = "<group>"; };
+		9AFB53831FECE7F9008E5BAD /* MemberManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberManageViewController.m; sourceTree = "<group>"; };
+		9AFB53841FECE7F9008E5BAD /* MemberManageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberManageViewController.xib; sourceTree = "<group>"; };
+		9AFB53871FECE7F9008E5BAD /* MemberManageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberManageCell.h; sourceTree = "<group>"; };
+		9AFB53881FECE7F9008E5BAD /* MemberManageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberManageCell.m; sourceTree = "<group>"; };
+		9AFB53891FECE7F9008E5BAD /* MemberManageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberManageCell.xib; sourceTree = "<group>"; };
+		9AFB53921FECE887008E5BAD /* TeamQRCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamQRCodeViewController.h; sourceTree = "<group>"; };
+		9AFB53931FECE887008E5BAD /* TeamQRCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamQRCodeViewController.m; sourceTree = "<group>"; };
+		9AFB53941FECE887008E5BAD /* TeamQRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamQRCodeViewController.xib; sourceTree = "<group>"; };
 		C74CFE79521653D649A02295 /* libPods-SuperDancer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperDancer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1325,8 +1330,9 @@
 				9A0EBBDB1FEAA21E00F31F94 /* TeamMemmberInfoViewController.h */,
 				9A0EBBDC1FEAA21E00F31F94 /* TeamMemmberInfoViewController.m */,
 				9A0EBBDD1FEAA21E00F31F94 /* TeamMemmberInfoViewController.xib */,
-				9AFB53641FEB973D008E5BAD /* 成员管理 */,
 				9AFB53771FECA88C008E5BAD /* 舞队管理 */,
+				9AFB53801FECE7F9008E5BAD /* 成员管理 */,
+				9AFB538E1FECE827008E5BAD /* 舞队二维码 */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2351,44 +2357,6 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
-		9AFB53641FEB973D008E5BAD /* 成员管理 */ = {
-			isa = PBXGroup;
-			children = (
-				9AFB53651FEB973D008E5BAD /* Controller */,
-				9AFB53661FEB973D008E5BAD /* Model */,
-				9AFB53671FEB973D008E5BAD /* View */,
-			);
-			name = "成员管理";
-			path = "SuperDancer/Classes/Chat/成员管理";
-			sourceTree = SOURCE_ROOT;
-		};
-		9AFB53651FEB973D008E5BAD /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				9AFB53681FEB978A008E5BAD /* MemberManageViewController.h */,
-				9AFB53691FEB978A008E5BAD /* MemberManageViewController.m */,
-				9AFB536A1FEB978A008E5BAD /* MemberManageViewController.xib */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		9AFB53661FEB973D008E5BAD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		9AFB53671FEB973D008E5BAD /* View */ = {
-			isa = PBXGroup;
-			children = (
-				9AFB53721FEBB299008E5BAD /* MemberManageCell.h */,
-				9AFB53731FEBB299008E5BAD /* MemberManageCell.m */,
-				9AFB53741FEBB299008E5BAD /* MemberManageCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		9AFB53771FECA88C008E5BAD /* 舞队管理 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2417,6 +2385,77 @@
 			sourceTree = "<group>";
 		};
 		9AFB537A1FECA88C008E5BAD /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9AFB53801FECE7F9008E5BAD /* 成员管理 */ = {
+			isa = PBXGroup;
+			children = (
+				9AFB53811FECE7F9008E5BAD /* Controller */,
+				9AFB53851FECE7F9008E5BAD /* Model */,
+				9AFB53861FECE7F9008E5BAD /* View */,
+			);
+			path = "成员管理";
+			sourceTree = "<group>";
+		};
+		9AFB53811FECE7F9008E5BAD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9AFB53821FECE7F9008E5BAD /* MemberManageViewController.h */,
+				9AFB53831FECE7F9008E5BAD /* MemberManageViewController.m */,
+				9AFB53841FECE7F9008E5BAD /* MemberManageViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9AFB53851FECE7F9008E5BAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9AFB53861FECE7F9008E5BAD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9AFB53871FECE7F9008E5BAD /* MemberManageCell.h */,
+				9AFB53881FECE7F9008E5BAD /* MemberManageCell.m */,
+				9AFB53891FECE7F9008E5BAD /* MemberManageCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9AFB538E1FECE827008E5BAD /* 舞队二维码 */ = {
+			isa = PBXGroup;
+			children = (
+				9AFB538F1FECE827008E5BAD /* Controller */,
+				9AFB53901FECE827008E5BAD /* Model */,
+				9AFB53911FECE827008E5BAD /* View */,
+			);
+			path = "舞队二维码";
+			sourceTree = "<group>";
+		};
+		9AFB538F1FECE827008E5BAD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9AFB53921FECE887008E5BAD /* TeamQRCodeViewController.h */,
+				9AFB53931FECE887008E5BAD /* TeamQRCodeViewController.m */,
+				9AFB53941FECE887008E5BAD /* TeamQRCodeViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9AFB53901FECE827008E5BAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9AFB53911FECE827008E5BAD /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -2556,7 +2595,6 @@
 				9AC223851F8B139B00919072 /* HandleCell.xib in Resources */,
 				9A247F881FA0DE2B007AEABE /* EditProfileViewController.xib in Resources */,
 				04ECB87C1F93349C00186C5B /* DancersViewController.xib in Resources */,
-				9AFB53761FEBB299008E5BAD /* MemberManageCell.xib in Resources */,
 				9A2CB8B01F875A6D00907C72 /* HeaderReusableView.xib in Resources */,
 				9A52F0141FE7536F00125087 /* CompleteTeamInfoCell.xib in Resources */,
 				9A0EBBDA1FEA170B00F31F94 /* TeamInfoViewController.xib in Resources */,
@@ -2586,6 +2624,7 @@
 				9A2CB88E1F868D5400907C72 /* LocalDanceViewController.xib in Resources */,
 				9A61BEFE1FD1371F00F30888 /* SDMineViewController.xib in Resources */,
 				9A52F00A1FE3CAD400125087 /* ScrollViewCell.xib in Resources */,
+				9AFB538B1FECE7F9008E5BAD /* MemberManageViewController.xib in Resources */,
 				9A71FE7D1F8DF37500738680 /* DownloadingCell.xib in Resources */,
 				9A7D62E41FE7C0DD0078DD2B /* GroupNoticeDetailViewController.xib in Resources */,
 				9A1BB42A1F85E2850067C12C /* SDHomeViewController.xib in Resources */,
@@ -2604,7 +2643,6 @@
 				9A7D62E91FE801980078DD2B /* MemberCell.xib in Resources */,
 				04F41DC31FA38808002EF921 /* SelectTypeCell.xib in Resources */,
 				3F5A445B1FD137FD00BAE622 /* DisForTeamEditViewController.xib in Resources */,
-				9AFB536C1FEB978A008E5BAD /* MemberManageViewController.xib in Resources */,
 				9AC2237D1F8B107100919072 /* ContentCell.xib in Resources */,
 				9A7D62EE1FE8A48E0078DD2B /* SubmitImageCell.xib in Resources */,
 				9A52EFFB1FE37B8000125087 /* NearTeamListViewController.xib in Resources */,
@@ -2621,6 +2659,7 @@
 				9A53C09F1FDFD502003CBFD3 /* ApplyMessageListCell.xib in Resources */,
 				9A53C0791FDFC900003CBFD3 /* PublicNoticeListCell.xib in Resources */,
 				9A7D62F61FE8EA7C0078DD2B /* GroupNoticeCell.xib in Resources */,
+				9AFB538D1FECE7F9008E5BAD /* MemberManageCell.xib in Resources */,
 				049E51151FA30AAB006C3BF1 /* MsgCommentCell.xib in Resources */,
 				9A08C22C1FCC3F2400F6C54B /* SDChatViewController.xib in Resources */,
 				9A33C7FB1FE4161B006F7A50 /* TeamJoinViewController.xib in Resources */,
@@ -2637,6 +2676,7 @@
 				9ACD9B7F1FA36635003FF1BB /* AboutUsViewController.xib in Resources */,
 				048C53231F9D943200607784 /* DanceTypeCell.xib in Resources */,
 				9A33C7F81FE4161B006F7A50 /* RefuseApplyOrInviteViewController.xib in Resources */,
+				9AFB53961FECE887008E5BAD /* TeamQRCodeViewController.xib in Resources */,
 				9A3E24AA1FE8F53300F961AA /* AddMembersViewController.xib in Resources */,
 				049E50C81FA0E51C006C3BF1 /* LocalHeaderReusableView.xib in Resources */,
 				9A3E24AF1FE9010500F961AA /* EditTeamAddressViewController.xib in Resources */,
@@ -2745,6 +2785,7 @@
 				9A1BB4221F85DFB70067C12C /* BaseViewController.m in Sources */,
 				9A3E24A91FE8F53300F961AA /* AddMembersViewController.m in Sources */,
 				9A7D62F91FE8EEE90078DD2B /* PhotosContainerView.m in Sources */,
+				9AFB53951FECE887008E5BAD /* TeamQRCodeViewController.m in Sources */,
 				04498FBC1FA4361D007CACEA /* VideoImageCell.m in Sources */,
 				9A52EFFA1FE37B8000125087 /* NearTeamListViewController.m in Sources */,
 				9A53C0731FDFC86F003CBFD3 /* PublicNoticeListViewController.m in Sources */,
@@ -2774,7 +2815,6 @@
 				9A71FE811F8E01A100738680 /* DownloadedCell.m in Sources */,
 				9A1BB4191F85DC0C0067C12C /* AppDelegate.m in Sources */,
 				04AE23631F9F18C90034635C /* UserModel.m in Sources */,
-				9AFB53751FEBB299008E5BAD /* MemberManageCell.m in Sources */,
 				041C473B1F9B86A700A65AC8 /* DateMarkTool.m in Sources */,
 				048C53221F9D943200607784 /* DanceTypeCell.m in Sources */,
 				9A53C0A31FE00C00003CBFD3 /* ApplyDetailCell.m in Sources */,
@@ -2786,12 +2826,12 @@
 				049E50BD1FA0DDEC006C3BF1 /* LocalSelectViewController.m in Sources */,
 				9A61BEFF1FD1371F00F30888 /* SettingViewController.m in Sources */,
 				9A33C7FC1FE4161B006F7A50 /* RefuseApplyOrInviteViewController.m in Sources */,
+				9AFB538A1FECE7F9008E5BAD /* MemberManageViewController.m in Sources */,
 				9A992DF21FA2392400FBAC21 /* UploadVideoView.m in Sources */,
 				040F832A1F95B276003DA2A0 /* CommentModel.m in Sources */,
 				049E51141FA30AAB006C3BF1 /* MsgCommentCell.m in Sources */,
 				9ACA8AFB1F98574C00B73B29 /* ZFPlayerControlView.m in Sources */,
 				9A08B2921F88ACAD00232661 /* SCVerifyButton.m in Sources */,
-				9AFB536B1FEB978A008E5BAD /* MemberManageViewController.m in Sources */,
 				9A08B2B21F88DEF700232661 /* MovePlayerViewController.m in Sources */,
 				3F92940E1FD4F3B9004CC1E7 /* SGQRCodeScanningVC.m in Sources */,
 				049E50B01FA0D220006C3BF1 /* MusicViewController.m in Sources */,
@@ -2807,6 +2847,7 @@
 				9ACD9B7E1FA36635003FF1BB /* AboutUsViewController.m in Sources */,
 				9A33C7FD1FE4161B006F7A50 /* TeamJoinViewController.m in Sources */,
 				04EB25041F9A4E61000E2137 /* CommentView.m in Sources */,
+				9AFB538C1FECE7F9008E5BAD /* MemberManageCell.m in Sources */,
 				9ACA8AEF1F98574C00B73B29 /* ASValuePopUpView.m in Sources */,
 				9A1BB4401F864D080067C12C /* SDSystemInfo.m in Sources */,
 				04AE23851FA06F3A0034635C /* CollectionVideoViewController.m in Sources */,

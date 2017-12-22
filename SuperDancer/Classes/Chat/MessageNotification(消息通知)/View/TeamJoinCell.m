@@ -168,10 +168,13 @@
 
 
 
-
+#pragma mark - 舞队二维码
 
 - (IBAction)showQCode:(id)sender {
-    NSLog(@"二维码");
+//    NSLog(@"二维码");
+    if (self.qRCodeBlock) {
+        self.qRCodeBlock();
+    }
 }
 
 
