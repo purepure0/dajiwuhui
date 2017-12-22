@@ -9,6 +9,7 @@
 #import "TeamSessionViewController.h"
 #import <NIMCustomLeftBarView.h>
 #import "TeamInfoViewController.h"
+#import "TeamMemmberInfoViewController.h"
 @interface TeamSessionViewController ()
 
 @end
@@ -59,8 +60,12 @@
 }
 - (BOOL)onTapAvatar:(NSString *)userId {
     NSLog(@"点击头像：%@", userId);
+    TeamMemmberInfoViewController *member = [[TeamMemmberInfoViewController alloc] init];
+    [self.navigationController pushViewController:member animated:YES];
     return YES;
 }
+
+
 
 
 

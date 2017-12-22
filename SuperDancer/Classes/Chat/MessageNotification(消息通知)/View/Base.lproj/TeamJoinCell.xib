@@ -85,7 +85,6 @@
                 <outlet property="cityLabel" destination="L4M-wN-EpK" id="YIS-9E-K6n"/>
                 <outlet property="iconImageView" destination="5bt-Ua-vHg" id="jya-gK-plN"/>
                 <outlet property="nicknameLabel" destination="zjf-P2-SR7" id="JDd-MF-vez"/>
-                <outlet property="rightPadding" destination="kQE-3M-yAY" id="NcB-MH-hlm"/>
             </connections>
             <point key="canvasLocation" x="46" y="-40"/>
         </tableViewCell>

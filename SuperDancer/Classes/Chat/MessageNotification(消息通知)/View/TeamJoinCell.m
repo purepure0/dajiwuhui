@@ -65,6 +65,40 @@
     return cell;
 }
 
++ (instancetype)initWithTableView:(UITableView *)tableView andIndex:(NSInteger)index {
+    NSString *identifier = @"";
+    switch (index) {
+        case 0:
+            identifier = @"TeamJoinCellFirst";
+            break;
+        case 1:
+            identifier = @"TeamJoinCellSecond";
+            break;
+        case 2:
+            identifier = @"TeamJoinCellThird";
+            break;
+        case 3:
+            identifier = @"TeamJoinCellFourth";
+            break;
+        case 4:
+            identifier = @"TeamJoinCellFifth";
+            break;
+        default:
+            break;
+    }
+    TeamJoinCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"TeamJoinCell" owner:self options:nil] objectAtIndex:index];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+    
+}
+
+
+
+
+
 
 - (void)updateFirstCellWithData:(NSDictionary *)data {
     NSLog(@"%@", data);
@@ -79,12 +113,6 @@
     [self showRigthArrow:NO];
     self.leftLabel.text = data[@"title"];
     self.rightLabel.text = data[@"content"];
-    if (self.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
-        NSLog(@"aaaaaaa");
-        _rightPadding.constant = - 10;
-    }else {
-        _rightPadding.constant = 15;
-    }
 }
 
 - (void)updateThirdCellWithData:(NSDictionary *)data {
@@ -95,7 +123,6 @@
 
 
 - (void)updateFourthCellWithData:(NSDictionary *)data {
-//    NSLog(@"%@", data);
     NSArray *imgs = @[@"wd_ico_announcement", @"wd_ico_video", @"wd_ico_vote", @"wd_ico_Sign"];
     NSArray *titles = @[@"公 告", @"视 频", @"投 票", @"签 到"];
     CGFloat width = kScreenSize.width / 4;

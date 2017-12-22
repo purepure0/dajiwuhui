@@ -30,7 +30,7 @@ typedef void(^HandleBtnBlock)(NSInteger index);
 
 @property (weak, nonatomic) IBOutlet UILabel *teamMemberLabel;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightPadding;
+
 
 @property (weak, nonatomic) IBOutlet UIImageView *rightArrow;
 
@@ -40,7 +40,7 @@ typedef void(^HandleBtnBlock)(NSInteger index);
 @property (nonatomic, copy) HandleBtnBlock handleBtnBlock;
 
 + (instancetype)initTableViewCellWith:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath joined:(BOOL)joined;
-
++ (instancetype)initWithTableView:(UITableView *)tableView andIndex:(NSInteger)index;
 
 - (void)updateFirstCellWithData:(NSDictionary *)data;
 
