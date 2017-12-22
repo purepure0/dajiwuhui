@@ -9,6 +9,7 @@
 #import "MemberManageViewController.h"
 #import "MemberManageCell.h"
 
+
 @interface MemberManageViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating>
 {
     MemberManageCell *_memberManageCell;

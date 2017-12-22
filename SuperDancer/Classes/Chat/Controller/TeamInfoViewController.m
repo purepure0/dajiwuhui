@@ -11,6 +11,7 @@
 #import "GroupNoticeViewController.h"
 #import "GroupVideoViewController.h"
 #import "MemberManageViewController.h"
+#import "TeamManageViewController.h"
 
 @interface TeamInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -28,7 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.fd_prefersNavigationBarHidden = YES;
-    _isTeamOwner = ![_team.owner isEqualToString:[SDUser sharedUser].userId];
+    _isTeamOwner = [_team.owner isEqualToString:[SDUser sharedUser].userId];
     [self initDataSource];
 }
 
@@ -194,8 +195,9 @@
             }else {
                 
             }
-        }else if (indexPath.section == 3) {
-            NSLog(@"舞队管理");
+        }else if (indexPath.section == 3) {//舞队管理
+            TeamManageViewController *tm = [[TeamManageViewController alloc] init];
+            [self.navigationController pushViewController:tm animated:YES];
         }else if (indexPath.section == 4){
             NSLog(@"聊天记录");
         }
