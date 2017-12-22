@@ -10,6 +10,8 @@
 #import "TeamJoinCell.h"
 #import "GroupNoticeViewController.h"
 #import "GroupVideoViewController.h"
+#import "MemberManageViewController.h"
+
 @interface TeamInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -202,7 +204,8 @@
             if (indexPath.row == 0) {
                 NSLog(@"舞队名片");
             }else {
-                
+                MemberManageViewController *memberMag = [[MemberManageViewController alloc] init];
+                [self.navigationController pushViewController:memberMag animated:YES];
             }
         }else if (indexPath.section == 3) {
             NSLog(@"聊天记录");
