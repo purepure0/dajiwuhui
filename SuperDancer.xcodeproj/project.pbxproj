@@ -278,6 +278,8 @@
 		9AFB536C1FEB978A008E5BAD /* MemberManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB536A1FEB978A008E5BAD /* MemberManageViewController.xib */; };
 		9AFB53751FEBB299008E5BAD /* MemberManageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53731FEBB299008E5BAD /* MemberManageCell.m */; };
 		9AFB53761FEBB299008E5BAD /* MemberManageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB53741FEBB299008E5BAD /* MemberManageCell.xib */; };
+		9AFB537E1FECA8BD008E5BAD /* TeamManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB537C1FECA8BD008E5BAD /* TeamManageViewController.m */; };
+		9AFB537F1FECA8BD008E5BAD /* TeamManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB537D1FECA8BD008E5BAD /* TeamManageViewController.xib */; };
 		E152D60CBDFD2BCB040DAFDF /* libPods-SuperDancer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74CFE79521653D649A02295 /* libPods-SuperDancer.a */; };
 /* End PBXBuildFile section */
 
@@ -750,6 +752,9 @@
 		9AFB53721FEBB299008E5BAD /* MemberManageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberManageCell.h; sourceTree = "<group>"; };
 		9AFB53731FEBB299008E5BAD /* MemberManageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberManageCell.m; sourceTree = "<group>"; };
 		9AFB53741FEBB299008E5BAD /* MemberManageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberManageCell.xib; sourceTree = "<group>"; };
+		9AFB537B1FECA8BD008E5BAD /* TeamManageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamManageViewController.h; sourceTree = "<group>"; };
+		9AFB537C1FECA8BD008E5BAD /* TeamManageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamManageViewController.m; sourceTree = "<group>"; };
+		9AFB537D1FECA8BD008E5BAD /* TeamManageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamManageViewController.xib; sourceTree = "<group>"; };
 		C74CFE79521653D649A02295 /* libPods-SuperDancer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperDancer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1321,6 +1326,7 @@
 				9A0EBBDC1FEAA21E00F31F94 /* TeamMemmberInfoViewController.m */,
 				9A0EBBDD1FEAA21E00F31F94 /* TeamMemmberInfoViewController.xib */,
 				9AFB53641FEB973D008E5BAD /* 成员管理 */,
+				9AFB53771FECA88C008E5BAD /* 舞队管理 */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2348,9 +2354,6 @@
 		9AFB53641FEB973D008E5BAD /* 成员管理 */ = {
 			isa = PBXGroup;
 			children = (
-				9AFB53681FEB978A008E5BAD /* MemberManageViewController.h */,
-				9AFB53691FEB978A008E5BAD /* MemberManageViewController.m */,
-				9AFB536A1FEB978A008E5BAD /* MemberManageViewController.xib */,
 				9AFB53651FEB973D008E5BAD /* Controller */,
 				9AFB53661FEB973D008E5BAD /* Model */,
 				9AFB53671FEB973D008E5BAD /* View */,
@@ -2362,6 +2365,9 @@
 		9AFB53651FEB973D008E5BAD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9AFB53681FEB978A008E5BAD /* MemberManageViewController.h */,
+				9AFB53691FEB978A008E5BAD /* MemberManageViewController.m */,
+				9AFB536A1FEB978A008E5BAD /* MemberManageViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2379,6 +2385,40 @@
 				9AFB53721FEBB299008E5BAD /* MemberManageCell.h */,
 				9AFB53731FEBB299008E5BAD /* MemberManageCell.m */,
 				9AFB53741FEBB299008E5BAD /* MemberManageCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9AFB53771FECA88C008E5BAD /* 舞队管理 */ = {
+			isa = PBXGroup;
+			children = (
+				9AFB53781FECA88C008E5BAD /* Controller */,
+				9AFB53791FECA88C008E5BAD /* Model */,
+				9AFB537A1FECA88C008E5BAD /* View */,
+			);
+			path = "舞队管理";
+			sourceTree = "<group>";
+		};
+		9AFB53781FECA88C008E5BAD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9AFB537B1FECA8BD008E5BAD /* TeamManageViewController.h */,
+				9AFB537C1FECA8BD008E5BAD /* TeamManageViewController.m */,
+				9AFB537D1FECA8BD008E5BAD /* TeamManageViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9AFB53791FECA88C008E5BAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9AFB537A1FECA88C008E5BAD /* View */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2523,6 +2563,7 @@
 				9A247F7F1F9B0369007AEABE /* PersonalHeaderView.xib in Resources */,
 				04498FBD1FA4361D007CACEA /* VideoImageCell.xib in Resources */,
 				049E510F1FA305DD006C3BF1 /* MsgAttentionViewController.xib in Resources */,
+				9AFB537F1FECA8BD008E5BAD /* TeamManageViewController.xib in Resources */,
 				9A2CB8931F868D7C00907C72 /* ChildDanceViewController.xib in Resources */,
 				9A906AE61F886B2400AB9A70 /* LoginViewController.xib in Resources */,
 				049E50D21FA1D278006C3BF1 /* CitySelectViewController.xib in Resources */,
@@ -2842,6 +2883,7 @@
 				9AD960C41F8F10280024DA43 /* SDRequestManager.m in Sources */,
 				048C53341F9D998800607784 /* DanceTypeViewController.m in Sources */,
 				04AE23911FA070320034635C /* CollectionDancersViewController.m in Sources */,
+				9AFB537E1FECA8BD008E5BAD /* TeamManageViewController.m in Sources */,
 				04ECB8711F9200B000186C5B /* BrowsingHistoryViewController.m in Sources */,
 				9A7D62E31FE7C0DD0078DD2B /* GroupNoticeDetailViewController.m in Sources */,
 				9A52F0041FE3B1DD00125087 /* NearADCell.m in Sources */,
