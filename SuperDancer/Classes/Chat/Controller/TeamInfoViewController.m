@@ -11,6 +11,7 @@
 #import "GroupNoticeViewController.h"
 #import "GroupVideoViewController.h"
 #import "MemberManageViewController.h"
+#import "AddMembersViewController.h"
 #import "TeamManageViewController.h"
 #import "TeamQRCodeViewController.h"
 
@@ -93,6 +94,11 @@
                 }
             }else {
                 [cell updateFifthCellWithData:dic];
+                __weak typeof(self) weakSelf = self;
+                cell.addMemberBlock = ^{
+                    AddMembersViewController *addMember = [[AddMembersViewController alloc] init];
+                    [weakSelf.navigationController pushViewController:addMember animated:YES];
+                };
             }
         }else if (indexPath.section == 3) {
             [cell updateSecondCellWithData:dic];

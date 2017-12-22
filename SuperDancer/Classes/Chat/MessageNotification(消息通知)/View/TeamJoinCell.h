@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^HandleBtnBlock)(NSInteger index);
+
 typedef void(^QRCodeBlock)(void);
+
+typedef void(^AddMemberBlock)(void);
+
 
 @interface TeamJoinCell : UITableViewCell
 
@@ -27,7 +31,7 @@ typedef void(^QRCodeBlock)(void);
 
 @property (weak, nonatomic) IBOutlet UILabel *bottomLabel;
 
-
+@property (weak, nonatomic) IBOutlet UIButton *qcodeBtn;
 
 @property (weak, nonatomic) IBOutlet UILabel *teamMemberLabel;
 
@@ -41,6 +45,8 @@ typedef void(^QRCodeBlock)(void);
 @property (nonatomic, copy) HandleBtnBlock handleBtnBlock;
 
 @property (nonatomic, copy) QRCodeBlock qRCodeBlock;
+
+@property (nonatomic, copy) AddMemberBlock addMemberBlock;
 
 + (instancetype)initTableViewCellWith:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath joined:(BOOL)joined;
 + (instancetype)initWithTableView:(UITableView *)tableView andIndex:(NSInteger)index;

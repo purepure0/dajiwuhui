@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    self.fd_prefersNavigationBarHidden = YES;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -55,6 +55,7 @@
             cell.iconImageView.image = [UIImage imageNamed:@"pic1"];
             cell.nicknameLabel.text = @"舞者名称";
             cell.cityLabel.text = @"菏泽";
+            [cell.qcodeBtn setHidden:YES];
         }else {
             cell.leftLabel.text = @"舞队名片";
             cell.rightLabel.text = @"未设置";
@@ -96,6 +97,9 @@
     return 0.1;
 }
 
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

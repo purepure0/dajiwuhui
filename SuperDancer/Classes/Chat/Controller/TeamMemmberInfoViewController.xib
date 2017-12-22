@@ -28,14 +28,43 @@
                         <outlet property="delegate" destination="-1" id="AUk-hz-fJf"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="93h-MQ-FDW">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPx-5h-T0S">
+                            <rect key="frame" x="15" y="27" width="44" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="NUI-cZ-4I1"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" image="back_white"/>
+                            <connections>
+                                <action selector="back:" destination="-1" eventType="touchUpInside" id="HO6-OW-NM4"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="O6q-VW-J0M"/>
+                        <constraint firstItem="YPx-5h-T0S" firstAttribute="leading" secondItem="93h-MQ-FDW" secondAttribute="leading" constant="15" id="YuY-hX-Tmf"/>
+                        <constraint firstItem="YPx-5h-T0S" firstAttribute="top" secondItem="93h-MQ-FDW" secondAttribute="top" constant="27" id="jTO-JV-zXj"/>
+                        <constraint firstAttribute="bottom" secondItem="YPx-5h-T0S" secondAttribute="bottom" constant="7" id="wzc-Rx-Q7b"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="93h-MQ-FDW" secondAttribute="trailing" id="Nd3-CF-HOr"/>
                 <constraint firstItem="hhM-t9-qGE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UyD-Rh-tfX"/>
                 <constraint firstAttribute="trailing" secondItem="hhM-t9-qGE" secondAttribute="trailing" id="aQm-9J-h7d"/>
                 <constraint firstItem="hhM-t9-qGE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gAc-JT-CbG"/>
+                <constraint firstItem="93h-MQ-FDW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gyV-1N-f4F"/>
+                <constraint firstItem="93h-MQ-FDW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="oQs-Nb-LF4"/>
                 <constraint firstAttribute="bottom" secondItem="hhM-t9-qGE" secondAttribute="bottom" id="ucP-Wn-21j"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="back_white" width="8" height="14"/>
+    </resources>
 </document>

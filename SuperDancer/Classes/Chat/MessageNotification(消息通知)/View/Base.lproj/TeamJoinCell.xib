@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="438" height="170"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5sf-HA-ZVz" id="XpO-0q-H0W">
-                <rect key="frame" x="0.0" y="0.0" width="438" height="169.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="438" height="170"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfZ-UA-wqg">
@@ -85,6 +85,7 @@
                 <outlet property="cityLabel" destination="L4M-wN-EpK" id="YIS-9E-K6n"/>
                 <outlet property="iconImageView" destination="5bt-Ua-vHg" id="jya-gK-plN"/>
                 <outlet property="nicknameLabel" destination="zjf-P2-SR7" id="JDd-MF-vez"/>
+                <outlet property="qcodeBtn" destination="jis-Xq-lUb" id="nbt-LG-hia"/>
             </connections>
             <point key="canvasLocation" x="46" y="-40"/>
         </tableViewCell>
@@ -92,7 +93,7 @@
             <rect key="frame" x="0.0" y="0.0" width="438" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yRl-aX-tew" id="fIx-6v-ee1">
-                <rect key="frame" x="0.0" y="0.0" width="438" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="438" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="领队名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tb-GM-2kO">
@@ -140,7 +141,7 @@
             <rect key="frame" x="0.0" y="0.0" width="438" height="125"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="97q-6c-UI4" id="jNf-Hl-NZ6">
-                <rect key="frame" x="0.0" y="0.0" width="438" height="124.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="438" height="125"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="舞队介绍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vf2-US-2XQ">
@@ -180,7 +181,7 @@
             <rect key="frame" x="0.0" y="0.0" width="438" height="98"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4PP-ZA-831" id="vCV-1P-Cgh">
-                <rect key="frame" x="0.0" y="0.0" width="438" height="97.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="438" height="98"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqb-HN-TgS">
@@ -204,7 +205,7 @@
             <rect key="frame" x="0.0" y="0.0" width="438" height="69"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Il-k4-CpM" id="V0F-PJ-zpy">
-                <rect key="frame" x="0.0" y="0.0" width="438" height="68.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="438" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10名队员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ww5-qc-jIv">

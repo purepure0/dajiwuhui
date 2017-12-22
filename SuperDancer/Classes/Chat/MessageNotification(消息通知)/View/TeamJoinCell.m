@@ -180,6 +180,9 @@
 
 - (void)addTeamMember:(id)sender {
     NSLog(@"添加队员");
+    if (_addMemberBlock) {
+        _addMemberBlock();
+    }
 }
 
 
