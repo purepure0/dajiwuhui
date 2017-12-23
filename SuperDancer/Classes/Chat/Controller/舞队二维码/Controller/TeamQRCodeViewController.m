@@ -27,7 +27,7 @@
     self.bgView.layer.borderColor = kLineColor.CGColor;
     self.bgView.layer.borderWidth = 1;
     
-    self.qRCodeImgView.image = [SGQRCodeGenerateManager generateWithDefaultQRCodeData:@"https://github.com/kingsic" imageViewWidth:self.qRCodeImgView.frame.size.width];
+    self.qRCodeImgView.image = [SGQRCodeGenerateManager generateWithDefaultQRCodeData:@"1111111111" imageViewWidth:self.qRCodeImgView.frame.size.width];
     
 }
 
