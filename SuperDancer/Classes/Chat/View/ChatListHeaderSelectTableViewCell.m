@@ -32,7 +32,7 @@
         [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13] range:NSMakeRange(4,str.length-4)];
         
         self.textLabel.attributedText = str;
-    }else{
+    }else if(infoData[@"states"]&&[infoData[@"states"] isEqualToString:@"1"]){
         UIView *lineView = [[UIView alloc]init];
         lineView.backgroundColor = kLineColor;
         [self sd_addSubviews:@[lineView]];
@@ -43,6 +43,18 @@
         .topSpaceToView(self, 0);
         self.imageView.image = [UIImage imageNamed:@"wd_list_ico_attachment"];
         self.textLabel.text = @"附近舞队";
+        self.textLabel.font = [UIFont systemFontOfSize:15];
+    }else {
+        UIView *lineView = [[UIView alloc]init];
+        lineView.backgroundColor = kLineColor;
+        [self sd_addSubviews:@[lineView]];
+        lineView.sd_layout
+        .leftSpaceToView(self, 30)
+        .rightSpaceToView(self, 30)
+        .heightIs(1)
+        .topSpaceToView(self, 0);
+        self.imageView.image = [UIImage imageNamed:@"wd_list_ico_attachment"];
+        self.textLabel.text = @"好友列表";
         self.textLabel.font = [UIFont systemFontOfSize:15];
     }
     self.accessoryType=UITableViewCellAccessoryDisclosureIndicator;

@@ -13,7 +13,7 @@
 #import "CreatDanceTeamViewController.h"
 #import "SearchTeamViewController.h"
 #import "MessageNotiViewController.h"
-
+#import "FriendListViewController.h"
 #import "NearTeamViewController.h"
 #import "TeamSessionViewController.h"
 @interface SDChatViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchControllerDelegate>
@@ -94,9 +94,13 @@
         if (indexPath.row == 0) {
             MessageNotiViewController *msgNoti = [[MessageNotiViewController alloc] init];
             [self.navigationController pushViewController:msgNoti animated:YES];
-        }else {
+        }else if (indexPath.row == 1) {
             NearTeamViewController *near = [[NearTeamViewController alloc] init];
             [self.navigationController pushViewController:near animated:YES];
+        }else {
+            FriendListViewController *friendList = [[FriendListViewController alloc] init];
+            [self.navigationController pushViewController:friendList animated:YES];
+            
         }
     }else {
         NIMTeam *team = _teamList[indexPath.row];
@@ -122,10 +126,11 @@
         }
         if(indexPath.row == 0){
             [chatListHeaderSelectTableViewCell updateCellWithData:@{@"states":@"0",@"numOfNews":@"5"}];
-        }else{
+        }else if(indexPath.row == 1) {
             [chatListHeaderSelectTableViewCell updateCellWithData:@{@"states":@"1"}];
+        }else {
+            [chatListHeaderSelectTableViewCell updateCellWithData:@{@"states":@"2"}];
         }
-        
         
         return chatListHeaderSelectTableViewCell;
     }else{
@@ -137,7 +142,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0){
-        return 2;
+        return 3;
     }else{
         return _teamList.count;
     }
@@ -229,6 +234,9 @@
     return _chatVCSearchVC;
 }
 
+- (void)onUserInfoChanged:(NIMUser *)user {
+    NSLog(@"%@", user.userId);
+}
 
 
 - (void)didReceiveMemoryWarning {

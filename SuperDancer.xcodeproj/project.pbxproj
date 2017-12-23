@@ -239,6 +239,11 @@
 		9AC2237D1F8B107100919072 /* ContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC2237B1F8B107100919072 /* ContentCell.xib */; };
 		9AC223841F8B139B00919072 /* HandleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC223821F8B139B00919072 /* HandleCell.m */; };
 		9AC223851F8B139B00919072 /* HandleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC223831F8B139B00919072 /* HandleCell.xib */; };
+		9AC366821FEE268800D6746D /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC366801FEE268800D6746D /* FriendListViewController.m */; };
+		9AC366831FEE268800D6746D /* FriendListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC366811FEE268800D6746D /* FriendListViewController.xib */; };
+		9AC366871FEE2E9400D6746D /* FriendListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC366851FEE2E9400D6746D /* FriendListCell.m */; };
+		9AC366881FEE2E9400D6746D /* FriendListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC366861FEE2E9400D6746D /* FriendListCell.xib */; };
+		9AC3668B1FEE47DE00D6746D /* FriendChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3668A1FEE47DE00D6746D /* FriendChatViewController.m */; };
 		9ACA8AEF1F98574C00B73B29 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA8AD01F98574C00B73B29 /* ASValuePopUpView.m */; };
 		9ACA8AF01F98574C00B73B29 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA8AD21F98574C00B73B29 /* ASValueTrackingSlider.m */; };
 		9ACA8AF11F98574C00B73B29 /* UIAlertController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA8AD51F98574C00B73B29 /* UIAlertController+ZFPlayerRotation.m */; };
@@ -680,6 +685,14 @@
 		9AC223811F8B139B00919072 /* HandleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HandleCell.h; sourceTree = "<group>"; };
 		9AC223821F8B139B00919072 /* HandleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HandleCell.m; sourceTree = "<group>"; };
 		9AC223831F8B139B00919072 /* HandleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HandleCell.xib; sourceTree = "<group>"; };
+		9AC3667F1FEE268800D6746D /* FriendListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListViewController.h; sourceTree = "<group>"; };
+		9AC366801FEE268800D6746D /* FriendListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendListViewController.m; sourceTree = "<group>"; };
+		9AC366811FEE268800D6746D /* FriendListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendListViewController.xib; sourceTree = "<group>"; };
+		9AC366841FEE2E9400D6746D /* FriendListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendListCell.h; sourceTree = "<group>"; };
+		9AC366851FEE2E9400D6746D /* FriendListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendListCell.m; sourceTree = "<group>"; };
+		9AC366861FEE2E9400D6746D /* FriendListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendListCell.xib; sourceTree = "<group>"; };
+		9AC366891FEE47DE00D6746D /* FriendChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendChatViewController.h; sourceTree = "<group>"; };
+		9AC3668A1FEE47DE00D6746D /* FriendChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendChatViewController.m; sourceTree = "<group>"; };
 		9ACA8ACF1F98574C00B73B29 /* ASValuePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValuePopUpView.h; sourceTree = "<group>"; };
 		9ACA8AD01F98574C00B73B29 /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
 		9ACA8AD11F98574C00B73B29 /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
@@ -1179,6 +1192,9 @@
 				9A7D62E51FE801980078DD2B /* MemberCell.h */,
 				9A7D62E61FE801980078DD2B /* MemberCell.m */,
 				9A7D62E71FE801980078DD2B /* MemberCell.xib */,
+				9AC366841FEE2E9400D6746D /* FriendListCell.h */,
+				9AC366851FEE2E9400D6746D /* FriendListCell.m */,
+				9AC366861FEE2E9400D6746D /* FriendListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1330,6 +1346,7 @@
 				9A0EBBDB1FEAA21E00F31F94 /* TeamMemmberInfoViewController.h */,
 				9A0EBBDC1FEAA21E00F31F94 /* TeamMemmberInfoViewController.m */,
 				9A0EBBDD1FEAA21E00F31F94 /* TeamMemmberInfoViewController.xib */,
+				9AC3667E1FEE266900D6746D /* 好友 */,
 				9AFB53771FECA88C008E5BAD /* 舞队管理 */,
 				9AFB53801FECE7F9008E5BAD /* 成员管理 */,
 				9AFB538E1FECE827008E5BAD /* 舞队二维码 */,
@@ -2179,6 +2196,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9AC3667E1FEE266900D6746D /* 好友 */ = {
+			isa = PBXGroup;
+			children = (
+				9AC3667F1FEE268800D6746D /* FriendListViewController.h */,
+				9AC366801FEE268800D6746D /* FriendListViewController.m */,
+				9AC366811FEE268800D6746D /* FriendListViewController.xib */,
+				9AC366891FEE47DE00D6746D /* FriendChatViewController.h */,
+				9AC3668A1FEE47DE00D6746D /* FriendChatViewController.m */,
+			);
+			path = "好友";
+			sourceTree = "<group>";
+		};
 		9ACA8ACE1F98574C00B73B29 /* ZFPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -2620,6 +2649,7 @@
 				049E50C31FA0E0E7006C3BF1 /* LocalCell.xib in Resources */,
 				9A61BF001FD1371F00F30888 /* SettingViewController.xib in Resources */,
 				9A08C2341FCCF17100F6C54B /* SDTabBarController.xib in Resources */,
+				9AC366881FEE2E9400D6746D /* FriendListCell.xib in Resources */,
 				9A53C09A1FDFD482003CBFD3 /* ApplyMessageDetailViewController.xib in Resources */,
 				9A2CB88E1F868D5400907C72 /* LocalDanceViewController.xib in Resources */,
 				9A61BEFE1FD1371F00F30888 /* SDMineViewController.xib in Resources */,
@@ -2644,6 +2674,7 @@
 				04F41DC31FA38808002EF921 /* SelectTypeCell.xib in Resources */,
 				3F5A445B1FD137FD00BAE622 /* DisForTeamEditViewController.xib in Resources */,
 				9AC2237D1F8B107100919072 /* ContentCell.xib in Resources */,
+				9AC366831FEE268800D6746D /* FriendListViewController.xib in Resources */,
 				9A7D62EE1FE8A48E0078DD2B /* SubmitImageCell.xib in Resources */,
 				9A52EFFB1FE37B8000125087 /* NearTeamListViewController.xib in Resources */,
 				9A52F00F1FE6B5B100125087 /* CompleteTeamInfoViewController.xib in Resources */,
@@ -2862,12 +2893,14 @@
 				9A08C2381FCCF32C00F6C54B /* UIImage+CLImage.m in Sources */,
 				041C473E1F9B86AF00A65AC8 /* SaveBrowseRecord.m in Sources */,
 				049E50D11FA1D278006C3BF1 /* CitySelectViewController.m in Sources */,
+				9AC366821FEE268800D6746D /* FriendListViewController.m in Sources */,
 				9A7D62F51FE8EA7C0078DD2B /* GroupNoticeCell.m in Sources */,
 				04F41DC21FA38808002EF921 /* SelectTypeCell.m in Sources */,
 				9A08B2991F88BFEC00232661 /* DancersViewController.m in Sources */,
 				049E510E1FA305DD006C3BF1 /* MsgAttentionViewController.m in Sources */,
 				3F5A446B1FD149F000BAE622 /* UIBounceButton.m in Sources */,
 				9A33C7FA1FE4161B006F7A50 /* InviteMesageViewController.m in Sources */,
+				9AC366871FEE2E9400D6746D /* FriendListCell.m in Sources */,
 				9A0EBBD51FE9F9DD00F31F94 /* TeamSessionViewController.m in Sources */,
 				9AD960DC1F8F180D0024DA43 /* PPNetworkCache.m in Sources */,
 				9A3E24B51FE9109F00F961AA /* TeamListForChatTableViewCell.m in Sources */,
@@ -2913,6 +2946,7 @@
 				9A2CB8B41F8765B000907C72 /* ButtonCell.m in Sources */,
 				049E50B91FA0D253006C3BF1 /* MusicModel.m in Sources */,
 				3F5A44671FD149AC00BAE622 /* DJWYAlertView.m in Sources */,
+				9AC3668B1FEE47DE00D6746D /* FriendChatViewController.m in Sources */,
 				049E50CC1FA1C081006C3BF1 /* MusicVideoViewController.m in Sources */,
 				9A52EFF51FE3730000125087 /* NearTeamViewController.m in Sources */,
 				049E51091FA2FF00006C3BF1 /* MsgCenterViewController.m in Sources */,

@@ -1,20 +1,18 @@
 //
-//  TeamSessionViewController.m
+//  FriendChatViewController.m
 //  SuperDancer
 //
-//  Created by yu on 2017/12/20.
+//  Created by yu on 2017/12/23.
 //  Copyright © 2017年 yu. All rights reserved.
 //
 
-#import "TeamSessionViewController.h"
+#import "FriendChatViewController.h"
 #import <NIMCustomLeftBarView.h>
-#import "TeamInfoViewController.h"
-#import "TeamMemmberInfoViewController.h"
-@interface TeamSessionViewController ()
+@interface FriendChatViewController ()
 
 @end
 
-@implementation TeamSessionViewController
+@implementation FriendChatViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,7 +25,7 @@
     self.navigationItem.leftBarButtonItems = nil;
     self.navigationItem.leftItemsSupplementBackButton = NO;
     
-
+    
     NIMCustomLeftBarView *leftBarView = [[NIMCustomLeftBarView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
     leftBarView.userInteractionEnabled = YES;
     UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_back_black"]];
@@ -37,10 +35,10 @@
     self.navigationItem.leftBarButtonItem = leftItem;
     
     
-    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-    [rightBtn setImage:[UIImage imageNamed:@"wd_nav_btn_qun"] forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(teamInfo:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+//    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+//    [rightBtn setImage:[UIImage imageNamed:@"wd_nav_btn_qun"] forState:UIControlStateNormal];
+//    [rightBtn addTarget:self action:@selector(teamInfo:) forControlEvents:UIControlEventTouchUpInside];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     
 }
 
@@ -51,22 +49,19 @@
 
 - (void)teamInfo:(UIButton *)btn {
     NSLog(@"teamInfo");
-    TeamInfoViewController *teamInfo = [[TeamInfoViewController alloc] init];
-    teamInfo.team = _team;
-    [self.navigationController pushViewController:teamInfo animated:YES];
+//    TeamInfoViewController *teamInfo = [[TeamInfoViewController alloc] init];
+//    teamInfo.team = _team;
+//    [self.navigationController pushViewController:teamInfo animated:YES];
     
 }
+
+
 - (BOOL)onTapAvatar:(NSString *)userId {
     NSLog(@"点击头像：%@", userId);
-    TeamMemmberInfoViewController *member = [[TeamMemmberInfoViewController alloc] init];
-    [self.navigationController pushViewController:member animated:YES];
+//    TeamMemmberInfoViewController *member = [[TeamMemmberInfoViewController alloc] init];
+//    [self.navigationController pushViewController:member animated:YES];
     return YES;
 }
-
-
-
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

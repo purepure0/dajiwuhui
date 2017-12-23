@@ -72,6 +72,7 @@
     tableVIew.dataSource = self;
     tableVIew.layer.cornerRadius = 5;
     tableVIew.layer.masksToBounds = YES;
+    tableVIew.scrollEnabled = NO;
     [self addSubview:tableVIew];
     
 }
