@@ -20,8 +20,11 @@
 #define USER_BACKGROUND @"background"
 #define USER_SEX @"sex"
 #define USER_BIRITHDAY @"birthday"
+
 #define USER_CITY_LOCATION @"city_location"
 #define USER_DISTRICT_LOCATION @"district_location"
+#define USER_PROVINCE_LOCATION @"province_location"
+
 #define USER_CITY_SELECTED @"city_selected"
 #define USER_DISTRICT_SELECTED @"district_selected"
 #define USER_DISTRICTID @"districtid"
@@ -147,6 +150,15 @@
 
 - (void)setBirthday:(NSString *)birthday {
     [self.userDefaults setObject:birthday forKey:USER_BIRITHDAY];
+}
+
+//省份--定位
+- (NSString *)provinceLocation {
+    return [self.userDefaults objectForKey:USER_PROVINCE_LOCATION];
+}
+
+- (void)setProvinceLocation:(NSString *)provinceLocation {
+    [self.userDefaults setObject:provinceLocation forKey:USER_PROVINCE_LOCATION];
 }
 
 //城市--定位

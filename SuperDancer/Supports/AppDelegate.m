@@ -102,6 +102,7 @@
         if (error)
         {
             NSLog(@"定位失败");
+            [SDUser sharedUser].provinceLocation = @"山东省";
             [SDUser sharedUser].cityLocation = @"菏泽市";
             [SDUser sharedUser].districtLocation = @"牡丹区";
         }
@@ -109,9 +110,10 @@
         if (regeocode)
         {
             NSLog(@"定位成功");
+            [SDUser sharedUser].provinceLocation = regeocode.province;
             [SDUser sharedUser].cityLocation = regeocode.city;
             [SDUser sharedUser].districtLocation = regeocode.district;
-            NSLog(@"%@--%@", [SDUser sharedUser].cityLocation, [SDUser sharedUser].districtLocation);
+            NSLog(@"%@--%@--%@", [SDUser sharedUser].provinceLocation,[SDUser sharedUser].cityLocation, [SDUser sharedUser].districtLocation);
         }
     }];
 }

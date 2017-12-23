@@ -34,6 +34,8 @@
 @property (nonatomic, copy) NSString *background;
 //生日
 @property (nonatomic, copy) NSString *birthday;
+//省份--定位
+@property (nonatomic, copy) NSString *provinceLocation;
 //城市--定位
 @property (nonatomic, copy) NSString *cityLocation;
 //地区--定位

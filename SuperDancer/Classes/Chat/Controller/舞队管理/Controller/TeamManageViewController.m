@@ -7,6 +7,8 @@
 //
 
 #import "TeamManageViewController.h"
+#import "ModifyTeamLocalityViewController.h"
+#import "ModifyLeaderNameViewController.h"
 
 @interface TeamManageViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -94,6 +96,19 @@
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (!indexPath.section) {
+        if (indexPath.row == 2) {// 所在地区
+            ModifyTeamLocalityViewController *loc = [[ModifyTeamLocalityViewController alloc] init];
+            [self.navigationController pushViewController:loc animated:YES];
+        } else if (!indexPath.row) {// 领队名称
+            ModifyLeaderNameViewController *leaderName = [[ModifyLeaderNameViewController alloc] init];
+            [self.navigationController pushViewController:leaderName animated:YES];
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
