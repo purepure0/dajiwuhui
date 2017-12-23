@@ -287,6 +287,14 @@
 		9AFB538D1FECE7F9008E5BAD /* MemberManageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB53891FECE7F9008E5BAD /* MemberManageCell.xib */; };
 		9AFB53951FECE887008E5BAD /* TeamQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53931FECE887008E5BAD /* TeamQRCodeViewController.m */; };
 		9AFB53961FECE887008E5BAD /* TeamQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB53941FECE887008E5BAD /* TeamQRCodeViewController.xib */; };
+		9AFB539A1FEE4D11008E5BAD /* ModifyTeamLocalityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53981FEE4D11008E5BAD /* ModifyTeamLocalityViewController.m */; };
+		9AFB539B1FEE4D11008E5BAD /* ModifyTeamLocalityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB53991FEE4D11008E5BAD /* ModifyTeamLocalityViewController.xib */; };
+		9AFB53A51FEE4FAB008E5BAD /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB539E1FEE4FAB008E5BAD /* city.plist */; };
+		9AFB53A61FEE4FAB008E5BAD /* CZHAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53A01FEE4FAB008E5BAD /* CZHAddressPickerView.m */; };
+		9AFB53A71FEE4FAB008E5BAD /* UIButton+CZHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53A21FEE4FAB008E5BAD /* UIButton+CZHExtension.m */; };
+		9AFB53A81FEE4FAB008E5BAD /* UIView+CZHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53A41FEE4FAB008E5BAD /* UIView+CZHExtension.m */; };
+		9AFB53AC1FEE5628008E5BAD /* ModifyLeaderNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53AA1FEE5628008E5BAD /* ModifyLeaderNameViewController.m */; };
+		9AFB53AD1FEE5628008E5BAD /* ModifyLeaderNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB53AB1FEE5628008E5BAD /* ModifyLeaderNameViewController.xib */; };
 		E152D60CBDFD2BCB040DAFDF /* libPods-SuperDancer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74CFE79521653D649A02295 /* libPods-SuperDancer.a */; };
 /* End PBXBuildFile section */
 
@@ -773,6 +781,20 @@
 		9AFB53921FECE887008E5BAD /* TeamQRCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamQRCodeViewController.h; sourceTree = "<group>"; };
 		9AFB53931FECE887008E5BAD /* TeamQRCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamQRCodeViewController.m; sourceTree = "<group>"; };
 		9AFB53941FECE887008E5BAD /* TeamQRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamQRCodeViewController.xib; sourceTree = "<group>"; };
+		9AFB53971FEE4D11008E5BAD /* ModifyTeamLocalityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyTeamLocalityViewController.h; sourceTree = "<group>"; };
+		9AFB53981FEE4D11008E5BAD /* ModifyTeamLocalityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyTeamLocalityViewController.m; sourceTree = "<group>"; };
+		9AFB53991FEE4D11008E5BAD /* ModifyTeamLocalityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModifyTeamLocalityViewController.xib; sourceTree = "<group>"; };
+		9AFB539D1FEE4FAB008E5BAD /* AddressPickerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressPickerHeader.h; sourceTree = "<group>"; };
+		9AFB539E1FEE4FAB008E5BAD /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
+		9AFB539F1FEE4FAB008E5BAD /* CZHAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZHAddressPickerView.h; sourceTree = "<group>"; };
+		9AFB53A01FEE4FAB008E5BAD /* CZHAddressPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZHAddressPickerView.m; sourceTree = "<group>"; };
+		9AFB53A11FEE4FAB008E5BAD /* UIButton+CZHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CZHExtension.h"; sourceTree = "<group>"; };
+		9AFB53A21FEE4FAB008E5BAD /* UIButton+CZHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CZHExtension.m"; sourceTree = "<group>"; };
+		9AFB53A31FEE4FAB008E5BAD /* UIView+CZHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CZHExtension.h"; sourceTree = "<group>"; };
+		9AFB53A41FEE4FAB008E5BAD /* UIView+CZHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CZHExtension.m"; sourceTree = "<group>"; };
+		9AFB53A91FEE5628008E5BAD /* ModifyLeaderNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyLeaderNameViewController.h; sourceTree = "<group>"; };
+		9AFB53AA1FEE5628008E5BAD /* ModifyLeaderNameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyLeaderNameViewController.m; sourceTree = "<group>"; };
+		9AFB53AB1FEE5628008E5BAD /* ModifyLeaderNameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModifyLeaderNameViewController.xib; sourceTree = "<group>"; };
 		C74CFE79521653D649A02295 /* libPods-SuperDancer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperDancer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -2402,6 +2424,12 @@
 				9AFB537B1FECA8BD008E5BAD /* TeamManageViewController.h */,
 				9AFB537C1FECA8BD008E5BAD /* TeamManageViewController.m */,
 				9AFB537D1FECA8BD008E5BAD /* TeamManageViewController.xib */,
+				9AFB53971FEE4D11008E5BAD /* ModifyTeamLocalityViewController.h */,
+				9AFB53981FEE4D11008E5BAD /* ModifyTeamLocalityViewController.m */,
+				9AFB53991FEE4D11008E5BAD /* ModifyTeamLocalityViewController.xib */,
+				9AFB53A91FEE5628008E5BAD /* ModifyLeaderNameViewController.h */,
+				9AFB53AA1FEE5628008E5BAD /* ModifyLeaderNameViewController.m */,
+				9AFB53AB1FEE5628008E5BAD /* ModifyLeaderNameViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2416,6 +2444,7 @@
 		9AFB537A1FECA88C008E5BAD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9AFB539C1FEE4FAB008E5BAD /* AddressPickerView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2489,6 +2518,21 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9AFB539C1FEE4FAB008E5BAD /* AddressPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				9AFB539D1FEE4FAB008E5BAD /* AddressPickerHeader.h */,
+				9AFB539E1FEE4FAB008E5BAD /* city.plist */,
+				9AFB539F1FEE4FAB008E5BAD /* CZHAddressPickerView.h */,
+				9AFB53A01FEE4FAB008E5BAD /* CZHAddressPickerView.m */,
+				9AFB53A11FEE4FAB008E5BAD /* UIButton+CZHExtension.h */,
+				9AFB53A21FEE4FAB008E5BAD /* UIButton+CZHExtension.m */,
+				9AFB53A31FEE4FAB008E5BAD /* UIView+CZHExtension.h */,
+				9AFB53A41FEE4FAB008E5BAD /* UIView+CZHExtension.m */,
+			);
+			path = AddressPickerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2629,6 +2673,7 @@
 				9A0EBBDA1FEA170B00F31F94 /* TeamInfoViewController.xib in Resources */,
 				9A247F7F1F9B0369007AEABE /* PersonalHeaderView.xib in Resources */,
 				04498FBD1FA4361D007CACEA /* VideoImageCell.xib in Resources */,
+				9AFB53A51FEE4FAB008E5BAD /* city.plist in Resources */,
 				049E510F1FA305DD006C3BF1 /* MsgAttentionViewController.xib in Resources */,
 				9AFB537F1FECA8BD008E5BAD /* TeamManageViewController.xib in Resources */,
 				9A2CB8931F868D7C00907C72 /* ChildDanceViewController.xib in Resources */,
@@ -2658,6 +2703,7 @@
 				9A71FE7D1F8DF37500738680 /* DownloadingCell.xib in Resources */,
 				9A7D62E41FE7C0DD0078DD2B /* GroupNoticeDetailViewController.xib in Resources */,
 				9A1BB42A1F85E2850067C12C /* SDHomeViewController.xib in Resources */,
+				9AFB539B1FEE4D11008E5BAD /* ModifyTeamLocalityViewController.xib in Resources */,
 				04EB25071F9A4E71000E2137 /* CommentView.xib in Resources */,
 				04AE23B61FA07EA10034635C /* MyCollectionViewController.xib in Resources */,
 				041C47451F9B896000A65AC8 /* DancerListCell.xib in Resources */,
@@ -2701,6 +2747,7 @@
 				9A79BBF31F8D0738004C3879 /* BindingMobileViewController.xib in Resources */,
 				04AE237C1F9F87D50034635C /* CollectionCell.xib in Resources */,
 				3F5A44701FD154FD00BAE622 /* SearchTeamViewController.xib in Resources */,
+				9AFB53AD1FEE5628008E5BAD /* ModifyLeaderNameViewController.xib in Resources */,
 				9A53C0741FDFC86F003CBFD3 /* PublicNoticeListViewController.xib in Resources */,
 				9A52F0001FE3AAE000125087 /* NearTeamCell.xib in Resources */,
 				9A52EFF61FE3730000125087 /* NearTeamViewController.xib in Resources */,
@@ -2851,6 +2898,7 @@
 				9A53C0A31FE00C00003CBFD3 /* ApplyDetailCell.m in Sources */,
 				049E50FF1FA2FECD006C3BF1 /* MsgCommentViewController.m in Sources */,
 				04AE23B41FA07E990034635C /* MyCollectionViewController.m in Sources */,
+				9AFB53A61FEE4FAB008E5BAD /* CZHAddressPickerView.m in Sources */,
 				9ACA8AF91F98574C00B73B29 /* ZFBrightnessView.m in Sources */,
 				04927BFB1F974A2300CDD58E /* KeepModel.m in Sources */,
 				9A53C0941FDFD470003CBFD3 /* ApplyMessageListViewController.m in Sources */,
@@ -2881,6 +2929,7 @@
 				9AFB538C1FECE7F9008E5BAD /* MemberManageCell.m in Sources */,
 				9ACA8AEF1F98574C00B73B29 /* ASValuePopUpView.m in Sources */,
 				9A1BB4401F864D080067C12C /* SDSystemInfo.m in Sources */,
+				9AFB53A71FEE4FAB008E5BAD /* UIButton+CZHExtension.m in Sources */,
 				04AE23851FA06F3A0034635C /* CollectionVideoViewController.m in Sources */,
 				049E50B51FA0D23F006C3BF1 /* MusicViewCell.m in Sources */,
 				9ACA8AF01F98574C00B73B29 /* ASValueTrackingSlider.m in Sources */,
@@ -2893,6 +2942,7 @@
 				9A08C2381FCCF32C00F6C54B /* UIImage+CLImage.m in Sources */,
 				041C473E1F9B86AF00A65AC8 /* SaveBrowseRecord.m in Sources */,
 				049E50D11FA1D278006C3BF1 /* CitySelectViewController.m in Sources */,
+				9AFB53AC1FEE5628008E5BAD /* ModifyLeaderNameViewController.m in Sources */,
 				9AC366821FEE268800D6746D /* FriendListViewController.m in Sources */,
 				9A7D62F51FE8EA7C0078DD2B /* GroupNoticeCell.m in Sources */,
 				04F41DC21FA38808002EF921 /* SelectTypeCell.m in Sources */,
@@ -2941,6 +2991,7 @@
 				04F41DC71FA3B120002EF921 /* EditVideoImageViewController.m in Sources */,
 				9A61BEFD1FD1371F00F30888 /* SDMineViewController.m in Sources */,
 				9ACA8AFC1F98574C00B73B29 /* ZFPlayerModel.m in Sources */,
+				9AFB53A81FEE4FAB008E5BAD /* UIView+CZHExtension.m in Sources */,
 				04AE23771F9F7D450034635C /* CollectionModel.m in Sources */,
 				9A52F0131FE7536F00125087 /* CompleteTeamInfoCell.m in Sources */,
 				9A2CB8B41F8765B000907C72 /* ButtonCell.m in Sources */,
@@ -2955,6 +3006,7 @@
 				9A7D63171FE9633D0078DD2B /* GroupVideoCell.m in Sources */,
 				3F92940D1FD4F3B9004CC1E7 /* ScanSuccessJumpVC.m in Sources */,
 				9ACA8B0A1F985B4400B73B29 /* ZFFileModel.m in Sources */,
+				9AFB539A1FEE4D11008E5BAD /* ModifyTeamLocalityViewController.m in Sources */,
 				9AD960C41F8F10280024DA43 /* SDRequestManager.m in Sources */,
 				048C53341F9D998800607784 /* DanceTypeViewController.m in Sources */,
 				04AE23911FA070320034635C /* CollectionDancersViewController.m in Sources */,
