@@ -199,6 +199,10 @@
     option.pkCername        = nil;
     [[NIMSDK sharedSDK] registerWithOption:option];
     
+    NIMServerSetting *setting = [[NIMServerSetting alloc] init];
+    setting.httpsEnabled = NO;
+    [[NIMSDK sharedSDK] setServerSetting:setting];
+    
     NSLog(@"appKey:%@", [[NIMSDK sharedSDK] appKey]);
     //注册自定义消息的解析器
 //    [NIMCustomObject registerCustomDecoder:[NTESCustomAttachmentDecoder new]];

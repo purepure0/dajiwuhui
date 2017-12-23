@@ -29,10 +29,7 @@
 
 
 - (void)updateCellWithTeamData:(NIMTeam *)team {
-    
-    NSString *imageUrl = [team.avatarUrl stringByReplacingOccurrencesOfString:@"https" withString:@"http"];
-    NSLog(@"%@", imageUrl);
-    [self.avatarImageView setImageWithURL:[NSURL URLWithString:imageUrl] placeholder:[UIImage imageNamed:@"pic"]];
+    [self.avatarImageView setImageWithURL:[NSURL URLWithString:team.avatarUrl] placeholder:[UIImage imageNamed:@"pic"]];
     self.teamNameLabel.text = team.teamName;
     self.addressLabel.text = @"所在地区：山东省菏泽市";
     self.addressLabel.textColor = kTextGrayColor;

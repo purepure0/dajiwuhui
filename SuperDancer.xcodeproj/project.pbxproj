@@ -244,6 +244,8 @@
 		9AC366871FEE2E9400D6746D /* FriendListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC366851FEE2E9400D6746D /* FriendListCell.m */; };
 		9AC366881FEE2E9400D6746D /* FriendListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC366861FEE2E9400D6746D /* FriendListCell.xib */; };
 		9AC3668B1FEE47DE00D6746D /* FriendChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3668A1FEE47DE00D6746D /* FriendChatViewController.m */; };
+		9AC3668F1FEE522F00D6746D /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3668D1FEE522F00D6746D /* AddFriendViewController.m */; };
+		9AC366901FEE522F00D6746D /* AddFriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC3668E1FEE522F00D6746D /* AddFriendViewController.xib */; };
 		9ACA8AEF1F98574C00B73B29 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA8AD01F98574C00B73B29 /* ASValuePopUpView.m */; };
 		9ACA8AF01F98574C00B73B29 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA8AD21F98574C00B73B29 /* ASValueTrackingSlider.m */; };
 		9ACA8AF11F98574C00B73B29 /* UIAlertController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACA8AD51F98574C00B73B29 /* UIAlertController+ZFPlayerRotation.m */; };
@@ -693,6 +695,9 @@
 		9AC366861FEE2E9400D6746D /* FriendListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendListCell.xib; sourceTree = "<group>"; };
 		9AC366891FEE47DE00D6746D /* FriendChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendChatViewController.h; sourceTree = "<group>"; };
 		9AC3668A1FEE47DE00D6746D /* FriendChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendChatViewController.m; sourceTree = "<group>"; };
+		9AC3668C1FEE522F00D6746D /* AddFriendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddFriendViewController.h; sourceTree = "<group>"; };
+		9AC3668D1FEE522F00D6746D /* AddFriendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddFriendViewController.m; sourceTree = "<group>"; };
+		9AC3668E1FEE522F00D6746D /* AddFriendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendViewController.xib; sourceTree = "<group>"; };
 		9ACA8ACF1F98574C00B73B29 /* ASValuePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValuePopUpView.h; sourceTree = "<group>"; };
 		9ACA8AD01F98574C00B73B29 /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
 		9ACA8AD11F98574C00B73B29 /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
@@ -2204,6 +2209,9 @@
 				9AC366811FEE268800D6746D /* FriendListViewController.xib */,
 				9AC366891FEE47DE00D6746D /* FriendChatViewController.h */,
 				9AC3668A1FEE47DE00D6746D /* FriendChatViewController.m */,
+				9AC3668C1FEE522F00D6746D /* AddFriendViewController.h */,
+				9AC3668D1FEE522F00D6746D /* AddFriendViewController.m */,
+				9AC3668E1FEE522F00D6746D /* AddFriendViewController.xib */,
 			);
 			path = "好友";
 			sourceTree = "<group>";
@@ -2693,6 +2701,7 @@
 				9AFB538D1FECE7F9008E5BAD /* MemberManageCell.xib in Resources */,
 				049E51151FA30AAB006C3BF1 /* MsgCommentCell.xib in Resources */,
 				9A08C22C1FCC3F2400F6C54B /* SDChatViewController.xib in Resources */,
+				9AC366901FEE522F00D6746D /* AddFriendViewController.xib in Resources */,
 				9A33C7FB1FE4161B006F7A50 /* TeamJoinViewController.xib in Resources */,
 				9ACA8AFA1F98574C00B73B29 /* ZFPlayer.bundle in Resources */,
 				9A2CB8A81F8725A300907C72 /* HomeCell.xib in Resources */,
@@ -2939,6 +2948,7 @@
 				049E50C71FA0E51C006C3BF1 /* LocalHeaderReusableView.m in Sources */,
 				9A1DC6AF1FA49D200014E739 /* MusicDownloadViewController.m in Sources */,
 				04F41DC71FA3B120002EF921 /* EditVideoImageViewController.m in Sources */,
+				9AC3668F1FEE522F00D6746D /* AddFriendViewController.m in Sources */,
 				9A61BEFD1FD1371F00F30888 /* SDMineViewController.m in Sources */,
 				9ACA8AFC1F98574C00B73B29 /* ZFPlayerModel.m in Sources */,
 				04AE23771F9F7D450034635C /* CollectionModel.m in Sources */,

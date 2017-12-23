@@ -9,6 +9,7 @@
 #import "FriendListViewController.h"
 #import "FriendListCell.h"
 #import "FriendChatViewController.h"
+#import "AddFriendViewController.h"
 @interface FriendListViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)NSArray *friendList;
@@ -34,13 +35,9 @@
 
 - (void)addFriend {
     NSLog(@"加好友");
-    NIMUserRequest *request = [[NIMUserRequest alloc] init];
-    request.userId = @"81692";
-    request.operation = NIMUserOperationAdd;
-    request.message = @"添加好友";
-    [[NIMSDK sharedSDK].userManager requestFriend:request completion:^(NSError * _Nullable error) {
-        NSLog(@"error:%@", error);
-    }];
+    AddFriendViewController *addFri = [[AddFriendViewController alloc] init];
+    [self.navigationController pushViewController:addFri animated:YES];
+   
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -52,6 +49,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NIMUser *user = _friendList[indexPath.row];
     [cell.avatarImageView setImageWithURL:[NSURL URLWithString:user.userInfo.avatarUrl] placeholder:[UIImage imageNamed:@"pic1"]];
+    NSLog(@"%@--%@", user.userInfo.avatarUrl, user.userInfo.thumbAvatarUrl);
     cell.nicknameLabel.text = user.userInfo.nickName;
     cell.detailLabel.text = user.userInfo.sign;
     return cell;
