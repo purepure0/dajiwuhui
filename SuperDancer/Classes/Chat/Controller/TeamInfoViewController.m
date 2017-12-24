@@ -211,6 +211,8 @@
             }
         }else if (indexPath.section == 3) {//舞队管理
             TeamManageViewController *tm = [[TeamManageViewController alloc] init];
+            tm.team = self.team; //123 id = 239423354
+//            PPLog(@"team id = %@",self.team.teamId);
             [self.navigationController pushViewController:tm animated:YES];
         }else if (indexPath.section == 4){
             NSLog(@"聊天记录");

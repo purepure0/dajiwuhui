@@ -10,4 +10,8 @@
 
 @interface ModifyTeamLocalityViewController : BaseViewController
 
+@property (nonatomic, strong) NIMTeam *team;
+
+@property (nonatomic, copy) NSString *locality;
+
 @end

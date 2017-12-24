@@ -297,6 +297,8 @@
 		9AFB53A81FEE4FAB008E5BAD /* UIView+CZHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53A41FEE4FAB008E5BAD /* UIView+CZHExtension.m */; };
 		9AFB53AC1FEE5628008E5BAD /* ModifyLeaderNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53AA1FEE5628008E5BAD /* ModifyLeaderNameViewController.m */; };
 		9AFB53AD1FEE5628008E5BAD /* ModifyLeaderNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB53AB1FEE5628008E5BAD /* ModifyLeaderNameViewController.xib */; };
+		9AFB53B11FEF8960008E5BAD /* ModifyTeamIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53AF1FEF8960008E5BAD /* ModifyTeamIntroduceViewController.m */; };
+		9AFB53B21FEF8960008E5BAD /* ModifyTeamIntroduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB53B01FEF8960008E5BAD /* ModifyTeamIntroduceViewController.xib */; };
 		E152D60CBDFD2BCB040DAFDF /* libPods-SuperDancer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74CFE79521653D649A02295 /* libPods-SuperDancer.a */; };
 /* End PBXBuildFile section */
 
@@ -800,6 +802,9 @@
 		9AFB53A91FEE5628008E5BAD /* ModifyLeaderNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyLeaderNameViewController.h; sourceTree = "<group>"; };
 		9AFB53AA1FEE5628008E5BAD /* ModifyLeaderNameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyLeaderNameViewController.m; sourceTree = "<group>"; };
 		9AFB53AB1FEE5628008E5BAD /* ModifyLeaderNameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModifyLeaderNameViewController.xib; sourceTree = "<group>"; };
+		9AFB53AE1FEF8960008E5BAD /* ModifyTeamIntroduceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyTeamIntroduceViewController.h; sourceTree = "<group>"; };
+		9AFB53AF1FEF8960008E5BAD /* ModifyTeamIntroduceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyTeamIntroduceViewController.m; sourceTree = "<group>"; };
+		9AFB53B01FEF8960008E5BAD /* ModifyTeamIntroduceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModifyTeamIntroduceViewController.xib; sourceTree = "<group>"; };
 		C74CFE79521653D649A02295 /* libPods-SuperDancer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperDancer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -2438,6 +2443,9 @@
 				9AFB53A91FEE5628008E5BAD /* ModifyLeaderNameViewController.h */,
 				9AFB53AA1FEE5628008E5BAD /* ModifyLeaderNameViewController.m */,
 				9AFB53AB1FEE5628008E5BAD /* ModifyLeaderNameViewController.xib */,
+				9AFB53AE1FEF8960008E5BAD /* ModifyTeamIntroduceViewController.h */,
+				9AFB53AF1FEF8960008E5BAD /* ModifyTeamIntroduceViewController.m */,
+				9AFB53B01FEF8960008E5BAD /* ModifyTeamIntroduceViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2723,6 +2731,7 @@
 				9A247F7D1F9B0369007AEABE /* PersonalCenterViewController.xib in Resources */,
 				049E50B11FA0D220006C3BF1 /* MusicViewController.xib in Resources */,
 				9A7D62DF1FE7C0840078DD2B /* PublishNoticeViewController.xib in Resources */,
+				9AFB53B21FEF8960008E5BAD /* ModifyTeamIntroduceViewController.xib in Resources */,
 				9A52F0051FE3B1DD00125087 /* NearADCell.xib in Resources */,
 				9A7D62E91FE801980078DD2B /* MemberCell.xib in Resources */,
 				04F41DC31FA38808002EF921 /* SelectTypeCell.xib in Resources */,
@@ -3016,6 +3025,7 @@
 				9A7D63171FE9633D0078DD2B /* GroupVideoCell.m in Sources */,
 				3F92940D1FD4F3B9004CC1E7 /* ScanSuccessJumpVC.m in Sources */,
 				9ACA8B0A1F985B4400B73B29 /* ZFFileModel.m in Sources */,
+				9AFB53B11FEF8960008E5BAD /* ModifyTeamIntroduceViewController.m in Sources */,
 				9AFB539A1FEE4D11008E5BAD /* ModifyTeamLocalityViewController.m in Sources */,
 				9AD960C41F8F10280024DA43 /* SDRequestManager.m in Sources */,
 				048C53341F9D998800607784 /* DanceTypeViewController.m in Sources */,
