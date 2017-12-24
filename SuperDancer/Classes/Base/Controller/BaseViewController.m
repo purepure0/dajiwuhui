@@ -34,6 +34,13 @@
 //账户2
 //    self.users.userId = @"81516";
 //    self.users.token = @"oaMKIwmXVHfP5r03012sOl5mQP3k";
+//账户2
+//    self.users.userId = @"81692";
+//    self.users.token = @"oaMKIwj_Q0edvkSpEvBtwD1Wzw5Y";
+//
+//    [[[NIMSDK sharedSDK] loginManager] login:self.users.userId token:self.users.token completion:^(NSError * _Nullable error) {
+//        PPLog(@"网易云信登录error：%@", error);
+//    }];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification) name:NOTIFICATION_KTUSER_HAS_LOGOUT object:nil];
 }
 

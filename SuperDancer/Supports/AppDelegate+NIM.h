@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
-@interface AppDelegate (NIM)
+#import <UserNotifications/UserNotifications.h>
+@interface AppDelegate (NIM)<NIMLoginManagerDelegate, NIMLoginManager, NIMChatManagerDelegate,UIApplicationDelegate>
+//- (void)setupNIMSDK;
 
 @end

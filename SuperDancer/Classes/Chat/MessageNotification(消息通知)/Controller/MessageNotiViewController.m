@@ -11,9 +11,10 @@
 #import "PublicNoticeListViewController.h"
 #import "ApplyMessageListViewController.h"
 #import "InviteMesageViewController.h"
-@interface MessageNotiViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface MessageNotiViewController ()<UITableViewDelegate, UITableViewDataSource, NIMSystemNotificationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)NSArray *messageData;
+@property (nonatomic, strong)NSMutableArray *notifications;
 @end
 
 @implementation MessageNotiViewController
@@ -30,7 +31,71 @@
     
     
     [_tableView registerNib:[UINib nibWithNibName:@"MessageNotiCell" bundle:nil] forCellReuseIdentifier:@"MessageNotiCellIdentifier"];
+    
+    _notifications = [NSMutableArray new];
+    [[NIMSDK sharedSDK].systemNotificationManager addDelegate:self];
+    NSArray * notifications = [[NIMSDK sharedSDK].systemNotificationManager fetchSystemNotifications:nil limit:20];
+    if (notifications.count != 0) {
+        [_notifications addObjectsFromArray:notifications];
+    }
+    NSLog(@"%@", _notifications);
+    for (NIMSystemNotification *systemNoti in _notifications) {
+        id obj = systemNoti.attachment;
+        if ([obj isKindOfClass:[NIMUserAddAttachment class]]) {
+            NIMUserOperation operation = [(NIMUserAddAttachment *)obj operationType];
+            switch (operation) {
+                case NIMUserOperationAdd:
+                    NSLog(@"直接加好友");
+                    break;
+                case NIMUserOperationRequest:
+                    NSLog(@"请求加好友");
+                    break;
+                case NIMUserOperationVerify:
+                    NSLog(@"确认加好友");
+                    break;
+                case NIMUserOperationReject:
+                    NSLog(@"拒绝加好友");
+                    break;
+                default:
+                    break;
+            }
+        }
+        NSLog(@"%@--%@--%@", systemNoti.sourceID, systemNoti.targetID, systemNoti.notifyExt);
+    }
 }
+
+
+
+- (void)onReceiveSystemNotification:(NIMSystemNotification *)notification {
+    PPLog(@"%ld", notification.type);
+    
+    id obj = notification.attachment;
+    if ([obj isKindOfClass:[NIMUserAddAttachment class]]) {
+        NIMUserOperation operation = [(NIMUserAddAttachment *)obj operationType];
+        switch (operation) {
+            case NIMUserOperationAdd:
+                NSLog(@"直接加好友");
+                break;
+            case NIMUserOperationRequest:
+                NSLog(@"请求加好友");
+                break;
+            case NIMUserOperationVerify:
+                NSLog(@"确认加好友");
+                break;
+            case NIMUserOperationReject:
+                NSLog(@"拒绝加好友");
+                break;
+            default:
+                break;
+        }
+    }
+    
+}
+
+- (void)onSystemNotificationCountChanged:(NSInteger)unreadCount {
+    PPLog(@"%ld", unreadCount);
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _messageData.count;
