@@ -10,8 +10,12 @@
 #import "CZHAddressPickerView.h"
 #import "AddressPickerHeader.h"
 @interface ModifyTeamLocalityViewController ()
+{
+//    NSString *_locality;
+}
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UIButton *chooseLocalityBtn;
+@property (nonatomic, strong) NSMutableArray *localityArray;
 
 @end
 
@@ -26,21 +30,27 @@
     self.bgView.layer.borderWidth = 0.5;
     self.bgView.layer.borderColor = kLineColor.CGColor;
     
-    // 用户没有上传地区，默认使用定位地区
-    SDUser *user = [SDUser sharedUser];
-    [self.chooseLocalityBtn setTitle:NSStringFormat(@"%@%@%@",user.provinceLocation,user.cityLocation,user.districtLocation) forState:UIControlStateNormal];
-    
-    
     [self setRightItemTitle:@"完成" action:@selector(finishAction)];
+    [self.chooseLocalityBtn setTitle:self.locality forState:UIControlStateNormal];
 }
+
 - (IBAction)chooseLocatityAction:(UIButton *)btn {
     [CZHAddressPickerView areaPickerViewWithAreaBlock:^(NSString *province, NSString *city, NSString *area) {
-        [btn setTitle:NSStringFormat(@"%@%@%@",province,city,area) forState:UIControlStateNormal];
+        self.locality = NSStringFormat(@"%@%@%@",province,city,area);
+        [btn setTitle:self.locality forState:UIControlStateNormal];
     }];
 }
 
 - (void)finishAction {
-    
+    NSDictionary *locality = @{@"locality": self.locality};
+    NSData *data = [NSJSONSerialization dataWithJSONObject:@[locality] options:0 error:nil];
+    NSString *loc = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    [[NIMSDK sharedSDK].teamManager updateTeamCustomInfo:loc teamId:self.team.teamId completion:^(NSError * _Nullable error) {
+        if (!error) {
+            [self toast:@"编辑地址成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
