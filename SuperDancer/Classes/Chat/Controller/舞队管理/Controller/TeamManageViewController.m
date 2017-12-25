@@ -10,6 +10,7 @@
 #import "ModifyTeamLocalityViewController.h"
 #import "ModifyLeaderNameViewController.h"
 #import "ModifyTeamIntroduceViewController.h"
+#import "Utility.h"
 
 @interface TeamManageViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -33,8 +34,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"舞队管理";
-    
-//    [self fetchTeamInfo];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -45,14 +44,15 @@
 - (void)fetchTeamInfo {
     [[NIMSDK sharedSDK].teamManager fetchTeamInfo:self.team.teamId completion:^(NSError * _Nullable error, NIMTeam * _Nullable team) {
         self.team = team;
-        PPLog(@"666666 == %@",team.clientCustomInfo);
-        PPLog(@"777777 == %@",team.intro);
+        PPLog(@"clientCustomInfo == %@",team.clientCustomInfo);
+        PPLog(@"88888888 == %@",team.intro);
+        PPLog(@"*88888888* == %@",self.team.intro);
         if (team.clientCustomInfo.length) {
             NSArray *data = [NSJSONSerialization JSONObjectWithData:[team.clientCustomInfo dataUsingEncoding:NSUTF8StringEncoding] options:0 error:0];
             NSMutableArray *dataArray = [NSMutableArray arrayWithArray:data];
             self.teamInfo = dataArray.lastObject;
-            [self.tableView reloadData];
         }
+        [self.tableView reloadData];
     }];
 }
 
@@ -128,12 +128,16 @@
                 cell.detailTextLabel.text = self.team.teamName;
                 break;
             case 1:
-                cell.detailTextLabel.text = NSStringFormat(@"%f",self.team.createTime);
+            {// 1513693731.821000
+                NSString *createTime = [Utility NSDateToString:NSStringFormat(@"%f",self.team.createTime)];
+                cell.detailTextLabel.text = createTime;
+            }
                 break;
             case 2:
             {
+//                PPLog(@"9999999 == %@%@%@",self.users.provinceLocation,self.users.cityLocation,self.users.districtLocation);
                 NSString *locality = self.teamInfo[@"locality"];
-                if (!locality.length) {
+                if (!locality.length || locality == nil) {
                     locality = NSStringFormat(@"%@%@%@",self.users.provinceLocation,self.users.cityLocation,self.users.districtLocation);
                 }
                 cell.detailTextLabel.text = locality;
@@ -153,7 +157,7 @@
         }
         self.introLabel.text = intro;
         self.intro = intro;
-        PPLog(@"8888888 == %@",self.intro);
+//        PPLog(@"intro == %@",self.intro);
     }
     return cell;
 }

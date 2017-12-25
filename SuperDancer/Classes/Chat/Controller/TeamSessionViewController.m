@@ -37,8 +37,9 @@
     self.navigationItem.leftBarButtonItem = leftItem;
     
     
-    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
     [rightBtn setImage:[UIImage imageNamed:@"icon_session_info_normal"] forState:UIControlStateNormal];
+    [rightBtn setImageEdgeInsets: UIEdgeInsetsMake(0, 10, 0, -10)];
     [rightBtn addTarget:self action:@selector(teamInfo:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     

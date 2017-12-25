@@ -271,6 +271,8 @@
 		9ACD9B7F1FA36635003FF1BB /* AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ACD9B7D1FA36635003FF1BB /* AboutUsViewController.xib */; };
 		9ACD9B871FA368DC003FF1BB /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD9B851FA368DC003FF1BB /* FeedbackViewController.m */; };
 		9ACD9B881FA368DC003FF1BB /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ACD9B861FA368DC003FF1BB /* FeedbackViewController.xib */; };
+		9AD925F61FF09D4700CE1A47 /* TeamSessionRemoteHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD925F41FF09D4700CE1A47 /* TeamSessionRemoteHistoryViewController.m */; };
+		9AD925F71FF09D4700CE1A47 /* TeamSessionRemoteHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AD925F51FF09D4700CE1A47 /* TeamSessionRemoteHistoryViewController.xib */; };
 		9AD960C41F8F10280024DA43 /* SDRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD960C31F8F10280024DA43 /* SDRequestManager.m */; };
 		9AD960C71F8F13860024DA43 /* SDHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD960C61F8F13860024DA43 /* SDHTTPRequest.m */; };
 		9AD960CA1F8F14590024DA43 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD960C91F8F14590024DA43 /* Utility.m */; };
@@ -757,6 +759,9 @@
 		9ACD9B841FA368DC003FF1BB /* FeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		9ACD9B851FA368DC003FF1BB /* FeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		9ACD9B861FA368DC003FF1BB /* FeedbackViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
+		9AD925F31FF09D4700CE1A47 /* TeamSessionRemoteHistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamSessionRemoteHistoryViewController.h; sourceTree = "<group>"; };
+		9AD925F41FF09D4700CE1A47 /* TeamSessionRemoteHistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamSessionRemoteHistoryViewController.m; sourceTree = "<group>"; };
+		9AD925F51FF09D4700CE1A47 /* TeamSessionRemoteHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamSessionRemoteHistoryViewController.xib; sourceTree = "<group>"; };
 		9AD960C21F8F10280024DA43 /* SDRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDRequestManager.h; sourceTree = "<group>"; };
 		9AD960C31F8F10280024DA43 /* SDRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDRequestManager.m; sourceTree = "<group>"; };
 		9AD960C51F8F13860024DA43 /* SDHTTPRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDHTTPRequest.h; sourceTree = "<group>"; };
@@ -1380,6 +1385,7 @@
 				9A0EBBDD1FEAA21E00F31F94 /* TeamMemmberInfoViewController.xib */,
 				9AC3667E1FEE266900D6746D /* 好友 */,
 				9AFB53771FECA88C008E5BAD /* 舞队管理 */,
+				9AD925EF1FF09B9500CE1A47 /* 聊天记录 */,
 				9AFB53801FECE7F9008E5BAD /* 成员管理 */,
 				9AFB538E1FECE827008E5BAD /* 舞队二维码 */,
 			);
@@ -2409,6 +2415,40 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9AD925EF1FF09B9500CE1A47 /* 聊天记录 */ = {
+			isa = PBXGroup;
+			children = (
+				9AD925F01FF09B9500CE1A47 /* Controller */,
+				9AD925F11FF09B9500CE1A47 /* Model */,
+				9AD925F21FF09B9500CE1A47 /* View */,
+			);
+			path = "聊天记录";
+			sourceTree = "<group>";
+		};
+		9AD925F01FF09B9500CE1A47 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9AD925F31FF09D4700CE1A47 /* TeamSessionRemoteHistoryViewController.h */,
+				9AD925F41FF09D4700CE1A47 /* TeamSessionRemoteHistoryViewController.m */,
+				9AD925F51FF09D4700CE1A47 /* TeamSessionRemoteHistoryViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9AD925F11FF09B9500CE1A47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9AD925F21FF09B9500CE1A47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9AD960CB1F8F169C0024DA43 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -2703,6 +2743,7 @@
 				9A53C0A41FE00C00003CBFD3 /* ApplyDetailCell.xib in Resources */,
 				04F41DB61FA36154002EF921 /* UploadVideoViewController.xib in Resources */,
 				04F41DC81FA3B120002EF921 /* EditVideoImageViewController.xib in Resources */,
+				9AD925F71FF09D4700CE1A47 /* TeamSessionRemoteHistoryViewController.xib in Resources */,
 				9A61BF051FD1433C00F30888 /* MineHandleCell.xib in Resources */,
 				9A1BB3DC1F85DA590067C12C /* Assets.xcassets in Resources */,
 				9A1DC6B01FA49D200014E739 /* MusicDownloadViewController.xib in Resources */,
@@ -2974,6 +3015,7 @@
 				9A3E24B51FE9109F00F961AA /* TeamListForChatTableViewCell.m in Sources */,
 				9A53C09E1FDFD502003CBFD3 /* ApplyMessageListCell.m in Sources */,
 				9A79BBF21F8D0738004C3879 /* BindingMobileViewController.m in Sources */,
+				9AD925F61FF09D4700CE1A47 /* TeamSessionRemoteHistoryViewController.m in Sources */,
 				9ACA8AF61F98574C00B73B29 /* UIViewController+ZFPlayerRotation.m in Sources */,
 				9AD960DD1F8F180D0024DA43 /* PPNetworkHelper.m in Sources */,
 				3F5A44511FD11D4C00BAE622 /* CreatDanceTeamViewController.m in Sources */,
