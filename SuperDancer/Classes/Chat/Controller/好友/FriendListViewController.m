@@ -10,9 +10,9 @@
 #import "FriendListCell.h"
 #import "FriendChatViewController.h"
 #import "AddFriendViewController.h"
-@interface FriendListViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface FriendListViewController ()<UITableViewDelegate, UITableViewDataSource, NIMUserManagerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong)NSArray *friendList;
+@property (nonatomic, strong)NSMutableArray *friendList;
 @end
 
 @implementation FriendListViewController
@@ -23,12 +23,13 @@
     self.title = @"好友";
     [self setRightImageNamed:@"wd_nav_btn_add" action:@selector(addFriend)];
     [self getFriendList];
+    [[NIMSDK sharedSDK].userManager addDelegate:self];
     _tableView.tableFooterView = [UIView new];
     [_tableView registerNib:[UINib nibWithNibName:@"FriendListCell" bundle:nil] forCellReuseIdentifier:@"FriendListCellIdentifier"];
 }
 
 - (void)getFriendList {
-    _friendList = [[NIMSDK sharedSDK].userManager myFriends];
+    _friendList = (NSMutableArray *)[[NIMSDK sharedSDK].userManager myFriends];
     NSLog(@"好友列表：%@", _friendList);
     
 }
@@ -66,6 +67,34 @@
     fChat.user = user;
     [self.navigationController pushViewController:fChat animated:YES];
 }
+
+
+
+//删除好友
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NIMUser *user = _friendList[indexPath.row];
+        [[NIMSDK sharedSDK].userManager deleteFriend:user.userId completion:^(NSError * _Nullable error) {
+            if (!error) {
+                [_friendList removeObjectAtIndex:indexPath.row];
+                [_tableView deleteRow:indexPath.row inSection:0 withRowAnimation:UITableViewRowAnimationFade];
+                [self toast:@"删除成功"];
+            }else {
+                [self toast:@"删除失败"];
+            }
+        }];
+        
+    }
+}
+
+- (void)onFriendChanged:(NIMUser *)user {
+    NSLog(@"%@", user);
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

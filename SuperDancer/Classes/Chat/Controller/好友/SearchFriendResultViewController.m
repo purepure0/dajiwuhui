@@ -1,40 +1,24 @@
 //
-//  AddMembersViewController.m
+//  SearchFriendResultViewController.m
 //  SuperDancer
 //
-//  Created by yu on 2017/12/19.
+//  Created by yu on 2017/12/24.
 //  Copyright © 2017年 yu. All rights reserved.
 //
 
-#import "AddMembersViewController.h"
+#import "SearchFriendResultViewController.h"
 
-@interface AddMembersViewController ()
+@interface SearchFriendResultViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
-@implementation AddMembersViewController
+@implementation SearchFriendResultViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"添加成员";
-    [self setRightItemTitle:@"完成" action:@selector(finishAction)];
-    [_members addObject:@""];
 }
-
-- (void)finishAction {
-    if (_finished) {
-        _finished();
-    }
-    [self.navigationController popViewControllerAnimated:YES];
-//    [[NIMSDK sharedSDK].teamManager addManagersToTeam:_team.teamId users:@"81692" completion:^(NSError * _Nullable error) {
-//        if (!error) {
-//            NSLog(@"添加成功");
-//        }
-//    }];
-}
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

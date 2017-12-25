@@ -97,6 +97,7 @@
                 __weak typeof(self) weakSelf = self;
                 cell.addMemberBlock = ^{
                     AddMembersViewController *addMember = [[AddMembersViewController alloc] init];
+                    addMember.team = _team;
                     [weakSelf.navigationController pushViewController:addMember animated:YES];
                 };
             }

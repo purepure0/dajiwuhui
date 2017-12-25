@@ -24,7 +24,7 @@
 #define JPushAppKey @"fdf767381c7291e4b8a98a7b"
 //app key :45f097c6ebe072b28422e670ce15824b
 //App Secret :745b8f862ca9
-@interface AppDelegate ()<AMapLocationManagerDelegate, JPUSHRegisterDelegate, NIMLoginManagerDelegate, NIMLoginManager>
+@interface AppDelegate ()<AMapLocationManagerDelegate, JPUSHRegisterDelegate, NIMLoginManagerDelegate, NIMLoginManager, NIMChatManagerDelegate, NIMSystemNotificationManagerDelegate>
 @property (nonatomic, strong) AMapLocationManager *locationManager;
 @end
 
@@ -43,6 +43,7 @@
     [Bugtags startWithAppKey:@"08202dec433c4ed124ec3d36ee834d3e" invocationEvent:BTGInvocationEventBubble];
     ///<6>网易IM
     [self setupNIMSDK];
+    [self registerPushService];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -134,57 +135,57 @@
     }];
 }
 */
-
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(nonnull NSData *)deviceToken {
-    [JPUSHService registerDeviceToken:deviceToken];
-}
-
-//iOS8.0~10.0
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler {
-    [JPUSHService handleRemoteNotification:userInfo];
-    if ([[UIDevice currentDevice].systemVersion floatValue]<10.0 || application.applicationState>0) {
-        NSLog(@"%s", __func__);
-        if ([JPUSHService setBadge:0]) {
-            NSLog(@"badge设置成功");
-        }
-        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-    }
-    
-    completionHandler(UIBackgroundFetchResultNewData);
-}
-
-
-//iOS10.0之后
-#ifdef NSFoundationVersionNumber_iOS_9_x_Max
-// 程序关闭后, 通过点击推送弹出的通知
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
-    NSDictionary *userInfo = response.notification.request.content.userInfo;
-    if ([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-        [JPUSHService handleRemoteNotification:userInfo];
-        if ([JPUSHService setBadge:0]) {
-            NSLog(@"badge设置成功");
-        }
-        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-        NSLog(@"%s: \n%@", __func__, userInfo);
-    }else {
-        NSLog(@"本地通知%@", userInfo);
-    }
-    completionHandler();
-}
-
-// 当程序在前台时, 收到推送的通知
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
-    NSDictionary *userInfo = notification.request.content.userInfo;
-    if ([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-        [JPUSHService handleRemoteNotification:userInfo];
-        NSLog(@"%s: \n%@", __func__, userInfo);
-    }else {
-        NSLog(@"本地通知%@", userInfo);
-    }
-    completionHandler(UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound);
-}
-
-#endif
+//
+//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(nonnull NSData *)deviceToken {
+//    [JPUSHService registerDeviceToken:deviceToken];
+//}
+//
+////iOS8.0~10.0
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler {
+//    [JPUSHService handleRemoteNotification:userInfo];
+//    if ([[UIDevice currentDevice].systemVersion floatValue]<10.0 || application.applicationState>0) {
+//        NSLog(@"%s", __func__);
+//        if ([JPUSHService setBadge:0]) {
+//            NSLog(@"badge设置成功");
+//        }
+//        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+//    }
+//
+//    completionHandler(UIBackgroundFetchResultNewData);
+//}
+//
+//
+////iOS10.0之后
+//#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+//// 程序关闭后, 通过点击推送弹出的通知
+//- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+//    NSDictionary *userInfo = response.notification.request.content.userInfo;
+//    if ([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+//        [JPUSHService handleRemoteNotification:userInfo];
+//        if ([JPUSHService setBadge:0]) {
+//            NSLog(@"badge设置成功");
+//        }
+//        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+//        NSLog(@"%s: \n%@", __func__, userInfo);
+//    }else {
+//        NSLog(@"本地通知%@", userInfo);
+//    }
+//    completionHandler();
+//}
+//
+//// 当程序在前台时, 收到推送的通知
+//- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+//    NSDictionary *userInfo = notification.request.content.userInfo;
+//    if ([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+//        [JPUSHService handleRemoteNotification:userInfo];
+//        NSLog(@"%s: \n%@", __func__, userInfo);
+//    }else {
+//        NSLog(@"本地通知%@", userInfo);
+//    }
+//    completionHandler(UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound);
+//}
+//
+//#endif
 
 
 - (void)setupNIMSDK
@@ -219,7 +220,14 @@
         
     }
     
+    [[NIMSDK sharedSDK].chatManager addDelegate:self];
 }
+
+- (void)onRecvMessages:(NSArray<NIMMessage *> *)messages {
+    NSLog(@"message:%@", messages);
+}
+
+
 
 - (void)onLogin:(NIMLoginStep)step {
     PPLog(@"STEP:%ld", step);
@@ -234,10 +242,39 @@
 
 
 
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"aaaa");
+    [[NIMSDK sharedSDK] updateApnsToken:deviceToken];
+}
+
+- (void)registerPushService
+{
+    if (@available(iOS 11.0, *))
+    {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            if (!granted)
+            {
+                NSLog(@"请开启推送功能否则无法收到推送通知");
+            }
+        }];
+    }
+    else
+    {
+        UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types
+                                                                                 categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    }
+    
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    [[NIMSDK sharedSDK].systemNotificationManager addDelegate:self];
+}
 
 
-
-
+- (void)onSystemNotificationCountChanged:(NSInteger)unreadCount {
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:unreadCount];
+}
 
 
 

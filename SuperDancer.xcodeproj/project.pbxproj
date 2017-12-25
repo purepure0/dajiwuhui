@@ -200,6 +200,8 @@
 		9A53C09F1FDFD502003CBFD3 /* ApplyMessageListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C09D1FDFD502003CBFD3 /* ApplyMessageListCell.xib */; };
 		9A53C0A31FE00C00003CBFD3 /* ApplyDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C0A11FE00C00003CBFD3 /* ApplyDetailCell.m */; };
 		9A53C0A41FE00C00003CBFD3 /* ApplyDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C0A21FE00C00003CBFD3 /* ApplyDetailCell.xib */; };
+		9A5781131FEF781100A693A9 /* SearchFriendResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5781111FEF781100A693A9 /* SearchFriendResultViewController.m */; };
+		9A5781141FEF781100A693A9 /* SearchFriendResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5781121FEF781100A693A9 /* SearchFriendResultViewController.xib */; };
 		9A61BEFD1FD1371F00F30888 /* SDMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A61BEF61FD1371F00F30888 /* SDMineViewController.m */; };
 		9A61BEFE1FD1371F00F30888 /* SDMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A61BEF71FD1371F00F30888 /* SDMineViewController.xib */; };
 		9A61BEFF1FD1371F00F30888 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A61BEF91FD1371F00F30888 /* SettingViewController.m */; };
@@ -638,6 +640,9 @@
 		9A53C0A01FE00C00003CBFD3 /* ApplyDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyDetailCell.h; sourceTree = "<group>"; };
 		9A53C0A11FE00C00003CBFD3 /* ApplyDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyDetailCell.m; sourceTree = "<group>"; };
 		9A53C0A21FE00C00003CBFD3 /* ApplyDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyDetailCell.xib; sourceTree = "<group>"; };
+		9A5781101FEF781100A693A9 /* SearchFriendResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchFriendResultViewController.h; sourceTree = "<group>"; };
+		9A5781111FEF781100A693A9 /* SearchFriendResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchFriendResultViewController.m; sourceTree = "<group>"; };
+		9A5781121FEF781100A693A9 /* SearchFriendResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFriendResultViewController.xib; sourceTree = "<group>"; };
 		9A61BEF51FD1371F00F30888 /* SDMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMineViewController.h; sourceTree = "<group>"; };
 		9A61BEF61FD1371F00F30888 /* SDMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMineViewController.m; sourceTree = "<group>"; };
 		9A61BEF71FD1371F00F30888 /* SDMineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDMineViewController.xib; sourceTree = "<group>"; };
@@ -2245,6 +2250,9 @@
 				9AC3668C1FEE522F00D6746D /* AddFriendViewController.h */,
 				9AC3668D1FEE522F00D6746D /* AddFriendViewController.m */,
 				9AC3668E1FEE522F00D6746D /* AddFriendViewController.xib */,
+				9A5781101FEF781100A693A9 /* SearchFriendResultViewController.h */,
+				9A5781111FEF781100A693A9 /* SearchFriendResultViewController.m */,
+				9A5781121FEF781100A693A9 /* SearchFriendResultViewController.xib */,
 			);
 			path = "好友";
 			sourceTree = "<group>";
@@ -2741,6 +2749,7 @@
 				049E50F91FA237BF006C3BF1 /* EditNickNameViewController.xib in Resources */,
 				9A1BB3DF1F85DA590067C12C /* LaunchScreen.storyboard in Resources */,
 				9A53C0A41FE00C00003CBFD3 /* ApplyDetailCell.xib in Resources */,
+				9A5781141FEF781100A693A9 /* SearchFriendResultViewController.xib in Resources */,
 				04F41DB61FA36154002EF921 /* UploadVideoViewController.xib in Resources */,
 				04F41DC81FA3B120002EF921 /* EditVideoImageViewController.xib in Resources */,
 				9AD925F71FF09D4700CE1A47 /* TeamSessionRemoteHistoryViewController.xib in Resources */,
@@ -3027,6 +3036,7 @@
 				04AE236A1F9F43730034635C /* DancerModel.m in Sources */,
 				9A61BF041FD1433C00F30888 /* MineHandleCell.m in Sources */,
 				9A7D62F11FE8E34D0078DD2B /* GroupNoticeModel.m in Sources */,
+				9A5781131FEF781100A693A9 /* SearchFriendResultViewController.m in Sources */,
 				9AD960CA1F8F14590024DA43 /* Utility.m in Sources */,
 				3F97B3691FD0F8CC00D0799A /* ThreeRightView.m in Sources */,
 				9A52F0091FE3CAD400125087 /* ScrollViewCell.m in Sources */,
