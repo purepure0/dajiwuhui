@@ -13,6 +13,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.iconImageView.layer.masksToBounds = YES;
+    self.iconImageView.layer.cornerRadius = 30;
 }
 
 
@@ -41,10 +43,94 @@
 
 - (IBAction)agreeAction:(id)sender {
     NSLog(@"同意");
+    NIMUserRequest *request = [[NIMUserRequest alloc] init];
+    request.userId = _model.notification.sourceID;
+    request.operation = NIMUserOperationVerify;
+    [[NIMSDK sharedSDK].userManager requestFriend:request completion:^(NSError * _Nullable error) {
+        if (!error) {
+            [MBProgressHUD showError:@"同意成功" toView:[UIApplication sharedApplication].keyWindow];
+            _model.notification.handleStatus = 1;
+            [self setStatus];
+        }else {
+            NSLog(@"error:%@", error.description);
+            [MBProgressHUD showError:@"同意失败" toView:[UIApplication sharedApplication].keyWindow];
+        }
+    }];
+    
 }
 
 
 
+- (void)updateCellWithModel:(IMNotificationModel *)model; {
+    _model = model;
+    _model.delegate = self;
+    
+    self.nameLabel.text = _model.sourceName;
+    [self.iconImageView setImageWithURL:[NSURL URLWithString:_model.sourceAvatarURL] placeholder:[UIImage imageNamed:@"pic1"]];
+    self.applyContentLabel.text = _model.message;
+    self.noteLabel.text = _model.postscript;
+    [self setStatus];
+}
+
+- (void)setStatus {
+    if (_model.notification.type == NIMSystemNotificationTypeFriendAdd) {
+        id obj = _model.notification.attachment;
+        if ([obj isKindOfClass:[NIMUserAddAttachment class]]) {
+            NIMUserOperation operation = [(NIMUserAddAttachment *)obj operationType];
+            switch (operation) {
+                case NIMUserOperationRequest:
+                    {
+                        NSInteger status = _model.notification.handleStatus;
+                        if (status == 0) {
+                            [_btn setTitle:@"同 意" forState:UIControlStateNormal];
+                            [_btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                            _btn.backgroundColor = [UIColor colorWithHexString:@"5AB433"];
+                            _btn.enabled = YES;
+                        }else if (status == 1) {
+                            [_btn setTitle:@"已同意" forState:UIControlStateNormal];
+                            [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                            _btn.backgroundColor = [UIColor whiteColor];
+                            _btn.enabled = NO;
+                        }else {
+                            [_btn setTitle:@"已拒绝" forState:UIControlStateNormal];
+                            [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                            _btn.backgroundColor = [UIColor whiteColor];
+                            _btn.enabled = NO;
+                        }
+                    }
+                    break;
+                case NIMUserOperationVerify:
+                    {
+                        [_btn setTitle:@"已通过" forState:UIControlStateNormal];
+                        [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                        _btn.backgroundColor = [UIColor whiteColor];
+                        _btn.enabled = NO;
+                    }
+                    break;
+                case NIMUserOperationReject:
+                   {
+                       [_btn setTitle:@"被拒绝" forState:UIControlStateNormal];
+                       [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                       _btn.backgroundColor = [UIColor whiteColor];
+                       _btn.enabled = NO;
+                   }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    
+}
+
+- (void)updateUIWithModel {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.nameLabel.text = _model.sourceName;
+        [self.iconImageView setImageWithURL:[NSURL URLWithString:_model.sourceAvatarURL] placeholder:[UIImage imageNamed:@"pic1"]];
+        self.applyContentLabel.text = _model.message;
+    });
+    
+}
 
 
 

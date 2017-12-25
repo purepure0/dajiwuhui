@@ -24,14 +24,19 @@
     
     if(infoData[@"states"]&&[infoData[@"states"] isEqualToString:@"0"]){
         self.imageView.image = [UIImage imageNamed:@"wd_list_icomessage"];
-        NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@(%@)",@"消息通知",infoData[@"numOfNews"]]];
-        [str addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,4)];
-        [str addAttribute:NSForegroundColorAttributeName value:kTextGrayColor range:NSMakeRange(4,str.length-4)];
+        if ([infoData[@"numOfMews"] isEqualToString:@"0"]) {
+            self.textLabel.text = @"消息通知";
+        }else {
+            NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@(%@)",@"消息通知",infoData[@"numOfNews"]]];
+            [str addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,4)];
+            [str addAttribute:NSForegroundColorAttributeName value:kTextGrayColor range:NSMakeRange(4,str.length-4)];
+            
+            [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(0, 4)];
+            [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13] range:NSMakeRange(4,str.length-4)];
+            
+            self.textLabel.attributedText = str;
+        }
         
-        [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(0, 4)];
-        [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13] range:NSMakeRange(4,str.length-4)];
-        
-        self.textLabel.attributedText = str;
     }else if(infoData[@"states"]&&[infoData[@"states"] isEqualToString:@"1"]){
         UIView *lineView = [[UIView alloc]init];
         lineView.backgroundColor = kLineColor;

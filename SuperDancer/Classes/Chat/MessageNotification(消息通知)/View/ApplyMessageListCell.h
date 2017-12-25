@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ApplyMessageListCell : UITableViewCell
+#import "IMNotificationModel.h"
+@interface ApplyMessageListCell : UITableViewCell<IMNotificationModelDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *applyContentLabel;
@@ -17,6 +17,10 @@
 
 
 - (void)updateCellWithData:(NSDictionary *)data;
+
+@property (nonatomic, strong)IMNotificationModel *model;
+
+- (void)updateCellWithModel:(IMNotificationModel *)model;
 
 
 @end

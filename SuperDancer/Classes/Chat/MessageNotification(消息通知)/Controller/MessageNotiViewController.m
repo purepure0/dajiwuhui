@@ -10,11 +10,17 @@
 #import "MessageNotiCell.h"
 #import "PublicNoticeListViewController.h"
 #import "ApplyMessageListViewController.h"
-#import "InviteMesageViewController.h"
+#import "FriendNotiListViewController.h"
+#import "IMSystemNotificationClassifier.h"
 @interface MessageNotiViewController ()<UITableViewDelegate, UITableViewDataSource, NIMSystemNotificationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)NSArray *messageData;
 @property (nonatomic, strong)NSMutableArray *notifications;
+
+@property (nonatomic, strong)NSArray *teamNotifications;
+@property (nonatomic, strong)NSArray *friendNotifications;
+@property (nonatomic, assign)NSInteger teamUnreadCount;
+@property (nonatomic, assign)NSInteger friendUnreadCount;
 @end
 
 @implementation MessageNotiViewController
@@ -24,72 +30,44 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"消息通知";
     _messageData = @[
-                     @{@"title": @"系统公告", @"img": @"xx_ico_inform", @"lastMessage": @"平台于2017年10月10日正式上…", @"date": @"2017-10-10", @"unreadCount": @"1"},
-                     @{@"title": @"申请消息", @"img": @"xx_ico_apply", @"lastMessage": @"舞者张某某申请加入 舞队名称1", @"date": @"2017-10-10", @"unreadCount": @"0"},
-                     @{@"title": @"邀请消息", @"img": @"xx_ico_invite", @"lastMessage": @"舞者张某某邀请您加入 舞队名称2", @"date": @"2017-10-10", @"unreadCount": @"3"}
+                     @{@"title": @"系统公告", @"img": @"xx_ico_inform", @"unreadCount": @"0"},
+                     @{@"title": @"舞队通知", @"img": @"xx_ico_apply"},
+                     @{@"title": @"好友通知", @"img": @"xx_ico_invite"}
                      ];
     
     
     [_tableView registerNib:[UINib nibWithNibName:@"MessageNotiCell" bundle:nil] forCellReuseIdentifier:@"MessageNotiCellIdentifier"];
     
-    _notifications = [NSMutableArray new];
+    
     [[NIMSDK sharedSDK].systemNotificationManager addDelegate:self];
+    [[NIMSDK sharedSDK].userManager fetchUserInfos:@[@"81516"] completion:^(NSArray<NIMUser *> * _Nullable users, NSError * _Nullable error) {
+        NSLog(@"user:%@", users);
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self fetchNotidications];
+}
+
+- (void)fetchNotidications {
+    _notifications = [NSMutableArray new];
     NSArray * notifications = [[NIMSDK sharedSDK].systemNotificationManager fetchSystemNotifications:nil limit:20];
     if (notifications.count != 0) {
         [_notifications addObjectsFromArray:notifications];
     }
-    NSLog(@"%@", _notifications);
-    for (NIMSystemNotification *systemNoti in _notifications) {
-        id obj = systemNoti.attachment;
-        if ([obj isKindOfClass:[NIMUserAddAttachment class]]) {
-            NIMUserOperation operation = [(NIMUserAddAttachment *)obj operationType];
-            switch (operation) {
-                case NIMUserOperationAdd:
-                    NSLog(@"直接加好友");
-                    break;
-                case NIMUserOperationRequest:
-                    NSLog(@"请求加好友");
-                    break;
-                case NIMUserOperationVerify:
-                    NSLog(@"确认加好友");
-                    break;
-                case NIMUserOperationReject:
-                    NSLog(@"拒绝加好友");
-                    break;
-                default:
-                    break;
-            }
-        }
-        NSLog(@"%@--%@--%@", systemNoti.sourceID, systemNoti.targetID, systemNoti.notifyExt);
-    }
+    
+    _teamNotifications = [IMSystemNotificationClassifier typeTeam:_notifications];
+    _friendNotifications = [IMSystemNotificationClassifier typeFriend:_notifications];
+    
+    [_tableView reloadData];
 }
-
 
 
 - (void)onReceiveSystemNotification:(NIMSystemNotification *)notification {
     PPLog(@"%ld", notification.type);
-    
-    id obj = notification.attachment;
-    if ([obj isKindOfClass:[NIMUserAddAttachment class]]) {
-        NIMUserOperation operation = [(NIMUserAddAttachment *)obj operationType];
-        switch (operation) {
-            case NIMUserOperationAdd:
-                NSLog(@"直接加好友");
-                break;
-            case NIMUserOperationRequest:
-                NSLog(@"请求加好友");
-                break;
-            case NIMUserOperationVerify:
-                NSLog(@"确认加好友");
-                break;
-            case NIMUserOperationReject:
-                NSLog(@"拒绝加好友");
-                break;
-            default:
-                break;
-        }
-    }
-    
+    [self fetchNotidications];
+   
 }
 
 - (void)onSystemNotificationCountChanged:(NSInteger)unreadCount {
@@ -105,7 +83,14 @@
     MessageNotiCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageNotiCellIdentifier" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSDictionary *dic = _messageData[indexPath.row];
-    [cell updateCellWithData:dic];
+    if (indexPath.row == 0) {
+        [cell updateCellWithData:dic];
+    }else if (indexPath.row ==1) {
+        [cell updateCellWithData:dic andNotifications:_teamNotifications];
+    }else {
+        [cell updateCellWithData:dic andNotifications:_friendNotifications];
+    }
+    
     
     
     return cell;
@@ -128,8 +113,9 @@
         ApplyMessageListViewController *applyMessage = [[ApplyMessageListViewController alloc] init];
         [self.navigationController pushViewController:applyMessage animated:YES];
     }else {
-        InviteMesageViewController *inviteMessage = [[InviteMesageViewController alloc] init];
-        [self.navigationController pushViewController:inviteMessage animated:YES];
+        FriendNotiListViewController *friendNotiListVC = [[FriendNotiListViewController alloc] init];
+        friendNotiListVC.notifications = _friendNotifications;
+        [self.navigationController pushViewController:friendNotiListVC animated:YES];
     }
 }
 

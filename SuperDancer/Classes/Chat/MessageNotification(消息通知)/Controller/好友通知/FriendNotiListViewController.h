@@ -1,13 +1,13 @@
 //
-//  InviteMesageViewController.h
+//  FriendNotiListViewController.h
 //  SuperDancer
 //
-//  Created by yu on 2017/12/15.
+//  Created by yu on 2017/12/25.
 //  Copyright © 2017年 yu. All rights reserved.
 //
 
 #import "BaseViewController.h"
 
-@interface InviteMesageViewController : BaseViewController
+@interface FriendNotiListViewController : BaseViewController
 @property (nonatomic, strong)NSArray<NIMSystemNotification *> *notifications;
 @end

@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface ApplyMessageListViewController : BaseViewController
-
+@property (nonatomic, strong)NSArray<NIMSystemNotification *> *notifications;
 @end

@@ -16,11 +16,12 @@
 #import "FriendListViewController.h"
 #import "NearTeamViewController.h"
 #import "TeamSessionViewController.h"
-@interface SDChatViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchControllerDelegate>
+@interface SDChatViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchControllerDelegate, NIMSystemNotificationManagerDelegate>
 @property(strong,nonatomic)UITableView              *chatListTableView;
 @property(strong,nonatomic)UISearchController       *chatVCSearchVC;
 @property(strong,nonatomic)NSString                 *searchKeyWords;//搜索关键词
 @property (nonatomic, strong)NSArray *teamList;
+@property (nonatomic, assign)NSInteger unreadCount;
 @end
 
 @implementation SDChatViewController
@@ -28,16 +29,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"舞 队";
+    _unreadCount = 0;
+    
     //防止searchbar向上偏移64px
     self.definesPresentationContext = YES;
     [self setRightImageNamed:@"wd_nav_btn_add" action:@selector(addTeamAction)];
     [self upDataWithUI];
+    //监听系统消息
+    [[NIMSDK sharedSDK].systemNotificationManager addDelegate:self];
+}
+
+- (void)onSystemNotificationCountChanged:(NSInteger)unreadCount {
+    //未读消息数
+    _unreadCount = unreadCount;
+    NSLog(@"未读消息：%ld", _unreadCount);
+    [_chatListTableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     _teamList = [[[NIMSDK sharedSDK] teamManager] allMyTeams];
     [_chatListTableView reloadData];
+    [[NIMSDK sharedSDK].systemNotificationManager fetchSystemNotifications:nil limit:99];
 }
 
 -(void)upDataWithUI{
@@ -125,7 +138,7 @@
             chatListHeaderSelectTableViewCell = [[ChatListHeaderSelectTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ChatListHeaderSelectTableViewCell"];
         }
         if(indexPath.row == 0){
-            [chatListHeaderSelectTableViewCell updateCellWithData:@{@"states":@"0",@"numOfNews":@"5"}];
+            [chatListHeaderSelectTableViewCell updateCellWithData:@{@"states":@"0",@"numOfNews":[NSString stringWithFormat:@"%ld", _unreadCount]}];
         }else if(indexPath.row == 1) {
             [chatListHeaderSelectTableViewCell updateCellWithData:@{@"states":@"1"}];
         }else {

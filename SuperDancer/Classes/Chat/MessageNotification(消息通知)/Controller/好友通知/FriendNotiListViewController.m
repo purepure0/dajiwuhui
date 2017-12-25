@@ -1,34 +1,29 @@
 //
-//  ApplyMessageListViewController.m
+//  FriendNotiListViewController.m
 //  SuperDancer
 //
-//  Created by yu on 2017/12/12.
+//  Created by yu on 2017/12/25.
 //  Copyright © 2017年 yu. All rights reserved.
 //
 
-#import "ApplyMessageListViewController.h"
+#import "FriendNotiListViewController.h"
 #import "ApplyMessageListCell.h"
 #import "ApplyMessageDetailViewController.h"
 #import "IMNotificationModel.h"
-@interface ApplyMessageListViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface FriendNotiListViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)NSMutableArray *modelList;
-
 @end
 
-@implementation ApplyMessageListViewController
+@implementation FriendNotiListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"好友通知";
-//    _applyList = @[
-//                   @{@"name": @"舞者名称1", @"icon": @"pic1", @"content": @"申请加入 舞队名称1", @"note":@"我是舞者张某某", @"apply": @"0"},
-//                   @{@"name": @"舞者名称2", @"icon": @"pic1", @"content": @"申请加入 舞队名称2", @"note":@"我是舞者张某某", @"apply": @"1"},
-//                   @{@"name": @"舞者名称1", @"icon": @"pic1", @"content": @"申请加入 舞队名称3", @"note":@"我是舞者张某某", @"apply": @"2"}];
     [self initDataSource];
     [_tableView registerNib:[UINib nibWithNibName:@"ApplyMessageListCell" bundle:nil] forCellReuseIdentifier:@"ApplyMessageListCellIdentifier"];
-    
+    _tableView.tableFooterView = [UIView new];
 }
 
 - (void)initDataSource {
@@ -59,6 +54,9 @@
     ApplyMessageListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ApplyMessageListCellIdentifier" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     IMNotificationModel *model = _modelList[indexPath.row];
+    
+    //展示之后通知设为已读
+    [[NIMSDK sharedSDK].systemNotificationManager markNotificationsAsRead:model.notification];
     [cell updateCellWithModel:model];
     
     return cell;
@@ -77,6 +75,22 @@
     
     [self.navigationController pushViewController:detail animated:YES];
 }
+
+//删除通知
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        IMNotificationModel *model = _modelList[indexPath.row];
+        [[NIMSDK sharedSDK].systemNotificationManager deleteNotification:model.notification];
+        [_tableView deleteRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
