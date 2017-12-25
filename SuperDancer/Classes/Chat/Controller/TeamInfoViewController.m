@@ -14,6 +14,7 @@
 #import "AddMembersViewController.h"
 #import "TeamManageViewController.h"
 #import "TeamQRCodeViewController.h"
+#import "TeamSessionRemoteHistoryViewController.h"
 
 @interface TeamInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -215,8 +216,10 @@
             tm.team = self.team; //123 id = 239423354
 //            PPLog(@"team id = %@",self.team.teamId);
             [self.navigationController pushViewController:tm animated:YES];
-        }else if (indexPath.section == 4){
-            NSLog(@"聊天记录");
+        }else if (indexPath.section == 4){//聊天记录
+            NIMSession *session = [NIMSession session:self.team.teamId type:NIMSessionTypeTeam];
+            TeamSessionRemoteHistoryViewController *rh = [[TeamSessionRemoteHistoryViewController alloc] initWithSession:session];
+            [self.navigationController pushViewController:rh animated:YES];
         }
     }else {
         if (indexPath.section == 2) {
@@ -228,6 +231,9 @@
             }
         }else if (indexPath.section == 3) {
             NSLog(@"聊天记录");
+            TeamSessionRemoteHistoryViewController *rh = [[TeamSessionRemoteHistoryViewController alloc] init];
+//            rh.sessionConfig = [[TeamSessionViewController alloc] init];
+            [self.navigationController pushViewController:rh animated:YES];
         }else  if (indexPath.section == 4) {
             if (indexPath.row == 0) {
                 NSLog(@"领队名称");

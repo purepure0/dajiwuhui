@@ -9,5 +9,10 @@
 #import "TeamSessionViewController.h"
 
 @interface TeamSessionRemoteHistoryViewController : NIMSessionViewController
+@end
+
+
+@interface RemoteSessionConfig : NSObject<NIMSessionConfig>
 
 @end
+
