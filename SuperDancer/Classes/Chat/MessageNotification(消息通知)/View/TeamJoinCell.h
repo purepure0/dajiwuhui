@@ -14,6 +14,8 @@ typedef void(^QRCodeBlock)(void);
 
 typedef void(^AddMemberBlock)(void);
 
+typedef void(^IconImgBlock)(void);
+
 
 @interface TeamJoinCell : UITableViewCell
 
@@ -47,6 +49,8 @@ typedef void(^AddMemberBlock)(void);
 @property (nonatomic, copy) QRCodeBlock qRCodeBlock;
 
 @property (nonatomic, copy) AddMemberBlock addMemberBlock;
+
+@property (nonatomic, copy) IconImgBlock iconImgBlock;
 
 + (instancetype)initTableViewCellWith:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath joined:(BOOL)joined;
 + (instancetype)initWithTableView:(UITableView *)tableView andIndex:(NSInteger)index;

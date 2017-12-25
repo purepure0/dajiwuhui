@@ -55,7 +55,6 @@
             index = 1;
         }
     }
-    
     TeamJoinCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"TeamJoinCell" owner:self options:nil] objectAtIndex:index];
@@ -95,17 +94,19 @@
     
 }
 
-
-
-
-
-
 - (void)updateFirstCellWithData:(NSDictionary *)data {
-    NSLog(@"%@", data);
-    self.iconImageView.image = [UIImage imageNamed:data[@"icon"]];
+    NSLog(@"FirstCellWithData == %@", data);
+    [self.iconImageView setImageWithURL:[NSURL URLWithString:data[@"icon"]] placeholder:IMAGE_NAMED(@"avatar_team")];
+    self.iconImageView.userInteractionEnabled = [data[@"isTeamOwner"] boolValue];
     self.nicknameLabel.text = data[@"nickname"];
     self.cityLabel.text = data[@"city"];
-    
+}
+
+- (IBAction)iconImgAction:(id)sender
+{
+    if (_iconImgBlock) {
+        _iconImgBlock();
+    }
 }
 
 - (void)updateSecondCellWithData:(NSDictionary *)data {
@@ -120,7 +121,6 @@
     _topLabel.text = data[@"title"];
     _bottomLabel.text = data[@"content"];
 }
-
 
 - (void)updateFourthCellWithData:(NSDictionary *)data {
     NSArray *imgs = @[@"wd_ico_announcement", @"wd_ico_video", @"wd_ico_vote", @"wd_ico_Sign"];

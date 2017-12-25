@@ -36,8 +36,10 @@
 
 - (IBAction)chooseLocatityAction:(UIButton *)btn {
     [CZHAddressPickerView areaPickerViewWithAreaBlock:^(NSString *province, NSString *city, NSString *area) {
-        self.locality = NSStringFormat(@"%@%@%@",province,city,area);
-        [btn setTitle:self.locality forState:UIControlStateNormal];
+        self.locality = NSStringFormat(@"%@,%@,%@",province,city,area);
+        NSString *locality = [self.locality stringByReplacingOccurrencesOfString:@"," withString:@""];
+        PPLog(@"%@",locality);
+        [btn setTitle:locality forState:UIControlStateNormal];
     }];
 }
 

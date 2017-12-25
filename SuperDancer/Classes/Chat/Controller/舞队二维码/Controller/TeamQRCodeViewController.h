@@ -10,4 +10,6 @@
 
 @interface TeamQRCodeViewController : BaseViewController
 
+@property (nonatomic, strong) NIMTeam *team;
+
 @end
