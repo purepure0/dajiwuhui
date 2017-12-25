@@ -88,7 +88,7 @@
     cell.textLabel.text = self.titles[indexPath.section][indexPath.row];
     
     if (!indexPath.section) {
-        if (!indexPath.row || indexPath.row == 2) {
+        if (indexPath.row == 2) {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         } else if (indexPath.row == 3) {
             cell.accessoryView = self.inviteModeSwitch;
@@ -128,15 +128,17 @@
                 cell.detailTextLabel.text = self.team.teamName;
                 break;
             case 1:
-            {// 1513693731.821000
+            {
                 NSString *createTime = [Utility NSDateToString:NSStringFormat(@"%f",self.team.createTime)];
                 cell.detailTextLabel.text = createTime;
             }
                 break;
             case 2:
             {
-//                PPLog(@"9999999 == %@%@%@",self.users.provinceLocation,self.users.cityLocation,self.users.districtLocation);
-                NSString *locality = self.teamInfo[@"locality"];
+//                PPLog(@"Location == %@%@%@",self.users.provinceLocation,self.users.cityLocation,self.users.districtLocation);
+                NSString *locality = [self.teamInfo[@"locality"] stringByReplacingOccurrencesOfString:@"," withString:@""];
+                PPLog(@"%@",locality);
+                
                 if (!locality.length || locality == nil) {
                     locality = NSStringFormat(@"%@%@%@",self.users.provinceLocation,self.users.cityLocation,self.users.districtLocation);
                 }
@@ -157,7 +159,6 @@
         }
         self.introLabel.text = intro;
         self.intro = intro;
-//        PPLog(@"intro == %@",self.intro);
     }
     return cell;
 }
@@ -170,10 +171,10 @@
             teamLocality.team = self.team;
             teamLocality.locality = self.locality;
             [self.navigationController pushViewController:teamLocality animated:YES];
-        } else if (!indexPath.row) {// 领队名称
-            ModifyLeaderNameViewController *leaderName = [[ModifyLeaderNameViewController alloc] init];
-            [self.navigationController pushViewController:leaderName animated:YES];
-        }
+        } //else if (!indexPath.row) {// 领队名称
+            //ModifyLeaderNameViewController *leaderName = [[ModifyLeaderNameViewController alloc] init];
+            //[self.navigationController pushViewController:leaderName animated:YES];
+        //}
     } else { // 群介绍
         ModifyTeamIntroduceViewController *teamIntro = [[ModifyTeamIntroduceViewController alloc] init];
         teamIntro.intro = self.intro;

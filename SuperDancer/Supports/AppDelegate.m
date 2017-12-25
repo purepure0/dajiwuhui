@@ -110,7 +110,7 @@
         
         if (regeocode)
         {
-            NSLog(@"定位成功");
+            NSLog(@"定位成功>>>%@%@%@",regeocode.province,regeocode.city,regeocode.district);
             [SDUser sharedUser].provinceLocation = regeocode.province;
             [SDUser sharedUser].cityLocation = regeocode.city;
             [SDUser sharedUser].districtLocation = regeocode.district;

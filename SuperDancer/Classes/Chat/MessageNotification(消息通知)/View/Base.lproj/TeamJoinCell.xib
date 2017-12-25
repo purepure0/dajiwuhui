@@ -16,18 +16,28 @@
             <rect key="frame" x="0.0" y="0.0" width="438" height="170"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5sf-HA-ZVz" id="XpO-0q-H0W">
-                <rect key="frame" x="0.0" y="0.0" width="438" height="170"/>
+                <rect key="frame" x="0.0" y="0.0" width="438" height="169.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfZ-UA-wqg">
                         <rect key="frame" x="0.0" y="0.0" width="438" height="169.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic1" translatesAutoresizingMaskIntoConstraints="NO" id="5bt-Ua-vHg">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_team" translatesAutoresizingMaskIntoConstraints="NO" id="5bt-Ua-vHg">
                                 <rect key="frame" x="184" y="35" width="70" height="70"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="pax-gx-8DK"/>
                                     <constraint firstAttribute="height" constant="70" id="pzB-zW-LQL"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="wkn-6p-ubI" appends="YES" id="WHY-X0-Gb3"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="舞对名称1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjf-P2-SR7">
                                 <rect key="frame" x="15" y="115" width="204" height="34.5"/>
@@ -35,18 +45,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="菏泽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4M-wN-EpK">
-                                <rect key="frame" x="239" y="115" width="56" height="34.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="菏泽市" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4M-wN-EpK">
+                                <rect key="frame" x="234" y="120" width="50" height="25"/>
                                 <color key="backgroundColor" red="0.68627450980392157" green="0.38823529411764707" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="56" id="CqU-tQ-7Nv"/>
+                                    <constraint firstAttribute="height" constant="25" id="065-W1-5od"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="CqU-tQ-7Nv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jis-Xq-lUb">
-                                <rect key="frame" x="388.5" y="115" width="34.5" height="34.5"/>
+                                <rect key="frame" x="399" y="120.5" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jis-Xq-lUb" secondAttribute="height" multiplier="1:1" id="gIt-2t-oDC"/>
                                 </constraints>
@@ -59,17 +76,14 @@
                         <color key="backgroundColor" red="0.82745098039215681" green="0.69019607843137254" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zjf-P2-SR7" firstAttribute="top" secondItem="5bt-Ua-vHg" secondAttribute="bottom" constant="10" id="16C-OX-wWE"/>
+                            <constraint firstItem="jis-Xq-lUb" firstAttribute="centerY" secondItem="L4M-wN-EpK" secondAttribute="centerY" id="17B-dh-kbJ"/>
                             <constraint firstItem="zjf-P2-SR7" firstAttribute="leading" secondItem="rfZ-UA-wqg" secondAttribute="leading" constant="15" id="62F-LZ-wCM"/>
                             <constraint firstAttribute="trailing" secondItem="jis-Xq-lUb" secondAttribute="trailing" constant="15" id="Bgn-Mk-WgV"/>
                             <constraint firstAttribute="bottom" secondItem="zjf-P2-SR7" secondAttribute="bottom" constant="20" id="IgO-t9-U9D"/>
-                            <constraint firstAttribute="trailing" secondItem="L4M-wN-EpK" secondAttribute="trailing" constant="143" id="LcI-yU-Qmf"/>
-                            <constraint firstItem="L4M-wN-EpK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zjf-P2-SR7" secondAttribute="trailing" constant="8" symbolic="YES" id="Mdo-M0-bNx"/>
-                            <constraint firstItem="jis-Xq-lUb" firstAttribute="top" secondItem="L4M-wN-EpK" secondAttribute="top" id="NO3-7t-TtQ"/>
-                            <constraint firstItem="jis-Xq-lUb" firstAttribute="bottom" secondItem="L4M-wN-EpK" secondAttribute="bottom" id="Oay-zL-Hd7"/>
-                            <constraint firstItem="L4M-wN-EpK" firstAttribute="top" secondItem="5bt-Ua-vHg" secondAttribute="bottom" constant="10" id="UR0-TZ-tyZ"/>
+                            <constraint firstItem="L4M-wN-EpK" firstAttribute="leading" secondItem="zjf-P2-SR7" secondAttribute="trailing" constant="15" id="LjI-OO-Mv5"/>
                             <constraint firstItem="5bt-Ua-vHg" firstAttribute="leading" secondItem="zjf-P2-SR7" secondAttribute="trailing" constant="-35" id="gXN-ja-8ta"/>
                             <constraint firstItem="5bt-Ua-vHg" firstAttribute="centerX" secondItem="rfZ-UA-wqg" secondAttribute="centerX" id="jFk-d6-PwU"/>
-                            <constraint firstAttribute="bottom" secondItem="L4M-wN-EpK" secondAttribute="bottom" constant="20" id="qD3-oQ-h7k"/>
+                            <constraint firstItem="L4M-wN-EpK" firstAttribute="centerY" secondItem="zjf-P2-SR7" secondAttribute="centerY" id="jtJ-AS-W3z"/>
                             <constraint firstItem="5bt-Ua-vHg" firstAttribute="top" secondItem="rfZ-UA-wqg" secondAttribute="top" constant="35" id="sxD-0O-eei"/>
                         </constraints>
                     </view>
@@ -93,7 +107,7 @@
             <rect key="frame" x="0.0" y="0.0" width="438" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yRl-aX-tew" id="fIx-6v-ee1">
-                <rect key="frame" x="0.0" y="0.0" width="438" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="438" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="领队名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tb-GM-2kO">
@@ -141,7 +155,7 @@
             <rect key="frame" x="0.0" y="0.0" width="438" height="125"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="97q-6c-UI4" id="jNf-Hl-NZ6">
-                <rect key="frame" x="0.0" y="0.0" width="438" height="125"/>
+                <rect key="frame" x="0.0" y="0.0" width="438" height="124.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="舞队介绍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vf2-US-2XQ">
@@ -181,7 +195,7 @@
             <rect key="frame" x="0.0" y="0.0" width="438" height="98"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4PP-ZA-831" id="vCV-1P-Cgh">
-                <rect key="frame" x="0.0" y="0.0" width="438" height="98"/>
+                <rect key="frame" x="0.0" y="0.0" width="438" height="97.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqb-HN-TgS">
@@ -205,7 +219,7 @@
             <rect key="frame" x="0.0" y="0.0" width="438" height="69"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Il-k4-CpM" id="V0F-PJ-zpy">
-                <rect key="frame" x="0.0" y="0.0" width="438" height="69"/>
+                <rect key="frame" x="0.0" y="0.0" width="438" height="68.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10名队员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ww5-qc-jIv">
@@ -236,9 +250,14 @@
             </connections>
             <point key="canvasLocation" x="52" y="637.5"/>
         </tableViewCell>
+        <tapGestureRecognizer id="wkn-6p-ubI">
+            <connections>
+                <action selector="iconImgAction:" destination="5sf-HA-ZVz" id="ei6-5b-O4B"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="pic1" width="48" height="48"/>
+        <image name="avatar_team" width="50" height="50"/>
         <image name="right_arrow" width="8" height="14"/>
         <image name="wd_ico_ewm" width="24" height="24"/>
     </resources>

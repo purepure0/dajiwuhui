@@ -28,11 +28,11 @@
     [leftBarView addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBarView];
     self.navigationItem.leftBarButtonItem = leftItem;
-    
 }
 
-- (void)back {
-    PPLog(@"返回");
+- (void)back
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (instancetype) initWithSession:(NIMSession *)session{
