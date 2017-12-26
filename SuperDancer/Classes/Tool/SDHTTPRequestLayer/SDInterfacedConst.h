@@ -130,7 +130,12 @@ UIKIT_EXTERN NSString *const kUploadVide;
 /** 我关注的舞者 */
 UIKIT_EXTERN NSString *const kMyLike;
 
+/** 加好友-通过手机号搜索其他用户 */
+UIKIT_EXTERN NSString *const kGetUserInfoByTel;
 
+
+/** 加好友-通过ID获取用户信息 */
+UIKIT_EXTERN NSString *const kGetUserInfoByUserId;
 @end
 
 

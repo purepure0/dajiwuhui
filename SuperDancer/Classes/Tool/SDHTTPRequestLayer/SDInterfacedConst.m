@@ -126,4 +126,10 @@ NSString *const kUploadVide = @"/video/video_upload";
 NSString *const kMyLike = @"/member/MyLike";
 
 
+/** 加好友-通过手机号搜索其他用户 */
+NSString *const kGetUserInfoByTel = @"/im/tel";
+
+
+/** 加好友-通过ID获取用户信息 */
+NSString *const kGetUserInfoByUserId = @"/im/user_info";
 

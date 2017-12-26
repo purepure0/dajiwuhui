@@ -10,6 +10,7 @@
 #import "ApplyMessageListCell.h"
 #import "ApplyMessageDetailViewController.h"
 #import "IMNotificationModel.h"
+#import "FrindAddDetailViewController.h"
 @interface FriendNotiListViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)NSMutableArray *modelList;
@@ -71,8 +72,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ApplyMessageDetailViewController *detail = [[ApplyMessageDetailViewController alloc] init];
     
+    FrindAddDetailViewController *detail = [[FrindAddDetailViewController alloc] init];
+    detail.model = _modelList[indexPath.row];
     [self.navigationController pushViewController:detail animated:YES];
 }
 
@@ -84,8 +86,11 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         IMNotificationModel *model = _modelList[indexPath.row];
+        NSLog(@"%ld", indexPath.row);
+        NSLog(@"%ld", _modelList.count);
+        [_modelList removeObjectAtIndex:indexPath.row];
+        [_tableView deleteRow:indexPath.row inSection:0 withRowAnimation:UITableViewRowAnimationFade];
         [[NIMSDK sharedSDK].systemNotificationManager deleteNotification:model.notification];
-        [_tableView deleteRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 

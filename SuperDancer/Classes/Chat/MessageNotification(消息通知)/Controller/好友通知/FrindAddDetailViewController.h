@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import "IMNotificationModel.h"
 @interface FrindAddDetailViewController : BaseViewController
-
+@property (nonatomic, strong)IMNotificationModel *model;
 @end

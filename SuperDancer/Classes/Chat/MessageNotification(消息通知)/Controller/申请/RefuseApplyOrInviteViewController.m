@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self setRightItemTitle:@"发送" action:@selector(sendReason)];
+    [self setRightItemTitle:@"完成" action:@selector(sendReason)];
     self.view.backgroundColor = kColorRGB(237, 237, 237);
     _textView.backgroundColor = [UIColor whiteColor];
     [_textView becomeFirstResponder];
@@ -28,7 +28,22 @@
 }
 
 - (void)sendReason {
-    NSLog(@"%@", _textView.text);
+    [self showLoading];
+    NIMUserRequest *request = [[NIMUserRequest alloc] init];
+    request.userId = _model.notification.sourceID;
+    request.operation = NIMUserOperationReject;
+    request.message = _textView.text;
+    
+    [[NIMSDK sharedSDK].userManager requestFriend:request completion:^(NSError * _Nullable error) {
+        [self hideLoading];
+        if (error) {
+            [MBProgressHUD showError:@"发送失败" toView:[UIApplication sharedApplication].keyWindow];
+        }else {
+            [MBProgressHUD showSuccess:@"发送成功" toView:[UIApplication sharedApplication].keyWindow];
+            _model.notification.handleStatus = 2;
+            [self.navigationController popToRootViewControllerAnimated:nil];
+        }
+    }];
 }
 
 

@@ -24,6 +24,10 @@
 @property (nonatomic, copy)NSString *dateStr;
 @property (nonatomic, copy)NSString *postscript; //附言、验证消息
 
+
+//好友请求--通知类型
+@property (nonatomic, assign)NIMUserOperation operation;
+
 - (instancetype)initWithSystemNotification:(NIMSystemNotification *)notication;
 @property (nonatomic, weak) id<IMNotificationModelDelegate> delegate;
 

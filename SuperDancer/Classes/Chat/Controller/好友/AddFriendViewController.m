@@ -40,7 +40,7 @@
 
 - (void)searchFriend {
     
-    [PPNetworkHelper POST:NSStringFormat(@"%@%@", kApiPrefix, @"/im/tel") parameters:@{@"tel": self.telPhoneTF.text} success:^(id responseObject) {
+    [PPNetworkHelper POST:NSStringFormat(@"%@%@", kApiPrefix, kGetUserInfoByTel) parameters:@{@"tel": self.telPhoneTF.text} success:^(id responseObject) {
         NSLog(@"resp:%@", responseObject);
         NSString *code = [NSString stringWithFormat:@"%@", responseObject[@"code"]];
         if ([code isEqualToString:@"0"]) {
@@ -65,7 +65,8 @@
     [[NIMSDK sharedSDK].userManager requestFriend:request completion:^(NSError * _Nullable error) {
         NSLog(@"error:%@", error);
         if (!error) {
-            [self toast:@"添加成功"];
+            [self toast:@"申请发送成功"];
+            [self.navigationController popViewControllerAnimated:YES];
         }else {
             [self toast:error.description];
         }

@@ -7,8 +7,8 @@
 //
 
 #import "BaseViewController.h"
-
+#import "IMNotificationModel.h"
 @interface RefuseApplyOrInviteViewController : BaseViewController
 @property (weak, nonatomic) IBOutlet UILabel *wordNumberLabel;
-
+@property (nonatomic, strong)IMNotificationModel *model;
 @end

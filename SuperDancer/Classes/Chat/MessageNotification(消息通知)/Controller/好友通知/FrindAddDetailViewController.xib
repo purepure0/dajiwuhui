@@ -20,23 +20,52 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="983-WB-oI4">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="983-WB-oI4">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="QY6-rS-92u"/>
                         <outlet property="delegate" destination="-1" id="juf-Ou-8Ch"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TY7-ss-b4W">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrF-nu-dbs">
+                            <rect key="frame" x="15" y="27" width="44" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="wjp-0g-nSl"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" image="back_white"/>
+                            <connections>
+                                <action selector="back:" destination="-1" eventType="touchUpInside" id="MfW-Hl-Tnm"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="nrF-nu-dbs" firstAttribute="leading" secondItem="TY7-ss-b4W" secondAttribute="leading" constant="15" id="F3t-uL-tII"/>
+                        <constraint firstAttribute="height" constant="64" id="Fsd-hd-KfU"/>
+                        <constraint firstAttribute="bottom" secondItem="nrF-nu-dbs" secondAttribute="bottom" constant="7" id="Vt2-8e-LGD"/>
+                        <constraint firstItem="nrF-nu-dbs" firstAttribute="top" secondItem="TY7-ss-b4W" secondAttribute="top" constant="27" id="y0l-Sb-KUd"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="TY7-ss-b4W" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2oq-M1-jdi"/>
+                <constraint firstItem="TY7-ss-b4W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Hst-hU-xUh"/>
                 <constraint firstAttribute="trailing" secondItem="983-WB-oI4" secondAttribute="trailing" id="Owk-e6-9gC"/>
+                <constraint firstAttribute="trailing" secondItem="TY7-ss-b4W" secondAttribute="trailing" id="Qsv-kO-tH1"/>
                 <constraint firstAttribute="bottom" secondItem="983-WB-oI4" secondAttribute="bottom" id="cGR-X8-3Xo"/>
                 <constraint firstItem="983-WB-oI4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nJR-Zl-qvg"/>
                 <constraint firstItem="983-WB-oI4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vgy-JX-Pcl"/>
             </constraints>
-            <point key="canvasLocation" x="332" y="-166"/>
+            <point key="canvasLocation" x="223" y="-226"/>
         </view>
     </objects>
+    <resources>
+        <image name="back_white" width="8" height="14"/>
+    </resources>
 </document>
