@@ -15,13 +15,21 @@
 #import "TeamManageViewController.h"
 #import "TeamQRCodeViewController.h"
 #import "TeamSessionRemoteHistoryViewController.h"
+#import "TZImagePickerController.h"
+#import <QiniuSDK.h>
+#import "ModifyTeamNicknameViewController.h"
 
 @interface TeamInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *data;
-@property (nonatomic, strong) NSDictionary *teamInfo;
+// 城市
 @property (nonatomic, copy) NSString *locality;
+// 昵称
+@property (nonatomic, copy) NSString *nickname;
+// 头像
+@property (nonatomic, strong) UIImageView *iconImgView;
+@property (nonatomic, strong) UIImage *iconImg;
 
 @end
 
@@ -31,56 +39,84 @@
     [super viewDidLoad];
     
     self.fd_prefersNavigationBarHidden = YES;
-    _isTeamOwner = ![_team.owner isEqualToString:[SDUser sharedUser].userId];
+    _isTeamOwner = [_team.owner isEqualToString:[SDUser sharedUser].userId];
+    //UserId = 81692
 
+    // 获取群成员
+    [self fetchTeamMembers];
+    // 获取群信息
     [self fetchTeamInfo];
+    
+}
+
+- (void)fetchTeamMembers {
+    [[NIMSDK sharedSDK].teamManager fetchTeamMembers:self.team.teamId completion:^(NSError * _Nullable error, NSArray<NIMTeamMember *> * _Nullable members) {
+        if (!error) {
+            for (NIMTeamMember *member in members) {
+//                PPLog(@"menber nickname == %@ || userId == %@",member.nickname,member.userId);
+//                PPLog(@"member == %@",member);
+//                [teamMember_data addObject:member.userId];
+                // 获取本人群资料
+                if ([member.userId isEqualToString:self.users.userId]) {
+                    PPLog(@"fetch myself user nickname == %@",member.nickname);
+                    if (!member.nickname || !member.nickname.length ) {
+                        self.nickname = @"未设置";
+                    } else {
+                        self.nickname = member.nickname;
+                    }
+                }
+            }
+        }
+    }];
 }
 
 - (void)fetchTeamInfo {
     [[NIMSDK sharedSDK].teamManager fetchTeamInfo:self.team.teamId completion:^(NSError * _Nullable error, NIMTeam * _Nullable team) {
         self.team = team;
-        PPLog(@"clientCustomInfo == %@",team.clientCustomInfo);
-        if (team.clientCustomInfo.length || team.clientCustomInfo != nil) {
+//        PPLog(@"clientCustomInfo == %@",team.clientCustomInfo);
+//        PPLog(@"Team == %@",team);
+        if (team.clientCustomInfo.length || team.clientCustomInfo) {
             NSArray *data = [NSJSONSerialization JSONObjectWithData:[team.clientCustomInfo dataUsingEncoding:NSUTF8StringEncoding] options:0 error:0];
-            self.teamInfo = [NSMutableArray arrayWithArray:data].lastObject;
-            NSArray *localityArray = [self.teamInfo[@"locality"] componentsSeparatedByString:@","];
+            NSDictionary *teamInfo = [NSMutableArray arrayWithArray:data].lastObject;
+            NSArray *localityArray = [teamInfo[@"locality"] componentsSeparatedByString:@","];
             
             if (localityArray.count == 1) {
                 self.locality = @"菏泽市";
             } else {
                 self.locality = [localityArray objectAtIndex:1];
             }
-//            PPLog(@"222==%@",self.locality);
-            if (!self.locality.length || self.locality == nil) {
-                self.locality = self.users.cityLocation;
+
+            if (!self.locality.length || !self.locality) {
+                self.locality = @"未设置";
             }
         } else {
             self.locality = @"菏泽市";
         }
-        
-        if (_isTeamOwner) {
-            _data = @[@[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": self.locality,@"isTeamOwner":@(1)}],
-                      @[@{@"#": @"#"}],
-                      @[@{@"title": @"我的舞队名片", @"content": @"未设置"},
-                        @{@"#": @"#"}],
-                      @[@{@"title": @"舞队管理", @"content": @""}],
-                      @[@{@"title": @"聊天记录", @"content": @""}]
-                      ];
-        }else {
-            _data = @[
-                      @[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": @"菏泽市",@"isTeamOwner":@(0)}],
-                      @[@{@"#": @"#"}],
-                      @[@{@"title": @"我的舞队名片", @"content": @"未设置"},
-                        @{@"#": @"#"}],
-                      @[@{@"title": @"聊天记录", @"content":@""}],
-                      @[@{@"title": @"领队名称", @"content": @"舞者名称007"},
-                        @{@"title": @"成立时间", @"content": @"2017-10-10"},
-                        @{@"title": @"所在地区", @"content": @"山东省菏泽市牡丹区"}],
-                      @[@{@"title": @"舞队介绍", @"content": @"舞队坐落于山东省菏泽市牡丹区，舞队成员有10名"}]
-                      ];
-        }
-        [self.tableView reloadData];
     }];
+    
+    ///////////////////////////////////////////////////////
+    if (_isTeamOwner) {
+        _data = @[@[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": self.locality,@"isTeamOwner":@(1)}],
+                  @[@{@"#": @"#"}],
+                  @[@{@"title": @"我的舞队名片", @"content": self.nickname},
+                    @{@"#": @"#"}],
+                  @[@{@"title": @"舞队管理", @"content": @""}],
+                  @[@{@"title": @"聊天记录", @"content": @""}]
+                  ];
+    }else {
+        _data = @[
+                  @[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": @"菏泽市",@"isTeamOwner":@(0)}],
+                  @[@{@"#": @"#"}],
+                  @[@{@"title": @"我的舞队名片", @"content": @"未设置"},
+                    @{@"#": @"#"}],
+                  @[@{@"title": @"聊天记录", @"content":@""}],
+                  @[@{@"title": @"领队名称", @"content": @"舞者名称007"},
+                    @{@"title": @"成立时间", @"content": @"2017-10-10"},
+                    @{@"title": @"所在地区", @"content": @"山东省菏泽市牡丹区"}],
+                  @[@{@"title": @"舞队介绍", @"content": @"舞队坐落于山东省菏泽市牡丹区，舞队成员有10名"}]
+                  ];
+    }
+    [self.tableView reloadData];
 }
 
 
@@ -101,6 +137,7 @@
     if (_isTeamOwner) {
         if (indexPath.section == 0) {
             [cell updateFirstCellWithData:dic];
+            self.iconImgView = cell.iconImageView;
         }else if (indexPath.section == 1) {
             [cell updateFourthCellWithData:dic];
         }else if (indexPath.section == 2) {
@@ -188,11 +225,10 @@
         [self.navigationController pushViewController:qRCode animated:YES];
     }];
     
-#pragma mark - 头像
+#pragma mark - 更换头像
     [cell setIconImgBlock:^{
-//        @strongify(self);
-        PPLog(@"换头像");
-        
+        @strongify(self);
+        [self uploadIconImg];
     }];
     
     return cell;
@@ -225,8 +261,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_isTeamOwner) {
         if (indexPath.section == 2) {
-            if (indexPath.row == 0) {
-                NSLog(@"舞队名片");
+            if (!indexPath.row) {//群昵称
+                ModifyTeamNicknameViewController *tn = [[ModifyTeamNicknameViewController alloc] init];
+                tn.team = self.team;
+                tn.nickname = self.nickname;
+                [self.navigationController pushViewController:tn animated:YES];
             }else {
                 
             }
@@ -242,7 +281,7 @@
         }
     }else {
         if (indexPath.section == 2) {
-            if (indexPath.row == 0) {
+            if (!indexPath.row) {//群昵称
                 NSLog(@"舞队名片");
             }else {
                 MemberManageViewController *memberMag = [[MemberManageViewController alloc] init];
@@ -263,6 +302,50 @@
 
 - (void)sendMessage:(UIButton *)btn {
     NSLog(@"发送消息");
+}
+
+#pragma mark - 修改群头像
+- (void)uploadIconImg {
+    TZImagePickerController *picker = [[TZImagePickerController alloc]init];
+    picker.maxImagesCount = 1;
+    picker.showSelectBtn = NO;
+    picker.allowCrop = YES;
+    picker.needCircleCrop = YES;
+    [picker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        self.iconImg = [photos objectAtIndex:0];
+        [self showLoading];
+        [PPNetworkHelper POST:NSStringFormat(@"%@%@",kApiPrefix,KQiniuToken) parameters:nil success:^(id responseObject) {
+            NSString *token = responseObject[@"data"][@"res"][@"token"];
+//            PPLog(@"七牛token = %@",token);
+            NSData *imageData = UIImageJPEGRepresentation(photos[0], 0.5f);
+            QNUploadManager *upManager = [[QNUploadManager alloc] init];
+            
+            [upManager putData:imageData key:nil token:token complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+                PPLog(@"Qiniu info === %@**resp === %@**key === %@",info,resp,key);
+                          
+                if (info.ok) {
+                    PPLog(@"上传qiniu成功");
+                    NSString *avatarURL = NSStringFormat(@"%@%@", kQiniuURLHost, resp[@"key"]);
+                    PPLog(@"upload avatar url == %@",avatarURL);
+                    [[NIMSDK sharedSDK].teamManager updateTeamAvatar:avatarURL teamId:self.team.teamId completion:^(NSError * _Nullable error) {
+                        if (!error) {
+                            [self hideLoading];
+                            self.iconImgView.image = self.iconImg;
+                        } else {
+                            PPLog(@"upload image error == %@",error.description);
+                            [self toast:@"上传图片失败"];
+                        }
+                    }];
+                    }else {
+                        [self hideLoading];
+                        [self toast:@"上传图片失败"];
+                    }
+            } option:nil];
+        } failure:^(NSError *error) {
+            [self hideLoading];
+        }];
+    }];
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 - (IBAction)back:(id)sender {

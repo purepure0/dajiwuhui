@@ -307,8 +307,8 @@
 		9AFB53A61FEE4FAB008E5BAD /* CZHAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53A01FEE4FAB008E5BAD /* CZHAddressPickerView.m */; };
 		9AFB53A71FEE4FAB008E5BAD /* UIButton+CZHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53A21FEE4FAB008E5BAD /* UIButton+CZHExtension.m */; };
 		9AFB53A81FEE4FAB008E5BAD /* UIView+CZHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53A41FEE4FAB008E5BAD /* UIView+CZHExtension.m */; };
-		9AFB53AC1FEE5628008E5BAD /* ModifyLeaderNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53AA1FEE5628008E5BAD /* ModifyLeaderNameViewController.m */; };
-		9AFB53AD1FEE5628008E5BAD /* ModifyLeaderNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB53AB1FEE5628008E5BAD /* ModifyLeaderNameViewController.xib */; };
+		9AFB53AC1FEE5628008E5BAD /* ModifyTeamNicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53AA1FEE5628008E5BAD /* ModifyTeamNicknameViewController.m */; };
+		9AFB53AD1FEE5628008E5BAD /* ModifyTeamNicknameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB53AB1FEE5628008E5BAD /* ModifyTeamNicknameViewController.xib */; };
 		9AFB53B11FEF8960008E5BAD /* ModifyTeamIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53AF1FEF8960008E5BAD /* ModifyTeamIntroduceViewController.m */; };
 		9AFB53B21FEF8960008E5BAD /* ModifyTeamIntroduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB53B01FEF8960008E5BAD /* ModifyTeamIntroduceViewController.xib */; };
 		E152D60CBDFD2BCB040DAFDF /* libPods-SuperDancer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74CFE79521653D649A02295 /* libPods-SuperDancer.a */; };
@@ -830,9 +830,9 @@
 		9AFB53A21FEE4FAB008E5BAD /* UIButton+CZHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CZHExtension.m"; sourceTree = "<group>"; };
 		9AFB53A31FEE4FAB008E5BAD /* UIView+CZHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CZHExtension.h"; sourceTree = "<group>"; };
 		9AFB53A41FEE4FAB008E5BAD /* UIView+CZHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CZHExtension.m"; sourceTree = "<group>"; };
-		9AFB53A91FEE5628008E5BAD /* ModifyLeaderNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyLeaderNameViewController.h; sourceTree = "<group>"; };
-		9AFB53AA1FEE5628008E5BAD /* ModifyLeaderNameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyLeaderNameViewController.m; sourceTree = "<group>"; };
-		9AFB53AB1FEE5628008E5BAD /* ModifyLeaderNameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModifyLeaderNameViewController.xib; sourceTree = "<group>"; };
+		9AFB53A91FEE5628008E5BAD /* ModifyTeamNicknameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyTeamNicknameViewController.h; sourceTree = "<group>"; };
+		9AFB53AA1FEE5628008E5BAD /* ModifyTeamNicknameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyTeamNicknameViewController.m; sourceTree = "<group>"; };
+		9AFB53AB1FEE5628008E5BAD /* ModifyTeamNicknameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModifyTeamNicknameViewController.xib; sourceTree = "<group>"; };
 		9AFB53AE1FEF8960008E5BAD /* ModifyTeamIntroduceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyTeamIntroduceViewController.h; sourceTree = "<group>"; };
 		9AFB53AF1FEF8960008E5BAD /* ModifyTeamIntroduceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyTeamIntroduceViewController.m; sourceTree = "<group>"; };
 		9AFB53B01FEF8960008E5BAD /* ModifyTeamIntroduceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModifyTeamIntroduceViewController.xib; sourceTree = "<group>"; };
@@ -2538,9 +2538,9 @@
 				9AFB53971FEE4D11008E5BAD /* ModifyTeamLocalityViewController.h */,
 				9AFB53981FEE4D11008E5BAD /* ModifyTeamLocalityViewController.m */,
 				9AFB53991FEE4D11008E5BAD /* ModifyTeamLocalityViewController.xib */,
-				9AFB53A91FEE5628008E5BAD /* ModifyLeaderNameViewController.h */,
-				9AFB53AA1FEE5628008E5BAD /* ModifyLeaderNameViewController.m */,
-				9AFB53AB1FEE5628008E5BAD /* ModifyLeaderNameViewController.xib */,
+				9AFB53A91FEE5628008E5BAD /* ModifyTeamNicknameViewController.h */,
+				9AFB53AA1FEE5628008E5BAD /* ModifyTeamNicknameViewController.m */,
+				9AFB53AB1FEE5628008E5BAD /* ModifyTeamNicknameViewController.xib */,
 				9AFB53AE1FEF8960008E5BAD /* ModifyTeamIntroduceViewController.h */,
 				9AFB53AF1FEF8960008E5BAD /* ModifyTeamIntroduceViewController.m */,
 				9AFB53B01FEF8960008E5BAD /* ModifyTeamIntroduceViewController.xib */,
@@ -2867,7 +2867,7 @@
 				9A79BBF31F8D0738004C3879 /* BindingMobileViewController.xib in Resources */,
 				04AE237C1F9F87D50034635C /* CollectionCell.xib in Resources */,
 				3F5A44701FD154FD00BAE622 /* SearchTeamViewController.xib in Resources */,
-				9AFB53AD1FEE5628008E5BAD /* ModifyLeaderNameViewController.xib in Resources */,
+				9AFB53AD1FEE5628008E5BAD /* ModifyTeamNicknameViewController.xib in Resources */,
 				9A53C0741FDFC86F003CBFD3 /* PublicNoticeListViewController.xib in Resources */,
 				9A52F0001FE3AAE000125087 /* NearTeamCell.xib in Resources */,
 				9A52EFF61FE3730000125087 /* NearTeamViewController.xib in Resources */,
@@ -3065,7 +3065,7 @@
 				9A08C2381FCCF32C00F6C54B /* UIImage+CLImage.m in Sources */,
 				041C473E1F9B86AF00A65AC8 /* SaveBrowseRecord.m in Sources */,
 				049E50D11FA1D278006C3BF1 /* CitySelectViewController.m in Sources */,
-				9AFB53AC1FEE5628008E5BAD /* ModifyLeaderNameViewController.m in Sources */,
+				9AFB53AC1FEE5628008E5BAD /* ModifyTeamNicknameViewController.m in Sources */,
 				9AC366821FEE268800D6746D /* FriendListViewController.m in Sources */,
 				9AB3E9EE1FF1EF0400711EAC /* FriendAddDetailCell.m in Sources */,
 				9A7D62F51FE8EA7C0078DD2B /* GroupNoticeCell.m in Sources */,

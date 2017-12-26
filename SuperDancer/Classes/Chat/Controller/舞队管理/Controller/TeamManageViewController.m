@@ -8,7 +8,7 @@
 
 #import "TeamManageViewController.h"
 #import "ModifyTeamLocalityViewController.h"
-#import "ModifyLeaderNameViewController.h"
+#import "ModifyTeamNicknameViewController.h"
 #import "ModifyTeamIntroduceViewController.h"
 #import "Utility.h"
 
