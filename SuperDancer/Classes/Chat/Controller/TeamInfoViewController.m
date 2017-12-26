@@ -15,6 +15,8 @@
 #import "TeamManageViewController.h"
 #import "TeamQRCodeViewController.h"
 #import "TeamSessionRemoteHistoryViewController.h"
+#import "TZImagePickerController.h"
+#import <QiniuSDK.h>
 
 @interface TeamInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -22,6 +24,8 @@
 @property (nonatomic, strong) NSArray *data;
 @property (nonatomic, strong) NSDictionary *teamInfo;
 @property (nonatomic, copy) NSString *locality;
+@property (nonatomic, strong) UIImageView *iconImgView;
+@property (nonatomic, strong) UIImage *iconImg;
 
 @end
 
@@ -31,7 +35,7 @@
     [super viewDidLoad];
     
     self.fd_prefersNavigationBarHidden = YES;
-    _isTeamOwner = ![_team.owner isEqualToString:[SDUser sharedUser].userId];
+    _isTeamOwner = [_team.owner isEqualToString:[SDUser sharedUser].userId];
 
     [self fetchTeamInfo];
 }
@@ -101,6 +105,7 @@
     if (_isTeamOwner) {
         if (indexPath.section == 0) {
             [cell updateFirstCellWithData:dic];
+            self.iconImgView = cell.iconImageView;
         }else if (indexPath.section == 1) {
             [cell updateFourthCellWithData:dic];
         }else if (indexPath.section == 2) {
@@ -192,6 +197,8 @@
     [cell setIconImgBlock:^{
 //        @strongify(self);
         PPLog(@"换头像");
+        //
+        [self uploadIconImg];
         
     }];
     
@@ -263,6 +270,50 @@
 
 - (void)sendMessage:(UIButton *)btn {
     NSLog(@"发送消息");
+}
+
+#pragma mark - 修改群头像
+- (void)uploadIconImg {
+    TZImagePickerController *picker = [[TZImagePickerController alloc]init];
+    picker.maxImagesCount = 1;
+    picker.showSelectBtn = NO;
+    picker.allowCrop = YES;
+    picker.needCircleCrop = YES;
+    [picker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        self.iconImg = [photos objectAtIndex:0];
+        [self showLoading];
+        [PPNetworkHelper POST:NSStringFormat(@"%@%@",kApiPrefix,KQiniuToken) parameters:nil success:^(id responseObject) {
+            NSString *token = responseObject[@"data"][@"res"][@"token"];
+//            PPLog(@"七牛token = %@",token);
+            NSData *imageData = UIImageJPEGRepresentation(photos[0], 0.5f);
+            QNUploadManager *upManager = [[QNUploadManager alloc] init];
+            
+            [upManager putData:imageData key:nil token:token complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+                PPLog(@"Qiniu info === %@**resp === %@**key === %@",info,resp,key);
+                          
+                if (info.ok) {
+                    PPLog(@"上传qiniu成功");
+                    NSString *avatarURL = NSStringFormat(@"%@%@", kQiniuURLHost, resp[@"key"]);
+                    PPLog(@"upload avatar url == %@",avatarURL);
+                    [[NIMSDK sharedSDK].teamManager updateTeamAvatar:avatarURL teamId:self.team.teamId completion:^(NSError * _Nullable error) {
+                        if (!error) {
+                            [self hideLoading];
+                            self.iconImgView.image = self.iconImg;
+                        } else {
+                            PPLog(@"upload image error == %@",error.description);
+                            [self toast:@"上传图片失败"];
+                        }
+                    }];
+                    }else {
+                        [self hideLoading];
+                        [self toast:@"上传图片失败"];
+                    }
+            } option:nil];
+        } failure:^(NSError *error) {
+            [self hideLoading];
+        }];
+    }];
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 - (IBAction)back:(id)sender {
