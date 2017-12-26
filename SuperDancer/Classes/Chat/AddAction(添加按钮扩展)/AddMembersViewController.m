@@ -7,9 +7,10 @@
 //
 
 #import "AddMembersViewController.h"
-
-@interface AddMembersViewController ()
-
+#import "FriendListCell.h"
+@interface AddMembersViewController ()<UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong)NSArray *friendList;
 @end
 
 @implementation AddMembersViewController
@@ -18,22 +19,39 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"添加成员";
-    [self setRightItemTitle:@"完成" action:@selector(finishAction)];
-    [_members addObject:@""];
+    _friendList = [NSArray new];
+    [self initDataSource];
+     [_tableView registerNib:[UINib nibWithNibName:@"FriendListCell" bundle:nil] forCellReuseIdentifier:@"FriendListCellIdentifier"];
 }
 
-- (void)finishAction {
-    if (_finished) {
-        _finished();
-    }
-    [self.navigationController popViewControllerAnimated:YES];
-//    [[NIMSDK sharedSDK].teamManager addManagersToTeam:_team.teamId users:@"81692" completion:^(NSError * _Nullable error) {
-//        if (!error) {
-//            NSLog(@"添加成功");
-//        }
-//    }];
+- (void)initDataSource {
+    _friendList = [[NIMSDK sharedSDK].userManager myFriends];
+    NSLog(@"%@", _friendList);
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _friendList.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    FriendListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FriendListCellIdentifier"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    NIMUser *user = _friendList[indexPath.row];
+    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:user.userInfo.avatarUrl] placeholder:[UIImage imageNamed:@"pic1"]];
+    NSLog(@"%@--%@", user.userInfo.avatarUrl, user.userInfo.thumbAvatarUrl);
+    cell.nicknameLabel.text = user.userInfo.nickName;
+    cell.detailLabel.text = user.userInfo.sign;
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NIMUser *user = _friendList[indexPath.row];
+
+}
 
 
 - (void)didReceiveMemoryWarning {

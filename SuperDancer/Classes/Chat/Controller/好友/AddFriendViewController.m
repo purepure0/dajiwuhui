@@ -45,7 +45,8 @@
         NSString *code = [NSString stringWithFormat:@"%@", responseObject[@"code"]];
         if ([code isEqualToString:@"0"]) {
             NSString *userID = responseObject[@"data"][@"res"][@"uid"];
-            [self sendAddRequestWithUid:userID];
+            NSString *nickname = responseObject[@"data"][@"res"][@"nick_name"];
+            [self sendAddRequestWithUid:userID andNickname:nickname];
         }else {
             [self toast:@"用户不存在"];
         }
@@ -55,8 +56,11 @@
     }];
 }
 
-- (void)sendAddRequestWithUid:(NSString *)uid {
-    
+- (void)sendAddRequestWithUid:(NSString *)uid andNickname:(NSString *)nickname {
+    if ([[NIMSDK sharedSDK].userManager isMyFriend:uid]) {
+        [self toast:[NSString stringWithFormat:@"%@ 已经是您的好友", nickname]];
+        return;
+    }
     NIMUserRequest *request = [[NIMUserRequest alloc] init];
     request.userId = [NSString stringWithFormat:@"%@", uid];
     request.operation = NIMUserOperationRequest;

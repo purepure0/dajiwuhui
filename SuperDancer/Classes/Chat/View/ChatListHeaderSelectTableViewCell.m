@@ -24,8 +24,9 @@
     
     if(infoData[@"states"]&&[infoData[@"states"] isEqualToString:@"0"]){
         self.imageView.image = [UIImage imageNamed:@"wd_list_icomessage"];
-        if ([infoData[@"numOfMews"] isEqualToString:@"0"]) {
+        if ([infoData[@"numOfNews"] isEqualToString:@"0"]) {
             self.textLabel.text = @"消息通知";
+            self.textLabel.font = [UIFont systemFontOfSize:15];
         }else {
             NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@(%@)",@"消息通知",infoData[@"numOfNews"]]];
             [str addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,4)];

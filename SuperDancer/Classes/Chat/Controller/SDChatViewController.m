@@ -49,7 +49,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     _teamList = [[[NIMSDK sharedSDK] teamManager] allMyTeams];
-    [_chatListTableView reloadData];
     [[NIMSDK sharedSDK].systemNotificationManager fetchSystemNotifications:nil limit:99];
 }
 
