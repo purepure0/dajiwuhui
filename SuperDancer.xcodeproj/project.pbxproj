@@ -142,6 +142,8 @@
 		9A247F881FA0DE2B007AEABE /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A247F861FA0DE2B007AEABE /* EditProfileViewController.xib */; };
 		9A26A3531FF37252008638B8 /* AddTeamMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A26A3511FF37252008638B8 /* AddTeamMemberCell.m */; };
 		9A26A3541FF37252008638B8 /* AddTeamMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A26A3521FF37252008638B8 /* AddTeamMemberCell.xib */; };
+		9A26A35A1FF39C53008638B8 /* TeamNotiListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A26A3581FF39C53008638B8 /* TeamNotiListViewController.m */; };
+		9A26A35B1FF39C53008638B8 /* TeamNotiListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A26A3591FF39C53008638B8 /* TeamNotiListViewController.xib */; };
 		9A2CB88D1F868D5400907C72 /* LocalDanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2CB88B1F868D5400907C72 /* LocalDanceViewController.m */; };
 		9A2CB88E1F868D5400907C72 /* LocalDanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2CB88C1F868D5400907C72 /* LocalDanceViewController.xib */; };
 		9A2CB8921F868D7C00907C72 /* ChildDanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2CB8901F868D7C00907C72 /* ChildDanceViewController.m */; };
@@ -563,6 +565,9 @@
 		9A26A3501FF37252008638B8 /* AddTeamMemberCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTeamMemberCell.h; sourceTree = "<group>"; };
 		9A26A3511FF37252008638B8 /* AddTeamMemberCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddTeamMemberCell.m; sourceTree = "<group>"; };
 		9A26A3521FF37252008638B8 /* AddTeamMemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTeamMemberCell.xib; sourceTree = "<group>"; };
+		9A26A3571FF39C53008638B8 /* TeamNotiListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamNotiListViewController.h; sourceTree = "<group>"; };
+		9A26A3581FF39C53008638B8 /* TeamNotiListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamNotiListViewController.m; sourceTree = "<group>"; };
+		9A26A3591FF39C53008638B8 /* TeamNotiListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamNotiListViewController.xib; sourceTree = "<group>"; };
 		9A2CB88A1F868D5400907C72 /* LocalDanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalDanceViewController.h; sourceTree = "<group>"; };
 		9A2CB88B1F868D5400907C72 /* LocalDanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalDanceViewController.m; sourceTree = "<group>"; };
 		9A2CB88C1F868D5400907C72 /* LocalDanceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocalDanceViewController.xib; sourceTree = "<group>"; };
@@ -1787,6 +1792,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9A26A3561FF39BF7008638B8 /* 群组通知 */ = {
+			isa = PBXGroup;
+			children = (
+				9A26A3571FF39C53008638B8 /* TeamNotiListViewController.h */,
+				9A26A3581FF39C53008638B8 /* TeamNotiListViewController.m */,
+				9A26A3591FF39C53008638B8 /* TeamNotiListViewController.xib */,
+			);
+			path = "群组通知";
+			sourceTree = "<group>";
+		};
 		9A2CB87A1F868C2200907C72 /* Recommend(推荐) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2070,6 +2085,7 @@
 				9A53C0621FDFA9C5003CBFD3 /* MessageNotiViewController.xib */,
 				9AC688601FF0CFED00ADEFB1 /* IMSystemNotificationClassifier.h */,
 				9AC688611FF0CFED00ADEFB1 /* IMSystemNotificationClassifier.m */,
+				9A26A3561FF39BF7008638B8 /* 群组通知 */,
 				9AC6886B1FF14F3500ADEFB1 /* 好友通知 */,
 				9A53C07E1FDFD312003CBFD3 /* 申请 */,
 				9A53C07D1FDFD300003CBFD3 /* 公告 */,
@@ -2809,6 +2825,7 @@
 				9A1BB3DF1F85DA590067C12C /* LaunchScreen.storyboard in Resources */,
 				9A53C0A41FE00C00003CBFD3 /* ApplyDetailCell.xib in Resources */,
 				9A5781141FEF781100A693A9 /* SearchFriendResultViewController.xib in Resources */,
+				9A26A35B1FF39C53008638B8 /* TeamNotiListViewController.xib in Resources */,
 				04F41DB61FA36154002EF921 /* UploadVideoViewController.xib in Resources */,
 				04F41DC81FA3B120002EF921 /* EditVideoImageViewController.xib in Resources */,
 				9AD925F71FF09D4700CE1A47 /* TeamSessionRemoteHistoryViewController.xib in Resources */,
@@ -3052,6 +3069,7 @@
 				9A906AE51F886B2400AB9A70 /* LoginViewController.m in Sources */,
 				04F41D8A1FA3302D002EF921 /* MsgAttentionCell.m in Sources */,
 				9A53C0781FDFC900003CBFD3 /* PublicNoticeListCell.m in Sources */,
+				9A26A35A1FF39C53008638B8 /* TeamNotiListViewController.m in Sources */,
 				9A33C8021FE41696006F7A50 /* TeamJoinCell.m in Sources */,
 				9ACA8AF41F98574C00B73B29 /* UITabBarController+ZFPlayerRotation.m in Sources */,
 				9A08B2A11F88D3E700232661 /* UIButton+Block.m in Sources */,

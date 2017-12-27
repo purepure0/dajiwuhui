@@ -20,7 +20,7 @@
                 _operation = [(NIMUserAddAttachment *)obj operationType];
                 switch (_operation) {
                     case NIMUserOperationAdd:
-                        centerStr = @"直接添加您为好友";
+                        centerStr = @"已经添加您为好友";
                         break;
                     case NIMUserOperationRequest:
                         centerStr = @"申请加您为好友";
@@ -35,13 +35,12 @@
                         break;
                 }
             }
-            self.message = [NSString stringWithFormat:@"%@ %@", _notification.sourceID, centerStr];
+            self.message = [NSString stringWithFormat:@"%@", centerStr];
             self.sourceName = _notification.sourceID;
             self.postscript = _notification.postscript;
             [[NIMSDK sharedSDK].userManager fetchUserInfos:@[_notification.sourceID] completion:^(NSArray<NIMUser *> * _Nullable users, NSError * _Nullable error) {
                 if (!error) {
                     NIMUser *source = users[0];
-                    self.message = [NSString stringWithFormat:@"%@ %@", source.userInfo.nickName, centerStr];
                     self.sourceName = source.userInfo.nickName;
                     self.sourceAvatarURL = source.userInfo.avatarUrl;
                     if ([self.delegate respondsToSelector:@selector(updateUIWithModel)]) {
@@ -54,7 +53,8 @@
             }];
         }else {
             NSString *centerStr = @"";
-            BOOL sourceIsTeam = NO;
+            BOOL sourceIsTeam = NO; //舞队是发送者吗
+            NSLog(@"%@--%@--%@", _notification.sourceID, _notification.targetID, _notification.postscript);
             switch (_notification.type) {
                 case NIMSystemNotificationTypeTeamApply:
                 {
@@ -71,12 +71,13 @@
                 case NIMSystemNotificationTypeTeamInvite:
                 {
                     centerStr = @"邀请您加入舞队";
-                    
+                    sourceIsTeam = YES;
                 }
                     break;
                 case NIMSystemNotificationTypeTeamIviteReject:
                 {
                     centerStr = @"拒绝加入您的舞队";
+                    sourceIsTeam = NO;
                 }
                     break;
                     
@@ -85,25 +86,35 @@
             }
             
             NSLog(@"%@", centerStr);
-            self.message = [NSString stringWithFormat:@"%@ %@", _notification.sourceID, centerStr];
-            self.sourceName = _notification.sourceID;
-            self.postscript = _notification.postscript;
-            [[NIMSDK sharedSDK].userManager fetchUserInfos:@[_notification.sourceID] completion:^(NSArray<NIMUser *> * _Nullable users, NSError * _Nullable error) {
-                if (!error) {
-                    NIMUser *source = users[0];
-                    self.message = [NSString stringWithFormat:@"%@ %@", source.userInfo.nickName, centerStr];
-                    self.sourceName = source.userInfo.nickName;
-                    self.sourceAvatarURL = source.userInfo.avatarUrl;
-                    if ([self.delegate respondsToSelector:@selector(updateUIWithModel)]) {
-                        [self.delegate updateUIWithModel];
+            if (sourceIsTeam) {
+                [[NIMSDK sharedSDK].userManager fetchUserInfos:@[_notification.sourceID] completion:^(NSArray<NIMUser *> * _Nullable users, NSError * _Nullable error) {
+                    if (!error) {
+                        NIMUser *source = users[0];
+                        self.sourceName = source.userInfo.nickName;
+                        self.sourceAvatarURL = source.userInfo.avatarUrl;
+                        if ([self.delegate respondsToSelector:@selector(updateUIWithModel)]) {
+                            [self.delegate updateUIWithModel];
+                        }
+                    }else {
+                        NSLog(@"error:%@", error.description);
                     }
-                }else {
-                    NSLog(@"error:%@", error.description);
-                }
-                
-            }];
-            
-            
+                }];
+            }else {
+                self.message = [NSString stringWithFormat:@"%@", centerStr];
+                self.sourceName = _notification.sourceID;
+                self.postscript = _notification.postscript;
+                [[NIMSDK sharedSDK].teamManager fetchTeamInfo:notication.targetID completion:^(NSError * _Nullable error, NIMTeam * _Nullable team) {
+                    if (!error) {
+                        self.sourceName = team.teamName;
+                        self.sourceAvatarURL = team.avatarUrl;
+                        if ([self.delegate respondsToSelector:@selector(updateUIWithModel)]) {
+                            [self.delegate updateUIWithModel];
+                        }
+                    }else {
+                        NSLog(@"error:%@", error.description);
+                    }
+                }];
+            }
         }
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"yyyy-MM-dd";

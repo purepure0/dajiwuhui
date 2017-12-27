@@ -46,8 +46,7 @@
     _teamMemberUserIDs = [NSMutableArray new];
     // 获取群成员
     [self fetchTeamMembers];
-    // 获取群信息
-    [self fetchTeamInfo];
+    
     
 }
 
@@ -67,6 +66,8 @@
                         self.nickname = @"未设置";
                     } else {
                         self.nickname = member.nickname;
+                        // 获取群信息
+                        [self fetchTeamInfo];
                     }
                 }
             }

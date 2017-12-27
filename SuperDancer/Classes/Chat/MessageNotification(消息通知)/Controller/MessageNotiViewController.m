@@ -9,7 +9,7 @@
 #import "MessageNotiViewController.h"
 #import "MessageNotiCell.h"
 #import "PublicNoticeListViewController.h"
-#import "ApplyMessageListViewController.h"
+#import "TeamNotiListViewController.h"
 #import "FriendNotiListViewController.h"
 #import "IMSystemNotificationClassifier.h"
 @interface MessageNotiViewController ()<UITableViewDelegate, UITableViewDataSource, NIMSystemNotificationManagerDelegate>
@@ -110,8 +110,9 @@
         [self.navigationController pushViewController:publicNoticeList animated:YES];
         
     }else if (indexPath.row == 1) {
-        ApplyMessageListViewController *applyMessage = [[ApplyMessageListViewController alloc] init];
-        [self.navigationController pushViewController:applyMessage animated:YES];
+        TeamNotiListViewController *teamNotiListVC = [[TeamNotiListViewController alloc] init];
+        teamNotiListVC.notifications = _teamNotifications;
+        [self.navigationController pushViewController:teamNotiListVC animated:YES];
     }else {
         FriendNotiListViewController *friendNotiListVC = [[FriendNotiListViewController alloc] init];
         friendNotiListVC.notifications = _friendNotifications;

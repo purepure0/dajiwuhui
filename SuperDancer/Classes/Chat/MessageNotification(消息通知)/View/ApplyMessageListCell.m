@@ -64,7 +64,6 @@
 - (void)updateCellWithModel:(IMNotificationModel *)model; {
     _model = model;
     _model.delegate = self;
-    
     self.nameLabel.text = _model.sourceName;
     [self.iconImageView setImageWithURL:[NSURL URLWithString:_model.sourceAvatarURL] placeholder:[UIImage imageNamed:@"pic1"]];
     self.applyContentLabel.text = _model.message;
@@ -119,6 +118,14 @@
                     break;
             }
         }
+    }else if (_model.notification.type == NIMSystemNotificationTypeTeamApply) {//入群申请
+        
+    }else if (_model.notification.type == NIMSystemNotificationTypeTeamApplyReject) {//拒绝入群
+        
+    }else if (_model.notification.type == NIMSystemNotificationTypeTeamInvite) {//邀请入群
+        
+    }else if (_model.notification.type == NIMSystemNotificationTypeTeamIviteReject) {//拒绝入群邀请
+        
     }
     
 }
