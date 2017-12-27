@@ -44,20 +44,15 @@
     self.classifyListTableView.dataSource = self;
     self.classifyListTableView.separatorStyle = NO;
     self.classifyListTableView.backgroundColor = kBackgroundColor;
-    [self.classifyListTableView registerClass:[TeamListForChatTableViewCell class] forCellReuseIdentifier:@"TeamListForChatTableViewCell"];
-    
 }
-
 
 #pragma mark UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return 65;
-    
+    return 60;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.row == 2){
+    if(indexPath.row == 1){
         // 1、 获取摄像设备
         AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
         if (device) {
@@ -71,27 +66,23 @@
                         });
                         // 用户第一次同意了访问相机权限
                         NSLog(@"用户第一次同意了访问相机权限 - - %@", [NSThread currentThread]);
-                        
                     } else {
                         // 用户第一次拒绝了访问相机权限
                         NSLog(@"用户第一次拒绝了访问相机权限 - - %@", [NSThread currentThread]);
                     }
                 }];
-            } else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
+            } else if (status == AVAuthorizationStatusAuthorized) { //用户允许当前应用访问相机
                 SGQRCodeScanningVC *vc = [[SGQRCodeScanningVC alloc] init];
                 [self.navigationController pushViewController:vc animated:YES];
-            } else if (status == AVAuthorizationStatusDenied) { // 用户拒绝当前应用访问相机
-                
+            } else if (status == AVAuthorizationStatusDenied) { //用户拒绝当前应用访问相机
                 [DJWYAlertView showOneButtonWithTitle:@"温馨提示" message:@"请去-> [设置 - 隐私 - 相机 - SGQRCodeExample] 打开访问开关" buttonTitle:@"确定"];
-                
             } else if (status == AVAuthorizationStatusRestricted) {
                 NSLog(@"因为系统原因, 无法访问相册");
             }
         } else {
             [DJWYAlertView showOneButtonWithTitle:@"温馨提示" message:@"未检测到您的摄像头" buttonTitle:@"确定"];
         }
-
-    } else if (indexPath.row == 1) {
+    } else {
         NearTeamViewController *nearTeam = [[NearTeamViewController alloc] init];
         [self.navigationController pushViewController:nearTeam animated:YES];
     }
@@ -104,25 +95,39 @@
 
 #pragma mark UITableViewDataSource
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+    }
+    cell.textLabel.textColor = kTextBlackColor;
+    cell.detailTextLabel.textColor = kTextGrayColor;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    TeamListForChatTableViewCell *teamListForChatTableViewCell = [tableView dequeueReusableCellWithIdentifier:@"TeamListForChatTableViewCell"];
-    if(!teamListForChatTableViewCell){
-        teamListForChatTableViewCell = [[TeamListForChatTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TeamListForChatTableViewCell"];
+    if (!indexPath.row) {
+        cell.imageView.image = IMAGE_NAMED(@"wd_ico_vicinity");
+        cell.textLabel.text = @"查看附近的舞队";
         
+        UIView *lineView = [[UIView alloc] init];
+        lineView.backgroundColor = kLineColor;
+        [cell.contentView addSubview:lineView];
+        
+        lineView.sd_layout
+        .leftSpaceToView(cell.contentView, 15)
+        .rightSpaceToView(cell.contentView, 15)
+        .bottomSpaceToView(cell.contentView, 1)
+        .heightIs(1);
+        
+    } else {
+        cell.imageView.image = IMAGE_NAMED(@"wd_ico_sao");
+        cell.textLabel.text = @"扫一扫加舞队";
+        cell.detailTextLabel.text = @"扫描群二维码名片";
     }
     
-//    [teamListForChatTableViewCell updateCellWithArray:self.searchClassifyDic[indexPath.row]];
-    return teamListForChatTableViewCell;
-    
+    return cell;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    return 3;
-    
+    return 2;
 }
-
-
-
 
 #pragma mark UISearchResultsUpdating
 -(void)updateSearchResultsForSearchController:(UISearchController *)searchController{
@@ -133,27 +138,20 @@
 }
 #pragma mark searchBarDelegate
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
-    
     return YES;
 }
 
-
 #pragma mark - UISearchControllerDelegate代理
 //测试UISearchController的执行过程
-
 - (void)willPresentSearchController:(UISearchController *)searchController
 {
     self.classifyListTableView.height =  self.classifyListTableView.height + 54;
 }
 
-
-
 - (void)willDismissSearchController:(UISearchController *)searchController
 {
     self.classifyListTableView.height =  self.classifyListTableView.height - 54;
 }
-
-
 
 #pragma mark SETTER
 -(UISearchController *)classifyVCSearchVC{
@@ -163,12 +161,9 @@
         _classifyVCSearchVC.searchResultsUpdater = self;
         _classifyVCSearchVC.dimsBackgroundDuringPresentation = NO;
         _classifyVCSearchVC.delegate = self;
-        
         _classifyVCSearchVC.searchBar.placeholder = @"搜索";
         _classifyVCSearchVC.searchBar.searchBarStyle = UISearchBarStyleMinimal;
         _classifyVCSearchVC.searchBar.delegate = self;
-        
-        
     }
     return _classifyVCSearchVC;
 }

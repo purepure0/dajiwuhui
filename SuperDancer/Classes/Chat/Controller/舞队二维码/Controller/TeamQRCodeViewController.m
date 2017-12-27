@@ -27,7 +27,7 @@
     self.bgView.layer.borderColor = kLineColor.CGColor;
     self.bgView.layer.borderWidth = 1;
     
-    self.qRCodeImgView.image = [SGQRCodeGenerateManager generateWithDefaultQRCodeData:self.team.teamId imageViewWidth:self.qRCodeImgView.frame.size.width];
+    self.qRCodeImgView.image = [SGQRCodeGenerateManager generateWithDefaultQRCodeData:NSStringFormat(@"wjwh%@",self.team.teamId) imageViewWidth:self.qRCodeImgView.frame.size.width];
     [self.iconImg setImageWithURL:[NSURL URLWithString:self.team.avatarUrl] placeholder:IMAGE_NAMED(@"avatar_team")];
     self.teamNameLabel.text = self.team.teamName;
 }
