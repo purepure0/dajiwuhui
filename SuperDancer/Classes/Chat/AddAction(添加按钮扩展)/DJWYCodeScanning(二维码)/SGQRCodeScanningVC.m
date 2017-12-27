@@ -97,34 +97,44 @@
     [self.view addSubview:self.scanningView];
 }
 - (void)QRCodeAlbumManager:(SGQRCodeAlbumManager *)albumManager didFinishPickingMediaWithResult:(NSString *)result {
-    if ([result hasPrefix:@"http"]) {
-        ScanSuccessJumpVC *jumpVC = [[ScanSuccessJumpVC alloc] init];
-        jumpVC.jump_URL = result;
-        [self.navigationController pushViewController:jumpVC animated:YES];
+    PPLog(@"AlbumDiscriminateResult == %@",result);
+    if ([result hasPrefix:@"wjwh"]) {
+        PPLog(@"substring == %@",[result substringFromIndex:4]);
+        //申请入群
         
     } else {
-        ScanSuccessJumpVC *jumpVC = [[ScanSuccessJumpVC alloc] init];
-        jumpVC.jump_bar_code = result;
-        [self.navigationController pushViewController:jumpVC animated:YES];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"暂未识别出图片中的二维码" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil, nil];
+        [alertView show];
     }
 }
 
 #pragma mark - - - SGQRCodeScanManagerDelegate
 - (void)QRCodeScanManager:(SGQRCodeScanManager *)scanManager didOutputMetadataObjects:(NSArray *)metadataObjects {
-    NSLog(@"metadataObjects - - %@", metadataObjects);
+    NSLog(@"QRCodeResult == %@", metadataObjects);
     if (metadataObjects != nil && metadataObjects.count > 0) {
         [scanManager palySoundName:@"SGQRCode.bundle/sound.caf"];
         [scanManager stopRunning];
         [scanManager videoPreviewLayerRemoveFromSuperlayer];
         
         AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];
-        ScanSuccessJumpVC *jumpVC = [[ScanSuccessJumpVC alloc] init];
-        jumpVC.jump_URL = [obj stringValue];
-        [self.navigationController pushViewController:jumpVC animated:YES];
+        NSString *teamQRCode = [obj stringValue];
+        PPLog(@"obj == %@",[obj stringValue]);
+        if ([teamQRCode hasPrefix:@"wjwh"]) {
+            PPLog(@"substring == %@",[teamQRCode substringFromIndex:4]);
+            //申请入群
+            teamQRCode = [teamQRCode substringFromIndex:4];
+            
+            
+        } else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"暂未识别出扫描的二维码" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil, nil];
+            [alertView show];
+        }
     } else {
-        NSLog(@"暂未识别出扫描的二维码");
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"暂未识别出扫描的二维码" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil, nil];
+        [alertView show];
     }
 }
+
 - (void)QRCodeScanManager:(SGQRCodeScanManager *)scanManager brightnessValue:(CGFloat)brightnessValue {
     if (brightnessValue < - 1) {
         [self.view addSubview:self.flashlightBtn];
@@ -147,7 +157,7 @@
         _promptLabel.textAlignment = NSTextAlignmentCenter;
         _promptLabel.font = [UIFont boldSystemFontOfSize:13.0];
         _promptLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6];
-        _promptLabel.text = @"将二维码/条码放入框内, 即可自动扫描";
+        _promptLabel.text = @"将二维码放入框内, 即可自动扫描";
     }
     return _promptLabel;
 }
