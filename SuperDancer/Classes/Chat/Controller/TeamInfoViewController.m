@@ -44,10 +44,18 @@
     //UserId = 81692
 
     _teamMemberUserIDs = [NSMutableArray new];
+    
+    // 初始化群资料
+    [self initTeamData];
     // 获取群成员
     [self fetchTeamMembers];
+
     
     
+
+    // 获取群信息
+    [self fetchTeamInfo];
+
 }
 
 - (void)fetchTeamMembers {
@@ -55,19 +63,18 @@
         if (!error) {
             [_teamMemberUserIDs removeAllObjects];
             for (NIMTeamMember *member in members) {
-//                PPLog(@"menber nickname == %@ || userId == %@",member.nickname,member.userId);
-//                PPLog(@"member == %@",member);
-//                [teamMember_data addObject:member.userId];
                 [_teamMemberUserIDs addObject:member.userId];
                 // 获取本人群资料
                 if ([member.userId isEqualToString:self.users.userId]) {
-                    PPLog(@"fetch myself user nickname == %@",member.nickname);
-                    if (member.nickname == nil || !member.nickname.length ) {
-                        self.nickname = @"未设置";
-                    } else {
+//                    PPLog(@"fetch myself user nickname == %@",member.nickname);
+                    if (member.nickname || member.nickname.length ) {
                         self.nickname = member.nickname;
+
                         // 获取群信息
                         [self fetchTeamInfo];
+
+                        [self initTeamData];
+
                     }
                 }
             }
@@ -78,51 +85,52 @@
 - (void)fetchTeamInfo {
     [[NIMSDK sharedSDK].teamManager fetchTeamInfo:self.team.teamId completion:^(NSError * _Nullable error, NIMTeam * _Nullable team) {
         self.team = team;
-        
-        PPLog(@"clientCustomInfo == %@",team.clientCustomInfo);
         PPLog(@"Team == %@",team);
-        if (team.clientCustomInfo.length || team.clientCustomInfo) {
-            NSArray *data = [NSJSONSerialization JSONObjectWithData:[team.clientCustomInfo dataUsingEncoding:NSUTF8StringEncoding] options:0 error:0];
-            NSDictionary *teamInfo = [NSMutableArray arrayWithArray:data].lastObject;
-            NSArray *localityArray = [teamInfo[@"locality"] componentsSeparatedByString:@","];
-            if (localityArray.count == 1) {
-                self.locality = @"菏泽市";
-            } else {
-                self.locality = [localityArray objectAtIndex:1];
+        if (!error) {
+            if (team.clientCustomInfo.length || team.clientCustomInfo) {
+                NSArray *data = [NSJSONSerialization JSONObjectWithData:[team.clientCustomInfo dataUsingEncoding:NSUTF8StringEncoding] options:0 error:0];
+                NSDictionary *teamInfo = [NSMutableArray arrayWithArray:data].lastObject;
+                NSArray *localityArray = [teamInfo[@"locality"] componentsSeparatedByString:@","];
+                if (localityArray.count == 3) {
+                    self.locality = [localityArray objectAtIndex:1];
+                    [self initTeamData];
+                }
             }
-
-            if (!self.locality.length || !self.locality) {
-                self.locality = @"未设置";
-            }
-        } else {
-            self.locality = @"菏泽市";
         }
-        ////////////////////////////////////////
-        if (_isTeamOwner) {
-            _data = @[@[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": self.locality,@"isTeamOwner":@(1)}],
-                      @[@{@"#": @"#"}],
-                      @[@{@"title": @"我的舞队名片", @"content": self.nickname},
-                        @{@"#": @"#"}],
-                      @[@{@"title": @"舞队管理", @"content": @""}],
-                      @[@{@"title": @"聊天记录", @"content": @""}]
-                      ];
-        }else {
-            _data = @[
-                      @[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": @"菏泽市",@"isTeamOwner":@(0)}],
-                      @[@{@"#": @"#"}],
-                      @[@{@"title": @"我的舞队名片", @"content": @"未设置"},
-                        @{@"#": @"#"}],
-                      @[@{@"title": @"聊天记录", @"content":@""}],
-                      @[@{@"title": @"领队名称", @"content": @"舞者名称007"},
-                        @{@"title": @"成立时间", @"content": @"2017-10-10"},
-                        @{@"title": @"所在地区", @"content": @"山东省菏泽市牡丹区"}],
-                      @[@{@"title": @"舞队介绍", @"content": @"舞队坐落于山东省菏泽市牡丹区，舞队成员有10名"}]
-                      ];
-        }
-        [self.tableView reloadData];
     }];
 }
 
+- (void)initTeamData
+{
+    if (_isTeamOwner) {
+        if (!self.locality || !self.locality.length) {
+            self.locality = @"未设置";
+        }
+        if (!self.nickname || !self.nickname.length) {
+            self.nickname = @"未设置";
+        }
+        _data = @[@[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": self.locality,@"isTeamOwner":@(1)}],
+                  @[@{@"#": @"#"}],
+                  @[@{@"title": @"我的舞队名片", @"content": self.nickname},
+                    @{@"#": @"#"}],
+                  @[@{@"title": @"舞队管理", @"content": @""}],
+                  @[@{@"title": @"聊天记录", @"content": @""}]
+                  ];
+    } else {
+        _data = @[
+                  @[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": @"菏泽市",@"isTeamOwner":@(0)}],
+                  @[@{@"#": @"#"}],
+                  @[@{@"title": @"我的舞队名片", @"content": @"未设置"},
+                    @{@"#": @"#"}],
+                  @[@{@"title": @"聊天记录", @"content":@""}],
+                  @[@{@"title": @"领队名称", @"content": @"舞者名称007"},
+                    @{@"title": @"成立时间", @"content": @"2017-10-10"},
+                    @{@"title": @"所在地区", @"content": @"山东省菏泽市牡丹区"}],
+                  @[@{@"title": @"舞队介绍", @"content": @"舞队坐落于山东省菏泽市牡丹区，舞队成员有10名"}]
+                  ];
+    }
+    [self.tableView reloadData];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return _data.count;
