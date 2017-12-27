@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong)NIMSystemNotification *notification; //系统消息
 @property (nonatomic, copy)NSString *sourceName; //发起者
-@property (nonatomic, copy)NSString *targetName; //接收者
+@property (nonatomic, copy)NSString *targetName; //目标者
 @property (nonatomic, copy)NSString *sourceAvatarURL; //发起者头像
 @property (nonatomic, copy)NSString *message; //消息列表显示
 @property (nonatomic, copy)NSString *lastMessage; //当做最后一条消息时显示

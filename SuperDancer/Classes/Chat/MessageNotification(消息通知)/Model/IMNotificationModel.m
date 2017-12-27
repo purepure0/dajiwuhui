@@ -35,14 +35,16 @@
                         break;
                 }
             }
-            self.message = [NSString stringWithFormat:@"%@", centerStr];
+            self.message = centerStr;
             self.sourceName = _notification.sourceID;
             self.postscript = _notification.postscript;
             [[NIMSDK sharedSDK].userManager fetchUserInfos:@[_notification.sourceID] completion:^(NSArray<NIMUser *> * _Nullable users, NSError * _Nullable error) {
                 if (!error) {
                     NIMUser *source = users[0];
+                    
                     self.sourceName = source.userInfo.nickName;
                     self.sourceAvatarURL = source.userInfo.avatarUrl;
+                    self.lastMessage = [NSString stringWithFormat:@"%@ %@", self.sourceName, centerStr];
                     if ([self.delegate respondsToSelector:@selector(updateUIWithModel)]) {
                         [self.delegate updateUIWithModel];
                     }
@@ -86,35 +88,34 @@
             }
             
             NSLog(@"%@", centerStr);
-            if (sourceIsTeam) {
-                [[NIMSDK sharedSDK].userManager fetchUserInfos:@[_notification.sourceID] completion:^(NSArray<NIMUser *> * _Nullable users, NSError * _Nullable error) {
-                    if (!error) {
-                        NIMUser *source = users[0];
-                        self.sourceName = source.userInfo.nickName;
-                        self.sourceAvatarURL = source.userInfo.avatarUrl;
-                        if ([self.delegate respondsToSelector:@selector(updateUIWithModel)]) {
-                            [self.delegate updateUIWithModel];
+            self.message = centerStr;
+            self.lastMessage = centerStr;
+            self.sourceName = _notification.sourceID;
+            self.postscript = _notification.postscript;
+            //先获取操作者的信息
+            [[NIMSDK sharedSDK].userManager fetchUserInfos:@[_notification.sourceID] completion:^(NSArray<NIMUser *> * _Nullable users, NSError * _Nullable error) {
+                if (!error) {
+                    NIMUser *source = users[0];
+                    self.sourceName = source.userInfo.nickName;
+                    self.sourceAvatarURL = source.userInfo.avatarUrl;
+                    [[NIMSDK sharedSDK].teamManager fetchTeamInfo:notication.targetID completion:^(NSError * _Nullable error, NIMTeam * _Nullable team) {
+                        if (!error) {
+                            self.message = [NSString stringWithFormat:@"%@%@", centerStr, team.teamName];
+                            self.lastMessage = [NSString stringWithFormat:@"%@ %@%@", self.sourceName, centerStr, team.teamName];
+                            if ([self.delegate respondsToSelector:@selector(updateUIWithModel)]) {
+                                [self.delegate updateUIWithModel];
+                            }
+                        }else {
+                            PPLog(@"获取舞队信息:error:%@", error.description);
                         }
-                    }else {
-                        NSLog(@"error:%@", error.description);
+                    }];
+                    if ([self.delegate respondsToSelector:@selector(updateUIWithModel)]) {
+                        [self.delegate updateUIWithModel];
                     }
-                }];
-            }else {
-                self.message = [NSString stringWithFormat:@"%@", centerStr];
-                self.sourceName = _notification.sourceID;
-                self.postscript = _notification.postscript;
-                [[NIMSDK sharedSDK].teamManager fetchTeamInfo:notication.targetID completion:^(NSError * _Nullable error, NIMTeam * _Nullable team) {
-                    if (!error) {
-                        self.sourceName = team.teamName;
-                        self.sourceAvatarURL = team.avatarUrl;
-                        if ([self.delegate respondsToSelector:@selector(updateUIWithModel)]) {
-                            [self.delegate updateUIWithModel];
-                        }
-                    }else {
-                        NSLog(@"error:%@", error.description);
-                    }
-                }];
-            }
+                }else {
+                    PPLog(@"获取用户信息:error:%@", error.description);
+                }
+            }];
         }
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"yyyy-MM-dd";

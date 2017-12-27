@@ -43,19 +43,35 @@
 
 - (IBAction)agreeAction:(id)sender {
     NSLog(@"同意");
-    NIMUserRequest *request = [[NIMUserRequest alloc] init];
-    request.userId = _model.notification.sourceID;
-    request.operation = NIMUserOperationVerify;
-    [[NIMSDK sharedSDK].userManager requestFriend:request completion:^(NSError * _Nullable error) {
-        if (!error) {
-            [MBProgressHUD showError:@"同意成功" toView:[UIApplication sharedApplication].keyWindow];
-            _model.notification.handleStatus = 1;
-            [self setStatus];
-        }else {
-            NSLog(@"error:%@", error.description);
-            [MBProgressHUD showError:@"同意失败" toView:[UIApplication sharedApplication].keyWindow];
-        }
-    }];
+    if (_model.notification.type == NIMSystemNotificationTypeFriendAdd) {//添加好友请求
+        NIMUserRequest *request = [[NIMUserRequest alloc] init];
+        request.userId = _model.notification.sourceID;
+        request.operation = NIMUserOperationVerify;
+        [[NIMSDK sharedSDK].userManager requestFriend:request completion:^(NSError * _Nullable error) {
+            if (!error) {
+                [MBProgressHUD showSuccess:@"同意成功" toView:[UIApplication sharedApplication].keyWindow];
+                _model.notification.handleStatus = 1;
+                [self setStatus];
+            }else {
+                NSLog(@"error:%@", error.description);
+                [MBProgressHUD showError:@"同意失败" toView:[UIApplication sharedApplication].keyWindow];
+            }
+        }];
+    }else if (_model.notification.type == NIMSystemNotificationTypeTeamInvite) {//入队邀请
+        [[NIMSDK sharedSDK].teamManager acceptInviteWithTeam:_model.notification.targetID invitorId:_model.notification.sourceID completion:^(NSError * _Nullable error) {
+            if (!error) {
+                [MBProgressHUD showSuccess:@"同意成功" toView:[UIApplication sharedApplication].keyWindow];
+                _model.notification.handleStatus = 1;
+                [self setStatus];
+            }else {
+                NSLog(@"error:%@", error.description);
+                [MBProgressHUD showError:@"同意失败" toView:[UIApplication sharedApplication].keyWindow];
+            }
+        }];
+    }else if (_model.notification.type == NIMSystemNotificationTypeTeamApply) {//入队申请
+        
+    }
+    
     
 }
 
@@ -123,7 +139,23 @@
     }else if (_model.notification.type == NIMSystemNotificationTypeTeamApplyReject) {//拒绝入群
         
     }else if (_model.notification.type == NIMSystemNotificationTypeTeamInvite) {//邀请入群
-        
+        NSInteger status = _model.notification.handleStatus;
+        if (status == 0) {
+            [_btn setTitle:@"同 意" forState:UIControlStateNormal];
+            [_btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            _btn.backgroundColor = [UIColor colorWithHexString:@"5AB433"];
+            _btn.enabled = YES;
+        }else if (status == 1) {
+            [_btn setTitle:@"已同意" forState:UIControlStateNormal];
+            [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            _btn.backgroundColor = [UIColor whiteColor];
+            _btn.enabled = NO;
+        }else {
+            [_btn setTitle:@"已拒绝" forState:UIControlStateNormal];
+            [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            _btn.backgroundColor = [UIColor whiteColor];
+            _btn.enabled = NO;
+        }
     }else if (_model.notification.type == NIMSystemNotificationTypeTeamIviteReject) {//拒绝入群邀请
         
     }

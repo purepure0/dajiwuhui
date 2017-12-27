@@ -39,10 +39,10 @@
     self.imgView.image = [UIImage imageNamed:dic[@"img"]];
     self.mTitleLabel.text = dic[@"title"];
     if (notifications.count != 0) {
-        NIMSystemNotification *lastNoti = [notifications lastObject];
+        NIMSystemNotification *lastNoti = [notifications firstObject];
         _model = [[IMNotificationModel alloc] initWithSystemNotification:lastNoti];
         _model.delegate = self;
-        self.lastMessageLabel.text = _model.message;
+        self.lastMessageLabel.text = _model.lastMessage;
         self.dateLabel.text = _model.dateStr;
         NSInteger unreadCount = [IMSystemNotificationClassifier countUndreadNotifications:notifications];
         if (unreadCount == 0) {
@@ -61,7 +61,7 @@
 
 - (void)updateUIWithModel {
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.lastMessageLabel.text = _model.message;
+        self.lastMessageLabel.text = _model.lastMessage;
         self.dateLabel.text = _model.dateStr;
         NSLog(@"%@--%@", _model.message, _model.dateStr);
     });
