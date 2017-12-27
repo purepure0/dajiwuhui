@@ -9,7 +9,7 @@
 #import "SGQRCodeScanningVC.h"
 #import "SGQRCode.h"
 #import "ScanSuccessJumpVC.h"
-
+#import "TeamQRCodeViewController.h"
 @interface SGQRCodeScanningVC () <SGQRCodeScanManagerDelegate, SGQRCodeAlbumManagerDelegate>
 @property (nonatomic, strong) SGQRCodeScanManager *manager;
 @property (nonatomic, strong) SGQRCodeScanningView *scanningView;
@@ -98,12 +98,12 @@
 }
 - (void)QRCodeAlbumManager:(SGQRCodeAlbumManager *)albumManager didFinishPickingMediaWithResult:(NSString *)result {
     PPLog(@"AlbumDiscriminateResult == %@",result);
-    if ([result hasPrefix:@"wjwh"]) {
+    if ([result hasPrefix:@"djwh"]) {
         PPLog(@"substring == %@",[result substringFromIndex:4]);
         //申请入群
         
     } else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"暂未识别出图片中的二维码" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil, nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"暂未识别出图片中的二维码" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alertView show];
     }
 }
@@ -115,22 +115,23 @@
         [scanManager palySoundName:@"SGQRCode.bundle/sound.caf"];
         [scanManager stopRunning];
         [scanManager videoPreviewLayerRemoveFromSuperlayer];
-        
+        TeamQRCodeViewController *aa = [[TeamQRCodeViewController alloc] init];
+        [self.navigationController pushViewController:aa animated:YES];
         AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];
         NSString *teamQRCode = [obj stringValue];
         PPLog(@"obj == %@",[obj stringValue]);
-        if ([teamQRCode hasPrefix:@"wjwh"]) {
+        if ([teamQRCode hasPrefix:@"djwh"]) {
             PPLog(@"substring == %@",[teamQRCode substringFromIndex:4]);
             //申请入群
             teamQRCode = [teamQRCode substringFromIndex:4];
             
             
         } else {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"暂未识别出扫描的二维码" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil, nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"暂未识别出扫描的二维码" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alertView show];
         }
     } else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"暂未识别出扫描的二维码" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil, nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"暂未识别出扫描的二维码" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alertView show];
     }
 }
