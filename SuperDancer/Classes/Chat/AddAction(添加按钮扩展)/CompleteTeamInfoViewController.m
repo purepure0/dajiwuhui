@@ -179,13 +179,13 @@
     __weak typeof(self) weakSelf = self;
     
     if (indexPath.section == 1 && indexPath.row == 1) {
-        AddMembersViewController *addMembers = [[AddMembersViewController alloc] init];
-        addMembers.members = _members;
-        addMembers.finished = ^{
-            NSLog(@"%@", weakSelf.members);
-            [weakSelf.tableView reloadData];
-        };
-        [self.navigationController pushViewController:addMembers animated:YES];
+//        AddMembersViewController *addMembers = [[AddMembersViewController alloc] init];
+//        addMembers.members = _members;
+//        addMembers.finished = ^{
+//            NSLog(@"%@", weakSelf.members);
+//            [weakSelf.tableView reloadData];
+//        };
+//        [self.navigationController pushViewController:addMembers animated:YES];
     }else if (indexPath.section == 3) {
         if (indexPath.row == 2) {
             EditTeamAddressViewController *editTeamAddress = [[EditTeamAddressViewController alloc] init];

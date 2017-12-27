@@ -31,6 +31,7 @@
 @property (nonatomic, strong) UIImageView *iconImgView;
 @property (nonatomic, strong) UIImage *iconImg;
 
+@property (nonatomic, strong)NSMutableArray *teamMemberUserIDs;
 @end
 
 @implementation TeamInfoViewController
@@ -42,6 +43,7 @@
     _isTeamOwner = [_team.owner isEqualToString:[SDUser sharedUser].userId];
     //UserId = 81692
 
+    _teamMemberUserIDs = [NSMutableArray new];
     // 获取群成员
     [self fetchTeamMembers];
     // 获取群信息
@@ -52,10 +54,12 @@
 - (void)fetchTeamMembers {
     [[NIMSDK sharedSDK].teamManager fetchTeamMembers:self.team.teamId completion:^(NSError * _Nullable error, NSArray<NIMTeamMember *> * _Nullable members) {
         if (!error) {
+            [_teamMemberUserIDs removeAllObjects];
             for (NIMTeamMember *member in members) {
 //                PPLog(@"menber nickname == %@ || userId == %@",member.nickname,member.userId);
 //                PPLog(@"member == %@",member);
 //                [teamMember_data addObject:member.userId];
+                [_teamMemberUserIDs addObject:member.userId];
                 // 获取本人群资料
                 if ([member.userId isEqualToString:self.users.userId]) {
                     PPLog(@"fetch myself user nickname == %@",member.nickname);
@@ -73,6 +77,7 @@
 - (void)fetchTeamInfo {
     [[NIMSDK sharedSDK].teamManager fetchTeamInfo:self.team.teamId completion:^(NSError * _Nullable error, NIMTeam * _Nullable team) {
         self.team = team;
+        
         PPLog(@"clientCustomInfo == %@",team.clientCustomInfo);
         PPLog(@"Team == %@",team);
         if (team.clientCustomInfo.length || team.clientCustomInfo) {
@@ -150,6 +155,7 @@
                 cell.addMemberBlock = ^{
                     AddMembersViewController *addMember = [[AddMembersViewController alloc] init];
                     addMember.team = _team;
+                    addMember.teamMemberUserIDs = _teamMemberUserIDs;
                     [weakSelf.navigationController pushViewController:addMember animated:YES];
                 };
             }

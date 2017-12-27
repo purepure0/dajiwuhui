@@ -140,6 +140,8 @@
 		9A247F7F1F9B0369007AEABE /* PersonalHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A247F7B1F9B0369007AEABE /* PersonalHeaderView.xib */; };
 		9A247F871FA0DE2B007AEABE /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A247F851FA0DE2B007AEABE /* EditProfileViewController.m */; };
 		9A247F881FA0DE2B007AEABE /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A247F861FA0DE2B007AEABE /* EditProfileViewController.xib */; };
+		9A26A3531FF37252008638B8 /* AddTeamMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A26A3511FF37252008638B8 /* AddTeamMemberCell.m */; };
+		9A26A3541FF37252008638B8 /* AddTeamMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A26A3521FF37252008638B8 /* AddTeamMemberCell.xib */; };
 		9A2CB88D1F868D5400907C72 /* LocalDanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2CB88B1F868D5400907C72 /* LocalDanceViewController.m */; };
 		9A2CB88E1F868D5400907C72 /* LocalDanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2CB88C1F868D5400907C72 /* LocalDanceViewController.xib */; };
 		9A2CB8921F868D7C00907C72 /* ChildDanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2CB8901F868D7C00907C72 /* ChildDanceViewController.m */; };
@@ -558,6 +560,9 @@
 		9A247F841FA0DE2B007AEABE /* EditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		9A247F851FA0DE2B007AEABE /* EditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		9A247F861FA0DE2B007AEABE /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
+		9A26A3501FF37252008638B8 /* AddTeamMemberCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTeamMemberCell.h; sourceTree = "<group>"; };
+		9A26A3511FF37252008638B8 /* AddTeamMemberCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddTeamMemberCell.m; sourceTree = "<group>"; };
+		9A26A3521FF37252008638B8 /* AddTeamMemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTeamMemberCell.xib; sourceTree = "<group>"; };
 		9A2CB88A1F868D5400907C72 /* LocalDanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalDanceViewController.h; sourceTree = "<group>"; };
 		9A2CB88B1F868D5400907C72 /* LocalDanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalDanceViewController.m; sourceTree = "<group>"; };
 		9A2CB88C1F868D5400907C72 /* LocalDanceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocalDanceViewController.xib; sourceTree = "<group>"; };
@@ -1258,6 +1263,9 @@
 				9AC366841FEE2E9400D6746D /* FriendListCell.h */,
 				9AC366851FEE2E9400D6746D /* FriendListCell.m */,
 				9AC366861FEE2E9400D6746D /* FriendListCell.xib */,
+				9A26A3501FF37252008638B8 /* AddTeamMemberCell.h */,
+				9A26A3511FF37252008638B8 /* AddTeamMemberCell.m */,
+				9A26A3521FF37252008638B8 /* AddTeamMemberCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2795,6 +2803,7 @@
 				049E50D21FA1D278006C3BF1 /* CitySelectViewController.xib in Resources */,
 				9ACD9B881FA368DC003FF1BB /* FeedbackViewController.xib in Resources */,
 				048C53351F9D998800607784 /* DanceTypeViewController.xib in Resources */,
+				9A26A3541FF37252008638B8 /* AddTeamMemberCell.xib in Resources */,
 				9A3E24B61FE9109F00F961AA /* TeamListForChatTableViewCell.xib in Resources */,
 				049E50F91FA237BF006C3BF1 /* EditNickNameViewController.xib in Resources */,
 				9A1BB3DF1F85DA590067C12C /* LaunchScreen.storyboard in Resources */,
@@ -3025,6 +3034,7 @@
 				9ACA8AF91F98574C00B73B29 /* ZFBrightnessView.m in Sources */,
 				04927BFB1F974A2300CDD58E /* KeepModel.m in Sources */,
 				9A53C0941FDFD470003CBFD3 /* ApplyMessageListViewController.m in Sources */,
+				9A26A3531FF37252008638B8 /* AddTeamMemberCell.m in Sources */,
 				049E50BD1FA0DDEC006C3BF1 /* LocalSelectViewController.m in Sources */,
 				9A61BEFF1FD1371F00F30888 /* SettingViewController.m in Sources */,
 				9A33C7FC1FE4161B006F7A50 /* RefuseApplyOrInviteViewController.m in Sources */,
