@@ -134,6 +134,8 @@
 		9A1DC6A61FA49CF10014E739 /* DownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A1DC6A41FA49CF10014E739 /* DownloadViewController.xib */; };
 		9A1DC6AF1FA49D200014E739 /* MusicDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DC6AD1FA49D200014E739 /* MusicDownloadViewController.m */; };
 		9A1DC6B01FA49D200014E739 /* MusicDownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A1DC6AE1FA49D200014E739 /* MusicDownloadViewController.xib */; };
+		9A1F38BA1FF3EDD500696C61 /* FriendInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F38B81FF3EDD500696C61 /* FriendInfoViewController.m */; };
+		9A1F38BB1FF3EDD500696C61 /* FriendInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A1F38B91FF3EDD500696C61 /* FriendInfoViewController.xib */; };
 		9A247F7C1F9B0369007AEABE /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A247F751F9B0369007AEABE /* PersonalCenterViewController.m */; };
 		9A247F7D1F9B0369007AEABE /* PersonalCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A247F761F9B0369007AEABE /* PersonalCenterViewController.xib */; };
 		9A247F7E1F9B0369007AEABE /* PersonalHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A247F7A1F9B0369007AEABE /* PersonalHeaderView.m */; };
@@ -553,6 +555,9 @@
 		9A1DC6AC1FA49D200014E739 /* MusicDownloadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicDownloadViewController.h; sourceTree = "<group>"; };
 		9A1DC6AD1FA49D200014E739 /* MusicDownloadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicDownloadViewController.m; sourceTree = "<group>"; };
 		9A1DC6AE1FA49D200014E739 /* MusicDownloadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicDownloadViewController.xib; sourceTree = "<group>"; };
+		9A1F38B71FF3EDD500696C61 /* FriendInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendInfoViewController.h; sourceTree = "<group>"; };
+		9A1F38B81FF3EDD500696C61 /* FriendInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendInfoViewController.m; sourceTree = "<group>"; };
+		9A1F38B91FF3EDD500696C61 /* FriendInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendInfoViewController.xib; sourceTree = "<group>"; };
 		9A247F741F9B0369007AEABE /* PersonalCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterViewController.h; sourceTree = "<group>"; };
 		9A247F751F9B0369007AEABE /* PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterViewController.m; sourceTree = "<group>"; };
 		9A247F761F9B0369007AEABE /* PersonalCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalCenterViewController.xib; sourceTree = "<group>"; };
@@ -2305,6 +2310,9 @@
 				9A5781101FEF781100A693A9 /* SearchFriendResultViewController.h */,
 				9A5781111FEF781100A693A9 /* SearchFriendResultViewController.m */,
 				9A5781121FEF781100A693A9 /* SearchFriendResultViewController.xib */,
+				9A1F38B71FF3EDD500696C61 /* FriendInfoViewController.h */,
+				9A1F38B81FF3EDD500696C61 /* FriendInfoViewController.m */,
+				9A1F38B91FF3EDD500696C61 /* FriendInfoViewController.xib */,
 			);
 			path = "好友";
 			sourceTree = "<group>";
@@ -2791,6 +2799,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F41D8B1FA3302D002EF921 /* MsgAttentionCell.xib in Resources */,
+				9A1F38BB1FF3EDD500696C61 /* FriendInfoViewController.xib in Resources */,
 				04AE23881FA06F480034635C /* CollectionVideoViewController.xib in Resources */,
 				3F5A44521FD11D4C00BAE622 /* CreatDanceTeamViewController.xib in Resources */,
 				04ECB88B1F9359FE00186C5B /* CommentCell.xib in Resources */,
@@ -2993,6 +3002,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A1F38BA1FF3EDD500696C61 /* FriendInfoViewController.m in Sources */,
 				04F41DB51FA36154002EF921 /* UploadVideoViewController.m in Sources */,
 				9A1BB4291F85E2850067C12C /* SDHomeViewController.m in Sources */,
 				9ACA8B091F985B4400B73B29 /* ZFDownloadManager.m in Sources */,
