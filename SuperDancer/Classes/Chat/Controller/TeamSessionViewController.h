@@ -10,4 +10,5 @@
 
 @interface TeamSessionViewController : NIMSessionViewController
 @property (nonatomic, strong)NIMTeam *team;
+@property (nonatomic, copy)NSString *teamID;
 @end

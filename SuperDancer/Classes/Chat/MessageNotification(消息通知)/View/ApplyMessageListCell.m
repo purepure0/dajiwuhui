@@ -69,7 +69,16 @@
             }
         }];
     }else if (_model.notification.type == NIMSystemNotificationTypeTeamApply) {//入队申请
-        
+        [[NIMSDK sharedSDK].teamManager passApplyToTeam:_model.notification.targetID userId:_model.notification.sourceID completion:^(NSError * _Nullable error, NIMTeamApplyStatus applyStatus) {
+            if (!error) {
+                [MBProgressHUD showSuccess:@"同意成功" toView:[UIApplication sharedApplication].keyWindow];
+                _model.notification.handleStatus = 1;
+                [self setStatus];
+            }else {
+                NSLog(@"error:%@", error.description);
+                [MBProgressHUD showError:@"同意失败" toView:[UIApplication sharedApplication].keyWindow];
+            }
+        }];
     }
     
     
@@ -135,9 +144,28 @@
             }
         }
     }else if (_model.notification.type == NIMSystemNotificationTypeTeamApply) {//入群申请
-        
+        NSInteger status = _model.notification.handleStatus;
+        if (status == 0) {
+            [_btn setTitle:@"同 意" forState:UIControlStateNormal];
+            [_btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            _btn.backgroundColor = [UIColor colorWithHexString:@"5AB433"];
+            _btn.enabled = YES;
+        }else if (status == 1) {
+            [_btn setTitle:@"已同意" forState:UIControlStateNormal];
+            [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            _btn.backgroundColor = [UIColor whiteColor];
+            _btn.enabled = NO;
+        }else {
+            [_btn setTitle:@"已拒绝" forState:UIControlStateNormal];
+            [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            _btn.backgroundColor = [UIColor whiteColor];
+            _btn.enabled = NO;
+        }
     }else if (_model.notification.type == NIMSystemNotificationTypeTeamApplyReject) {//拒绝入群
-        
+        [_btn setTitle:@"被拒绝" forState:UIControlStateNormal];
+        [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        _btn.backgroundColor = [UIColor whiteColor];
+        _btn.enabled = NO;
     }else if (_model.notification.type == NIMSystemNotificationTypeTeamInvite) {//邀请入群
         NSInteger status = _model.notification.handleStatus;
         if (status == 0) {
@@ -157,7 +185,10 @@
             _btn.enabled = NO;
         }
     }else if (_model.notification.type == NIMSystemNotificationTypeTeamIviteReject) {//拒绝入群邀请
-        
+        [_btn setTitle:@"被拒绝" forState:UIControlStateNormal];
+        [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        _btn.backgroundColor = [UIColor whiteColor];
+        _btn.enabled = NO;
     }
     
 }
@@ -168,7 +199,6 @@
         [self.iconImageView setImageWithURL:[NSURL URLWithString:_model.sourceAvatarURL] placeholder:[UIImage imageNamed:@"pic1"]];
         self.applyContentLabel.text = _model.message;
     });
-    
 }
 
 

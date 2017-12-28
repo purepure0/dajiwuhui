@@ -26,10 +26,10 @@
 
 + (instancetype)initTableViewCellWith:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
 
+- (void)updateFirstCellWithAvatarUrl:(NSString *)avatarUrl nickname:(NSString *)nickname city:(NSString *)city;
 
-- (void)updateFirstCellWithData:(NSDictionary *)data;
+- (void)updateSecondCellWithTitle:(NSString *)title content:(NSString *)content;
 
-- (void)updateSecondCellWithData:(NSDictionary *)data;
+- (void)updateThirdCellWithTitle:(NSString *)title content:(NSString *)intro;
 
-- (void)updateThirdCellWithData:(NSDictionary *)data;
 @end

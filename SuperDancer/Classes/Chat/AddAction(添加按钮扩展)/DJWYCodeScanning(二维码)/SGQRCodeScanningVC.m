@@ -10,6 +10,7 @@
 #import "SGQRCode.h"
 #import "ScanSuccessJumpVC.h"
 #import "TeamQRCodeViewController.h"
+#import "QRCodeTeamInfoViewController.h"
 @interface SGQRCodeScanningVC () <SGQRCodeScanManagerDelegate, SGQRCodeAlbumManagerDelegate>
 @property (nonatomic, strong) SGQRCodeScanManager *manager;
 @property (nonatomic, strong) SGQRCodeScanningView *scanningView;
@@ -21,8 +22,19 @@
 
 @implementation SGQRCodeScanningVC
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.view addSubview:self.scanningView];
+    [self setupNavigationBar];
+    [self setupQRCodeScanning];
+    [self.view addSubview:self.promptLabel];
+    /// 为了 UI 效果
+    [self.view addSubview:self.bottomView];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
     [self.scanningView addTimer];
     [_manager resetSampleBufferDelegate];
 }
@@ -45,12 +57,7 @@
     self.view.backgroundColor = [UIColor clearColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    [self.view addSubview:self.scanningView];
-    [self setupNavigationBar];
-    [self setupQRCodeScanning];
-    [self.view addSubview:self.promptLabel];
-    /// 为了 UI 效果
-    [self.view addSubview:self.bottomView];
+    
 }
 
 - (void)setupNavigationBar {
@@ -102,6 +109,7 @@
         PPLog(@"substring == %@",[result substringFromIndex:4]);
         //申请入群
         
+        
     } else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"暂未识别出图片中的二维码" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alertView show];
@@ -115,8 +123,8 @@
         [scanManager palySoundName:@"SGQRCode.bundle/sound.caf"];
         [scanManager stopRunning];
         [scanManager videoPreviewLayerRemoveFromSuperlayer];
-        TeamQRCodeViewController *aa = [[TeamQRCodeViewController alloc] init];
-        [self.navigationController pushViewController:aa animated:YES];
+//        TeamQRCodeViewController *aa = [[TeamQRCodeViewController alloc] init];
+//        [self.navigationController pushViewController:aa animated:YES];
         AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];
         NSString *teamQRCode = [obj stringValue];
         PPLog(@"obj == %@",[obj stringValue]);
@@ -124,6 +132,9 @@
             PPLog(@"substring == %@",[teamQRCode substringFromIndex:4]);
             //申请入群
             teamQRCode = [teamQRCode substringFromIndex:4];
+            QRCodeTeamInfoViewController *teamInfoVC = [[QRCodeTeamInfoViewController alloc] init];
+            teamInfoVC.teamID = teamQRCode;
+            [self.navigationController pushViewController:teamInfoVC animated:YES];
             
             
         } else {

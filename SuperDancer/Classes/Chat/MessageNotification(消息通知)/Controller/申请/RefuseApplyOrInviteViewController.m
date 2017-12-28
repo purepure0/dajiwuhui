@@ -29,21 +29,47 @@
 
 - (void)sendReason {
     [self showLoading];
-    NIMUserRequest *request = [[NIMUserRequest alloc] init];
-    request.userId = _model.notification.sourceID;
-    request.operation = NIMUserOperationReject;
-    request.message = _textView.text;
     
-    [[NIMSDK sharedSDK].userManager requestFriend:request completion:^(NSError * _Nullable error) {
-        [self hideLoading];
-        if (error) {
-            [MBProgressHUD showError:@"发送失败" toView:[UIApplication sharedApplication].keyWindow];
-        }else {
-            [MBProgressHUD showSuccess:@"发送成功" toView:[UIApplication sharedApplication].keyWindow];
-            _model.notification.handleStatus = 2;
-            [self.navigationController popToRootViewControllerAnimated:nil];
-        }
-    }];
+    if (_model.notification.type == NIMSystemNotificationTypeFriendAdd) {
+        NIMUserRequest *request = [[NIMUserRequest alloc] init];
+        request.userId = _model.notification.sourceID;
+        request.operation = NIMUserOperationReject;
+        request.message = _textView.text;
+        
+        [[NIMSDK sharedSDK].userManager requestFriend:request completion:^(NSError * _Nullable error) {
+            [self hideLoading];
+            if (error) {
+                [self toast:error.localizedDescription];
+            }else {
+                [self toast:@"拒绝成功"];
+                _model.notification.handleStatus = 2;
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }];
+    }else if (_model.notification.type == NIMSystemNotificationTypeTeamInvite) {
+        [[NIMSDK sharedSDK].teamManager rejectInviteWithTeam:_model.notification.targetID invitorId:_model.notification.sourceID rejectReason:_textView.text completion:^(NSError * _Nullable error) {
+            [self hideLoading];
+            if (error) {
+                [self toast:error.localizedDescription];
+            }else {
+                [self toast:@"拒绝成功"];
+                _model.notification.handleStatus = 2;
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }];
+    }else if (_model.notification.type == NIMSystemNotificationTypeTeamApply) {
+        [[NIMSDK sharedSDK].teamManager rejectApplyToTeam:_model.notification.targetID userId:_model.notification.sourceID rejectReason:_textView.text completion:^(NSError * _Nullable error) {
+            [self hideLoading];
+            if (error) {
+                [self toast:error.localizedDescription];
+            }else {
+                [self toast:@"拒绝成功"];
+                _model.notification.handleStatus = 2;
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }];
+    }
+    
 }
 
 

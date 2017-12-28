@@ -8,7 +8,7 @@
 
 #import "ApplyMessageListViewController.h"
 #import "ApplyMessageListCell.h"
-#import "ApplyMessageDetailViewController.h"
+
 #import "IMNotificationModel.h"
 @interface ApplyMessageListViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -73,9 +73,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ApplyMessageDetailViewController *detail = [[ApplyMessageDetailViewController alloc] init];
-    
-    [self.navigationController pushViewController:detail animated:YES];
+//    ApplyMessageDetailViewController *detail = [[ApplyMessageDetailViewController alloc] init];
+//    
+//    [self.navigationController pushViewController:detail animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

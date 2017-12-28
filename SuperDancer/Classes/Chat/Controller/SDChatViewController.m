@@ -16,7 +16,7 @@
 #import "FriendListViewController.h"
 #import "NearTeamViewController.h"
 #import "TeamSessionViewController.h"
-@interface SDChatViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchControllerDelegate, NIMSystemNotificationManagerDelegate>
+@interface SDChatViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchControllerDelegate, NIMSystemNotificationManagerDelegate, NIMTeamManagerDelegate>
 @property(strong,nonatomic)UITableView              *chatListTableView;
 @property(strong,nonatomic)UISearchController       *chatVCSearchVC;
 @property(strong,nonatomic)NSString                 *searchKeyWords;//搜索关键词
@@ -35,8 +35,11 @@
     self.definesPresentationContext = YES;
     [self setRightImageNamed:@"wd_nav_btn_add" action:@selector(addTeamAction)];
     [self upDataWithUI];
+    
+    [[NIMSDK sharedSDK].teamManager addDelegate:self];
     //监听系统消息
     [[NIMSDK sharedSDK].systemNotificationManager addDelegate:self];
+    
 }
 
 - (void)onSystemNotificationCountChanged:(NSInteger)unreadCount {
@@ -48,9 +51,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self initDataSource];
+}
+
+- (void)initDataSource {
     _teamList = [[[NIMSDK sharedSDK] teamManager] allMyTeams];
     [[NIMSDK sharedSDK].systemNotificationManager fetchSystemNotifications:nil limit:99];
 }
+
 
 -(void)upDataWithUI{
     
@@ -250,6 +258,12 @@
     NSLog(@"%@", user.userId);
 }
 
+
+- (void)onTeamAdded:(NIMTeam *)team {
+    [[NIMSDK sharedSDK].teamManager fetchTeamInfo:team.teamId completion:^(NSError * _Nullable error, NIMTeam * _Nullable team) {
+        [self initDataSource];
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

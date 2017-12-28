@@ -8,7 +8,7 @@
 
 #import "FriendNotiListViewController.h"
 #import "ApplyMessageListCell.h"
-#import "ApplyMessageDetailViewController.h"
+
 #import "IMNotificationModel.h"
 #import "FrindAddDetailViewController.h"
 @interface FriendNotiListViewController ()<UITableViewDelegate, UITableViewDataSource>

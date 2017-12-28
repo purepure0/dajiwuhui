@@ -10,6 +10,7 @@
 typedef void(^AddFinishedBlock)(void);
 @interface AddMembersViewController : BaseViewController
 
+@property (nonatomic, strong)NSString *teamID;
 @property (nonatomic, strong)NIMTeam *team;
 @property (nonatomic, strong)NSMutableArray *teamMemberUserIDs;
 @property (nonatomic, copy)AddFinishedBlock finished;

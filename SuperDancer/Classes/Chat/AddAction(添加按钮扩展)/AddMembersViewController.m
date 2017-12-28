@@ -20,6 +20,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"添加成员";
+    if (_teamID == nil && _team != nil) {
+        _teamID = _team.teamId;
+    }
     _friendList = [NSMutableArray new];
     _selectedMembers = [NSMutableArray new];
     
@@ -85,7 +88,7 @@
 
 - (void)complete:(UIButton *)btn {
     NSLog(@"%@", _selectedMembers);
-    [[NIMSDK sharedSDK].teamManager addUsers:_selectedMembers toTeam:_team.teamId postscript:@"邀请" completion:^(NSError * _Nullable error, NSArray<NIMTeamMember *> * _Nullable members) {
+    [[NIMSDK sharedSDK].teamManager addUsers:_selectedMembers toTeam:_teamID postscript:@"邀请" completion:^(NSError * _Nullable error, NSArray<NIMTeamMember *> * _Nullable members) {
         if (error) {
             [self toast:error.description];
         }else {

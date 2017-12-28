@@ -53,6 +53,7 @@
 - (void)teamInfo:(UIButton *)btn {
     NSLog(@"teamInfo");
     TeamInfoViewController *teamInfo = [[TeamInfoViewController alloc] init];
+    teamInfo.teamID = _teamID;
     teamInfo.team = _team;
     [self.navigationController pushViewController:teamInfo animated:YES];
     
@@ -63,6 +64,7 @@
     [self.navigationController pushViewController:member animated:YES];
     return YES;
 }
+
 
 
 

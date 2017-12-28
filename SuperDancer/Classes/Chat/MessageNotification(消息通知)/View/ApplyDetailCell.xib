@@ -29,13 +29,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="舞者名称1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWG-5I-dJG">
-                                <rect key="frame" x="15" y="115" width="204" height="34.5"/>
+                                <rect key="frame" x="15" y="120" width="204" height="34.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="菏泽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dB8-eS-Brs">
-                                <rect key="frame" x="239" y="115" width="56" height="34.5"/>
+                                <rect key="frame" x="239" y="120" width="56" height="34.5"/>
                                 <color key="backgroundColor" red="0.68676936626434326" green="0.38974130153656006" blue="0.80920690298080444" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="56" id="jcT-RZ-Ujy"/>
@@ -49,13 +49,13 @@
                         <constraints>
                             <constraint firstItem="dB8-eS-Brs" firstAttribute="leading" secondItem="aWG-5I-dJG" secondAttribute="trailing" constant="20" id="3Gy-zt-ubL"/>
                             <constraint firstItem="mR8-Jc-1gv" firstAttribute="centerX" secondItem="IeX-o0-pag" secondAttribute="centerX" id="9nz-SM-tSy"/>
-                            <constraint firstAttribute="bottom" secondItem="aWG-5I-dJG" secondAttribute="bottom" constant="20" id="AbY-Wd-kcn"/>
-                            <constraint firstItem="aWG-5I-dJG" firstAttribute="top" secondItem="mR8-Jc-1gv" secondAttribute="bottom" constant="10" id="DYt-2y-V5P"/>
+                            <constraint firstAttribute="bottom" secondItem="aWG-5I-dJG" secondAttribute="bottom" constant="15" id="AbY-Wd-kcn"/>
+                            <constraint firstItem="aWG-5I-dJG" firstAttribute="top" secondItem="mR8-Jc-1gv" secondAttribute="bottom" constant="15" id="DYt-2y-V5P"/>
                             <constraint firstItem="mR8-Jc-1gv" firstAttribute="leading" secondItem="aWG-5I-dJG" secondAttribute="trailing" constant="-35" id="PhZ-wW-ooh"/>
                             <constraint firstItem="mR8-Jc-1gv" firstAttribute="top" secondItem="IeX-o0-pag" secondAttribute="top" constant="35" id="gQW-Rn-xRS"/>
-                            <constraint firstItem="dB8-eS-Brs" firstAttribute="top" secondItem="mR8-Jc-1gv" secondAttribute="bottom" constant="10" id="jar-XQ-rYp"/>
+                            <constraint firstItem="dB8-eS-Brs" firstAttribute="top" secondItem="mR8-Jc-1gv" secondAttribute="bottom" constant="15" id="jar-XQ-rYp"/>
                             <constraint firstItem="aWG-5I-dJG" firstAttribute="leading" secondItem="IeX-o0-pag" secondAttribute="leading" constant="15" id="pHZ-HG-4SZ"/>
-                            <constraint firstAttribute="bottom" secondItem="dB8-eS-Brs" secondAttribute="bottom" constant="20" id="v6T-Zf-xTm"/>
+                            <constraint firstAttribute="bottom" secondItem="dB8-eS-Brs" secondAttribute="bottom" constant="15" id="v6T-Zf-xTm"/>
                         </constraints>
                     </view>
                 </subviews>

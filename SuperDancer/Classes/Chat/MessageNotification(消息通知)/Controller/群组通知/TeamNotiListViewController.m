@@ -9,7 +9,8 @@
 #import "TeamNotiListViewController.h"
 #import "ApplyMessageListCell.h"
 #import "IMNotificationModel.h"
-
+#import "TeamSimpleInfoViewController.h"
+#import "FrindAddDetailViewController.h"
 @interface TeamNotiListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)NSMutableArray *modelList;
@@ -72,6 +73,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    IMNotificationModel *model = _modelList[indexPath.row];
+    if ((model.notification.type == NIMSystemNotificationTypeTeamInvite) || (model.notification.type == NIMSystemNotificationTypeTeamApplyReject)) {
+        TeamSimpleInfoViewController *teamInfo = [[TeamSimpleInfoViewController alloc] init];
+        teamInfo.model = model;
+        [self.navigationController pushViewController:teamInfo animated:YES];
+    }else if ((model.notification.type == NIMSystemNotificationTypeTeamApply) || (model.notification.type == NIMSystemNotificationTypeTeamIviteReject)) {
+        FrindAddDetailViewController *friendDetail = [[FrindAddDetailViewController alloc] init];
+        friendDetail.model = model;
+        [self.navigationController pushViewController:friendDetail animated:YES];
+    }
     
 }
 

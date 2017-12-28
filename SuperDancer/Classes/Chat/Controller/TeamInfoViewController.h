@@ -10,6 +10,7 @@
 
 @interface TeamInfoViewController : BaseViewController
 
+@property (nonatomic, copy)NSString *teamID;
 @property (nonatomic, strong)NIMTeam *team;
 @property (nonatomic, assign)BOOL isTeamOwner; //是否是群管理员
 

@@ -144,6 +144,10 @@
 		9A26A3541FF37252008638B8 /* AddTeamMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A26A3521FF37252008638B8 /* AddTeamMemberCell.xib */; };
 		9A26A35A1FF39C53008638B8 /* TeamNotiListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A26A3581FF39C53008638B8 /* TeamNotiListViewController.m */; };
 		9A26A35B1FF39C53008638B8 /* TeamNotiListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A26A3591FF39C53008638B8 /* TeamNotiListViewController.xib */; };
+		9A26A35F1FF4044A008638B8 /* TeamSimpleInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A26A35C1FF40449008638B8 /* TeamSimpleInfoViewController.xib */; };
+		9A26A3601FF4044A008638B8 /* TeamSimpleInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A26A35E1FF40449008638B8 /* TeamSimpleInfoViewController.m */; };
+		9A2775411FF4F219009E603B /* QRCodeTeamInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A27753F1FF4F219009E603B /* QRCodeTeamInfoViewController.m */; };
+		9A2775421FF4F219009E603B /* QRCodeTeamInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2775401FF4F219009E603B /* QRCodeTeamInfoViewController.xib */; };
 		9A2CB88D1F868D5400907C72 /* LocalDanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2CB88B1F868D5400907C72 /* LocalDanceViewController.m */; };
 		9A2CB88E1F868D5400907C72 /* LocalDanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2CB88C1F868D5400907C72 /* LocalDanceViewController.xib */; };
 		9A2CB8921F868D7C00907C72 /* ChildDanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2CB8901F868D7C00907C72 /* ChildDanceViewController.m */; };
@@ -198,8 +202,6 @@
 		9A53C07B1FDFCF73003CBFD3 /* PublicNoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C07A1FDFCF73003CBFD3 /* PublicNoticeDetailViewController.m */; };
 		9A53C0941FDFD470003CBFD3 /* ApplyMessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C0921FDFD470003CBFD3 /* ApplyMessageListViewController.m */; };
 		9A53C0951FDFD470003CBFD3 /* ApplyMessageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C0931FDFD470003CBFD3 /* ApplyMessageListViewController.xib */; };
-		9A53C0991FDFD482003CBFD3 /* ApplyMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C0971FDFD482003CBFD3 /* ApplyMessageDetailViewController.m */; };
-		9A53C09A1FDFD482003CBFD3 /* ApplyMessageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C0981FDFD482003CBFD3 /* ApplyMessageDetailViewController.xib */; };
 		9A53C09E1FDFD502003CBFD3 /* ApplyMessageListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C09C1FDFD502003CBFD3 /* ApplyMessageListCell.m */; };
 		9A53C09F1FDFD502003CBFD3 /* ApplyMessageListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C09D1FDFD502003CBFD3 /* ApplyMessageListCell.xib */; };
 		9A53C0A31FE00C00003CBFD3 /* ApplyDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A53C0A11FE00C00003CBFD3 /* ApplyDetailCell.m */; };
@@ -568,6 +570,12 @@
 		9A26A3571FF39C53008638B8 /* TeamNotiListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamNotiListViewController.h; sourceTree = "<group>"; };
 		9A26A3581FF39C53008638B8 /* TeamNotiListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamNotiListViewController.m; sourceTree = "<group>"; };
 		9A26A3591FF39C53008638B8 /* TeamNotiListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamNotiListViewController.xib; sourceTree = "<group>"; };
+		9A26A35C1FF40449008638B8 /* TeamSimpleInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamSimpleInfoViewController.xib; sourceTree = "<group>"; };
+		9A26A35D1FF40449008638B8 /* TeamSimpleInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamSimpleInfoViewController.h; sourceTree = "<group>"; };
+		9A26A35E1FF40449008638B8 /* TeamSimpleInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamSimpleInfoViewController.m; sourceTree = "<group>"; };
+		9A27753E1FF4F219009E603B /* QRCodeTeamInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRCodeTeamInfoViewController.h; sourceTree = "<group>"; };
+		9A27753F1FF4F219009E603B /* QRCodeTeamInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRCodeTeamInfoViewController.m; sourceTree = "<group>"; };
+		9A2775401FF4F219009E603B /* QRCodeTeamInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRCodeTeamInfoViewController.xib; sourceTree = "<group>"; };
 		9A2CB88A1F868D5400907C72 /* LocalDanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalDanceViewController.h; sourceTree = "<group>"; };
 		9A2CB88B1F868D5400907C72 /* LocalDanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalDanceViewController.m; sourceTree = "<group>"; };
 		9A2CB88C1F868D5400907C72 /* LocalDanceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocalDanceViewController.xib; sourceTree = "<group>"; };
@@ -649,9 +657,6 @@
 		9A53C0911FDFD470003CBFD3 /* ApplyMessageListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyMessageListViewController.h; sourceTree = "<group>"; };
 		9A53C0921FDFD470003CBFD3 /* ApplyMessageListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyMessageListViewController.m; sourceTree = "<group>"; };
 		9A53C0931FDFD470003CBFD3 /* ApplyMessageListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyMessageListViewController.xib; sourceTree = "<group>"; };
-		9A53C0961FDFD482003CBFD3 /* ApplyMessageDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyMessageDetailViewController.h; sourceTree = "<group>"; };
-		9A53C0971FDFD482003CBFD3 /* ApplyMessageDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyMessageDetailViewController.m; sourceTree = "<group>"; };
-		9A53C0981FDFD482003CBFD3 /* ApplyMessageDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyMessageDetailViewController.xib; sourceTree = "<group>"; };
 		9A53C09B1FDFD502003CBFD3 /* ApplyMessageListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyMessageListCell.h; sourceTree = "<group>"; };
 		9A53C09C1FDFD502003CBFD3 /* ApplyMessageListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyMessageListCell.m; sourceTree = "<group>"; };
 		9A53C09D1FDFD502003CBFD3 /* ApplyMessageListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyMessageListCell.xib; sourceTree = "<group>"; };
@@ -1207,6 +1212,9 @@
 				3F5A446C1FD154FD00BAE622 /* SearchTeamViewController.h */,
 				3F5A446D1FD154FD00BAE622 /* SearchTeamViewController.m */,
 				3F5A446E1FD154FD00BAE622 /* SearchTeamViewController.xib */,
+				9A27753E1FF4F219009E603B /* QRCodeTeamInfoViewController.h */,
+				9A27753F1FF4F219009E603B /* QRCodeTeamInfoViewController.m */,
+				9A2775401FF4F219009E603B /* QRCodeTeamInfoViewController.xib */,
 				9A52F00B1FE6B5B000125087 /* CompleteTeamInfoViewController.h */,
 				9A52F00C1FE6B5B000125087 /* CompleteTeamInfoViewController.m */,
 				9A52F00D1FE6B5B000125087 /* CompleteTeamInfoViewController.xib */,
@@ -1798,6 +1806,9 @@
 				9A26A3571FF39C53008638B8 /* TeamNotiListViewController.h */,
 				9A26A3581FF39C53008638B8 /* TeamNotiListViewController.m */,
 				9A26A3591FF39C53008638B8 /* TeamNotiListViewController.xib */,
+				9A26A35D1FF40449008638B8 /* TeamSimpleInfoViewController.h */,
+				9A26A35E1FF40449008638B8 /* TeamSimpleInfoViewController.m */,
+				9A26A35C1FF40449008638B8 /* TeamSimpleInfoViewController.xib */,
 			);
 			path = "群组通知";
 			sourceTree = "<group>";
@@ -2112,9 +2123,6 @@
 				9A53C0911FDFD470003CBFD3 /* ApplyMessageListViewController.h */,
 				9A53C0921FDFD470003CBFD3 /* ApplyMessageListViewController.m */,
 				9A53C0931FDFD470003CBFD3 /* ApplyMessageListViewController.xib */,
-				9A53C0961FDFD482003CBFD3 /* ApplyMessageDetailViewController.h */,
-				9A53C0971FDFD482003CBFD3 /* ApplyMessageDetailViewController.m */,
-				9A53C0981FDFD482003CBFD3 /* ApplyMessageDetailViewController.xib */,
 				9A33C7F41FE4161A006F7A50 /* InviteMesageViewController.h */,
 				9A33C7F11FE41619006F7A50 /* InviteMesageViewController.m */,
 				9A33C7F01FE41619006F7A50 /* InviteMesageViewController.xib */,
@@ -2838,9 +2846,9 @@
 				9A61BF001FD1371F00F30888 /* SettingViewController.xib in Resources */,
 				9A08C2341FCCF17100F6C54B /* SDTabBarController.xib in Resources */,
 				9AC366881FEE2E9400D6746D /* FriendListCell.xib in Resources */,
-				9A53C09A1FDFD482003CBFD3 /* ApplyMessageDetailViewController.xib in Resources */,
 				9A2CB88E1F868D5400907C72 /* LocalDanceViewController.xib in Resources */,
 				9A61BEFE1FD1371F00F30888 /* SDMineViewController.xib in Resources */,
+				9A26A35F1FF4044A008638B8 /* TeamSimpleInfoViewController.xib in Resources */,
 				9A52F00A1FE3CAD400125087 /* ScrollViewCell.xib in Resources */,
 				9AFB538B1FECE7F9008E5BAD /* MemberManageViewController.xib in Resources */,
 				9A71FE7D1F8DF37500738680 /* DownloadingCell.xib in Resources */,
@@ -2862,6 +2870,7 @@
 				9AFB53B21FEF8960008E5BAD /* ModifyTeamIntroduceViewController.xib in Resources */,
 				9A52F0051FE3B1DD00125087 /* NearADCell.xib in Resources */,
 				9A7D62E91FE801980078DD2B /* MemberCell.xib in Resources */,
+				9A2775421FF4F219009E603B /* QRCodeTeamInfoViewController.xib in Resources */,
 				04F41DC31FA38808002EF921 /* SelectTypeCell.xib in Resources */,
 				3F5A445B1FD137FD00BAE622 /* DisForTeamEditViewController.xib in Resources */,
 				9AC2237D1F8B107100919072 /* ContentCell.xib in Resources */,
@@ -3082,6 +3091,7 @@
 				9A1BB4401F864D080067C12C /* SDSystemInfo.m in Sources */,
 				9AFB53A71FEE4FAB008E5BAD /* UIButton+CZHExtension.m in Sources */,
 				04AE23851FA06F3A0034635C /* CollectionVideoViewController.m in Sources */,
+				9A26A3601FF4044A008638B8 /* TeamSimpleInfoViewController.m in Sources */,
 				049E50B51FA0D23F006C3BF1 /* MusicViewCell.m in Sources */,
 				9ACA8AF01F98574C00B73B29 /* ASValueTrackingSlider.m in Sources */,
 				9A0EBBD91FEA170B00F31F94 /* TeamInfoViewController.m in Sources */,
@@ -3105,6 +3115,7 @@
 				9AC366871FEE2E9400D6746D /* FriendListCell.m in Sources */,
 				9A0EBBD51FE9F9DD00F31F94 /* TeamSessionViewController.m in Sources */,
 				9AC688751FF166F500ADEFB1 /* FrindAddDetailViewController.m in Sources */,
+				9A2775411FF4F219009E603B /* QRCodeTeamInfoViewController.m in Sources */,
 				9AD960DC1F8F180D0024DA43 /* PPNetworkCache.m in Sources */,
 				9A3E24B51FE9109F00F961AA /* TeamListForChatTableViewCell.m in Sources */,
 				9A53C09E1FDFD502003CBFD3 /* ApplyMessageListCell.m in Sources */,
@@ -3132,7 +3143,6 @@
 				9AD960F41F8F2F050024DA43 /* MBProgressHUD.m in Sources */,
 				9ACA8AF71F98574C00B73B29 /* UIWindow+CurrentViewController.m in Sources */,
 				9A79BBFB1F8DF13D004C3879 /* MovieDownloadViewController.m in Sources */,
-				9A53C0991FDFD482003CBFD3 /* ApplyMessageDetailViewController.m in Sources */,
 				9ACA8B081F985B4400B73B29 /* ZFCommonHelper.m in Sources */,
 				9ACA8AF51F98574C00B73B29 /* UIView+CustomControlView.m in Sources */,
 				9A7D62ED1FE8A48E0078DD2B /* SubmitImageCell.m in Sources */,

@@ -40,6 +40,9 @@
     [super viewDidLoad];
     
     self.fd_prefersNavigationBarHidden = YES;
+    if (_team != nil) {
+        _teamID = _team.teamId;
+    }
     _isTeamOwner = [_team.owner isEqualToString:[SDUser sharedUser].userId];
     //UserId = 81692
 
@@ -59,7 +62,8 @@
 }
 
 - (void)fetchTeamMembers {
-    [[NIMSDK sharedSDK].teamManager fetchTeamMembers:self.team.teamId completion:^(NSError * _Nullable error, NSArray<NIMTeamMember *> * _Nullable members) {
+    NSLog(@"%@", _teamID);
+    [[NIMSDK sharedSDK].teamManager fetchTeamMembers:_teamID completion:^(NSError * _Nullable error, NSArray<NIMTeamMember *> * _Nullable members) {
         if (!error) {
             [_teamMemberUserIDs removeAllObjects];
             for (NIMTeamMember *member in members) {
@@ -83,7 +87,7 @@
 }
 
 - (void)fetchTeamInfo {
-    [[NIMSDK sharedSDK].teamManager fetchTeamInfo:self.team.teamId completion:^(NSError * _Nullable error, NIMTeam * _Nullable team) {
+    [[NIMSDK sharedSDK].teamManager fetchTeamInfo:_teamID completion:^(NSError * _Nullable error, NIMTeam * _Nullable team) {
         self.team = team;
         PPLog(@"Team == %@",team);
         if (!error) {
@@ -96,6 +100,8 @@
                     [self initTeamData];
                 }
             }
+        }else {
+            [self toast:error.localizedDescription];
         }
     }];
 }
