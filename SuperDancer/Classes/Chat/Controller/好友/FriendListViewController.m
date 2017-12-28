@@ -49,7 +49,7 @@
     FriendListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FriendListCellIdentifier"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NIMUser *user = _friendList[indexPath.row];
-    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:user.userInfo.avatarUrl] placeholder:[UIImage imageNamed:@"pic1"]];
+    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:user.userInfo.avatarUrl] placeholder:[UIImage imageNamed:@"placeholder_img"]];
     NSLog(@"%@--%@", user.userInfo.avatarUrl, user.userInfo.thumbAvatarUrl);
     cell.nicknameLabel.text = user.userInfo.nickName;
     cell.detailLabel.text = user.userInfo.sign;

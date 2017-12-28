@@ -8,6 +8,7 @@
 
 #import "FriendChatViewController.h"
 #import <NIMCustomLeftBarView.h>
+#import "FriendInfoViewController.h"
 @interface FriendChatViewController ()
 
 @end
@@ -33,13 +34,6 @@
     [leftBarView addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBarView];
     self.navigationItem.leftBarButtonItem = leftItem;
-    
-    
-//    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-//    [rightBtn setImage:[UIImage imageNamed:@"wd_nav_btn_qun"] forState:UIControlStateNormal];
-//    [rightBtn addTarget:self action:@selector(teamInfo:) forControlEvents:UIControlEventTouchUpInside];
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    
 }
 
 
@@ -58,8 +52,9 @@
 
 - (BOOL)onTapAvatar:(NSString *)userId {
     NSLog(@"点击头像：%@", userId);
-//    TeamMemmberInfoViewController *member = [[TeamMemmberInfoViewController alloc] init];
-//    [self.navigationController pushViewController:member animated:YES];
+    FriendInfoViewController *fi = [[FriendInfoViewController alloc] init];
+    fi.userId = userId;
+    [self.navigationController pushViewController:fi animated:YES];
     return YES;
 }
 - (void)didReceiveMemoryWarning {

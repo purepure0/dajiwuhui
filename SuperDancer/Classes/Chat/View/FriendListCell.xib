@@ -18,39 +18,47 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic1" translatesAutoresizingMaskIntoConstraints="NO" id="JGu-HV-rJe">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_img" translatesAutoresizingMaskIntoConstraints="NO" id="JGu-HV-rJe">
                         <rect key="frame" x="15" y="10" width="60" height="60"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="490-uM-jrz"/>
                             <constraint firstAttribute="height" constant="60" id="oMT-9Z-g7x"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="30"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nickName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxJ-bS-oeN">
-                        <rect key="frame" x="85" y="10" width="77" height="25"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="舞者名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxJ-bS-oeN">
+                        <rect key="frame" x="90" y="10" width="215" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="25" id="Sp8-br-qTX"/>
+                            <constraint firstAttribute="height" constant="30" id="Sp8-br-qTX"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="介绍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAu-aF-myf">
-                        <rect key="frame" x="85" y="50" width="35" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个性签名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAu-aF-myf">
+                        <rect key="frame" x="90" y="40" width="215" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="DA7-q8-YOF"/>
+                            <constraint firstAttribute="height" constant="30" id="DA7-q8-YOF"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="KxJ-bS-oeN" firstAttribute="top" secondItem="JGu-HV-rJe" secondAttribute="top" id="1kJ-P0-G3y"/>
-                    <constraint firstItem="KxJ-bS-oeN" firstAttribute="leading" secondItem="JGu-HV-rJe" secondAttribute="trailing" constant="10" id="9fo-KS-wpw"/>
+                    <constraint firstItem="KxJ-bS-oeN" firstAttribute="leading" secondItem="JGu-HV-rJe" secondAttribute="trailing" constant="15" id="9fo-KS-wpw"/>
                     <constraint firstItem="uAu-aF-myf" firstAttribute="bottom" secondItem="JGu-HV-rJe" secondAttribute="bottom" id="FxS-v1-Bpb"/>
+                    <constraint firstAttribute="trailing" secondItem="uAu-aF-myf" secondAttribute="trailing" constant="15" id="WDS-EH-uAc"/>
                     <constraint firstItem="JGu-HV-rJe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="iS6-e4-EPb"/>
                     <constraint firstItem="JGu-HV-rJe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="iaz-qS-XGh"/>
-                    <constraint firstItem="uAu-aF-myf" firstAttribute="leading" secondItem="JGu-HV-rJe" secondAttribute="trailing" constant="10" id="op1-mK-nH1"/>
+                    <constraint firstAttribute="trailing" secondItem="KxJ-bS-oeN" secondAttribute="trailing" constant="15" id="lvD-QY-FAk"/>
+                    <constraint firstItem="uAu-aF-myf" firstAttribute="leading" secondItem="JGu-HV-rJe" secondAttribute="trailing" constant="15" id="op1-mK-nH1"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -62,6 +70,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="pic1" width="48" height="48"/>
+        <image name="placeholder_img" width="90" height="90"/>
     </resources>
 </document>
