@@ -20,16 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"添加好友";
-    // Do any additional setup after loading the view from its nib.
-    _addBtn.layer.masksToBounds = YES;
-    _addBtn.layer.cornerRadius = 17;
-    _addBtn.layer.borderWidth = 1;
-    _addBtn.layer.borderColor = kColorRGB(255, 147, 0).CGColor;
 }
 
 
 - (IBAction)addFriend:(id)sender {
-    
     NSLog(@"add");
     if (self.telPhoneTF.text.length < 5) {
         [self toast:@"手机号位数不能为零"];

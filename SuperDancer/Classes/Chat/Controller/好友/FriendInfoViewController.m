@@ -25,8 +25,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.isMe = [self.users.userId isEqualToString:self.userId];
+    PPLog(@"MMMMMMM=%@",self.isMe ? @"自己":@"别人");
+    
     self.user = [[NIMSDK sharedSDK].userManager userInfo:self.userId];
     PPLog(@"userInfo == %@",self.user.userInfo);
+    [self.tableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -37,7 +40,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 2;
+        return 1;
     }else if (section == 1) {
         return 2;
     }else {
@@ -49,11 +52,7 @@
 {
     NSInteger index = 0;
     if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            index = 0;
-        }else {
-            index = 1;
-        }
+        index = 0;
     }else if (indexPath.section == 2) {
         index = 2;
     }else {
@@ -61,16 +60,10 @@
     }
     TeamJoinCell *cell = [TeamJoinCell initWithTableView:tableView andIndex:index];
     if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            [cell.iconImageView setImageWithURL:[NSURL URLWithString:self.user.userInfo.avatarUrl] placeholder:IMAGE_NAMED(@"placeholder_img")];
-            cell.nicknameLabel.text = self.user.userInfo.nickName;
-            cell.cityLabel.text = @"未填写";
-            [cell.qcodeBtn setHidden:YES];
-        }else {
-            cell.leftLabel.text = @"舞队名片";
-            cell.rightLabel.text = @"未设置";
-            [cell showRigthArrow:NO];
-        }
+        [cell.iconImageView setImageWithURL:[NSURL URLWithString:self.user.userInfo.avatarUrl] placeholder:IMAGE_NAMED(@"placeholder_img")];
+        cell.nicknameLabel.text = self.user.userInfo.nickName;
+        cell.cityLabel.text = @"未填写";
+        [cell.qcodeBtn setHidden:YES];
     }else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             cell.leftLabel.text = @"手机号码";
@@ -89,38 +82,40 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (section == 2) {
-        UIView *bgView = [[UIView alloc] init];
-        
-        UIButton *chatBtn = [[UIButton alloc] init];
-        [chatBtn setTitle:@"聊天" forState:UIControlStateNormal];
-        [chatBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        chatBtn.backgroundColor = kColorRGB(44, 145, 247);
-        [chatBtn addTarget:self action:@selector(chatAction) forControlEvents:UIControlEventTouchUpInside];
-        [bgView addSubview:chatBtn];
-        
-        UIButton *delBtn = [[UIButton alloc] init];
-        [delBtn setTitle:@"删除好友" forState:UIControlStateNormal];
-        [delBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        delBtn.backgroundColor = kBaseColor;
-        [delBtn addTarget:self action:@selector(deleteAction) forControlEvents:UIControlEventTouchUpInside];
-        [bgView addSubview:delBtn];
-        
-        chatBtn.sd_layout
-        .leftSpaceToView(bgView, 15)
-        .topSpaceToView(bgView, 30)
-        .rightSpaceToView(bgView, 15)
-        .heightIs(45);
-        
-        delBtn.sd_layout
-        .leftEqualToView(chatBtn)
-        .rightEqualToView(chatBtn)
-        .topSpaceToView(chatBtn, 15)
-        .heightIs(45);
-        
-        chatBtn.sd_cornerRadius = @(5);
-        delBtn.sd_cornerRadius = @(5);
-        
-        return bgView;
+        if (!self.isMe) {
+            UIView *bgView = [[UIView alloc] init];
+            
+            UIButton *chatBtn = [[UIButton alloc] init];
+            [chatBtn setTitle:@"聊天" forState:UIControlStateNormal];
+            [chatBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            chatBtn.backgroundColor = kColorRGB(44, 145, 247);
+            [chatBtn addTarget:self action:@selector(chatAction) forControlEvents:UIControlEventTouchUpInside];
+            [bgView addSubview:chatBtn];
+            
+            UIButton *delBtn = [[UIButton alloc] init];
+            [delBtn setTitle:@"删除好友" forState:UIControlStateNormal];
+            [delBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            delBtn.backgroundColor = kBaseColor;
+            [delBtn addTarget:self action:@selector(deleteAction) forControlEvents:UIControlEventTouchUpInside];
+            [bgView addSubview:delBtn];
+            
+            chatBtn.sd_layout
+            .leftSpaceToView(bgView, 15)
+            .topSpaceToView(bgView, 30)
+            .rightSpaceToView(bgView, 15)
+            .heightIs(45);
+            
+            delBtn.sd_layout
+            .leftEqualToView(chatBtn)
+            .rightEqualToView(chatBtn)
+            .topSpaceToView(chatBtn, 15)
+            .heightIs(45);
+            
+            chatBtn.sd_cornerRadius = @(5);
+            delBtn.sd_cornerRadius = @(5);
+            
+            return bgView;
+        }
     }
     return nil;
 }
@@ -135,13 +130,34 @@
     nav.viewControllers = @[root,root1,fc];
 }
 
-- (void)deleteAction {
+- (void)deleteAction
+{
+    UIAlertController *alertContrller = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"该操作无法撤销,是否从本群踢出该成员?" preferredStyle:(UIAlertControllerStyleAlert)];
     
+//    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+//
+//    }];
+//    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//    };
+//    [alertContrller addAction:alertA];
+//    [self presentViewController:alertContrller animated:YES completion:nil];
+//    /////
+//
+//    [[NIMSDK sharedSDK].userManager deleteFriend:self.userId completion:^(NSError * _Nullable error) {
+//        if (!error) {
+//            [_friendList removeObjectAtIndex:indexPath.row];
+//            [_tableView deleteRow:indexPath.row inSection:0 withRowAnimation:UITableViewRowAnimationFade];
+//            [self toast:@"删除成功"];
+//        }else {
+//            [self toast:@"删除失败"];
+//        }
+//    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return section == 2 ? 200:0.001;
+    return section == 2 ? 150:0.001;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
