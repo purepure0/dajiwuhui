@@ -75,6 +75,12 @@
                     <constraint firstItem="74d-3D-YLz" firstAttribute="leading" secondItem="QYR-dE-1Sn" secondAttribute="trailing" constant="1" id="xEo-H9-ncJ"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="creattimeLabel" destination="KT3-99-tKm" id="k50-mt-AiR"/>
+                <outlet property="distanceLabel" destination="74d-3D-YLz" id="J9t-Vf-KVq"/>
+                <outlet property="iconImgView" destination="XCD-zN-5wC" id="p5E-tD-CfT"/>
+                <outlet property="teamNameLabel" destination="Vc9-Ni-xMR" id="zKg-9w-Jzf"/>
+            </connections>
             <point key="canvasLocation" x="24.5" y="52"/>
         </tableViewCell>
     </objects>

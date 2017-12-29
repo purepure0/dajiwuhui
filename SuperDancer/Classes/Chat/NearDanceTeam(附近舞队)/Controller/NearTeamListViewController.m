@@ -8,16 +8,13 @@
 
 #import "NearTeamListViewController.h"
 #import "NearTeamCell.h"
-#import "NearADCell.h"
-#import "ScrollViewCell.h"
 
-@interface NearTeamListViewController ()<UITableViewDelegate,UITableViewDataSource,ScrollViewCellDelegate>
+@interface NearTeamListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 static NSString *kNearTeamCell = @"kNearTeamCell";
-static NSString *kNearADCell = @"kNearADCell";
 
 @implementation NearTeamListViewController
 
@@ -27,7 +24,16 @@ static NSString *kNearADCell = @"kNearADCell";
     self.navigationItem.title = @"附 近";
     self.view.backgroundColor = kBackgroundColor;
     [self.tableView registerNib:NIB_NAMED(@"NearTeamCell") forCellReuseIdentifier:kNearTeamCell];
-    [self.tableView registerNib:NIB_NAMED(@"NearADCell") forCellReuseIdentifier:kNearADCell];
+    [self fetchNearbyList];
+}
+
+- (void)fetchNearbyList {
+    NSString *url = NSStringFormat(@"%@%@",kApiPrefix,kNearbyTeam);
+    [PPNetworkHelper POST:url parameters:@{@"lat":self.users.latLocation,@"lon":self.users.lonLocation,@"raidus":@"10000"} success:^(id responseObject) {
+        PPLog(@"NearbyTeamList == %@",[self jsonToString:responseObject]);
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -42,22 +48,13 @@ static NSString *kNearADCell = @"kNearADCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (!indexPath.section && !indexPath.row) {
-        NearADCell *cell = [tableView dequeueReusableCellWithIdentifier:kNearADCell];
-        return cell;
-    } else {
-        NearTeamCell *cell = [tableView dequeueReusableCellWithIdentifier:kNearTeamCell];
-        return cell;
-    }
+    NearTeamCell *cell = [tableView dequeueReusableCellWithIdentifier:kNearTeamCell];
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (!indexPath.section && !indexPath.row) {
-        return 200;
-    } else {
-        return 70;
-    }
+    return 70;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -69,7 +66,6 @@ static NSString *kNearADCell = @"kNearADCell";
 {
     return 0.001;
 }
-
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -107,28 +103,11 @@ static NSString *kNearADCell = @"kNearADCell";
     if (indexPath.section) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"->查看[舞者]信息" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确 定", nil];
         [alert show];
-    }
-    
-    if (!indexPath.section && indexPath.row != 0) {
+    } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"->申请加入[舞队]" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确 定", nil];
         [alert show];
     }
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

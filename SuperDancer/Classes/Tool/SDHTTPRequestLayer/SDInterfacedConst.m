@@ -133,3 +133,10 @@ NSString *const kGetUserInfoByTel = @"/im/tel";
 /** 加好友-通过ID获取用户信息 */
 NSString *const kGetUserInfoByUserId = @"/im/user_info";
 
+/** 舞队-设置舞队位置 */
+NSString *const kUpdateTeamLocality = @"/im/group_custom";
+
+/** 舞队-附近的舞队*/
+NSString *const kNearbyTeam = @"/im/nearby_team";
+
+

@@ -18,7 +18,7 @@
 #import <JPUSHService.h>
 #import <UserNotifications/UserNotifications.h>
 #import "SDTabBarController.h"
-#import <Bugtags/Bugtags.h>
+//#import <Bugtags/Bugtags.h>
 
 #define kAMapApiKey @"2b9d644cfa86764d460dff45bf4f7842"
 #define JPushAppKey @"fdf767381c7291e4b8a98a7b"
@@ -40,7 +40,7 @@
     ///<4>极光推送
 //    [self configureJPushWithLaunchOptions:launchOptions];
     ///<5>bugtags测试工具
-    [Bugtags startWithAppKey:@"08202dec433c4ed124ec3d36ee834d3e" invocationEvent:BTGInvocationEventBubble];
+//    [Bugtags startWithAppKey:@"08202dec433c4ed124ec3d36ee834d3e" invocationEvent:BTGInvocationEventBubble];
     ///<6>网易IM
     [self setupNIMSDK];
     [self registerPushService];
@@ -115,6 +115,12 @@
             [SDUser sharedUser].cityLocation = regeocode.city;
             [SDUser sharedUser].districtLocation = regeocode.district;
             NSLog(@"%@--%@--%@", [SDUser sharedUser].provinceLocation,[SDUser sharedUser].cityLocation, [SDUser sharedUser].districtLocation);
+        }
+        
+        if (location)
+        {
+            [SDUser sharedUser].latLocation = NSStringFormat(@"%lf",location.coordinate.latitude);
+            [SDUser sharedUser].lonLocation = NSStringFormat(@"%lf",location.coordinate.longitude);
         }
     }];
 }
