@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface ChatVideoViewController : BaseViewController
+@property (nonatomic, strong)NIMVideoObject *videoObj;
 
 @end

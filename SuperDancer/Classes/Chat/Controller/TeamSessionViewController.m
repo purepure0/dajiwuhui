@@ -10,6 +10,17 @@
 #import <NIMCustomLeftBarView.h>
 #import "TeamInfoViewController.h"
 #import "TeamMemmberInfoViewController.h"
+#import "ChatImageViewController.h"
+#import "ChatVideoViewController.h"
+#import "ChatLocationViewController.h"
+
+#define SuppressPerformSelectorLeakWarning(Stuff) \
+do { \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+Stuff; \
+_Pragma("clang diagnostic pop") \
+} while (0)
 @interface TeamSessionViewController ()
 
 @end
@@ -68,7 +79,94 @@
     return YES;
 }
 
+- (BOOL)onTapCell:(NIMKitEvent *)event {
+    BOOL handled = [super onTapCell:event];
+    
+    NSString *eventName = event.eventName;
+    if ([eventName isEqualToString:NIMKitEventNameTapContent]) {
+        NIMMessage *message = event.messageModel.message;
+        NSDictionary *actions = [self cellActions];
+        NSString *value = actions[@(message.messageType)];
+        if (value) {
+            SEL selector = NSSelectorFromString(value);
+            if (selector && [self respondsToSelector:selector]) {
+                SuppressPerformSelectorLeakWarning([self performSelector:selector withObject:message]);
+                handled = YES;
+            }
+        }
+    }
+    
+    return handled;
+}
 
+
+
+- (void)showImage:(NIMMessage *)message
+{
+    NSLog(@"图片");
+    NIMImageObject *object = message.messageObject;
+    ChatImageViewController *showPic = [[ChatImageViewController alloc] initWithImageUrl:[object url]];
+    [self presentViewController:showPic animated:YES completion:nil];
+}
+
+- (void)showVideo:(NIMMessage *)message
+{
+    NSLog(@"视频");
+    NIMVideoObject *object = message.messageObject;
+    ChatVideoViewController *playVieo = [[ChatVideoViewController alloc] init];
+    playVieo.videoObj = object;
+    [self.navigationController pushViewController:playVieo animated:YES];
+}
+
+- (void)showLocation:(NIMMessage *)message
+{
+    NSLog(@"定位");
+    
+}
+
+- (void)showFile:(NIMMessage *)message
+{
+    NSLog(@"文件");
+}
+
+- (void)showCustom:(NIMMessage *)message
+{
+    //普通的自定义消息点击事件可以在这里做哦~
+}
+
+
+
+- (void)openSafari:(NSString *)link
+{
+    NSURLComponents *components = [[NSURLComponents alloc] initWithString:link];
+    if (components)
+    {
+        if (!components.scheme)
+        {
+            //默认添加 http
+            components.scheme = @"http";
+        }
+        [[UIApplication sharedApplication] openURL:[components URL]];
+    }
+}
+
+
+
+
+
+- (NSDictionary *)cellActions
+{
+    static NSDictionary *actions = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        actions = @{@(NIMMessageTypeImage) :    @"showImage:",
+                    @(NIMMessageTypeVideo) :    @"showVideo:",
+                    @(NIMMessageTypeLocation) : @"showLocation:",
+                    @(NIMMessageTypeFile)  :    @"showFile:",
+                    @(NIMMessageTypeCustom):    @"showCustom:"};
+    });
+    return actions;
+}
 
 
 
