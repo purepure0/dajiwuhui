@@ -53,6 +53,9 @@
     .widthIs(300)
     .heightRatioToView(self.nameLabel, 1);
     
+    self.iconImg.layer.masksToBounds = YES;
+    self.iconImg.layer.cornerRadius = 30;
+    
 }
 
 - (void)layoutSubviews:(BOOL)isEdit

@@ -104,7 +104,7 @@
 #pragma mark - Toast -
 - (void)toast:(NSString *)text
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:kKeyWindow animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.1];
     hud.mode = MBProgressHUDModeText;
     if (text == nil || [text isEqualToString:@""]) {

@@ -10,15 +10,15 @@
 #import "MemberManageCell.h"
 
 
-@interface MemberManageViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating>
+@interface MemberManageViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 {
     MemberManageCell *_memberManageCell;
     BOOL _isEdit;
 }
-@property (strong, nonatomic) UITableView *tableView;
-@property (strong, nonatomic) UISearchController *searchController;
-@property (nonatomic, strong) NSMutableArray *memberList;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
+@property (nonatomic, strong) NSMutableArray *memberList;
 @property (nonatomic, strong) NSMutableArray *searchResultList;
 
 @end
@@ -35,14 +35,48 @@ static NSString *kMemberManageCellIdentifier = @"kMemberManageCellIdentifier";
     self.view.backgroundColor = kBackgroundColor;
     
     [self setRightItemTitle:@"管理" action:@selector(manageAction)];
-    
-    self.memberList = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"", nil];
-    self.searchResultList = [NSMutableArray array];
-    
-    [self setupSearchBar];
-    [self setupTableView];
+    [self.tableView registerNib:NIB_NAMED(@"MemberManageCell") forCellReuseIdentifier:kMemberManageCellIdentifier];
+    self.memberList = [NSMutableArray new];
+    self.searchResultList = [NSMutableArray new];
+    [self initDataSource];
     
 }
+
+- (void)initDataSource {
+    [self showLoading];
+    [[NIMSDK sharedSDK].teamManager fetchTeamMembers:_team.teamId completion:^(NSError * _Nullable error, NSArray<NIMTeamMember *> * _Nullable members) {
+        NSLog(@"%@", members);
+        if (error) {
+            [self hideLoading];
+            [self toast:error.localizedDescription];
+        }else {
+            NSArray *teamMembers = (NSMutableArray *)members;
+            NSMutableArray *teamMembersUserID = [NSMutableArray new];
+            for (NIMTeamMember *member in teamMembers) {
+                [teamMembersUserID addObject:member.userId];
+            }
+            NSLog(@"%@", teamMembersUserID);
+            if (teamMembersUserID.count != 0) {
+                [[NIMSDK sharedSDK].userManager fetchUserInfos:(NSArray *)teamMembersUserID completion:^(NSArray<NIMUser *> * _Nullable users, NSError * _Nullable error) {
+                    NSLog(@"aaaaaaaaaaaaaaaaaaaaa");
+                    if (error) {
+                        [self hideLoading];
+                        [self toast:error.localizedDescription];
+                    }else {
+                        self.memberList = (NSMutableArray *)users;
+                        self.searchResultList = (NSMutableArray *)users;
+                        [self hideLoading];
+                        [self.tableView reloadData];
+                    }
+                }];
+            }else {
+                [self hideLoading];
+                [self toast:@"请求失败，请重新请求"];
+            }
+        }
+    }];
+}
+
 
 - (void)manageAction
 {
@@ -57,47 +91,33 @@ static NSString *kMemberManageCellIdentifier = @"kMemberManageCellIdentifier";
     [self.tableView reloadData];
 }
 
-- (void)setupSearchBar
-{
-    _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    [self.view addSubview:_searchController.searchBar];
-    
-    _searchController.hidesNavigationBarDuringPresentation = YES;
-    _searchController.searchResultsUpdater = self;
-    _searchController.dimsBackgroundDuringPresentation = NO;
-    _searchController.searchBar.placeholder = @"搜索";
-    _searchController.searchBar.searchBarStyle = UISearchBarStyleMinimal;
-}
 
-- (void)setupTableView
-{
-    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    _tableView.backgroundColor = kBackgroundColor;
-    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.view addSubview:_tableView];
-        
-    _tableView.sd_layout
-    .leftEqualToView(self.view)
-    .rightEqualToView(self.view)
-    .topSpaceToView(_searchController.searchBar, 0)
-    .bottomEqualToView(self.view);
-    
-    [self.tableView registerNib:NIB_NAMED(@"MemberManageCell") forCellReuseIdentifier:kMemberManageCellIdentifier];
-}
 
 #pragma mark - UISearchResultUpdating
-
--(void)updateSearchResultsForSearchController:(UISearchController *)searchController
-{
-    PPLog(@"updateSearchResultsForSearchController");
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    NSString *keyword = searchBar.text;
+    if (keyword.length == 0) {
+        _searchResultList = [_memberList mutableCopy];
+        [self.tableView reloadData];
+    }else {
+        NSMutableArray *tem = [NSMutableArray new];
+        for (NIMUser *user in _memberList) {
+            if ([user.userInfo.nickName rangeOfString:keyword].location != NSNotFound) {
+                [tem addObject:user];
+            }
+        }
+        _searchResultList = tem;
+        [self.tableView reloadData];
+    }
+    
 }
+
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.memberList.count;
+    return self.searchResultList.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -107,7 +127,11 @@ static NSString *kMemberManageCellIdentifier = @"kMemberManageCellIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MemberManageCell *cell = [tableView dequeueReusableCellWithIdentifier:kMemberManageCellIdentifier];
     [cell layoutSubviews:_isEdit indexPath:indexPath];
-    
+    NIMUser *member = _searchResultList[indexPath.row];
+    NSLog(@"%@", member.userInfo.nickName);
+    [cell.iconImg setImageWithURL:[NSURL URLWithString:member.userInfo.avatarUrl] placeholder:[UIImage imageNamed:@"myaccount"]];
+    cell.nameLabel.text = member.userInfo.nickName;
+    cell.introduceLabel.text = member.userInfo.sign;
     @weakify(self);
     cell.deleteBlock = ^(NSInteger _index) {
         @strongify(self);
@@ -116,11 +140,28 @@ static NSString *kMemberManageCellIdentifier = @"kMemberManageCellIdentifier";
     return cell;
 }
 
-- (void)deleteMember:(NSInteger)_index
+- (void)deleteMember:(NSInteger)index
 {
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"踢出队员" message:@"该操作不可撤销，是否确认踢出该队员" preferredStyle:(UIAlertControllerStyleAlert)];
     UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-        PPLog(@"踢出%ld",_index);
+        PPLog(@"踢出%ld",index);
+        [self hideLoading];
+        NIMUser *user = _searchResultList[index];
+        [[NIMSDK sharedSDK].teamManager kickUsers:@[user.userId] fromTeam:_team.teamId completion:^(NSError * _Nullable error) {
+            [self hideLoading];
+            if (error) {
+                [self toast:error.localizedDescription];
+            }else {
+                [self toast:@"删除成功"];
+                [_searchResultList removeObject:user];
+                for (NIMUser *item in _memberList) {
+                    if (user.userId == item.userId) {
+                        [_memberList removeObject:item];
+                    }
+                }
+                [_tableView deleteRow:index inSection:0 withRowAnimation:UITableViewRowAnimationFade];
+            }
+        }];
     }];
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
@@ -130,6 +171,10 @@ static NSString *kMemberManageCellIdentifier = @"kMemberManageCellIdentifier";
     [alertC addAction:confirmAction];
     [alertC addAction:cancelAction];
     [self presentViewController:alertC animated:YES completion:nil];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
 }
 
 

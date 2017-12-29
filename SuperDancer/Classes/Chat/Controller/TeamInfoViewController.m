@@ -304,6 +304,7 @@
                 NSLog(@"舞队名片");
             }else {
                 MemberManageViewController *memberMag = [[MemberManageViewController alloc] init];
+                memberMag.team = _team;
                 [self.navigationController pushViewController:memberMag animated:YES];
             }
         }else if (indexPath.section == 3) {

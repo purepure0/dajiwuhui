@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MemberManageViewController">
             <connections>
+                <outlet property="searchBar" destination="vs1-ZU-xYq" id="8h4-dC-i5M"/>
                 <outlet property="searchDisplayController" destination="hLs-g9-Bdq" id="D4S-bu-wp8"/>
+                <outlet property="tableView" destination="Sav-0L-xC8" id="LtO-6z-kcA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,8 +21,34 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sav-0L-xC8">
+                    <rect key="frame" x="0.0" y="56" width="375" height="611"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Gmt-ST-bvK"/>
+                        <outlet property="delegate" destination="-1" id="dch-CD-x5S"/>
+                    </connections>
+                </tableView>
+                <searchBar contentMode="redraw" placeholder="通过昵称搜索" translatesAutoresizingMaskIntoConstraints="NO" id="vs1-ZU-xYq">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Nqg-Um-HEm"/>
+                    </connections>
+                </searchBar>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="24.5" y="52.5"/>
+            <constraints>
+                <constraint firstItem="vs1-ZU-xYq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="64b-W3-hrL"/>
+                <constraint firstAttribute="trailing" secondItem="vs1-ZU-xYq" secondAttribute="trailing" id="6wK-oc-mjh"/>
+                <constraint firstAttribute="bottom" secondItem="Sav-0L-xC8" secondAttribute="bottom" id="KLa-tw-EfG"/>
+                <constraint firstItem="Sav-0L-xC8" firstAttribute="top" secondItem="vs1-ZU-xYq" secondAttribute="bottom" id="cD8-Cm-md2"/>
+                <constraint firstItem="vs1-ZU-xYq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nU8-vR-rp4"/>
+                <constraint firstAttribute="trailing" secondItem="Sav-0L-xC8" secondAttribute="trailing" id="tGy-S1-btg"/>
+                <constraint firstItem="Sav-0L-xC8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tVP-HV-RLa"/>
+            </constraints>
+            <point key="canvasLocation" x="-146" y="19"/>
         </view>
         <searchDisplayController id="hLs-g9-Bdq">
             <connections>
