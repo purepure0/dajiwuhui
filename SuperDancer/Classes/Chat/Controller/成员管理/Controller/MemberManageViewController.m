@@ -37,6 +37,7 @@ static NSString *kMemberManageCellIdentifier = @"kMemberManageCellIdentifier";
     if (_isOwner) {
         [self setRightItemTitle:@"管理" action:@selector(manageAction)];
     }
+    _tableView.tableFooterView = [UIView new];
     [self.tableView registerNib:NIB_NAMED(@"MemberManageCell") forCellReuseIdentifier:kMemberManageCellIdentifier];
     self.memberList = [NSMutableArray new];
     self.searchResultList = [NSMutableArray new];
@@ -55,7 +56,12 @@ static NSString *kMemberManageCellIdentifier = @"kMemberManageCellIdentifier";
             NSArray *teamMembers = (NSMutableArray *)members;
             NSMutableArray *teamMembersUserID = [NSMutableArray new];
             for (NIMTeamMember *member in teamMembers) {
-                [teamMembersUserID addObject:member.userId];
+                if ([_team.owner isEqualToString:member.userId]) {
+                    [teamMembersUserID insertObject:member.userId atIndex:0];
+                }else {
+                    [teamMembersUserID addObject:member.userId];
+                }
+                
             }
             NSLog(@"%@", teamMembersUserID);
             if (teamMembersUserID.count != 0) {
