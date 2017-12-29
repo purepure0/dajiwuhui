@@ -60,7 +60,7 @@
     NIMUserRequest *request = [[NIMUserRequest alloc] init];
     request.userId = [NSString stringWithFormat:@"%@", uid];
     request.operation = NIMUserOperationRequest;
-    request.message = self.verMessageTF.text;
+    request.message = self.verMessageTF.text.length ?self.verMessageTF.text:@"附加信息：";
     
     [[NIMSDK sharedSDK].userManager requestFriend:request completion:^(NSError * _Nullable error) {
         NSLog(@"error:%@", error);

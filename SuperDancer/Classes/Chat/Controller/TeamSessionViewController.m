@@ -60,8 +60,10 @@
 }
 - (BOOL)onTapAvatar:(NSString *)userId {
     NSLog(@"点击头像：%@", userId);
-    TeamMemmberInfoViewController *member = [[TeamMemmberInfoViewController alloc] init];
-    [self.navigationController pushViewController:member animated:YES];
+    TeamMemmberInfoViewController *memberInfo = [[TeamMemmberInfoViewController alloc] init];
+    memberInfo.userId = userId;
+    memberInfo.team = self.team;
+    [self.navigationController pushViewController:memberInfo animated:YES];
     return YES;
 }
 

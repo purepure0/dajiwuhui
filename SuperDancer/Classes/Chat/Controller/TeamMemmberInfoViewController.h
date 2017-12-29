@@ -10,4 +10,8 @@
 
 @interface TeamMemmberInfoViewController : BaseViewController
 
+// 群成员Id
+@property (nonatomic, copy) NSString *userId;
+@property (nonatomic, strong) NIMTeam *team;
+
 @end
