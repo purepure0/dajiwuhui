@@ -33,9 +33,7 @@
     
     //防止searchbar向上偏移64px
     self.definesPresentationContext = YES;
-    [self setRightImageNamed:@"wd_nav_btn_add" action:@selector(addTeamAction)];
     [self upDataWithUI];
-    
     [[NIMSDK sharedSDK].teamManager addDelegate:self];
     //监听系统消息
     [[NIMSDK sharedSDK].systemNotificationManager addDelegate:self];
@@ -51,7 +49,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self initDataSource];
+    if ([SDUser sharedUser].userId == nil) {
+        
+    }else {
+        [self setRightImageNamed:@"wd_nav_btn_add" action:@selector(addTeamAction)];
+        [self initDataSource];
+    }
+    
 }
 
 - (void)initDataSource {
