@@ -27,6 +27,8 @@
                     <connections>
                         <outlet property="dataSource" destination="-1" id="k3u-OF-1mV"/>
                         <outlet property="delegate" destination="-1" id="aOp-d5-PjA"/>
+                        <outlet property="emptyDataSetDelegate" destination="-1" id="Uia-vy-hd5"/>
+                        <outlet property="emptyDataSetSource" destination="-1" id="YRt-N3-pTW"/>
                     </connections>
                 </tableView>
             </subviews>

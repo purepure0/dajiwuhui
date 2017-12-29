@@ -10,7 +10,7 @@
 #import "FriendListCell.h"
 #import "FriendChatViewController.h"
 #import "AddFriendViewController.h"
-@interface FriendListViewController ()<UITableViewDelegate, UITableViewDataSource, NIMUserManagerDelegate>
+@interface FriendListViewController ()<UITableViewDelegate, UITableViewDataSource, NIMUserManagerDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)NSMutableArray *friendList;
 @end
@@ -21,17 +21,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"好友";
+    self.view.backgroundColor = kBackgroundColor;
     [self setRightImageNamed:@"wd_nav_btn_add" action:@selector(addFriend)];
-    [self getFriendList];
+    
     [[NIMSDK sharedSDK].userManager addDelegate:self];
     _tableView.tableFooterView = [UIView new];
     [_tableView registerNib:[UINib nibWithNibName:@"FriendListCell" bundle:nil] forCellReuseIdentifier:@"FriendListCellIdentifier"];
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self getFriendList];
 }
 
 - (void)getFriendList {
     _friendList = (NSMutableArray *)[[NIMSDK sharedSDK].userManager myFriends];
     NSLog(@"好友列表：%@", _friendList);
-    
 }
 
 - (void)addFriend {
@@ -52,7 +56,7 @@
     [cell.avatarImageView setImageWithURL:[NSURL URLWithString:user.userInfo.avatarUrl] placeholder:[UIImage imageNamed:@"placeholder_img"]];
     NSLog(@"%@--%@", user.userInfo.avatarUrl, user.userInfo.thumbAvatarUrl);
     cell.nicknameLabel.text = user.userInfo.nickName;
-    cell.detailLabel.text = user.userInfo.sign;
+    cell.detailLabel.text = user.userInfo.sign ? :@"暂无个人简介~";
     return cell;
 }
 
@@ -67,8 +71,6 @@
     fChat.user = user;
     [self.navigationController pushViewController:fChat animated:YES];
 }
-
-
 
 //删除好友
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -95,6 +97,13 @@
     NSLog(@"%@", user);
 }
 
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return IMAGE_NAMED(@"nodata");
+}
+
+-(BOOL)emptyDataSetShouldAllowScroll:(UIScrollView*)scrollView {
+    return YES;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

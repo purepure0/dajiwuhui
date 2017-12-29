@@ -33,9 +33,10 @@
 }
 
 - (void)searchFriend {
-    
+    [self.hud show:YES];
     [PPNetworkHelper POST:NSStringFormat(@"%@%@", kApiPrefix, kGetUserInfoByTel) parameters:@{@"tel": self.telPhoneTF.text} success:^(id responseObject) {
         NSLog(@"resp:%@", responseObject);
+        [self.hud hide:YES];
         NSString *code = [NSString stringWithFormat:@"%@", responseObject[@"code"]];
         if ([code isEqualToString:@"0"]) {
             NSString *userID = responseObject[@"data"][@"res"][@"uid"];
@@ -45,6 +46,7 @@
             [self toast:@"用户不存在"];
         }
     } failure:^(NSError *error) {
+        [self.hud hide:YES];
         NSLog(@"error:%@", error);
         
     }];
