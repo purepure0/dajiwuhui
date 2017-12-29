@@ -8,9 +8,14 @@
 
 #import "NearTeamListViewController.h"
 #import "NearTeamCell.h"
+#import "NearbyTeamModel.h"
+#import "QRCodeTeamInfoViewController.h"
 
 @interface NearTeamListViewController ()<UITableViewDelegate,UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *nearbyList;
 
 @end
 
@@ -28,11 +33,28 @@ static NSString *kNearTeamCell = @"kNearTeamCell";
 }
 
 - (void)fetchNearbyList {
-    NSString *url = NSStringFormat(@"%@%@",kApiPrefix,kNearbyTeam);
-    [PPNetworkHelper POST:url parameters:@{@"lat":self.users.latLocation,@"lon":self.users.lonLocation,@"raidus":@"10000"} success:^(id responseObject) {
-        PPLog(@"NearbyTeamList == %@",[self jsonToString:responseObject]);
+    [self.hud show:YES];
+    [PPNetworkHelper POST:NSStringFormat(@"%@%@",kApiPrefix,kNearbyTeam) parameters:@{@"lat":self.users.latLocation,@"lon":self.users.lonLocation,@"raidus":@"10000"} success:^(id responseObject) {
+        [self.hud hide:YES];
+//        PPLog(@"NearbyTeamList == %@",[self jsonToString:responseObject]);
+        NSDictionary *res = responseObject[@"data"][@"res"];
+        NSArray *teams = res[@"team"];
+        self.nearbyList = [NSMutableArray array];
+        for (NSDictionary *dict in teams) {
+            NearbyTeamModel *model = [[NearbyTeamModel alloc] init];
+            model.distance = dict[@"distance"];
+            NSArray *tinfos = dict[@"team"][@"tinfos"];
+            for (NSDictionary *info in tinfos) {
+                model.tname = info[@"tname"];
+                model.owner = info[@"owner"];
+                model.icon = info[@"icon"];
+                model.tid = info[@"tid"];
+            }
+            [self.nearbyList addObject:model];
+        }
+        [self.tableView reloadData];
     } failure:^(NSError *error) {
-        
+        [self.hud hide:YES];
     }];
 }
 
@@ -43,12 +65,16 @@ static NSString *kNearTeamCell = @"kNearTeamCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return !section ? self.nearbyList.count:3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NearTeamCell *cell = [tableView dequeueReusableCellWithIdentifier:kNearTeamCell];
+    if (!indexPath.section) {
+        NearbyTeamModel *model = self.nearbyList[indexPath.row];
+        [cell setModel:model];
+    }
     return cell;
 }
 
@@ -100,11 +126,13 @@ static NSString *kNearTeamCell = @"kNearTeamCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"->查看[舞者]信息" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确 定", nil];
-        [alert show];
+    if (indexPath.section==0) {
+        NearbyTeamModel *model = self.nearbyList[indexPath.row];
+        QRCodeTeamInfoViewController *QRC = [[QRCodeTeamInfoViewController alloc] init];
+        QRC.teamID = NSStringFormat(@"%@",model.tid);
+        [self.navigationController pushViewController:QRC animated:YES];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"->申请加入[舞队]" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确 定", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"->申请加入[舞者]" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确 定", nil];
         [alert show];
     }
 }

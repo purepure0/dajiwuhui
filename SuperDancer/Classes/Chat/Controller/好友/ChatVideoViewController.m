@@ -27,6 +27,10 @@
     [self.view addSubview:_fatherView];
     
     _playerModel = [[ZFPlayerModel alloc] init];
+
+    _playerModel.title = _playerModel.title;
+//    _playerModel.videoURL
+
     _playerModel.videoURL = [NSURL URLWithString:_videoObj.url];
     _playerModel.placeholderImageURLString = _videoObj.coverUrl;
     _playerModel.fatherView = _fatherView;
