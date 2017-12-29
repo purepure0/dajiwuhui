@@ -24,6 +24,8 @@
 #define USER_CITY_LOCATION @"city_location"
 #define USER_DISTRICT_LOCATION @"district_location"
 #define USER_PROVINCE_LOCATION @"province_location"
+#define USER_LATITUDE_LOCATION @"latitude_location"
+#define USER_LONGITUDE_LOCATION @"longitude_location"
 
 #define USER_CITY_SELECTED @"city_selected"
 #define USER_DISTRICT_SELECTED @"district_selected"
@@ -177,6 +179,22 @@
 
 - (void)setDistrictLocation:(NSString *)districtLocation {
     [self.userDefaults setObject:districtLocation forKey:USER_DISTRICT_LOCATION];
+}
+
+// 纬度
+- (NSString *)latLocation {
+    return [self.userDefaults objectForKey:USER_LATITUDE_LOCATION];
+}
+- (void)setLatLocation:(NSString *)latLocation {
+    [self.userDefaults setObject:latLocation forKey:USER_LATITUDE_LOCATION];
+}
+
+// 经度
+- (NSString *)lonLocation {
+    return [self.userDefaults objectForKey:USER_LONGITUDE_LOCATION];
+}
+- (void)setLonLocation:(NSString *)lonLocation {
+    [self.userDefaults setObject:lonLocation forKey:USER_LONGITUDE_LOCATION];
 }
 
 //城市--选择

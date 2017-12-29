@@ -140,6 +140,7 @@ typedef void(^RightItemBlock)(NSInteger index);
 
 /**更新请求header */
 - (void)updateHttpHeader;
+- (NSString *)jsonToString:(id)data;
 #pragma mark - toast -
 
 - (void)showLoading;

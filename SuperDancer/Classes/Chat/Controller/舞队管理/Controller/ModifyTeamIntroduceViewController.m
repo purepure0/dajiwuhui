@@ -35,20 +35,10 @@
 - (void)finishAction {
     
     if (self.textView.text.length < 15) {
-        [self toast:@"至少15字~"];
+        [self toast:@"至少15字"];
         return;
     }
-//    PPLog(@"11111===%@",self.textView.text);
-//    NSDictionary *introduce = @{@"introduce": self.textView.text};
-//    NSData *data = [NSJSONSerialization dataWithJSONObject:@[introduce] options:0 error:nil];
-//    NSString *intro = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//    [[NIMSDK sharedSDK].teamManager updateTeamCustomInfo:intro teamId:self.team.teamId completion:^(NSError * _Nullable error) {
-//        PPLog(@"edit introduce error === %@",error.description);
-//        if (!error) {
-//            [self toast:@"编辑群介绍成功"];
-//            [self.navigationController popViewControllerAnimated:YES];
-//        }
-//    }];
+    
     [[NIMSDK sharedSDK].teamManager updateTeamIntro:self.textView.text teamId:self.team.teamId completion:^(NSError * _Nullable error) {
         PPLog(@"edit introduce error === %@",error.description);
         if (!error) {

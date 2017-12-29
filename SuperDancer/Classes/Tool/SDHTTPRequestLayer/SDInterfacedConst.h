@@ -136,6 +136,15 @@ UIKIT_EXTERN NSString *const kGetUserInfoByTel;
 
 /** 加好友-通过ID获取用户信息 */
 UIKIT_EXTERN NSString *const kGetUserInfoByUserId;
+
+/** 舞队-设置舞队位置 */
+UIKIT_EXTERN NSString *const kUpdateTeamLocality;
+
+/** 舞队-附近的舞队*/
+UIKIT_EXTERN NSString *const kNearbyTeam;
+
+
+
 @end
 
 

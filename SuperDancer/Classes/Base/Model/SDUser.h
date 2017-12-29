@@ -40,6 +40,11 @@
 @property (nonatomic, copy) NSString *cityLocation;
 //地区--定位
 @property (nonatomic, copy)NSString *districtLocation;
+//纬度--定位
+@property (nonatomic, copy) NSString *latLocation;
+//经度--定位
+@property (nonatomic, copy)NSString *lonLocation;
+
 
 //城市--选择
 @property (nonatomic, strong)NSString *citySelected;

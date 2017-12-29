@@ -396,6 +396,12 @@
     }];
 }
 
+- (NSString *)jsonToString:(id)data {
+    if(data == nil) { return nil; }
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

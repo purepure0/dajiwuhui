@@ -184,10 +184,6 @@
 		9A52EFFB1FE37B8000125087 /* NearTeamListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A52EFF91FE37B8000125087 /* NearTeamListViewController.xib */; };
 		9A52EFFF1FE3AAE000125087 /* NearTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52EFFD1FE3AAE000125087 /* NearTeamCell.m */; };
 		9A52F0001FE3AAE000125087 /* NearTeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A52EFFE1FE3AAE000125087 /* NearTeamCell.xib */; };
-		9A52F0041FE3B1DD00125087 /* NearADCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52F0021FE3B1DD00125087 /* NearADCell.m */; };
-		9A52F0051FE3B1DD00125087 /* NearADCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A52F0031FE3B1DD00125087 /* NearADCell.xib */; };
-		9A52F0091FE3CAD400125087 /* ScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52F0071FE3CAD400125087 /* ScrollViewCell.m */; };
-		9A52F00A1FE3CAD400125087 /* ScrollViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A52F0081FE3CAD400125087 /* ScrollViewCell.xib */; };
 		9A52F00E1FE6B5B100125087 /* CompleteTeamInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52F00C1FE6B5B000125087 /* CompleteTeamInfoViewController.m */; };
 		9A52F00F1FE6B5B100125087 /* CompleteTeamInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A52F00D1FE6B5B000125087 /* CompleteTeamInfoViewController.xib */; };
 		9A52F0131FE7536F00125087 /* CompleteTeamInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A52F0111FE7536F00125087 /* CompleteTeamInfoCell.m */; };
@@ -632,12 +628,6 @@
 		9A52EFFC1FE3AAE000125087 /* NearTeamCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearTeamCell.h; sourceTree = "<group>"; };
 		9A52EFFD1FE3AAE000125087 /* NearTeamCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearTeamCell.m; sourceTree = "<group>"; };
 		9A52EFFE1FE3AAE000125087 /* NearTeamCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearTeamCell.xib; sourceTree = "<group>"; };
-		9A52F0011FE3B1DD00125087 /* NearADCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearADCell.h; sourceTree = "<group>"; };
-		9A52F0021FE3B1DD00125087 /* NearADCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearADCell.m; sourceTree = "<group>"; };
-		9A52F0031FE3B1DD00125087 /* NearADCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearADCell.xib; sourceTree = "<group>"; };
-		9A52F0061FE3CAD400125087 /* ScrollViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollViewCell.h; sourceTree = "<group>"; };
-		9A52F0071FE3CAD400125087 /* ScrollViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollViewCell.m; sourceTree = "<group>"; };
-		9A52F0081FE3CAD400125087 /* ScrollViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollViewCell.xib; sourceTree = "<group>"; };
 		9A52F00B1FE6B5B000125087 /* CompleteTeamInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompleteTeamInfoViewController.h; sourceTree = "<group>"; };
 		9A52F00C1FE6B5B000125087 /* CompleteTeamInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompleteTeamInfoViewController.m; sourceTree = "<group>"; };
 		9A52F00D1FE6B5B000125087 /* CompleteTeamInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompleteTeamInfoViewController.xib; sourceTree = "<group>"; };
@@ -1998,12 +1988,6 @@
 				9A52EFFC1FE3AAE000125087 /* NearTeamCell.h */,
 				9A52EFFD1FE3AAE000125087 /* NearTeamCell.m */,
 				9A52EFFE1FE3AAE000125087 /* NearTeamCell.xib */,
-				9A52F0011FE3B1DD00125087 /* NearADCell.h */,
-				9A52F0021FE3B1DD00125087 /* NearADCell.m */,
-				9A52F0031FE3B1DD00125087 /* NearADCell.xib */,
-				9A52F0061FE3CAD400125087 /* ScrollViewCell.h */,
-				9A52F0071FE3CAD400125087 /* ScrollViewCell.m */,
-				9A52F0081FE3CAD400125087 /* ScrollViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2858,7 +2842,6 @@
 				9A2CB88E1F868D5400907C72 /* LocalDanceViewController.xib in Resources */,
 				9A61BEFE1FD1371F00F30888 /* SDMineViewController.xib in Resources */,
 				9A26A35F1FF4044A008638B8 /* TeamSimpleInfoViewController.xib in Resources */,
-				9A52F00A1FE3CAD400125087 /* ScrollViewCell.xib in Resources */,
 				9AFB538B1FECE7F9008E5BAD /* MemberManageViewController.xib in Resources */,
 				9A71FE7D1F8DF37500738680 /* DownloadingCell.xib in Resources */,
 				9A7D62E41FE7C0DD0078DD2B /* GroupNoticeDetailViewController.xib in Resources */,
@@ -2877,7 +2860,6 @@
 				049E50B11FA0D220006C3BF1 /* MusicViewController.xib in Resources */,
 				9A7D62DF1FE7C0840078DD2B /* PublishNoticeViewController.xib in Resources */,
 				9AFB53B21FEF8960008E5BAD /* ModifyTeamIntroduceViewController.xib in Resources */,
-				9A52F0051FE3B1DD00125087 /* NearADCell.xib in Resources */,
 				9A7D62E91FE801980078DD2B /* MemberCell.xib in Resources */,
 				9A2775421FF4F219009E603B /* QRCodeTeamInfoViewController.xib in Resources */,
 				04F41DC31FA38808002EF921 /* SelectTypeCell.xib in Resources */,
@@ -3145,7 +3127,6 @@
 				9A5781131FEF781100A693A9 /* SearchFriendResultViewController.m in Sources */,
 				9AD960CA1F8F14590024DA43 /* Utility.m in Sources */,
 				3F97B3691FD0F8CC00D0799A /* ThreeRightView.m in Sources */,
-				9A52F0091FE3CAD400125087 /* ScrollViewCell.m in Sources */,
 				04AE237B1F9F87D50034635C /* CollectionCell.m in Sources */,
 				9ACA8AFD1F98574C00B73B29 /* ZFPlayerView.m in Sources */,
 				049E50F81FA237BF006C3BF1 /* EditNickNameViewController.m in Sources */,
@@ -3190,7 +3171,6 @@
 				9AFB537E1FECA8BD008E5BAD /* TeamManageViewController.m in Sources */,
 				04ECB8711F9200B000186C5B /* BrowsingHistoryViewController.m in Sources */,
 				9A7D62E31FE7C0DD0078DD2B /* GroupNoticeDetailViewController.m in Sources */,
-				9A52F0041FE3B1DD00125087 /* NearADCell.m in Sources */,
 				049E50C21FA0E0E7006C3BF1 /* LocalCell.m in Sources */,
 				9ACA8AF21F98574C00B73B29 /* UIImageView+ZFCache.m in Sources */,
 				9A2CB89F1F868DBC00907C72 /* SquareDanceViewController.m in Sources */,
