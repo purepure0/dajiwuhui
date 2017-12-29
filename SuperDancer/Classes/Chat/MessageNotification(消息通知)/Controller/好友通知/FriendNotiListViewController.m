@@ -22,7 +22,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"好友通知";
-    [self initDataSource];
     [_tableView registerNib:[UINib nibWithNibName:@"ApplyMessageListCell" bundle:nil] forCellReuseIdentifier:@"ApplyMessageListCellIdentifier"];
     _tableView.tableFooterView = [UIView new];
 }
@@ -44,6 +43,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self initDataSource];
     [self.navigationController.navigationBar setHidden:NO];
 }
 
