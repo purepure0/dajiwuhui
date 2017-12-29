@@ -22,7 +22,8 @@
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="hhM-t9-qGE">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="separatorColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Pt5-uJ-plO"/>
                         <outlet property="delegate" destination="-1" id="AUk-hz-fJf"/>
@@ -32,7 +33,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPx-5h-T0S">
-                            <rect key="frame" x="15" y="27" width="44" height="30"/>
+                            <rect key="frame" x="10" y="27" width="44" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="NUI-cZ-4I1"/>
                             </constraints>
@@ -46,7 +47,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="O6q-VW-J0M"/>
-                        <constraint firstItem="YPx-5h-T0S" firstAttribute="leading" secondItem="93h-MQ-FDW" secondAttribute="leading" constant="15" id="YuY-hX-Tmf"/>
+                        <constraint firstItem="YPx-5h-T0S" firstAttribute="leading" secondItem="93h-MQ-FDW" secondAttribute="leading" constant="10" id="YuY-hX-Tmf"/>
                         <constraint firstItem="YPx-5h-T0S" firstAttribute="top" secondItem="93h-MQ-FDW" secondAttribute="top" constant="27" id="jTO-JV-zXj"/>
                         <constraint firstAttribute="bottom" secondItem="YPx-5h-T0S" secondAttribute="bottom" constant="7" id="wzc-Rx-Q7b"/>
                     </constraints>

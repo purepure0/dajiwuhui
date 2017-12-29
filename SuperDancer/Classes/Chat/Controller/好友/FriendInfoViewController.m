@@ -132,27 +132,26 @@
 
 - (void)deleteAction
 {
-    UIAlertController *alertContrller = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"该操作无法撤销,是否从本群踢出该成员?" preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertController *alertContrller = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"该操作无法撤销,是否删除该好友?" preferredStyle:(UIAlertControllerStyleAlert)];
     
-//    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-//
-//    }];
-//    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//
-//    };
-//    [alertContrller addAction:alertA];
-//    [self presentViewController:alertContrller animated:YES completion:nil];
-//    /////
-//
-//    [[NIMSDK sharedSDK].userManager deleteFriend:self.userId completion:^(NSError * _Nullable error) {
-//        if (!error) {
-//            [_friendList removeObjectAtIndex:indexPath.row];
-//            [_tableView deleteRow:indexPath.row inSection:0 withRowAnimation:UITableViewRowAnimationFade];
-//            [self toast:@"删除成功"];
-//        }else {
-//            [self toast:@"删除失败"];
-//        }
-//    }];
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        [self.hud show:YES];
+        [[NIMSDK sharedSDK].userManager deleteFriend:self.userId completion:^(NSError * _Nullable error) {
+            PPLog(@"delete friend error == %@",error.description);
+            if (!error) {
+                [self.hud hide:YES];
+                [self toast:@"删除成功"];
+                UIViewController *back = self.navigationController.viewControllers[1];
+                [self.navigationController popToViewController:back animated:YES];
+            }else {
+                [self toast:@"删除失败"];
+            }
+        }];
+    }];
+    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    [alertContrller addAction:deleteAction];
+    [alertContrller addAction:confirmAction];
+    [self presentViewController:alertContrller animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section

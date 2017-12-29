@@ -9,8 +9,17 @@
 #import "TeamMemmberInfoViewController.h"
 #import "TeamJoinCell.h"
 @interface TeamMemmberInfoViewController ()<UITableViewDataSource, UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong)NSArray *data;
+@property (nonatomic, strong) NSArray *data;
+@property (nonatomic, assign) BOOL isMe; //是否是自己
+@property (nonatomic, assign) BOOL isMyFriend; //是否是好友
+@property (nonatomic, strong) NIMUser *user;
+@property (nonatomic, copy) NSString *nickname;
+
+@property (nonatomic, strong) NIMUser *owner;
+@property (nonatomic, copy) NSString *ownername;
+
 @end
 
 @implementation TeamMemmberInfoViewController
@@ -19,7 +28,52 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.fd_prefersNavigationBarHidden = YES;
+    self.isMe = [self.userId isEqualToString:self.users.userId];
+    self.isMyFriend = [[NIMSDK sharedSDK].userManager isMyFriend:self.userId];
+    
+    self.user = [[NIMSDK sharedSDK].userManager userInfo:self.userId];
+    [self fetchTeamMembers];
 }
+
+// 获取群成员信息
+- (void)fetchTeamMembers {
+    [[NIMSDK sharedSDK].teamManager fetchTeamMembers:self.team.teamId completion:^(NSError * _Nullable error, NSArray<NIMTeamMember *> * _Nullable members) {
+        if (!error) {
+            for (NIMTeamMember *member in members) {
+                PPLog(@"member nickname = %@",member.nickname);
+                // 获取本人群资料
+                if ([member.userId isEqualToString:self.userId]) {
+                    PPLog(@"userId == %@ ** nickname ==  %@",self.userId,member.nickname);
+                    if (member.nickname || member.nickname.length ) {
+                        self.nickname = member.nickname;
+                        PPLog(@"%@",member.nickname);
+                        [self.tableView reloadData];
+                    } else {
+                        self.nickname = @"";
+                    }
+                }
+                // 领队名称
+                if ([member.userId isEqualToString:self.team.owner]) {
+                    if (member.nickname || member.nickname.length ) {
+                        self.ownername = member.nickname;
+                        [self.tableView reloadData];
+                    } else {//如果领队没设置舞队名片，则显示领队本人昵称
+                        [[NIMSDK sharedSDK].userManager fetchUserInfos:@[self.team.owner] completion:^(NSArray<NIMUser *> * _Nullable users, NSError * _Nullable error) {
+                            if (!error) {
+                                NIMUser *user = [users objectAtIndex:0];
+                                self.ownername = user.userInfo.nickName;
+                                [self.tableView reloadData];
+                            }
+                        }];
+                    }
+                }
+            }
+        }
+    }];
+}
+
+
+#pragma mark - UITableViewDataSource, UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
@@ -52,46 +106,105 @@
     TeamJoinCell *cell = [TeamJoinCell initWithTableView:tableView andIndex:index];
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            cell.iconImageView.image = [UIImage imageNamed:@"pic1"];
-            cell.nicknameLabel.text = @"舞者名称";
-            cell.cityLabel.text = @"菏泽";
+            [cell.iconImageView setImageWithURL:[NSURL URLWithString:self.user.userInfo.avatarUrl] placeholder:IMAGE_NAMED(@"placeholder_img")];
+            cell.nicknameLabel.text = self.user.userInfo.nickName.length ? self.user.userInfo.nickName:@"未设置";
+            cell.cityLabel.text = @"未设置";
             [cell.qcodeBtn setHidden:YES];
         }else {
             cell.leftLabel.text = @"舞队名片";
-            cell.rightLabel.text = @"未设置";
+            cell.rightLabel.text = self.nickname.length ? self.nickname:@"未设置";
             [cell showRigthArrow:NO];
         }
     }else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             cell.leftLabel.text = @"手机号码";
-            cell.rightLabel.text = @"188 6666 8888";
+            cell.rightLabel.text = self.user.userInfo.mobile;
         }else {
             cell.leftLabel.text = @"所在地区";
-            cell.rightLabel.text = @"山东省菏泽市牡丹区";
+            cell.rightLabel.text = @"未设置";
         }
         [cell showRigthArrow:NO];
     }else if (indexPath.section == 2) {
         cell.topLabel.text = @"个人介绍";
-        cell.bottomLabel.text = @"爱好广场舞、民族舞";
+        cell.bottomLabel.text = self.user.userInfo.sign.length ? self.user.userInfo.sign:@"未设置";
     }else {
-        cell.leftLabel.text = @"发言记录";
-        [cell showRigthArrow:NO];
+        if (self.isMe) {
+            cell.leftLabel.text = @"领队名称";
+            cell.rightLabel.text = self.ownername;
+            [cell showRigthArrow:NO];
+        } else {
+            cell.leftLabel.text = @"发言记录";
+            cell.rightLabel.text = @"";
+            [cell showRigthArrow:YES];
+        }
     }
-    
     return cell;
+}
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return section == 3 ? 105:10;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if (section == 3) {
+        if (!self.isMe) {
+            if (!self.isMyFriend) {
+                UIView *bgView = [[UIView alloc] init];
+
+                UIButton *addFriendBtn = [[UIButton alloc] init];
+                [addFriendBtn setTitle:@"添加好友" forState:UIControlStateNormal];
+                [addFriendBtn setBackgroundColor:kBaseColor];
+                [addFriendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                [addFriendBtn addTarget:self action:@selector(addFriendAction) forControlEvents:UIControlEventTouchUpInside];
+                [bgView addSubview:addFriendBtn];
+                
+                addFriendBtn.sd_layout
+                .leftSpaceToView(bgView, 15)
+                .rightSpaceToView(bgView, 15)
+                .topSpaceToView(bgView, 30)
+                .heightIs(45);
+                addFriendBtn.sd_cornerRadius = @(3);
+                return bgView;
+            }
+        }
+    }
+    return nil;
+}
+
+#pragma mark - 添加好友
+
+- (void)addFriendAction
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"附加信息" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"输入附加信息";
+    }];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UITextField *describeTF = alertController.textFields.firstObject;
+//        NSLog(@"addition == %@",describeTF.text);
+        NIMUserRequest *request = [[NIMUserRequest alloc] init];
+        request.userId = self.userId;
+        request.operation = NIMUserOperationRequest;
+        request.message = NSStringFormat(@"附加信息：%@",describeTF.text);
+
+        [[NIMSDK sharedSDK].userManager requestFriend:request completion:^(NSError * _Nullable error) {
+            PPLog(@"add friend error == %@", error);
+            if (!error) {
+                [self toast:@"好友申请已发送"];
+                [self.navigationController popViewControllerAnimated:YES];
+            }else {
+                [self toast:@"添加好友失败"];
+            }
+        }];
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 44;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section != 3) {
-        return 10;
-    }
-    return 80;
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 0.1;
