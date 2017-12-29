@@ -29,6 +29,7 @@
     
 
     NIMCustomLeftBarView *leftBarView = [[NIMCustomLeftBarView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+    leftBarView.badgeView = nil;
     leftBarView.userInteractionEnabled = YES;
     UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_back_black"]];
     [leftBarView addSubview:img];
