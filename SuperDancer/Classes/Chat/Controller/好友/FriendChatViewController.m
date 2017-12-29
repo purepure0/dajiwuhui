@@ -10,6 +10,7 @@
 #import <NIMCustomLeftBarView.h>
 #import "FriendInfoViewController.h"
 #import "ChatImageViewController.h"
+#import "ChatVideoViewController.h"
 #define SuppressPerformSelectorLeakWarning(Stuff) \
 do { \
 _Pragma("clang diagnostic push") \
@@ -93,7 +94,9 @@ _Pragma("clang diagnostic pop") \
 {
     NSLog(@"视频");
     NIMVideoObject *object = message.messageObject;
-    
+    ChatVideoViewController *playVieo = [[ChatVideoViewController alloc] init];
+    playVieo.videoObj = object;
+    [self.navigationController pushViewController:playVieo animated:YES];
 }
 
 - (void)showLocation:(NIMMessage *)message

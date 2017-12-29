@@ -11,6 +11,9 @@
 @interface ChatVideoViewController ()<ZFPlayerDelegate>
 @property (nonatomic, strong)ZFPlayerView *playerView;
 @property (nonatomic, strong)ZFPlayerModel *playerModel;
+@property (nonatomic, strong)UIView *fatherView;
+@property (nonatomic, strong)UIButton *playOrPauseBtn;
+
 @end
 
 @implementation ChatVideoViewController
@@ -18,16 +21,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _playerView = [ZFPlayerView sharedPlayerView];
-    _playerView.delegate = self;
-    _playerView.cellPlayerOnCenter = NO;
-    _playerView.stopPlayWhileCellNotVisable = YES;
+    self.fd_prefersNavigationBarHidden = YES;
+    
+    _fatherView = [[UIView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:_fatherView];
     
     _playerModel = [[ZFPlayerModel alloc] init];
-    _playerModel.title = _playerModel.title;
-    _playerModel.videoURL
+    _playerModel.videoURL = [NSURL URLWithString:_videoObj.url];
+    _playerModel.placeholderImageURLString = _videoObj.coverUrl;
+    _playerModel.fatherView = _fatherView;
     
+    
+    self.playerView = [[ZFPlayerView alloc] init];
+    [_playerView playerControlView:nil playerModel:_playerModel];
+    _playerView.delegate = self;
+    _playerView.playerLayerGravity = ZFPlayerLayerGravityResizeAspect;
+    [_playerView autoPlayTheVideo];
+
 }
+
+- (void)zf_playerBackAction {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
