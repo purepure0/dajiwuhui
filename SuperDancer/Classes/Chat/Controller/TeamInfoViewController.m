@@ -286,7 +286,9 @@
                 tn.nickname = self.nickname;
                 [self.navigationController pushViewController:tn animated:YES];
             }else {
-                
+                MemberManageViewController *memberMag = [[MemberManageViewController alloc] init];
+                memberMag.team = _team;
+                [self.navigationController pushViewController:memberMag animated:YES];
             }
         }else if (indexPath.section == 3) {//舞队管理
             TeamManageViewController *tm = [[TeamManageViewController alloc] init];
@@ -303,9 +305,7 @@
             if (!indexPath.row) {//群昵称
                 NSLog(@"舞队名片");
             }else {
-                MemberManageViewController *memberMag = [[MemberManageViewController alloc] init];
-                memberMag.team = _team;
-                [self.navigationController pushViewController:memberMag animated:YES];
+                
             }
         }else if (indexPath.section == 3) {
             NSLog(@"聊天记录");
