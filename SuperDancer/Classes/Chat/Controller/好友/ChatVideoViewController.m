@@ -25,7 +25,7 @@
     
     _playerModel = [[ZFPlayerModel alloc] init];
     _playerModel.title = _playerModel.title;
-    _playerModel.videoURL
+//    _playerModel.videoURL
     
 }
 

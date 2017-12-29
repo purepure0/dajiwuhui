@@ -50,7 +50,7 @@
             weakSelf.teamName = team.teamName;
             
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            formatter.dateFormat = @"yyyy-mm-dd";
+            formatter.dateFormat = @"yyyy-MM-dd";
             NSDate *date = [NSDate dateWithTimeIntervalSince1970:team.createTime];
             weakSelf.createTime = [formatter stringFromDate:date];
             if (team.clientCustomInfo == NULL) {

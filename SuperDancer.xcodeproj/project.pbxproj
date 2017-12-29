@@ -206,6 +206,7 @@
 		9A53C0A41FE00C00003CBFD3 /* ApplyDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53C0A21FE00C00003CBFD3 /* ApplyDetailCell.xib */; };
 		9A5781131FEF781100A693A9 /* SearchFriendResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5781111FEF781100A693A9 /* SearchFriendResultViewController.m */; };
 		9A5781141FEF781100A693A9 /* SearchFriendResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5781121FEF781100A693A9 /* SearchFriendResultViewController.xib */; };
+		9A58B9781FF6B2DF00530DBF /* NearbyTeamModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A58B9771FF6B2DF00530DBF /* NearbyTeamModel.m */; };
 		9A61BEFD1FD1371F00F30888 /* SDMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A61BEF61FD1371F00F30888 /* SDMineViewController.m */; };
 		9A61BEFE1FD1371F00F30888 /* SDMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A61BEF71FD1371F00F30888 /* SDMineViewController.xib */; };
 		9A61BEFF1FD1371F00F30888 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A61BEF91FD1371F00F30888 /* SettingViewController.m */; };
@@ -664,6 +665,8 @@
 		9A5781101FEF781100A693A9 /* SearchFriendResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchFriendResultViewController.h; sourceTree = "<group>"; };
 		9A5781111FEF781100A693A9 /* SearchFriendResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchFriendResultViewController.m; sourceTree = "<group>"; };
 		9A5781121FEF781100A693A9 /* SearchFriendResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFriendResultViewController.xib; sourceTree = "<group>"; };
+		9A58B9761FF6B2DF00530DBF /* NearbyTeamModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearbyTeamModel.h; sourceTree = "<group>"; };
+		9A58B9771FF6B2DF00530DBF /* NearbyTeamModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearbyTeamModel.m; sourceTree = "<group>"; };
 		9A61BEF51FD1371F00F30888 /* SDMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMineViewController.h; sourceTree = "<group>"; };
 		9A61BEF61FD1371F00F30888 /* SDMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMineViewController.m; sourceTree = "<group>"; };
 		9A61BEF71FD1371F00F30888 /* SDMineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDMineViewController.xib; sourceTree = "<group>"; };
@@ -1974,6 +1977,8 @@
 		9A52EFEF1FE372EA00125087 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9A58B9761FF6B2DF00530DBF /* NearbyTeamModel.h */,
+				9A58B9771FF6B2DF00530DBF /* NearbyTeamModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3016,6 +3021,7 @@
 				9A2CB89A1F868DAA00907C72 /* RecommendViewController.m in Sources */,
 				9A1BB41F1F85DFA40067C12C /* SDNavigationController.m in Sources */,
 				9AC6886F1FF14F5B00ADEFB1 /* FriendNotiListViewController.m in Sources */,
+				9A58B9781FF6B2DF00530DBF /* NearbyTeamModel.m in Sources */,
 				04ECB8771F92024500186C5B /* HistoryCell.m in Sources */,
 				9A7D62E81FE801980078DD2B /* MemberCell.m in Sources */,
 				048C53271F9D946000607784 /* DanceTypeModel.m in Sources */,
