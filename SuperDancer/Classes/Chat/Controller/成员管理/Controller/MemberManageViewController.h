@@ -10,4 +10,5 @@
 
 @interface MemberManageViewController : BaseViewController
 @property (nonatomic, strong)NIMTeam *team;
+@property (nonatomic, assign)BOOL isOwner;
 @end

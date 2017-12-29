@@ -166,6 +166,7 @@
                 }
             }else {
                 [cell updateFifthCellWithData:dic];
+                
                 __weak typeof(self) weakSelf = self;
                 cell.addMemberBlock = ^{
                     AddMembersViewController *addMember = [[AddMembersViewController alloc] init];
@@ -194,6 +195,19 @@
                 }
             }else {
                 [cell updateFifthCellWithData:dic];
+                __weak typeof(self) weakSelf = self;
+                cell.addMemberBlock = ^{
+                    if (_team.inviteMode == NIMTeamInviteModeAll) {
+                        AddMembersViewController *addMember = [[AddMembersViewController alloc] init];
+                        addMember.team = _team;
+                        addMember.teamMemberUserIDs = _teamMemberUserIDs;
+                        [weakSelf.navigationController pushViewController:addMember animated:YES];
+                    }else {
+                       [self toast:@"只有群主可以邀请好友"];
+                    }
+                };
+                
+                
             }
         }else if (indexPath.section == 3) {
             [cell updateSecondCellWithData:dic];
@@ -288,6 +302,7 @@
             }else {
                 MemberManageViewController *memberMag = [[MemberManageViewController alloc] init];
                 memberMag.team = _team;
+                memberMag.isOwner = _isTeamOwner;
                 [self.navigationController pushViewController:memberMag animated:YES];
             }
         }else if (indexPath.section == 3) {//舞队管理
@@ -305,7 +320,10 @@
             if (!indexPath.row) {//群昵称
                 NSLog(@"舞队名片");
             }else {
-                
+                MemberManageViewController *memberMag = [[MemberManageViewController alloc] init];
+                memberMag.team = _team;
+                memberMag.isOwner = _isTeamOwner;
+                [self.navigationController pushViewController:memberMag animated:YES];
             }
         }else if (indexPath.section == 3) {
             NSLog(@"聊天记录");

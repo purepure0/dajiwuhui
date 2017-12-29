@@ -34,7 +34,9 @@ static NSString *kMemberManageCellIdentifier = @"kMemberManageCellIdentifier";
     self.definesPresentationContext = YES;
     self.view.backgroundColor = kBackgroundColor;
     
-    [self setRightItemTitle:@"管理" action:@selector(manageAction)];
+    if (_isOwner) {
+        [self setRightItemTitle:@"管理" action:@selector(manageAction)];
+    }
     [self.tableView registerNib:NIB_NAMED(@"MemberManageCell") forCellReuseIdentifier:kMemberManageCellIdentifier];
     self.memberList = [NSMutableArray new];
     self.searchResultList = [NSMutableArray new];
