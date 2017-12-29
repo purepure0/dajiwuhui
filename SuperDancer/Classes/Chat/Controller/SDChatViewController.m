@@ -16,7 +16,7 @@
 #import "FriendListViewController.h"
 #import "NearTeamViewController.h"
 #import "TeamSessionViewController.h"
-@interface SDChatViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchControllerDelegate, NIMSystemNotificationManagerDelegate, NIMTeamManagerDelegate>
+@interface SDChatViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchControllerDelegate, NIMSystemNotificationManagerDelegate, NIMTeamManagerDelegate, NIMTeamManagerDelegate>
 @property(strong,nonatomic)UITableView              *chatListTableView;
 @property(strong,nonatomic)UISearchController       *chatVCSearchVC;
 @property(strong,nonatomic)NSString                 *searchKeyWords;//搜索关键词
@@ -264,6 +264,22 @@
 
 
 - (void)onTeamAdded:(NIMTeam *)team {
+    [self updateTeams:team];
+}
+
+- (void)onTeamUpdated:(NIMTeam *)team {
+    [self updateTeams:team];
+}
+
+- (void)onTeamRemoved:(NIMTeam *)team {
+    [self updateTeams:team];
+}
+
+- (void)onTeamMemberChanged:(NIMTeam *)team {
+    [self updateTeams:team];
+}
+
+- (void)updateTeams:(NIMTeam *)team {
     [[NIMSDK sharedSDK].teamManager fetchTeamInfo:team.teamId completion:^(NSError * _Nullable error, NIMTeam * _Nullable team) {
         [self initDataSource];
     }];
