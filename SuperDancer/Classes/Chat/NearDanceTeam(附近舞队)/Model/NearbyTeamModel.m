@@ -11,3 +11,7 @@
 @implementation NearbyTeamModel
 
 @end
+
+@implementation NearbyDancerModel
+
+@end

@@ -10,8 +10,9 @@
 #import "NearTeamCell.h"
 #import "NearbyTeamModel.h"
 #import "QRCodeTeamInfoViewController.h"
+#import "TeamMemmberInfoViewController.h"
 
-@interface NearTeamListViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface NearTeamListViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -38,20 +39,40 @@ static NSString *kNearTeamCell = @"kNearTeamCell";
         [self.hud hide:YES];
 //        PPLog(@"NearbyTeamList == %@",[self jsonToString:responseObject]);
         NSDictionary *res = responseObject[@"data"][@"res"];
+        
+        NSMutableArray *teamList = [NSMutableArray array];
         NSArray *teams = res[@"team"];
         self.nearbyList = [NSMutableArray array];
         for (NSDictionary *dict in teams) {
             NearbyTeamModel *model = [[NearbyTeamModel alloc] init];
             model.distance = dict[@"distance"];
             NSArray *tinfos = dict[@"team"][@"tinfos"];
-            for (NSDictionary *info in tinfos) {
-                model.tname = info[@"tname"];
-                model.owner = info[@"owner"];
-                model.icon = info[@"icon"];
-                model.tid = info[@"tid"];
-            }
-            [self.nearbyList addObject:model];
+            NSDictionary *info = tinfos[0];
+            model.tname = info[@"tname"];
+            model.owner = info[@"owner"];
+            model.icon = info[@"icon"];
+            model.tid = info[@"tid"];
+            model.intro = info[@"intro"];
+            [teamList addObject:model];
         }
+        [self.nearbyList addObject:teamList];
+        
+        NSMutableArray *danceList = [NSMutableArray array];
+        NSArray *dance = res[@"dance"];
+        for (NSDictionary *dict in dance) {
+            NearbyDancerModel *model = [[NearbyDancerModel alloc] init];
+            model.distance = dict[@"distance"];
+            NSArray *uinfos = dict[@"dance"][@"uinfos"];
+            NSDictionary *info = uinfos[0];
+            model.icon = info[@"icon"];
+            model.accid = info[@"accid"];
+            model.name = info[@"name"];
+            model.sign = info[@"sign"];
+            [danceList addObject:model];
+        }
+        [self.nearbyList addObject:danceList];
+//        self.nearbyList = [NSMutableArray arrayWithObjects:teamList,danceList, nil];
+        
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         [self.hud hide:YES];
@@ -60,27 +81,30 @@ static NSString *kNearTeamCell = @"kNearTeamCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return self.nearbyList.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return !section ? self.nearbyList.count:3;
+    return [self.nearbyList[section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NearTeamCell *cell = [tableView dequeueReusableCellWithIdentifier:kNearTeamCell];
     if (!indexPath.section) {
-        NearbyTeamModel *model = self.nearbyList[indexPath.row];
-        [cell setModel:model];
+        NearbyTeamModel *model = self.nearbyList[0][indexPath.row];
+        [cell setTModel:model];
+    } else {
+        NearbyDancerModel *model = self.nearbyList[1][indexPath.row];
+        [cell setDModel:model];
     }
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 70;
+    return 80;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -126,16 +150,23 @@ static NSString *kNearTeamCell = @"kNearTeamCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section==0) {
-        NearbyTeamModel *model = self.nearbyList[indexPath.row];
+    if (!indexPath.section) {
+        NearbyTeamModel *model = self.nearbyList[0][indexPath.row];
         QRCodeTeamInfoViewController *QRC = [[QRCodeTeamInfoViewController alloc] init];
         QRC.teamID = NSStringFormat(@"%@",model.tid);
         [self.navigationController pushViewController:QRC animated:YES];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"->申请加入[舞者]" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确 定", nil];
-        [alert show];
+        TeamMemmberInfoViewController *memberInfo = [[TeamMemmberInfoViewController alloc] init];
+        [self.navigationController popToViewController:memberInfo animated:YES];
     }
 }
 
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return IMAGE_NAMED(@"nodata");
+}
+
+-(BOOL)emptyDataSetShouldAllowScroll:(UIScrollView*)scrollView {
+    return YES;
+}
 
 @end

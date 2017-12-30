@@ -12,9 +12,11 @@
 @interface NearTeamCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *iconImgView;
 @property (weak, nonatomic) IBOutlet UILabel *teamNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *creattimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *introLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 
-@property (nonatomic, strong) NearbyTeamModel *model;
+@property (nonatomic, strong) NearbyTeamModel *tModel;
+
+@property (nonatomic, strong) NearbyDancerModel *dModel;
 
 @end

@@ -18,7 +18,23 @@
 
 @property (nonatomic, copy) NSString *icon;
 
+@property (nonatomic, copy) NSString *intro;
+
 @property (nonatomic, copy) NSString *distance;
+
+@end
+
+@interface NearbyDancerModel : NSObject
+
+@property (nonatomic, copy) NSString *accid;
+
+@property (nonatomic, copy) NSString *distance;
+
+@property (nonatomic, copy) NSString *name;
+
+@property (nonatomic, copy) NSString *icon;
+
+@property (nonatomic, copy) NSString *sign;
 
 
 @end

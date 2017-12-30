@@ -15,12 +15,23 @@
     // Initialization code
 }
 
-- (void)setModel:(NearbyTeamModel *)model
+- (void)setTModel:(NearbyTeamModel *)tModel
 {
-    _model = model;
-    self.teamNameLabel.text = model.tname;
-    self.distanceLabel.text = NSStringFormat(@"%@m",model.distance);
-    [self.iconImgView setImageWithURL:[NSURL URLWithString:model.icon] placeholder:IMAGE_NAMED(@"placeholder_img")];
+    _tModel = tModel;
+    self.teamNameLabel.text = tModel.tname;
+    self.distanceLabel.text = NSStringFormat(@"%@m",tModel.distance);
+    self.introLabel.text = tModel.intro.length ? tModel.intro:@"未填写群介绍";
+    [self.iconImgView setImageWithURL:[NSURL URLWithString:tModel.icon] placeholder:IMAGE_NAMED(@"placeholder_img")];
+}
+
+- (void)setDModel:(NearbyDancerModel *)dModel
+{
+    _dModel = dModel;
+    self.teamNameLabel.text = dModel.name;
+    self.distanceLabel.text = NSStringFormat(@"%@m",dModel.distance);
+    self.teamNameLabel.text = dModel.name;
+    self.introLabel.text = dModel.sign.length ? dModel.sign:@"未填写个人介绍";
+    [self.iconImgView setImageWithURL:[NSURL URLWithString:dModel.icon] placeholder:IMAGE_NAMED(@"placeholder_img")];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
