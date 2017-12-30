@@ -19,9 +19,7 @@ typedef void (^DeleteBlock)(NSInteger _index);
 @property (weak, nonatomic) IBOutlet UILabel *introduceLabel;
 @property (nonatomic, copy) DeleteBlock deleteBlock;
 
-- (void)layoutSubviews:(BOOL)isEdit;
-//IndexPath:(NSIndexPath *)indexPath
 
-- (void)layoutSubviews:(BOOL)isEdit indexPath:(NSIndexPath *)indexPath;
+- (void)layoutSubviews:(BOOL)isEdit;
 
 @end

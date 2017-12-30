@@ -93,7 +93,6 @@
         if (!self.isMe) {
             if (!self.isMyFriend) {
                 UIView *bgView = [[UIView alloc] init];
-                bgView.backgroundColor = [UIColor cyanColor];
                 
                 UIButton *addFriendBtn = [[UIButton alloc] init];
                 [addFriendBtn setTitle:@"添加好友" forState:UIControlStateNormal];

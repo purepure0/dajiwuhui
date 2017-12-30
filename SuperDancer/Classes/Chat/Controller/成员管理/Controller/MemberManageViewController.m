@@ -21,6 +21,8 @@
 @property (nonatomic, strong) NSMutableArray *memberList;
 @property (nonatomic, strong) NSMutableArray *searchResultList;
 
+@property (nonatomic, strong) NIMTeamMember *members;
+
 @end
 
 static NSString *kMemberManageCellIdentifier = @"kMemberManageCellIdentifier";
@@ -53,9 +55,9 @@ static NSString *kMemberManageCellIdentifier = @"kMemberManageCellIdentifier";
             [self hideLoading];
             [self toast:error.localizedDescription];
         }else {
-            NSArray *teamMembers = (NSMutableArray *)members;
+//            NSArray *teamMembers = (NSMutableArray *)members;
             NSMutableArray *teamMembersUserID = [NSMutableArray new];
-            for (NIMTeamMember *member in teamMembers) {
+            for (NIMTeamMember *member in members) {
                 if ([_team.owner isEqualToString:member.userId]) {
                     [teamMembersUserID insertObject:member.userId atIndex:0];
                 }else {
@@ -134,12 +136,19 @@ static NSString *kMemberManageCellIdentifier = @"kMemberManageCellIdentifier";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MemberManageCell *cell = [tableView dequeueReusableCellWithIdentifier:kMemberManageCellIdentifier];
-    [cell layoutSubviews:_isEdit indexPath:indexPath];
+    [cell layoutSubviews:_isEdit];
     NIMUser *member = _searchResultList[indexPath.row];
+    if ([member.userId isEqualToString:_team.owner]) {
+        cell.deleteBtn.hidden = YES;
+        cell.leaderLabel.hidden = NO;
+    } else {
+        cell.deleteBtn.hidden = NO;
+        cell.leaderLabel.hidden = YES;
+    }
     NSLog(@"%@", member.userInfo.nickName);
     [cell.iconImg setImageWithURL:[NSURL URLWithString:member.userInfo.avatarUrl] placeholder:[UIImage imageNamed:@"myaccount"]];
     cell.nameLabel.text = member.userInfo.nickName;
-    cell.introduceLabel.text = member.userInfo.sign;
+    cell.introduceLabel.text = member.userInfo.sign.length?member.userInfo.sign:@"未填写个人介绍";
     @weakify(self);
     cell.deleteBlock = ^(NSInteger _index) {
         @strongify(self);

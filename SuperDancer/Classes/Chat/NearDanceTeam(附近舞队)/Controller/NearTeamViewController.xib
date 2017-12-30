@@ -40,7 +40,7 @@
                     <rect key="frame" x="15" y="356" width="345" height="45"/>
                     <color key="backgroundColor" red="0.54940932989120483" green="0.19814977049827576" blue="0.70779222249984741" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="8Xf-PM-wzL" secondAttribute="height" multiplier="23:3" id="ASh-0z-IJ3"/>
+                        <constraint firstAttribute="height" constant="45" id="3Vd-hr-xgy"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="查看附近">
@@ -48,7 +48,7 @@
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="5"/>
+                            <integer key="value" value="3"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>

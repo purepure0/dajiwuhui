@@ -86,9 +86,9 @@
             UIView *bgView = [[UIView alloc] init];
             
             UIButton *chatBtn = [[UIButton alloc] init];
-            [chatBtn setTitle:@"聊天" forState:UIControlStateNormal];
+            [chatBtn setTitle:@"发送消息" forState:UIControlStateNormal];
             [chatBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            chatBtn.backgroundColor = kColorRGB(44, 145, 247);
+            chatBtn.backgroundColor = kColorRGB(75, 169, 39);
             [chatBtn addTarget:self action:@selector(chatAction) forControlEvents:UIControlEventTouchUpInside];
             [bgView addSubview:chatBtn];
             

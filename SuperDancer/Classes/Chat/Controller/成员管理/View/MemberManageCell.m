@@ -72,23 +72,6 @@
     }
 }
 
-- (void)layoutSubviews:(BOOL)isEdit indexPath:(NSIndexPath *)indexPath
-{
-    if (isEdit) {
-        [self.deleteBtn updateLayout];
-        [self updateLayout];
-        self.deleteBtn.sd_layout
-        .leftSpaceToView(self.contentView, 15);
-    } else {
-        [self.deleteBtn updateLayout];
-        self.deleteBtn.sd_layout
-        .leftSpaceToView(self.contentView, -30);
-    }
-    self.deleteBtn.tag = indexPath.row;
-    self.deleteBtn.hidden = !indexPath.row ? YES:NO;
-    self.leaderLabel.hidden = !indexPath.row ? NO:YES;
-}
-
 - (IBAction)deleteAction:(UIButton *)btn {
     if (self.deleteBlock) {
         self.deleteBlock(btn.tag);

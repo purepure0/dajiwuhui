@@ -22,15 +22,15 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sav-0L-xC8">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sav-0L-xC8">
                     <rect key="frame" x="0.0" y="56" width="375" height="611"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Gmt-ST-bvK"/>
                         <outlet property="delegate" destination="-1" id="dch-CD-x5S"/>
                     </connections>
                 </tableView>
-                <searchBar contentMode="redraw" placeholder="通过昵称搜索" translatesAutoresizingMaskIntoConstraints="NO" id="vs1-ZU-xYq">
+                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="通过昵称搜索" translatesAutoresizingMaskIntoConstraints="NO" id="vs1-ZU-xYq">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
