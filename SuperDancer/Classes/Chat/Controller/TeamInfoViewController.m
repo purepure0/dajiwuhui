@@ -18,12 +18,15 @@
 #import "TZImagePickerController.h"
 #import <QiniuSDK.h>
 #import "ModifyTeamNicknameViewController.h"
+#import "Utility.h"
 
 @interface TeamInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *data;
 // 城市
+@property (nonatomic, copy) NSString *city;
+// 位置
 @property (nonatomic, copy) NSString *locality;
 // 昵称
 @property (nonatomic, copy) NSString *nickname;
@@ -94,7 +97,8 @@
                 NSDictionary *teamInfo = [NSMutableArray arrayWithArray:data].lastObject;
                 NSArray *localityArray = [teamInfo[@"locality"] componentsSeparatedByString:@","];
                 if (localityArray.count == 3) {
-                    self.locality = [localityArray objectAtIndex:1];
+                    self.city = localityArray[1];
+                    self.locality = NSStringFormat(@"%@%@%@",localityArray[0],localityArray[1],localityArray[2]);
                     [self initTeamData];
                 }
             }
@@ -106,15 +110,24 @@
 
 - (void)initTeamData
 {
-    if (!self.locality || !self.locality.length) {
-        self.locality = @"未设置";
+    if (!self.city || !self.city.length) {
+        self.city = @"未设置";
     }
     if (!self.nickname || !self.nickname.length) {
         self.nickname = @"未设置";
     }
+    
+    if (!self.team.intro || !self.team.intro.length) {
+        self.team.intro = @"未设置";
+    }
+    
+    if (!self.locality || !self.locality.length) {
+        self.locality = @"未设置";
+    }
+    
     if (_isTeamOwner) {
         
-        _data = @[@[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": self.locality,@"isTeamOwner":@(1)}],
+        _data = @[@[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": self.city,@"isTeamOwner":@(1)}],
                   @[@{@"#": @"#"}],
                   @[@{@"title": @"我的舞队名片", @"content": self.nickname},
                     @{@"#": @"#"}],
@@ -129,9 +142,9 @@
                     @{@"#": @"#"}],
                   @[@{@"title": @"聊天记录", @"content":@""}],
                   @[@{@"title": @"领队名称", @"content": @"舞者名称007"},
-                    @{@"title": @"成立时间", @"content": @"2017-10-10"},
-                    @{@"title": @"所在地区", @"content": @"山东省菏泽市牡丹区"}],
-                  @[@{@"title": @"舞队介绍", @"content": @"舞队坐落于山东省菏泽市牡丹区，舞队成员有10名"}]
+                    @{@"title": @"成立时间", @"content":[Utility NSDateToString:NSStringFormat(@"%f",self.team.createTime)]},
+                    @{@"title": @"所在地区", @"content": self.locality}],
+                  @[@{@"title": @"舞队介绍", @"content":self.team.intro}]
                   ];
     }
     [self.tableView reloadData];
@@ -315,8 +328,7 @@
         }
     }else {
         if (indexPath.section == 2) {
-            if (!indexPath.row) {//群昵称
-                NSLog(@"舞队名片");
+            if (!indexPath.row) {//群昵称(舞队名片)
                 ModifyTeamNicknameViewController *tn = [[ModifyTeamNicknameViewController alloc] init];
                 tn.team = self.team;
                 tn.nickname = self.nickname;
