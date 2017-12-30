@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"编辑我的舞队名片";
+    self.navigationItem.title = @"我的舞队名片";
     self.view.backgroundColor = kBackgroundColor;
     
     self.bgView.layer.borderWidth = 0.5;

@@ -27,7 +27,7 @@
     [navigationBar setTintColor:[UIColor whiteColor]];
     [navigationBar setBarTintColor:[UIColor whiteColor]];
     
-    [navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:kTextBlackColor,NSFontAttributeName:[UIFont systemFontOfSize:19]}];
+    [navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:kTextBlackColor,NSFontAttributeName:[UIFont systemFontOfSize:18]}];
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {

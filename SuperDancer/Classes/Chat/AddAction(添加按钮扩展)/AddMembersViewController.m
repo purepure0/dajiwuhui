@@ -37,6 +37,8 @@
     for (NIMUser *user in _friendList) {
         if ([_teamMemberUserIDs indexOfObject:user.userId] != NSNotFound) {
             [_friendList removeObject:user];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"无可添加的成员" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alertView show];
         }
     }
     NSLog(@"%@", _friendList);

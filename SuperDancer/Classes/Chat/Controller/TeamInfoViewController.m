@@ -50,17 +50,15 @@
     
     // 初始化群资料
     [self initTeamData];
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     // 获取群成员
     [self fetchTeamMembers];
-
-    
-    
-
     // 获取群信息
     [self fetchTeamInfo];
-
 }
-
 - (void)fetchTeamMembers {
     NSLog(@"%@", _teamID);
     [[NIMSDK sharedSDK].teamManager fetchTeamMembers:_teamID completion:^(NSError * _Nullable error, NSArray<NIMTeamMember *> * _Nullable members) {
@@ -88,9 +86,9 @@
 
 - (void)fetchTeamInfo {
     [[NIMSDK sharedSDK].teamManager fetchTeamInfo:_teamID completion:^(NSError * _Nullable error, NIMTeam * _Nullable team) {
-        self.team = team;
         PPLog(@"Team == %@",team);
         if (!error) {
+            self.team = team;
             if (team.clientCustomInfo.length || team.clientCustomInfo) {
                 NSArray *data = [NSJSONSerialization JSONObjectWithData:[team.clientCustomInfo dataUsingEncoding:NSUTF8StringEncoding] options:0 error:0];
                 NSDictionary *teamInfo = [NSMutableArray arrayWithArray:data].lastObject;
@@ -108,13 +106,14 @@
 
 - (void)initTeamData
 {
+    if (!self.locality || !self.locality.length) {
+        self.locality = @"未设置";
+    }
+    if (!self.nickname || !self.nickname.length) {
+        self.nickname = @"未设置";
+    }
     if (_isTeamOwner) {
-        if (!self.locality || !self.locality.length) {
-            self.locality = @"未设置";
-        }
-        if (!self.nickname || !self.nickname.length) {
-            self.nickname = @"未设置";
-        }
+        
         _data = @[@[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": self.locality,@"isTeamOwner":@(1)}],
                   @[@{@"#": @"#"}],
                   @[@{@"title": @"我的舞队名片", @"content": self.nickname},
@@ -126,7 +125,7 @@
         _data = @[
                   @[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": @"菏泽市",@"isTeamOwner":@(0)}],
                   @[@{@"#": @"#"}],
-                  @[@{@"title": @"我的舞队名片", @"content": @"未设置"},
+                  @[@{@"title": @"我的舞队名片", @"content": self.nickname},
                     @{@"#": @"#"}],
                   @[@{@"title": @"聊天记录", @"content":@""}],
                   @[@{@"title": @"领队名称", @"content": @"舞者名称007"},
@@ -216,11 +215,10 @@
         }else if (indexPath.section == 4) {
             [cell updateSecondCellWithData:dic];
             if (indexPath.row == 0) {
-                [cell showRigthArrow:YES];
+                [cell showRigthArrow:NO];
             }
         }else {
             [cell updateThirdCellWithData:dic];
-            
         }
     }
 #pragma mark - 公告/视频/投票/签到
@@ -319,21 +317,22 @@
         if (indexPath.section == 2) {
             if (!indexPath.row) {//群昵称
                 NSLog(@"舞队名片");
+                ModifyTeamNicknameViewController *tn = [[ModifyTeamNicknameViewController alloc] init];
+                tn.team = self.team;
+                tn.nickname = self.nickname;
+                [self.navigationController pushViewController:tn animated:YES];
             }else {
                 MemberManageViewController *memberMag = [[MemberManageViewController alloc] init];
                 memberMag.team = _team;
                 memberMag.isOwner = _isTeamOwner;
                 [self.navigationController pushViewController:memberMag animated:YES];
             }
-        }else if (indexPath.section == 3) {
-            NSLog(@"聊天记录");
-            TeamSessionRemoteHistoryViewController *rh = [[TeamSessionRemoteHistoryViewController alloc] init];
-//            rh.sessionConfig = [[TeamSessionViewController alloc] init];
+        }else if (indexPath.section == 3) {//聊天记录
+            NIMSession *session = [NIMSession session:self.team.teamId type:NIMSessionTypeTeam];
+            TeamSessionRemoteHistoryViewController *rh = [[TeamSessionRemoteHistoryViewController alloc] initWithSession:session];
             [self.navigationController pushViewController:rh animated:YES];
         }else  if (indexPath.section == 4) {
-            if (indexPath.row == 0) {
-                NSLog(@"领队名称");
-            }
+            //领队名称、成立时间、所在地区
         }
     }
 }
