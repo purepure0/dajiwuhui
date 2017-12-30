@@ -207,6 +207,8 @@
 		9A5781131FEF781100A693A9 /* SearchFriendResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5781111FEF781100A693A9 /* SearchFriendResultViewController.m */; };
 		9A5781141FEF781100A693A9 /* SearchFriendResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5781121FEF781100A693A9 /* SearchFriendResultViewController.xib */; };
 		9A58B9781FF6B2DF00530DBF /* NearbyTeamModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A58B9771FF6B2DF00530DBF /* NearbyTeamModel.m */; };
+		9A58B9811FF777FD00530DBF /* NearDancerInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A58B97E1FF777FC00530DBF /* NearDancerInfoViewController.xib */; };
+		9A58B9821FF777FD00530DBF /* NearDancerInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A58B9801FF777FD00530DBF /* NearDancerInfoViewController.m */; };
 		9A61BEFD1FD1371F00F30888 /* SDMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A61BEF61FD1371F00F30888 /* SDMineViewController.m */; };
 		9A61BEFE1FD1371F00F30888 /* SDMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A61BEF71FD1371F00F30888 /* SDMineViewController.xib */; };
 		9A61BEFF1FD1371F00F30888 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A61BEF91FD1371F00F30888 /* SettingViewController.m */; };
@@ -667,6 +669,9 @@
 		9A5781121FEF781100A693A9 /* SearchFriendResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFriendResultViewController.xib; sourceTree = "<group>"; };
 		9A58B9761FF6B2DF00530DBF /* NearbyTeamModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearbyTeamModel.h; sourceTree = "<group>"; };
 		9A58B9771FF6B2DF00530DBF /* NearbyTeamModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearbyTeamModel.m; sourceTree = "<group>"; };
+		9A58B97E1FF777FC00530DBF /* NearDancerInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearDancerInfoViewController.xib; sourceTree = "<group>"; };
+		9A58B97F1FF777FC00530DBF /* NearDancerInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearDancerInfoViewController.h; sourceTree = "<group>"; };
+		9A58B9801FF777FD00530DBF /* NearDancerInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearDancerInfoViewController.m; sourceTree = "<group>"; };
 		9A61BEF51FD1371F00F30888 /* SDMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMineViewController.h; sourceTree = "<group>"; };
 		9A61BEF61FD1371F00F30888 /* SDMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMineViewController.m; sourceTree = "<group>"; };
 		9A61BEF71FD1371F00F30888 /* SDMineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDMineViewController.xib; sourceTree = "<group>"; };
@@ -1992,6 +1997,9 @@
 				9A52EFF71FE37B8000125087 /* NearTeamListViewController.h */,
 				9A52EFF81FE37B8000125087 /* NearTeamListViewController.m */,
 				9A52EFF91FE37B8000125087 /* NearTeamListViewController.xib */,
+				9A58B97F1FF777FC00530DBF /* NearDancerInfoViewController.h */,
+				9A58B9801FF777FD00530DBF /* NearDancerInfoViewController.m */,
+				9A58B97E1FF777FC00530DBF /* NearDancerInfoViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2867,6 +2875,7 @@
 				9A7D62E41FE7C0DD0078DD2B /* GroupNoticeDetailViewController.xib in Resources */,
 				9A1BB42A1F85E2850067C12C /* SDHomeViewController.xib in Resources */,
 				9AFB539B1FEE4D11008E5BAD /* ModifyTeamLocalityViewController.xib in Resources */,
+				9A58B9811FF777FD00530DBF /* NearDancerInfoViewController.xib in Resources */,
 				04EB25071F9A4E71000E2137 /* CommentView.xib in Resources */,
 				04AE23B61FA07EA10034635C /* MyCollectionViewController.xib in Resources */,
 				041C47451F9B896000A65AC8 /* DancerListCell.xib in Resources */,
@@ -3036,6 +3045,7 @@
 				9A7D62F91FE8EEE90078DD2B /* PhotosContainerView.m in Sources */,
 				9AFB53951FECE887008E5BAD /* TeamQRCodeViewController.m in Sources */,
 				04498FBC1FA4361D007CACEA /* VideoImageCell.m in Sources */,
+				9A58B9821FF777FD00530DBF /* NearDancerInfoViewController.m in Sources */,
 				9A52EFFA1FE37B8000125087 /* NearTeamListViewController.m in Sources */,
 				9A53C0731FDFC86F003CBFD3 /* PublicNoticeListViewController.m in Sources */,
 				9ACA8AF11F98574C00B73B29 /* UIAlertController+ZFPlayerRotation.m in Sources */,

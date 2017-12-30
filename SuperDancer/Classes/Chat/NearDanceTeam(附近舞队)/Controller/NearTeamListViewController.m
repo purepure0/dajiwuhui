@@ -10,7 +10,7 @@
 #import "NearTeamCell.h"
 #import "NearbyTeamModel.h"
 #import "QRCodeTeamInfoViewController.h"
-#import "TeamMemmberInfoViewController.h"
+#import "NearDancerInfoViewController.h"
 
 @interface NearTeamListViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
@@ -71,7 +71,6 @@ static NSString *kNearTeamCell = @"kNearTeamCell";
             [danceList addObject:model];
         }
         [self.nearbyList addObject:danceList];
-//        self.nearbyList = [NSMutableArray arrayWithObjects:teamList,danceList, nil];
         
         [self.tableView reloadData];
     } failure:^(NSError *error) {
@@ -156,8 +155,10 @@ static NSString *kNearTeamCell = @"kNearTeamCell";
         QRC.teamID = NSStringFormat(@"%@",model.tid);
         [self.navigationController pushViewController:QRC animated:YES];
     } else {
-        TeamMemmberInfoViewController *memberInfo = [[TeamMemmberInfoViewController alloc] init];
-        [self.navigationController popToViewController:memberInfo animated:YES];
+        NearbyDancerModel *model = self.nearbyList[1][indexPath.row];
+        NearDancerInfoViewController *dancerInfo = [[NearDancerInfoViewController alloc] init];
+        dancerInfo.userId = model.accid;
+        [self.navigationController pushViewController:dancerInfo animated:YES];
     }
 }
 
