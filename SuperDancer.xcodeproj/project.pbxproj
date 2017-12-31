@@ -217,6 +217,17 @@
 		9A58B9CA1FF8207600530DBF /* TeamAnnouncementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A58B9C81FF8207600530DBF /* TeamAnnouncementCell.xib */; };
 		9A58B9CE1FF9404700530DBF /* ModifyTeamNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A58B9CC1FF9404700530DBF /* ModifyTeamNameViewController.m */; };
 		9A58B9CF1FF9404700530DBF /* ModifyTeamNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A58B9CD1FF9404700530DBF /* ModifyTeamNameViewController.xib */; };
+		9A58B9EB1FF94EA100530DBF /* UIImage+XLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A58B9D21FF94EA100530DBF /* UIImage+XLExtension.m */; };
+		9A58B9EC1FF94EA100530DBF /* UIView+XLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A58B9D41FF94EA100530DBF /* UIView+XLExtension.m */; };
+		9A58B9ED1FF94EA100530DBF /* FSActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A58B9D81FF94EA100530DBF /* FSActionSheet.m */; };
+		9A58B9EE1FF94EA100530DBF /* FSActionSheetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A58B9DA1FF94EA100530DBF /* FSActionSheetCell.m */; };
+		9A58B9EF1FF94EA100530DBF /* FSActionSheetConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A58B9DC1FF94EA100530DBF /* FSActionSheetConfig.m */; };
+		9A58B9F01FF94EA100530DBF /* FSActionSheetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A58B9DE1FF94EA100530DBF /* FSActionSheetItem.m */; };
+		9A58B9F11FF94EA100530DBF /* FSActionSheet_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A58B9E01FF94EA100530DBF /* FSActionSheet_cancel@2x.png */; };
+		9A58B9F21FF94EA100530DBF /* FSActionSheet_cancel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A58B9E11FF94EA100530DBF /* FSActionSheet_cancel@3x.png */; };
+		9A58B9F31FF94EA100530DBF /* XLPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A58B9E41FF94EA100530DBF /* XLPhotoBrowser.m */; };
+		9A58B9F41FF94EA100530DBF /* XLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A58B9E81FF94EA100530DBF /* XLProgressView.m */; };
+		9A58B9F51FF94EA100530DBF /* XLZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A58B9EA1FF94EA100530DBF /* XLZoomingScrollView.m */; };
 		9A61BEFD1FD1371F00F30888 /* SDMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A61BEF61FD1371F00F30888 /* SDMineViewController.m */; };
 		9A61BEFE1FD1371F00F30888 /* SDMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A61BEF71FD1371F00F30888 /* SDMineViewController.xib */; };
 		9A61BEFF1FD1371F00F30888 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A61BEF91FD1371F00F30888 /* SettingViewController.m */; };
@@ -676,6 +687,28 @@
 		9A58B9CB1FF9404700530DBF /* ModifyTeamNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyTeamNameViewController.h; sourceTree = "<group>"; };
 		9A58B9CC1FF9404700530DBF /* ModifyTeamNameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyTeamNameViewController.m; sourceTree = "<group>"; };
 		9A58B9CD1FF9404700530DBF /* ModifyTeamNameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModifyTeamNameViewController.xib; sourceTree = "<group>"; };
+		9A58B9D11FF94EA100530DBF /* UIImage+XLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XLExtension.h"; sourceTree = "<group>"; };
+		9A58B9D21FF94EA100530DBF /* UIImage+XLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XLExtension.m"; sourceTree = "<group>"; };
+		9A58B9D31FF94EA100530DBF /* UIView+XLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XLExtension.h"; sourceTree = "<group>"; };
+		9A58B9D41FF94EA100530DBF /* UIView+XLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XLExtension.m"; sourceTree = "<group>"; };
+		9A58B9D71FF94EA100530DBF /* FSActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSActionSheet.h; sourceTree = "<group>"; };
+		9A58B9D81FF94EA100530DBF /* FSActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSActionSheet.m; sourceTree = "<group>"; };
+		9A58B9D91FF94EA100530DBF /* FSActionSheetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSActionSheetCell.h; sourceTree = "<group>"; };
+		9A58B9DA1FF94EA100530DBF /* FSActionSheetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSActionSheetCell.m; sourceTree = "<group>"; };
+		9A58B9DB1FF94EA100530DBF /* FSActionSheetConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSActionSheetConfig.h; sourceTree = "<group>"; };
+		9A58B9DC1FF94EA100530DBF /* FSActionSheetConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSActionSheetConfig.m; sourceTree = "<group>"; };
+		9A58B9DD1FF94EA100530DBF /* FSActionSheetItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSActionSheetItem.h; sourceTree = "<group>"; };
+		9A58B9DE1FF94EA100530DBF /* FSActionSheetItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSActionSheetItem.m; sourceTree = "<group>"; };
+		9A58B9E01FF94EA100530DBF /* FSActionSheet_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FSActionSheet_cancel@2x.png"; sourceTree = "<group>"; };
+		9A58B9E11FF94EA100530DBF /* FSActionSheet_cancel@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FSActionSheet_cancel@3x.png"; sourceTree = "<group>"; };
+		9A58B9E31FF94EA100530DBF /* XLPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPhotoBrowser.h; sourceTree = "<group>"; };
+		9A58B9E41FF94EA100530DBF /* XLPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLPhotoBrowser.m; sourceTree = "<group>"; };
+		9A58B9E51FF94EA100530DBF /* XLPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		9A58B9E61FF94EA100530DBF /* XLPhotoBrowserTypeDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPhotoBrowserTypeDefine.h; sourceTree = "<group>"; };
+		9A58B9E71FF94EA100530DBF /* XLProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLProgressView.h; sourceTree = "<group>"; };
+		9A58B9E81FF94EA100530DBF /* XLProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLProgressView.m; sourceTree = "<group>"; };
+		9A58B9E91FF94EA100530DBF /* XLZoomingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLZoomingScrollView.h; sourceTree = "<group>"; };
+		9A58B9EA1FF94EA100530DBF /* XLZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLZoomingScrollView.m; sourceTree = "<group>"; };
 		9A61BEF51FD1371F00F30888 /* SDMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMineViewController.h; sourceTree = "<group>"; };
 		9A61BEF61FD1371F00F30888 /* SDMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMineViewController.m; sourceTree = "<group>"; };
 		9A61BEF71FD1371F00F30888 /* SDMineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDMineViewController.xib; sourceTree = "<group>"; };
@@ -922,6 +955,7 @@
 		0480A44D1F8EFE0800BA5CF6 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				9A58B9D01FF94EA100530DBF /* XLPhotoBrowser+CoderXL */,
 				9ACA8AFE1F985B4400B73B29 /* ZFDownload */,
 				9ACA8ACE1F98574C00B73B29 /* ZFPlayer */,
 				9AD960CB1F8F169C0024DA43 /* MBProgressHUD */,
@@ -2060,6 +2094,67 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9A58B9D01FF94EA100530DBF /* XLPhotoBrowser+CoderXL */ = {
+			isa = PBXGroup;
+			children = (
+				9A58B9D11FF94EA100530DBF /* UIImage+XLExtension.h */,
+				9A58B9D21FF94EA100530DBF /* UIImage+XLExtension.m */,
+				9A58B9D31FF94EA100530DBF /* UIView+XLExtension.h */,
+				9A58B9D41FF94EA100530DBF /* UIView+XLExtension.m */,
+				9A58B9D51FF94EA100530DBF /* Vender */,
+				9A58B9E31FF94EA100530DBF /* XLPhotoBrowser.h */,
+				9A58B9E41FF94EA100530DBF /* XLPhotoBrowser.m */,
+				9A58B9E51FF94EA100530DBF /* XLPhotoBrowserConfig.h */,
+				9A58B9E61FF94EA100530DBF /* XLPhotoBrowserTypeDefine.h */,
+				9A58B9E71FF94EA100530DBF /* XLProgressView.h */,
+				9A58B9E81FF94EA100530DBF /* XLProgressView.m */,
+				9A58B9E91FF94EA100530DBF /* XLZoomingScrollView.h */,
+				9A58B9EA1FF94EA100530DBF /* XLZoomingScrollView.m */,
+			);
+			path = "XLPhotoBrowser+CoderXL";
+			sourceTree = "<group>";
+		};
+		9A58B9D51FF94EA100530DBF /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+				9A58B9D61FF94EA100530DBF /* FSActionSheet */,
+				9A58B9E21FF94EA100530DBF /* PageControl */,
+			);
+			path = Vender;
+			sourceTree = "<group>";
+		};
+		9A58B9D61FF94EA100530DBF /* FSActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				9A58B9D71FF94EA100530DBF /* FSActionSheet.h */,
+				9A58B9D81FF94EA100530DBF /* FSActionSheet.m */,
+				9A58B9D91FF94EA100530DBF /* FSActionSheetCell.h */,
+				9A58B9DA1FF94EA100530DBF /* FSActionSheetCell.m */,
+				9A58B9DB1FF94EA100530DBF /* FSActionSheetConfig.h */,
+				9A58B9DC1FF94EA100530DBF /* FSActionSheetConfig.m */,
+				9A58B9DD1FF94EA100530DBF /* FSActionSheetItem.h */,
+				9A58B9DE1FF94EA100530DBF /* FSActionSheetItem.m */,
+				9A58B9DF1FF94EA100530DBF /* FSActionSheetResources */,
+			);
+			path = FSActionSheet;
+			sourceTree = "<group>";
+		};
+		9A58B9DF1FF94EA100530DBF /* FSActionSheetResources */ = {
+			isa = PBXGroup;
+			children = (
+				9A58B9E01FF94EA100530DBF /* FSActionSheet_cancel@2x.png */,
+				9A58B9E11FF94EA100530DBF /* FSActionSheet_cancel@3x.png */,
+			);
+			path = FSActionSheetResources;
+			sourceTree = "<group>";
+		};
+		9A58B9E21FF94EA100530DBF /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PageControl;
+			sourceTree = "<group>";
+		};
 		9A61BEF31FD1371F00F30888 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -2778,6 +2873,7 @@
 				9A2CB89B1F868DAA00907C72 /* RecommendViewController.xib in Resources */,
 				049E510A1FA2FF00006C3BF1 /* MsgCenterViewController.xib in Resources */,
 				9A58B9CF1FF9404700530DBF /* ModifyTeamNameViewController.xib in Resources */,
+				9A58B9F11FF94EA100530DBF /* FSActionSheet_cancel@2x.png in Resources */,
 				049E50BE1FA0DDEC006C3BF1 /* LocalSelectViewController.xib in Resources */,
 				9A33C8031FE4169B006F7A50 /* TeamJoinCell.xib in Resources */,
 				04AE23921FA070320034635C /* CollectionDancersViewController.xib in Resources */,
@@ -2792,6 +2888,7 @@
 				9A08C22C1FCC3F2400F6C54B /* SDChatViewController.xib in Resources */,
 				9AC366901FEE522F00D6746D /* AddFriendViewController.xib in Resources */,
 				9A33C7FB1FE4161B006F7A50 /* TeamJoinViewController.xib in Resources */,
+				9A58B9F21FF94EA100530DBF /* FSActionSheet_cancel@3x.png in Resources */,
 				9ACA8AFA1F98574C00B73B29 /* ZFPlayer.bundle in Resources */,
 				9A2CB8A81F8725A300907C72 /* HomeCell.xib in Resources */,
 				9A53C06A1FDFAE8F003CBFD3 /* MessageNotiCell.xib in Resources */,
@@ -2899,7 +2996,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A1F38BA1FF3EDD500696C61 /* FriendInfoViewController.m in Sources */,
+				9A58B9EB1FF94EA100530DBF /* UIImage+XLExtension.m in Sources */,
 				04F41DB51FA36154002EF921 /* UploadVideoViewController.m in Sources */,
+				9A58B9F41FF94EA100530DBF /* XLProgressView.m in Sources */,
 				9A1BB4291F85E2850067C12C /* SDHomeViewController.m in Sources */,
 				9ACA8B091F985B4400B73B29 /* ZFDownloadManager.m in Sources */,
 				9ACD9B751FA35E2A003FF1BB /* UserAgreeViewController.m in Sources */,
@@ -2928,6 +3027,7 @@
 				9AC2237C1F8B107100919072 /* ContentCell.m in Sources */,
 				9ACA8AF81F98574C00B73B29 /* MMMaterialDesignSpinner.m in Sources */,
 				04F41DBE1FA385E8002EF921 /* SelectTypeView.m in Sources */,
+				9A58B9F01FF94EA100530DBF /* FSActionSheetItem.m in Sources */,
 				9AD960C71F8F13860024DA43 /* SDHTTPRequest.m in Sources */,
 				9A1DC6A11FA36BCF0014E739 /* BVTextView.m in Sources */,
 				3F92940C1FD4F3B9004CC1E7 /* QRCodeGenerateVC.m in Sources */,
@@ -2937,11 +3037,13 @@
 				9A1BB41A1F85DC210067C12C /* main.m in Sources */,
 				9A53C07B1FDFCF73003CBFD3 /* PublicNoticeDetailViewController.m in Sources */,
 				9AD960F31F8F2F050024DA43 /* MBProgressHUD+MJ.m in Sources */,
+				9A58B9EC1FF94EA100530DBF /* UIView+XLExtension.m in Sources */,
 				9AD960EC1F8F2EEA0024DA43 /* SDInterfacedConst.m in Sources */,
 				9A2CB8A71F8725A300907C72 /* HomeCell.m in Sources */,
 				04ECB88A1F9359FE00186C5B /* CommentCell.m in Sources */,
 				3F5A446F1FD154FD00BAE622 /* SearchTeamViewController.m in Sources */,
 				041C47421F9B886000A65AC8 /* DancerListCell.m in Sources */,
+				9A58B9EE1FF94EA100530DBF /* FSActionSheetCell.m in Sources */,
 				3F6868C81FCEA711001EB5BD /* ChatListHeaderSelectTableViewCell.m in Sources */,
 				9A52F00E1FE6B5B100125087 /* CompleteTeamInfoViewController.m in Sources */,
 				044CBCF11F8F53A30067C5CA /* VideoListModel.m in Sources */,
@@ -2949,6 +3051,7 @@
 				9A1BB4191F85DC0C0067C12C /* AppDelegate.m in Sources */,
 				04AE23631F9F18C90034635C /* UserModel.m in Sources */,
 				041C473B1F9B86A700A65AC8 /* DateMarkTool.m in Sources */,
+				9A58B9EF1FF94EA100530DBF /* FSActionSheetConfig.m in Sources */,
 				048C53221F9D943200607784 /* DanceTypeCell.m in Sources */,
 				9A53C0A31FE00C00003CBFD3 /* ApplyDetailCell.m in Sources */,
 				049E50FF1FA2FECD006C3BF1 /* MsgCommentViewController.m in Sources */,
@@ -3020,12 +3123,14 @@
 				9AD960DD1F8F180D0024DA43 /* PPNetworkHelper.m in Sources */,
 				3F5A44511FD11D4C00BAE622 /* CreatDanceTeamViewController.m in Sources */,
 				9A52EFFF1FE3AAE000125087 /* NearTeamCell.m in Sources */,
+				9A58B9F31FF94EA100530DBF /* XLPhotoBrowser.m in Sources */,
 				9AC223841F8B139B00919072 /* HandleCell.m in Sources */,
 				9ACA8B0B1F985B4400B73B29 /* ZFHttpRequest.m in Sources */,
 				049E51191FA31050006C3BF1 /* MsgCommentModel.m in Sources */,
 				04AE236A1F9F43730034635C /* DancerModel.m in Sources */,
 				9A61BF041FD1433C00F30888 /* MineHandleCell.m in Sources */,
 				9A5781131FEF781100A693A9 /* SearchFriendResultViewController.m in Sources */,
+				9A58B9ED1FF94EA100530DBF /* FSActionSheet.m in Sources */,
 				9AFE2DC51FF66CED00F07BB0 /* ImageScroll.m in Sources */,
 				9AD960CA1F8F14590024DA43 /* Utility.m in Sources */,
 				3F97B3691FD0F8CC00D0799A /* ThreeRightView.m in Sources */,
@@ -3063,6 +3168,7 @@
 				9A58B9C91FF8207600530DBF /* TeamAnnouncementCell.m in Sources */,
 				049E51091FA2FF00006C3BF1 /* MsgCenterViewController.m in Sources */,
 				9A53C0631FDFA9C5003CBFD3 /* MessageNotiViewController.m in Sources */,
+				9A58B9F51FF94EA100530DBF /* XLZoomingScrollView.m in Sources */,
 				04927C2E1F98E76A00CDD58E /* ReplyCommentModel.m in Sources */,
 				3F92940D1FD4F3B9004CC1E7 /* ScanSuccessJumpVC.m in Sources */,
 				9ACA8B0A1F985B4400B73B29 /* ZFFileModel.m in Sources */,

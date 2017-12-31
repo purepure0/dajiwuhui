@@ -70,6 +70,7 @@ _Pragma("clang diagnostic pop") \
     [self.navigationController pushViewController:teamInfo animated:YES];
     
 }
+
 - (BOOL)onTapAvatar:(NSString *)userId {
     NSLog(@"点击头像：%@", userId);
     TeamMemmberInfoViewController *memberInfo = [[TeamMemmberInfoViewController alloc] init];
@@ -95,11 +96,8 @@ _Pragma("clang diagnostic pop") \
             }
         }
     }
-    
     return handled;
 }
-
-
 
 - (void)showImage:(NIMMessage *)message
 {
@@ -149,10 +147,6 @@ _Pragma("clang diagnostic pop") \
         [[UIApplication sharedApplication] openURL:[components URL]];
     }
 }
-
-
-
-
 
 - (NSDictionary *)cellActions
 {

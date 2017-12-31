@@ -306,6 +306,7 @@
         }else if (indexPath.section == 4){//聊天记录
             NIMSession *session = [NIMSession session:self.team.teamId type:NIMSessionTypeTeam];
             TeamSessionRemoteHistoryViewController *rh = [[TeamSessionRemoteHistoryViewController alloc] initWithSession:session];
+            rh.team = self.team;
             [self.navigationController pushViewController:rh animated:YES];
         }
     }else {
@@ -329,6 +330,7 @@
         } else if (indexPath.section == 3) {//聊天记录
             NIMSession *session = [NIMSession session:self.team.teamId type:NIMSessionTypeTeam];
             TeamSessionRemoteHistoryViewController *rh = [[TeamSessionRemoteHistoryViewController alloc] initWithSession:session];
+            rh.team = self.team;
             [self.navigationController pushViewController:rh animated:YES];
         }
     }

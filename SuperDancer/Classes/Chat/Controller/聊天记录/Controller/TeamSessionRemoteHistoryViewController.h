@@ -9,6 +9,9 @@
 #import "TeamSessionViewController.h"
 
 @interface TeamSessionRemoteHistoryViewController : NIMSessionViewController
+
+@property (nonatomic, strong) NIMTeam *team;
+
 @end
 
 
