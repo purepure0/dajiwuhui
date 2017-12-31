@@ -18,6 +18,7 @@
 #import <QiniuSDK.h>
 #import "ModifyTeamNicknameViewController.h"
 #import "Utility.h"
+#import "GroupNoticeViewController.h"
 
 @interface TeamInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -100,7 +101,7 @@
         PPLog(@"Team == %@",team);
         if (!error) {
             self.team = team;
-            if (team.clientCustomInfo.length || team.clientCustomInfo) {
+            if (team.clientCustomInfo.length) {
                 NSArray *data = [NSJSONSerialization JSONObjectWithData:[team.clientCustomInfo dataUsingEncoding:NSUTF8StringEncoding] options:0 error:0];
                 NSDictionary *teamInfo = [NSMutableArray arrayWithArray:data].lastObject;
                 NSArray *localityArray = [teamInfo[@"locality"] componentsSeparatedByString:@","];
@@ -118,37 +119,36 @@
 
 - (void)initTeamData
 {
-    if (!self.city || !self.city.length) {
+    if (!self.city.length) {
         self.city = @"未设置";
     }
-    if (!self.nickname || !self.nickname.length) {
+    if (!self.nickname.length) {
         self.nickname = @"未设置";
     }
     
-    if (!self.team.intro || !self.team.intro.length) {
+    if (!self.team.intro.length) {
         self.team.intro = @"未设置";
     }
     
-    if (!self.locality || !self.locality.length) {
+    if (!self.locality.length) {
         self.locality = @"未设置";
     }
     
     if (_isTeamOwner) {
-        
         _data = @[@[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": self.city,@"isTeamOwner":@(1)}],
-                  @[@{@"#": @"#"}],
                   @[@{@"title": @"我的舞队名片", @"content": self.nickname},
                     @{@"#": @"#"}],
+                  @[@{@"title": @"舞队公告", @"content": @""}],
                   @[@{@"title": @"舞队管理", @"content": @""}],
                   @[@{@"title": @"聊天记录", @"content": @""}]
                   ];
     } else {
         _data = @[
                   @[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": @"菏泽市",@"isTeamOwner":@(0)}],
-                  @[@{@"#": @"#"}],
                   @[@{@"title": @"我的舞队名片", @"content": self.nickname},
                     @{@"#": @"#"}],
-                  @[@{@"title": @"聊天记录", @"content":@""}],
+                  @[@{@"title": @"舞队公告", @"content": @""}],
+                  @[@{@"title": @"聊天记录", @"content": @""}],
                   @[@{@"title": @"领队名称", @"content": @"舞者名称007"},
                     @{@"title": @"成立时间", @"content":[Utility NSDateToString:NSStringFormat(@"%f",self.team.createTime)]},
                     @{@"title": @"所在地区", @"content": self.locality}],
@@ -173,28 +173,19 @@
     NSDictionary *dic = _data[indexPath.section][indexPath.row];
     
     if (_isTeamOwner) {
-        if (indexPath.section == 0) {
+        if (!indexPath.section) {
             [cell updateFirstCellWithData:dic];
             self.iconImgView = cell.iconImageView;
         }else if (indexPath.section == 1) {
-            [cell updateFourthCellWithData:dic];
-        }else if (indexPath.section == 2) {
-            if (indexPath.row == 0) {
+            if (!indexPath.row ) {
                 [cell updateSecondCellWithData:dic];
-                if (indexPath.row == 0) {
-                    [cell showRigthArrow:YES];
-                }
-            }else {
+                [cell showRigthArrow:YES];
+            } else {
                 [cell updateFifthCellWithData:self.members];
-                // 查看更多群成员
-                __weak typeof(self) weakSelf = self;
-                cell.addMemberBlock = ^{
-                    AddMembersViewController *addMember = [[AddMembersViewController alloc] init];
-                    addMember.team = _team;
-                    addMember.teamMemberUserIDs = _teamMemberUserIDs;
-                    [weakSelf.navigationController pushViewController:addMember animated:YES];
-                };
             }
+        }else if (indexPath.section == 2) {
+            [cell updateSecondCellWithData:dic];
+            [cell showRigthArrow:YES];
         }else if (indexPath.section == 3) {
             [cell updateSecondCellWithData:dic];
             [cell showRigthArrow:YES];
@@ -203,32 +194,18 @@
             [cell showRigthArrow:YES];
         }
     }else {
-        if (indexPath.section == 0) {
+        if (!indexPath.section) {
             [cell updateFirstCellWithData:dic];
         }else if (indexPath.section == 1) {
-            [cell updateFourthCellWithData:dic];
-        }else if (indexPath.section == 2) {
-            if (indexPath.row == 0) {
+            if (!indexPath.row) {
                 [cell updateSecondCellWithData:dic];
-                if (indexPath.row == 0) {
-                    [cell showRigthArrow:YES];
-                }
-            }else {
+                [cell showRigthArrow:YES];
+            } else {
                 [cell updateFifthCellWithData:self.members];
-                __weak typeof(self) weakSelf = self;
-                cell.addMemberBlock = ^{
-                    if (_team.inviteMode == NIMTeamInviteModeAll) {
-                        AddMembersViewController *addMember = [[AddMembersViewController alloc] init];
-                        addMember.team = _team;
-                        addMember.teamMemberUserIDs = _teamMemberUserIDs;
-                        [weakSelf.navigationController pushViewController:addMember animated:YES];
-                    }else {
-                       [self toast:@"只有群主可以邀请好友"];
-                    }
-                };
-                
-                
             }
+        }else if (indexPath.section == 2) {
+            [cell updateSecondCellWithData:dic];
+            [cell showRigthArrow:YES];
         }else if (indexPath.section == 3) {
             [cell updateSecondCellWithData:dic];
             [cell showRigthArrow:YES];
@@ -242,33 +219,26 @@
             [cell updateThirdCellWithData:dic];
         }
     }
-#pragma mark - 公告/视频/投票/签到
-    // 公告/视频/投票/签到
+#pragma mark - 邀请好友
     @weakify(self);
-    [cell setHandleBtnBlock:^(NSInteger index) {
+    [cell setAddMemberBlock:^{
         @strongify(self);
-        switch (index) {
-            case 10:
-            {//群公告
-                GroupNoticeViewController *gn = [[GroupNoticeViewController alloc] init];
-                gn.team = self.team;
-                [self.navigationController pushViewController:gn animated:YES];
+        if (_isTeamOwner) {
+            AddMembersViewController *am = [[AddMembersViewController alloc] init];
+            am.team = _team;
+            am.teamMemberUserIDs = _teamMemberUserIDs;
+            [self.navigationController pushViewController:am animated:YES];
+        } else {
+            if (_team.inviteMode == NIMTeamInviteModeAll) {
+                AddMembersViewController *am = [[AddMembersViewController alloc] init];
+                am.team = _team;
+                am.teamMemberUserIDs = _teamMemberUserIDs;
+                [self.navigationController pushViewController:am animated:YES];
+            }else {
+                [self toast:@"只有群主可以邀请好友"];
             }
-                break;
-            case 11:
-            {//群视频
-                
-            }
-                break;
-            case 12:
-                break;
-            case 13:
-                break;
-            default:
-                break;
         }
     }];
-    
 #pragma mark - 舞队二维码
     [cell setQRCodeBlock:^{
         @strongify(self);
@@ -312,7 +282,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_isTeamOwner) {
-        if (indexPath.section == 2) {
+        if (indexPath.section == 1) {
             if (!indexPath.row) {//群昵称
                 ModifyTeamNicknameViewController *tn = [[ModifyTeamNicknameViewController alloc] init];
                 tn.team = self.team;
@@ -324,10 +294,14 @@
                 memberMag.isOwner = _isTeamOwner;
                 [self.navigationController pushViewController:memberMag animated:YES];
             }
-        }else if (indexPath.section == 3) {//舞队管理
+        } else if (indexPath.section == 2) {//舞队公告
+            GroupNoticeViewController *gn = [[GroupNoticeViewController alloc] init];
+            gn.canPublishAnnouncement = YES;
+            gn.team = self.team;
+            [self.navigationController pushViewController:gn animated:YES];
+        } else if (indexPath.section == 3) {//舞队管理
             TeamManageViewController *tm = [[TeamManageViewController alloc] init];
-            tm.team = self.team; //123 id = 239423354
-//            PPLog(@"team id = %@",self.team.teamId);
+            tm.team = self.team;
             [self.navigationController pushViewController:tm animated:YES];
         }else if (indexPath.section == 4){//聊天记录
             NIMSession *session = [NIMSession session:self.team.teamId type:NIMSessionTypeTeam];
@@ -335,8 +309,8 @@
             [self.navigationController pushViewController:rh animated:YES];
         }
     }else {
-        if (indexPath.section == 2) {
-            if (!indexPath.row) {//群昵称(舞队名片)
+        if (indexPath.section == 1) {
+            if (!indexPath.row) {//群昵称
                 ModifyTeamNicknameViewController *tn = [[ModifyTeamNicknameViewController alloc] init];
                 tn.team = self.team;
                 tn.nickname = self.nickname;
@@ -347,7 +321,12 @@
                 memberMag.isOwner = _isTeamOwner;
                 [self.navigationController pushViewController:memberMag animated:YES];
             }
-        }else if (indexPath.section == 3) {//聊天记录
+        } else if (indexPath.section == 2) {//群公告
+            GroupNoticeViewController *gn = [[GroupNoticeViewController alloc] init];
+            gn.canPublishAnnouncement = NO;
+            gn.team = self.team;
+            [self.navigationController pushViewController:gn animated:YES];
+        } else if (indexPath.section == 3) {//聊天记录
             NIMSession *session = [NIMSession session:self.team.teamId type:NIMSessionTypeTeam];
             TeamSessionRemoteHistoryViewController *rh = [[TeamSessionRemoteHistoryViewController alloc] initWithSession:session];
             [self.navigationController pushViewController:rh animated:YES];

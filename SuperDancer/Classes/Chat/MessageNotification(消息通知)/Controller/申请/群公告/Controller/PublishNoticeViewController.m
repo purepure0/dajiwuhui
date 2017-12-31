@@ -50,13 +50,14 @@ static NSString *kImageCellIdentifier = @"kImageCellIdentifier";
 
 - (void)publishGroupNoticeAction {
     
-    if (self.titleTextField.text.length < 4 &&self.titleTextField.text.length > 15) {
-        [self toast:@"标题仅限4~15字"];
+    if (self.titleTextField.text.length < 4 || self.titleTextField.text.length > 15) {
+        [self toast:@"标题限4~15字"];
         return;
     }
     
-    if (self.contentTextView.text.length < 15 && self.contentTextView.text.length > 500) {
-        [self toast:@"正文仅限15~500字"];
+    if (self.contentTextView.text.length < 15 || self.contentTextView.text.length > 500) {
+        [self toast:@"正文限15~500字"];
+        return;
     }
     
     [self.titleTextField endEditing:YES];

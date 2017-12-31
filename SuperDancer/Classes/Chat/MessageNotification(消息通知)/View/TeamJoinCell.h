@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^HandleBtnBlock)(NSInteger index);
+//typedef void(^HandleBtnBlock)(NSInteger index);
 
 typedef void(^QRCodeBlock)(void);
 
@@ -44,7 +44,7 @@ typedef void(^IconImgBlock)(void);
 
 
 
-@property (nonatomic, copy) HandleBtnBlock handleBtnBlock;
+//@property (nonatomic, copy) HandleBtnBlock handleBtnBlock;
 
 @property (nonatomic, copy) QRCodeBlock qRCodeBlock;
 

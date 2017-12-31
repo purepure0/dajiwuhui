@@ -10,4 +10,8 @@
 
 @interface ModifyTeamNameViewController : BaseViewController
 
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (nonatomic, strong) NIMTeam *team;
+
 @end

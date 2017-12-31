@@ -10,6 +10,7 @@
 #import "ModifyTeamLocalityViewController.h"
 #import "ModifyTeamNicknameViewController.h"
 #import "ModifyTeamIntroduceViewController.h"
+#import "ModifyTeamNameViewController.h"
 #import "Utility.h"
 
 @interface TeamManageViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -45,8 +46,6 @@
     [[NIMSDK sharedSDK].teamManager fetchTeamInfo:self.team.teamId completion:^(NSError * _Nullable error, NIMTeam * _Nullable team) {
         self.team = team;
         PPLog(@"clientCustomInfo == %@",team.clientCustomInfo);
-        PPLog(@"88888888 == %@",team.intro);
-        PPLog(@"*88888888* == %@",self.team.intro);
         if (team.clientCustomInfo.length) {
             NSArray *data = [NSJSONSerialization JSONObjectWithData:[team.clientCustomInfo dataUsingEncoding:NSUTF8StringEncoding] options:0 error:0];
             NSMutableArray *dataArray = [NSMutableArray arrayWithArray:data];
@@ -88,7 +87,7 @@
     cell.textLabel.text = self.titles[indexPath.section][indexPath.row];
     
     if (!indexPath.section) {
-        if (indexPath.row == 2) {
+        if (indexPath.row == 2 || !indexPath.row) {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         } else if (indexPath.row == 3) {
             cell.accessoryView = self.inviteModeSwitch;
@@ -135,7 +134,6 @@
                 break;
             case 2:
             {
-//                PPLog(@"Location == %@%@%@",self.users.provinceLocation,self.users.cityLocation,self.users.districtLocation);
                 NSString *locality = [self.teamInfo[@"locality"] stringByReplacingOccurrencesOfString:@"," withString:@""];
                 PPLog(@"%@",locality);
                 
@@ -171,10 +169,11 @@
             teamLocality.team = self.team;
             teamLocality.locality = self.locality;
             [self.navigationController pushViewController:teamLocality animated:YES];
-        } //else if (!indexPath.row) {// 领队名称
-            //ModifyLeaderNameViewController *leaderName = [[ModifyLeaderNameViewController alloc] init];
-            //[self.navigationController pushViewController:leaderName animated:YES];
-        //}
+        } else if (!indexPath.row) {// 领队名称
+            ModifyTeamNameViewController *tn = [[ModifyTeamNameViewController alloc] init];
+            tn.team = self.team;
+            [self.navigationController pushViewController:tn animated:YES];
+        }
     } else { // 群介绍
         ModifyTeamIntroduceViewController *teamIntro = [[ModifyTeamIntroduceViewController alloc] init];
         teamIntro.intro = self.intro;
@@ -195,7 +194,7 @@
 
 - (NSArray *)titles {
     if (!_titles) {
-        _titles = @[@[@"领队名称",@"成立时间",@"所在地区",@"允许成员邀请队员"],@[@""]];
+        _titles = @[@[@"舞队名称",@"成立时间",@"所在地区",@"允许成员邀请队员"],@[@""]];
     }
     return _titles;
 }

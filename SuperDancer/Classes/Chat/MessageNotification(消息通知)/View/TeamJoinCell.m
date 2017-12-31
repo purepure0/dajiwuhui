@@ -37,16 +37,17 @@
             identifier = @"TeamJoinCellFirst";
             index = 0;
         }else if (indexPath.section == 1) {
-            identifier = @"TeamJoinCellFourth";
-            index = 3;
-        }else if (indexPath.section == 2) {
-            if (indexPath.row == 0) {
+
+            if (!indexPath.row) {
                 identifier = @"TeamJoinCellSecond";
                 index = 1;
-            }else {
+            } else {
                 identifier = @"TeamJoinCellFifth";
                 index = 4;
             }
+        }else if (indexPath.section == 2) {
+            identifier = @"TeamJoinCellSecond";
+            index = 1;
         }else if (indexPath.section == 5) {
             identifier = @"TeamJoinCellThird";
             index = 2;
@@ -110,7 +111,7 @@
 }
 
 - (void)updateSecondCellWithData:(NSDictionary *)data {
-    NSLog(@"%@", data);
+//    NSLog(@"%@", data);
     [self showRigthArrow:NO];
     self.leftLabel.text = data[@"title"];
     self.rightLabel.text = data[@"content"];
@@ -153,7 +154,6 @@
     _teamMemberLabel.text = NSStringFormat(@"%ld名队友",members.count);
     
     UIView *memberContainer = [[UIView alloc] init];
-//    memberContainer.backgroundColor = [UIColor blueColor];
     [self.contentView addSubview:memberContainer];
     
     NSArray *subarray;
@@ -166,7 +166,6 @@
     NSMutableArray *temp = [NSMutableArray array];
     for (int i = 0; i < subarray.count + 1; i++) {
         UIButton *btn = [[UIButton alloc] init];
-//        btn.backgroundColor = [UIColor orangeColor];
         [memberContainer addSubview:btn];
         btn.sd_layout.autoHeightRatio(1);
         btn.sd_cornerRadiusFromWidthRatio = @(0.5);
@@ -223,10 +222,9 @@
 }
 
 - (void)actionWithButton:(UIButton *)btn {
-//    NSLog(@"%ld--%@", btn.tag, btn.titleLabel.text);
-    if (_handleBtnBlock) {
-        _handleBtnBlock(btn.tag);
-    }
+//    if (_handleBtnBlock) {
+//        _handleBtnBlock(btn.tag);
+//    }
 }
 
 

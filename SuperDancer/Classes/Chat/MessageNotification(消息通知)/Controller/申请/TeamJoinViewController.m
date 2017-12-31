@@ -117,32 +117,32 @@
             
         }
     }
-#pragma mark - 公告/视频/投票/签到
-    // 公告/视频/投票/签到
-    @weakify(self);
-    [cell setHandleBtnBlock:^(NSInteger index) {
-        @strongify(self);
-        switch (index) {
-            case 10:
-            {//群公告
-                GroupNoticeViewController *gn = [[GroupNoticeViewController alloc] init];
-                [self.navigationController pushViewController:gn animated:YES];
-            }
-                break;
-            case 11:
-            {//群视频
-//                GroupVideoViewController *gv = [[GroupVideoViewController alloc] init];
-//                [self.navigationController pushViewController:gv animated:YES];
-            }
-                break;
-            case 12:
-                break;
-            case 13:
-                break;
-            default:
-                break;
-        }
-    }];
+//#pragma mark - 公告/视频/投票/签到
+//    // 公告/视频/投票/签到
+//    @weakify(self);
+//    [cell setHandleBtnBlock:^(NSInteger index) {
+//        @strongify(self);
+//        switch (index) {
+//            case 10:
+//            {//群公告
+//                GroupNoticeViewController *gn = [[GroupNoticeViewController alloc] init];
+//                [self.navigationController pushViewController:gn animated:YES];
+//            }
+//                break;
+//            case 11:
+//            {//群视频
+////                GroupVideoViewController *gv = [[GroupVideoViewController alloc] init];
+////                [self.navigationController pushViewController:gv animated:YES];
+//            }
+//                break;
+//            case 12:
+//                break;
+//            case 13:
+//                break;
+//            default:
+//                break;
+//        }
+//    }];
 
     return cell;
 }

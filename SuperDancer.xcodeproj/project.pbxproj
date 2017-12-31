@@ -215,6 +215,8 @@
 		9A58B9B61FF8194000530DBF /* PublishNoticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A58B9B21FF8193F00530DBF /* PublishNoticeViewController.xib */; };
 		9A58B9C91FF8207600530DBF /* TeamAnnouncementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A58B9C71FF8207600530DBF /* TeamAnnouncementCell.m */; };
 		9A58B9CA1FF8207600530DBF /* TeamAnnouncementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A58B9C81FF8207600530DBF /* TeamAnnouncementCell.xib */; };
+		9A58B9CE1FF9404700530DBF /* ModifyTeamNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A58B9CC1FF9404700530DBF /* ModifyTeamNameViewController.m */; };
+		9A58B9CF1FF9404700530DBF /* ModifyTeamNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A58B9CD1FF9404700530DBF /* ModifyTeamNameViewController.xib */; };
 		9A61BEFD1FD1371F00F30888 /* SDMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A61BEF61FD1371F00F30888 /* SDMineViewController.m */; };
 		9A61BEFE1FD1371F00F30888 /* SDMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A61BEF71FD1371F00F30888 /* SDMineViewController.xib */; };
 		9A61BEFF1FD1371F00F30888 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A61BEF91FD1371F00F30888 /* SettingViewController.m */; };
@@ -671,6 +673,9 @@
 		9A58B9C61FF8207600530DBF /* TeamAnnouncementCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamAnnouncementCell.h; sourceTree = "<group>"; };
 		9A58B9C71FF8207600530DBF /* TeamAnnouncementCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamAnnouncementCell.m; sourceTree = "<group>"; };
 		9A58B9C81FF8207600530DBF /* TeamAnnouncementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamAnnouncementCell.xib; sourceTree = "<group>"; };
+		9A58B9CB1FF9404700530DBF /* ModifyTeamNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyTeamNameViewController.h; sourceTree = "<group>"; };
+		9A58B9CC1FF9404700530DBF /* ModifyTeamNameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyTeamNameViewController.m; sourceTree = "<group>"; };
+		9A58B9CD1FF9404700530DBF /* ModifyTeamNameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModifyTeamNameViewController.xib; sourceTree = "<group>"; };
 		9A61BEF51FD1371F00F30888 /* SDMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMineViewController.h; sourceTree = "<group>"; };
 		9A61BEF61FD1371F00F30888 /* SDMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMineViewController.m; sourceTree = "<group>"; };
 		9A61BEF71FD1371F00F30888 /* SDMineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDMineViewController.xib; sourceTree = "<group>"; };
@@ -1294,13 +1299,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		3F9294131FD50030004CC1E7 /* DanceTeam */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DanceTeam;
-			sourceTree = "<group>";
-		};
 		3F97B3631FD0F8CC00D0799A /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1395,11 +1393,9 @@
 			children = (
 				9A52EFEE1FE372C300125087 /* NearDanceTeam(附近舞队) */,
 				9A53C05F1FDFA95D003CBFD3 /* MessageNotification(消息通知) */,
-				3F9294131FD50030004CC1E7 /* DanceTeam */,
 				3F5A444D1FD11C9700BAE622 /* AddAction(添加按钮扩展) */,
 				3F6868C51FCEA6A4001EB5BD /* View */,
 				9A08C21C1FCC3EC000F6C54B /* Controller */,
-				9A08C21D1FCC3EC000F6C54B /* Model */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -1426,13 +1422,6 @@
 				9AFB538E1FECE827008E5BAD /* 舞队二维码 */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		9A08C21D1FCC3EC000F6C54B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		9A1BB3C61F85DA590067C12C = {
@@ -2483,6 +2472,9 @@
 				9AFB53AE1FEF8960008E5BAD /* ModifyTeamIntroduceViewController.h */,
 				9AFB53AF1FEF8960008E5BAD /* ModifyTeamIntroduceViewController.m */,
 				9AFB53B01FEF8960008E5BAD /* ModifyTeamIntroduceViewController.xib */,
+				9A58B9CB1FF9404700530DBF /* ModifyTeamNameViewController.h */,
+				9A58B9CC1FF9404700530DBF /* ModifyTeamNameViewController.m */,
+				9A58B9CD1FF9404700530DBF /* ModifyTeamNameViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2785,6 +2777,7 @@
 				9A52F00F1FE6B5B100125087 /* CompleteTeamInfoViewController.xib in Resources */,
 				9A2CB89B1F868DAA00907C72 /* RecommendViewController.xib in Resources */,
 				049E510A1FA2FF00006C3BF1 /* MsgCenterViewController.xib in Resources */,
+				9A58B9CF1FF9404700530DBF /* ModifyTeamNameViewController.xib in Resources */,
 				049E50BE1FA0DDEC006C3BF1 /* LocalSelectViewController.xib in Resources */,
 				9A33C8031FE4169B006F7A50 /* TeamJoinCell.xib in Resources */,
 				04AE23921FA070320034635C /* CollectionDancersViewController.xib in Resources */,
@@ -3076,6 +3069,7 @@
 				9AFB53B11FEF8960008E5BAD /* ModifyTeamIntroduceViewController.m in Sources */,
 				9AFB539A1FEE4D11008E5BAD /* ModifyTeamLocalityViewController.m in Sources */,
 				9AD960C41F8F10280024DA43 /* SDRequestManager.m in Sources */,
+				9A58B9CE1FF9404700530DBF /* ModifyTeamNameViewController.m in Sources */,
 				9AFE2DFA1FF679A500F07BB0 /* ChatLocationViewController.m in Sources */,
 				048C53341F9D998800607784 /* DanceTypeViewController.m in Sources */,
 				04AE23911FA070320034635C /* CollectionDancersViewController.m in Sources */,

@@ -10,7 +10,7 @@
 #import "PublishNoticeViewController.h"
 #import "TeamAnnouncementCell.h"
 
-@interface GroupNoticeViewController ()<UITableViewDelegate,UITableViewDataSource,PublishTeamAnnouncementDelegate>
+@interface GroupNoticeViewController ()<UITableViewDelegate,UITableViewDataSource,PublishTeamAnnouncementDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *announcements;
@@ -24,9 +24,11 @@ static NSString *kGroupNoticeCellIdentifier = @"GroupNoticeCellIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"新建舞队公告";
+    self.title = @"舞队公告";
     self.view.backgroundColor = kBackgroundColor;
-    [self setRightItemTitle:@"新建" action:@selector(publishAction)];
+    if (_canPublishAnnouncement) {
+        [self setRightItemTitle:@"新建" action:@selector(publishAction)];
+    }
     
     [self.tableView registerNib:NIB_NAMED(@"TeamAnnouncementCell") forCellReuseIdentifier:@"cell"];
     
@@ -36,6 +38,13 @@ static NSString *kGroupNoticeCellIdentifier = @"GroupNoticeCellIdentifier";
     }
 }
 
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return IMAGE_NAMED(@"nodata");
+}
+
+-(BOOL)emptyDataSetShouldAllowScroll:(UIScrollView*)scrollView {
+    return YES;
+}
 
 #pragma mark - publish Action
 
@@ -76,6 +85,7 @@ static NSString *kGroupNoticeCellIdentifier = @"GroupNoticeCellIdentifier";
 #pragma mark - PublishTeamAnnouncementDelegate
 
 - (void)publishTeamAnnouncementCompleteWithTitle:(NSString *)title content:(NSString *)content {
+    PPLog(@"%@=====%@",title,content);
     if (title.length && content.length) {
         NSDictionary *announcement = @{@"title": title,
                                        @"content": content,

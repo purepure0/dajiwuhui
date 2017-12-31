@@ -1,13 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ModifyTeamNameViewController">
             <connections>
+                <outlet property="bgView" destination="7oB-fD-17T" id="SFq-zm-F4w"/>
+                <outlet property="textField" destination="Qfn-Id-LFU" id="9mZ-Oh-RGf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,8 +20,33 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7oB-fD-17T">
+                    <rect key="frame" x="0.0" y="10" width="375" height="45"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="修改舞队名称" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Qfn-Id-LFU">
+                            <rect key="frame" x="10" y="0.0" width="365" height="45"/>
+                            <color key="textColor" red="0.058911008879999997" green="0.058911008879999997" blue="0.058911008879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Qfn-Id-LFU" secondAttribute="trailing" id="BgP-GD-72B"/>
+                        <constraint firstAttribute="height" constant="45" id="C5n-qJ-UPq"/>
+                        <constraint firstItem="Qfn-Id-LFU" firstAttribute="top" secondItem="7oB-fD-17T" secondAttribute="top" id="GBQ-VV-Klx"/>
+                        <constraint firstAttribute="bottom" secondItem="Qfn-Id-LFU" secondAttribute="bottom" id="gXW-sa-u0U"/>
+                        <constraint firstItem="Qfn-Id-LFU" firstAttribute="leading" secondItem="7oB-fD-17T" secondAttribute="leading" constant="10" id="zbZ-tI-qYc"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="7oB-fD-17T" secondAttribute="trailing" id="8ac-bj-Ocj"/>
+                <constraint firstItem="7oB-fD-17T" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qto-Ql-jbC"/>
+                <constraint firstItem="7oB-fD-17T" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="ybH-eU-qXd"/>
+            </constraints>
         </view>
     </objects>
 </document>
