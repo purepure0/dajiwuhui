@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,10 +21,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aud-pk-DOT">
-                    <rect key="frame" x="0.0" y="10" width="375" height="55"/>
+                    <rect key="frame" x="0.0" y="10" width="375" height="45"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请填写您的昵称" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Eeh-TW-art">
-                            <rect key="frame" x="15" y="0.0" width="345" height="55"/>
+                            <rect key="frame" x="15" y="0.0" width="345" height="45"/>
                             <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <textInputTraits key="textInputTraits"/>
@@ -32,7 +32,7 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="55" id="1TP-o4-t0m"/>
+                        <constraint firstAttribute="height" constant="45" id="1TP-o4-t0m"/>
                         <constraint firstAttribute="trailing" secondItem="Eeh-TW-art" secondAttribute="trailing" constant="15" id="MKb-gc-Rih"/>
                         <constraint firstItem="Eeh-TW-art" firstAttribute="leading" secondItem="aud-pk-DOT" secondAttribute="leading" constant="15" id="ROC-nI-YPO"/>
                         <constraint firstAttribute="bottom" secondItem="Eeh-TW-art" secondAttribute="bottom" id="mcf-vD-85h"/>

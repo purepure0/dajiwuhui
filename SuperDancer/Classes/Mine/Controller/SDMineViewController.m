@@ -99,7 +99,7 @@ static NSString *kDefaultCellIdentifier = @"DefaultCellIdentifier";
     UILabel *mineLabel = [[UILabel alloc] init];
     _mineLabel = mineLabel;
     mineLabel.text = @"我的";
-    mineLabel.font = SYSTEM_FONT(19);
+    mineLabel.font = SYSTEM_FONT(18);
     mineLabel.textColor = [UIColor clearColor];
     mineLabel.textAlignment = NSTextAlignmentCenter;
     [topView addSubview:mineLabel];

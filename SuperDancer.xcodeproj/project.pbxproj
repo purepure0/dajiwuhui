@@ -231,10 +231,6 @@
 		9A79BBFC1F8DF13D004C3879 /* MovieDownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A79BBFA1F8DF13D004C3879 /* MovieDownloadViewController.xib */; };
 		9A7D62E81FE801980078DD2B /* MemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D62E61FE801980078DD2B /* MemberCell.m */; };
 		9A7D62E91FE801980078DD2B /* MemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D62E71FE801980078DD2B /* MemberCell.xib */; };
-		9A7D63121FE962DA0078DD2B /* GroupVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D630F1FE962DA0078DD2B /* GroupVideoViewController.m */; };
-		9A7D63131FE962DA0078DD2B /* GroupVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D63101FE962DA0078DD2B /* GroupVideoViewController.xib */; };
-		9A7D63171FE9633D0078DD2B /* GroupVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D63151FE9633D0078DD2B /* GroupVideoCell.m */; };
-		9A7D63181FE9633D0078DD2B /* GroupVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D63161FE9633D0078DD2B /* GroupVideoCell.xib */; };
 		9A906AE51F886B2400AB9A70 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A906AE31F886B2400AB9A70 /* LoginViewController.m */; };
 		9A906AE61F886B2400AB9A70 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A906AE41F886B2400AB9A70 /* LoginViewController.xib */; };
 		9A992DF21FA2392400FBAC21 /* UploadVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A992DF11FA2392400FBAC21 /* UploadVideoView.m */; };
@@ -699,12 +695,6 @@
 		9A7D62E51FE801980078DD2B /* MemberCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberCell.h; sourceTree = "<group>"; };
 		9A7D62E61FE801980078DD2B /* MemberCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberCell.m; sourceTree = "<group>"; };
 		9A7D62E71FE801980078DD2B /* MemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCell.xib; sourceTree = "<group>"; };
-		9A7D630E1FE962DA0078DD2B /* GroupVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupVideoViewController.h; sourceTree = "<group>"; };
-		9A7D630F1FE962DA0078DD2B /* GroupVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupVideoViewController.m; sourceTree = "<group>"; };
-		9A7D63101FE962DA0078DD2B /* GroupVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupVideoViewController.xib; sourceTree = "<group>"; };
-		9A7D63141FE9633D0078DD2B /* GroupVideoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GroupVideoCell.h; path = "SuperDancer/Classes/Chat/MessageNotification(消息通知)/Controller/申请/群视频/GroupVideoCell.h"; sourceTree = SOURCE_ROOT; };
-		9A7D63151FE9633D0078DD2B /* GroupVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GroupVideoCell.m; path = "SuperDancer/Classes/Chat/MessageNotification(消息通知)/Controller/申请/群视频/GroupVideoCell.m"; sourceTree = SOURCE_ROOT; };
-		9A7D63161FE9633D0078DD2B /* GroupVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GroupVideoCell.xib; path = "SuperDancer/Classes/Chat/MessageNotification(消息通知)/Controller/申请/群视频/GroupVideoCell.xib"; sourceTree = SOURCE_ROOT; };
 		9A906AE21F886B2400AB9A70 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9A906AE31F886B2400AB9A70 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9A906AE41F886B2400AB9A70 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -1557,7 +1547,6 @@
 				9A79BBF41F8DF11B004C3879 /* MovieDownload(视频下载) */,
 				04ECB8681F92005200186C5B /* BrowsingHistory(浏览记录) */,
 				04ECB8621F91F9E000186C5B /* MoreVideo(查看更多) */,
-				9A247F721F9B0369007AEABE /* PersonalCenter(个人中心) */,
 				9ACD9B6E1FA35DF9003FF1BB /* UserAgreement(用户协议) */,
 				9ACD9B771FA36620003FF1BB /* AboutUs(关于我们) */,
 				9ACD9B801FA368A2003FF1BB /* Feedback(意见反馈) */,
@@ -1722,15 +1711,13 @@
 			path = SDHTTPRequestLayer;
 			sourceTree = "<group>";
 		};
-		9A247F721F9B0369007AEABE /* PersonalCenter(个人中心) */ = {
+		9A247F721F9B0369007AEABE /* 个人中心 */ = {
 			isa = PBXGroup;
 			children = (
 				9A247F731F9B0369007AEABE /* Controller */,
-				9A247F771F9B0369007AEABE /* Model */,
 				9A247F781F9B0369007AEABE /* View */,
-				9A247F801FA0D9C9007AEABE /* EditProfile(编辑资料) */,
 			);
-			path = "PersonalCenter(个人中心)";
+			path = "个人中心";
 			sourceTree = "<group>";
 		};
 		9A247F731F9B0369007AEABE /* Controller */ = {
@@ -1743,13 +1730,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		9A247F771F9B0369007AEABE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		9A247F781F9B0369007AEABE /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1760,17 +1740,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		9A247F801FA0D9C9007AEABE /* EditProfile(编辑资料) */ = {
-			isa = PBXGroup;
-			children = (
-				9A247F811FA0D9C9007AEABE /* Controller */,
-				9A247F821FA0D9C9007AEABE /* Model */,
-				9A247F831FA0D9C9007AEABE /* View */,
-			);
-			path = "EditProfile(编辑资料)";
-			sourceTree = "<group>";
-		};
-		9A247F811FA0D9C9007AEABE /* Controller */ = {
+		9A247F801FA0D9C9007AEABE /* 个人资料 */ = {
 			isa = PBXGroup;
 			children = (
 				9A247F841FA0DE2B007AEABE /* EditProfileViewController.h */,
@@ -1780,21 +1750,7 @@
 				049E50F61FA237BF006C3BF1 /* EditNickNameViewController.m */,
 				049E50F71FA237BF006C3BF1 /* EditNickNameViewController.xib */,
 			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		9A247F821FA0D9C9007AEABE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		9A247F831FA0D9C9007AEABE /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
+			path = "个人资料";
 			sourceTree = "<group>";
 		};
 		9A26A3561FF39BF7008638B8 /* 群组通知 */ = {
@@ -2078,7 +2034,6 @@
 				9A33C7F31FE41619006F7A50 /* TeamJoinViewController.h */,
 				9A33C7F71FE4161A006F7A50 /* TeamJoinViewController.m */,
 				9A33C7F21FE41619006F7A50 /* TeamJoinViewController.xib */,
-				9A7D63041FE9625E0078DD2B /* 群视频 */,
 			);
 			path = "申请";
 			sourceTree = "<group>";
@@ -2135,6 +2090,8 @@
 				9A61BEF81FD1371F00F30888 /* SettingViewController.h */,
 				9A61BEF91FD1371F00F30888 /* SettingViewController.m */,
 				9A61BEFA1FD1371F00F30888 /* SettingViewController.xib */,
+				9A247F801FA0D9C9007AEABE /* 个人资料 */,
+				9A247F721F9B0369007AEABE /* 个人中心 */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2198,43 +2155,6 @@
 				9A71FE7E1F8E01A100738680 /* DownloadedCell.h */,
 				9A71FE7F1F8E01A100738680 /* DownloadedCell.m */,
 				9A71FE801F8E01A100738680 /* DownloadedCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		9A7D63041FE9625E0078DD2B /* 群视频 */ = {
-			isa = PBXGroup;
-			children = (
-				9A7D630D1FE962DA0078DD2B /* Controller */,
-				9A7D630C1FE962DA0078DD2B /* Model */,
-				9A7D63111FE962DA0078DD2B /* View */,
-			);
-			path = "群视频";
-			sourceTree = "<group>";
-		};
-		9A7D630C1FE962DA0078DD2B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		9A7D630D1FE962DA0078DD2B /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				9A7D630E1FE962DA0078DD2B /* GroupVideoViewController.h */,
-				9A7D630F1FE962DA0078DD2B /* GroupVideoViewController.m */,
-				9A7D63101FE962DA0078DD2B /* GroupVideoViewController.xib */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		9A7D63111FE962DA0078DD2B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				9A7D63141FE9633D0078DD2B /* GroupVideoCell.h */,
-				9A7D63151FE9633D0078DD2B /* GroupVideoCell.m */,
-				9A7D63161FE9633D0078DD2B /* GroupVideoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2795,7 +2715,6 @@
 				9A08B2B31F88DEF700232661 /* MovePlayerViewController.xib in Resources */,
 				9A1DC6A61FA49CF10014E739 /* DownloadViewController.xib in Resources */,
 				9A53C06F1FDFC2FA003CBFD3 /* PublicNoticeDetailViewController.xib in Resources */,
-				9A7D63131FE962DA0078DD2B /* GroupVideoViewController.xib in Resources */,
 				04ECB8721F9200B000186C5B /* BrowsingHistoryViewController.xib in Resources */,
 				9A0EBBDF1FEAA21E00F31F94 /* TeamMemmberInfoViewController.xib in Resources */,
 				9A53C0641FDFA9C5003CBFD3 /* MessageNotiViewController.xib in Resources */,
@@ -2899,7 +2818,6 @@
 				049E50C81FA0E51C006C3BF1 /* LocalHeaderReusableView.xib in Resources */,
 				9A3E24AF1FE9010500F961AA /* EditTeamAddressViewController.xib in Resources */,
 				9AC688701FF14F5B00ADEFB1 /* FriendNotiListViewController.xib in Resources */,
-				9A7D63181FE9633D0078DD2B /* GroupVideoCell.xib in Resources */,
 				9A2CB8A01F868DBC00907C72 /* SquareDanceViewController.xib in Resources */,
 				9A33C7F91FE4161B006F7A50 /* InviteMesageViewController.xib in Resources */,
 			);
@@ -3129,7 +3047,6 @@
 				9ACA8AF51F98574C00B73B29 /* UIView+CustomControlView.m in Sources */,
 				9A247F7E1F9B0369007AEABE /* PersonalHeaderView.m in Sources */,
 				9A1BB4251F85DFCB0067C12C /* SDUser.m in Sources */,
-				9A7D63121FE962DA0078DD2B /* GroupVideoViewController.m in Sources */,
 				3F97B3681FD0F8CC00D0799A /* ThirdRightTableViewCell.m in Sources */,
 				9AFE2DF21FF6788700F07BB0 /* ChatImageViewController.m in Sources */,
 				04927BEE1F95F81E00CDD58E /* TimeDifference.m in Sources */,
@@ -3154,7 +3071,6 @@
 				049E51091FA2FF00006C3BF1 /* MsgCenterViewController.m in Sources */,
 				9A53C0631FDFA9C5003CBFD3 /* MessageNotiViewController.m in Sources */,
 				04927C2E1F98E76A00CDD58E /* ReplyCommentModel.m in Sources */,
-				9A7D63171FE9633D0078DD2B /* GroupVideoCell.m in Sources */,
 				3F92940D1FD4F3B9004CC1E7 /* ScanSuccessJumpVC.m in Sources */,
 				9ACA8B0A1F985B4400B73B29 /* ZFFileModel.m in Sources */,
 				9AFB53B11FEF8960008E5BAD /* ModifyTeamIntroduceViewController.m in Sources */,

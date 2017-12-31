@@ -7,10 +7,11 @@
 //
 
 #import "SettingViewController.h"
+#import "EditProfileViewController.h"
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-
+@property (nonatomic, strong) NSArray *titles;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -20,16 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"设 置";
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
+    _titles = @[@"个人资料",@"版本更新",@""];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return _titles.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -38,14 +35,13 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
     }
-    NSArray *titles = @[@"个人资料",@"密码修改",@"版本更新",@""];
-    cell.textLabel.text = titles[indexPath.row];
+    cell.textLabel.text = _titles[indexPath.row];
     cell.textLabel.textColor = kTextBlackColor;
     cell.textLabel.font = SYSTEM_FONT(16);
     cell.detailTextLabel.font = SYSTEM_FONT(15);
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    if (indexPath.row == 3)
+    if (indexPath.row == 2)
     {
         cell.backgroundColor = [UIColor clearColor];
         UIButton *logoutBtn = [[UIButton alloc] init];
@@ -68,18 +64,24 @@
         .rightSpaceToView(cell.contentView, 15);
     }
     
-    if (indexPath.row == 2) {
+    if (indexPath.row == 1) {
         cell.detailTextLabel.text = @"版本:1.0.0";
         
     }
     
-    if (indexPath.row <= 1) {
+    if (!indexPath.row) {
         UIImageView *arrowImg = [[UIImageView alloc] initWithImage:IMAGE_NAMED(@"right_arrow")];
         cell.accessoryView = arrowImg;
     }
-    
-    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (!indexPath.row) {
+        EditProfileViewController *ep = [[EditProfileViewController alloc] init];
+        [self.navigationController pushViewController:ep animated:YES];
+    }
 }
 
 - (void)logoutAction
@@ -93,7 +95,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return indexPath.row == 3 ? kAutoHeight(100):kAutoHeight(50);
+    return indexPath.row == 2 ? kAutoHeight(100):kAutoHeight(50);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

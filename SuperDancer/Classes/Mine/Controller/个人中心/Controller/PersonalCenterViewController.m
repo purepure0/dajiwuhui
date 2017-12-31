@@ -119,7 +119,6 @@
     self.navigationController.navigationBar.translucent = NO;
     [self setStatusBarStyle:UIStatusBarStyleDefault];
     [self setNavBarShadowImageHidden:NO];
-    
 }
 
     
@@ -130,7 +129,7 @@
     UINavigationBar *navigationBar = self.navigationController.navigationBar;
     UIView *barBackgroundView = navigationBar.subviews.firstObject;
     
-    PPLog(@"%lf",offsetY);
+//    PPLog(@"%lf",offsetY);
     if (offsetY > NAVBAR_COLORCHANGE_POINT)
     {
         CGFloat alpha = (offsetY - NAVBAR_COLORCHANGE_POINT) / NAV_HEIGHT;
@@ -206,14 +205,17 @@
         [self.headerView updateUserInfo:self.userInfo];
         // 编辑
         if ([self.userId isEqualToString:self.users.userId]) {
-            self.headerView.editBtn.tag = 1;
-            [self.headerView.editBtn setImage:IMAGE_NAMED(@"my_profile_edit") forState:UIControlStateNormal];
+//            self.headerView.editBtn.tag = 1;
+//            [self.headerView.editBtn setImage:IMAGE_NAMED(@"my_profile_edit") forState:UIControlStateNormal];
+            self.headerView.editBtn.hidden = YES;
             @weakify(self);
             _headerView.changeBgImageBlock = ^ {
                 @strongify(self);
                 [self uploadImage];
             };
-        } else { // 关注/取消关注
+            // 关注
+        } else {
+            self.headerView.editBtn.hidden = NO;
             NSString *code = NSStringFormat(@"%@",self.fans[@"code"]);
             if ([code isEqualToString:@"2"]) {// 1:已关注
                 self.headerView.editBtn.tag = 2;
@@ -240,8 +242,8 @@
 - (void)editAction:(UIButton *)btn
 {
     if (btn.tag == 1) { // 编辑
-        EditProfileViewController *edit = [[EditProfileViewController alloc] init];
-        [self.navigationController pushViewController:edit animated:YES];
+//        EditProfileViewController *edit = [[EditProfileViewController alloc] init];
+//        [self.navigationController pushViewController:edit animated:YES];
     } else { // 关注/未关注
         [PPNetworkHelper POST:NSStringFormat(@"%@%@",kApiPrefix,kAttention) parameters:@{@"uid":self.userId} success:^(id responseObject) {
             PPLog(@"关注/取消关注 == %@",responseObject);
@@ -258,7 +260,6 @@
         } failure:^(NSError *error) {
             [self toast:error.description];
         }];
-        
     }
 }
 
@@ -313,14 +314,14 @@
         
         NSString *token = responseObject[@"data"][@"res"][@"token"];
          PPLog(@"七牛token = %@",token);
-        NSData *imageData = UIImageJPEGRepresentation(bgImage, 0.5f);
+        NSData *imageData = UIImageJPEGRepresentation(bgImage, 0.1f);
         QNUploadManager *upManager = [[QNUploadManager alloc] init];
         
         [upManager putData:imageData key:nil token:token
                   complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
-                      PPLog(@"Qiniu info = %@", info);
-                      PPLog(@"Qiniu resp = %@", resp);
-                      PPLog(@"Qiniu key = %@", key);
+//                      PPLog(@"Qiniu info = %@", info);
+//                      PPLog(@"Qiniu resp = %@", resp);
+//                      PPLog(@"Qiniu key = %@", key);
                       
                       if (info.ok) {
                           PPLog(@"成功");

@@ -9,7 +9,6 @@
 #import "TeamInfoViewController.h"
 #import "TeamJoinCell.h"
 #import "GroupNoticeViewController.h"
-#import "GroupVideoViewController.h"
 #import "MemberManageViewController.h"
 #import "AddMembersViewController.h"
 #import "TeamManageViewController.h"
@@ -258,8 +257,7 @@
                 break;
             case 11:
             {//群视频
-                GroupVideoViewController *gv = [[GroupVideoViewController alloc] init];
-                [self.navigationController pushViewController:gv animated:YES];
+                
             }
                 break;
             case 12:

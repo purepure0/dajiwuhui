@@ -25,7 +25,6 @@
 
 
 - (void)changeBgImage {
-    NSLog(@"111");
     if (_changeBgImageBlock) {
         self.changeBgImageBlock();
     }
