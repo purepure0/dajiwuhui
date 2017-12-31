@@ -8,6 +8,14 @@
 
 #import "BaseViewController.h"
 
+@protocol PublishTeamAnnouncementDelegate <NSObject>
+
+- (void)publishTeamAnnouncementCompleteWithTitle:(NSString *)title content:(NSString *)content;
+
+@end
+
 @interface PublishNoticeViewController : BaseViewController
+
+@property (nonatomic, weak) id<PublishTeamAnnouncementDelegate> delegate;
 
 @end

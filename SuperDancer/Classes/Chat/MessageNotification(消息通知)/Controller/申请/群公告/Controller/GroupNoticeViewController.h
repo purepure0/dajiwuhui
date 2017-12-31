@@ -10,4 +10,7 @@
 
 @interface GroupNoticeViewController : BaseViewController
 
+@property (nonatomic, strong) NIMTeam *team;
+@property (nonatomic, assign) BOOL canPublishAnnouncement;
+
 @end

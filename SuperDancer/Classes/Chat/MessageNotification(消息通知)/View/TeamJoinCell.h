@@ -63,7 +63,7 @@ typedef void(^IconImgBlock)(void);
 
 - (void)updateFourthCellWithData:(NSDictionary *)data;
 
-- (void)updateFifthCellWithData:(NSDictionary *)data;
+- (void)updateFifthCellWithData:(NSArray<NIMUser *> *)members;
 
 
 //是否显示右边的箭头

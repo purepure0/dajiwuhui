@@ -148,25 +148,56 @@
 }
 
 
-- (void)updateFifthCellWithData:(NSDictionary *)data {
+- (void)updateFifthCellWithData:(NSArray<NIMUser *> *)members
+{
+    _teamMemberLabel.text = NSStringFormat(@"%ld名队友",members.count);
     
-    for (int i = 0; i < 4; i++) {
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10 + 58 * i, 10, 58, 48)];
-        if (i == 0) {
-            [btn setImage:[UIImage imageNamed:@"wd_ico_group"] forState:UIControlStateNormal];
-        }else if (i == 3) {
-            [btn setImage:[UIImage imageNamed:@"wd_ico_invite_xiao"] forState:UIControlStateNormal];
-            [btn addTarget:self action:@selector(addTeamMember:) forControlEvents:UIControlEventTouchUpInside];
-        }else {
-            [btn setImage:[UIImage imageNamed:@"pic1"] forState:UIControlStateNormal];
-        }
-        [self addSubview:btn];
+    UIView *memberContainer = [[UIView alloc] init];
+//    memberContainer.backgroundColor = [UIColor blueColor];
+    [self.contentView addSubview:memberContainer];
+    
+    NSArray *subarray;
+    if ([members count] > 4) {
+        subarray = [members subarrayWithRange:NSMakeRange(0, 4)];
+    } else {
+        subarray = members;
     }
     
+    NSMutableArray *temp = [NSMutableArray array];
+    for (int i = 0; i < subarray.count + 1; i++) {
+        UIButton *btn = [[UIButton alloc] init];
+//        btn.backgroundColor = [UIColor orangeColor];
+        [memberContainer addSubview:btn];
+        btn.sd_layout.autoHeightRatio(1);
+        btn.sd_cornerRadiusFromWidthRatio = @(0.5);
+        [temp addObject:btn];
+        
+        if (!i) {
+            [btn setImage:IMAGE_NAMED(@"wd_add_member") forState:UIControlStateNormal];
+            [btn addTarget:self action:@selector(addTeamMemberAction) forControlEvents:UIControlEventTouchUpInside];
+        } else {
+            NIMUser *user = [subarray objectAtIndex:i-1];
+            [btn setImageWithURL:[NSURL URLWithString:user.userInfo.avatarUrl] forState:UIControlStateNormal placeholder:IMAGE_NAMED(@"placeholder_img")];
+            if (i==1) {
+                UIImageView *creatorView = [[UIImageView alloc] init];
+                creatorView.image = IMAGE_NAMED(@"icon_team_creator");
+                [memberContainer addSubview:creatorView];
+                creatorView.sd_layout
+                .bottomEqualToView(btn)
+                .rightEqualToView(btn)
+                .widthIs(20)
+                .heightEqualToWidth();
+            }
+        }
+    }
+    
+    [memberContainer setupAutoMarginFlowItems:[temp copy] withPerRowItemsCount:5 itemWidth:50 verticalMargin:10 verticalEdgeInset:4 horizontalEdgeInset:10];
+    
+    memberContainer.sd_layout
+    .leftEqualToView(self.contentView)
+    .rightSpaceToView(self.teamMemberLabel, 0)
+    .centerYEqualToView(self.contentView);
 }
-
-
-
 
 #pragma mark - 舞队二维码
 
@@ -178,7 +209,7 @@
 }
 
 
-- (void)addTeamMember:(id)sender {
+- (void)addTeamMemberAction {
     NSLog(@"添加队员");
     if (_addMemberBlock) {
         _addMemberBlock();

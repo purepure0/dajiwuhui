@@ -12,9 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PublishNoticeViewController">
             <connections>
-                <outlet property="collectionView" destination="Pt5-ie-2bq" id="LrT-aN-jJ6"/>
                 <outlet property="contentTextView" destination="jbA-fR-yC3" id="Ebk-st-Hwb"/>
-                <outlet property="imageBgView" destination="nEu-H5-dLR" id="zGk-HU-8sP"/>
                 <outlet property="placeholderLabel" destination="aqR-1g-ZaL" id="JC3-lV-nXm"/>
                 <outlet property="titleBgView" destination="XS0-3L-JuR" id="APT-bt-TC2"/>
                 <outlet property="titleTextField" destination="zev-dB-Qn7" id="hDn-Se-Afr"/>
@@ -26,46 +24,16 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jbA-fR-yC3">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jbA-fR-yC3">
                     <rect key="frame" x="0.0" y="75" width="375" height="150"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="jbA-fR-yC3" secondAttribute="height" multiplier="5:2" id="4Xs-sR-m5Z"/>
-                        <constraint firstAttribute="height" constant="150" id="N9r-1P-VP4"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="rFe-2c-4Bj"/>
                     </connections>
                 </textView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEu-H5-dLR">
-                    <rect key="frame" x="0.0" y="240" width="375" height="80"/>
-                    <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Pt5-ie-2bq">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Z6e-p1-Mqo">
-                                <size key="itemSize" width="50" height="50"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="XDS-cU-hGO"/>
-                                <outlet property="delegate" destination="-1" id="ZYV-RB-G9q"/>
-                            </connections>
-                        </collectionView>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Pt5-ie-2bq" secondAttribute="trailing" id="G1j-vh-kBR"/>
-                        <constraint firstAttribute="height" constant="80" id="P14-dY-tXX"/>
-                        <constraint firstItem="Pt5-ie-2bq" firstAttribute="leading" secondItem="nEu-H5-dLR" secondAttribute="leading" id="QDe-M0-fcl"/>
-                        <constraint firstAttribute="bottom" secondItem="Pt5-ie-2bq" secondAttribute="bottom" id="dEq-qO-0iT"/>
-                        <constraint firstItem="Pt5-ie-2bq" firstAttribute="top" secondItem="nEu-H5-dLR" secondAttribute="top" id="kQa-9A-2Fn"/>
-                    </constraints>
-                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正文(必填)，15~500字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqR-1g-ZaL">
                     <rect key="frame" x="5" y="80" width="355" height="21"/>
                     <constraints>
@@ -102,14 +70,8 @@
                 <constraint firstItem="XS0-3L-JuR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="2Fl-ue-oci"/>
                 <constraint firstAttribute="trailing" secondItem="aqR-1g-ZaL" secondAttribute="trailing" constant="15" id="5Xj-6Y-dtG"/>
                 <constraint firstItem="aqR-1g-ZaL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="H6K-Ni-JTM"/>
-                <constraint firstItem="nEu-H5-dLR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="H9g-Nr-Zg0"/>
-                <constraint firstItem="jbA-fR-yC3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PBs-CC-ADa"/>
-                <constraint firstItem="nEu-H5-dLR" firstAttribute="top" secondItem="jbA-fR-yC3" secondAttribute="bottom" constant="15" id="SSP-U1-tX7"/>
-                <constraint firstAttribute="trailing" secondItem="nEu-H5-dLR" secondAttribute="trailing" id="ZMw-hp-QLH"/>
                 <constraint firstItem="XS0-3L-JuR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="h3T-7j-YG7"/>
                 <constraint firstAttribute="trailing" secondItem="XS0-3L-JuR" secondAttribute="trailing" id="o31-HJ-M6d"/>
-                <constraint firstAttribute="trailing" secondItem="jbA-fR-yC3" secondAttribute="trailing" id="pof-fd-84U"/>
-                <constraint firstItem="jbA-fR-yC3" firstAttribute="top" secondItem="XS0-3L-JuR" secondAttribute="bottom" constant="15" id="qkz-d6-A9U"/>
                 <constraint firstItem="aqR-1g-ZaL" firstAttribute="top" secondItem="XS0-3L-JuR" secondAttribute="bottom" constant="20" id="wah-BN-4jT"/>
             </constraints>
             <point key="canvasLocation" x="24.5" y="51.5"/>

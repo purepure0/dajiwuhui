@@ -55,7 +55,6 @@ static NSString *kMemberManageCellIdentifier = @"kMemberManageCellIdentifier";
             [self hideLoading];
             [self toast:error.localizedDescription];
         }else {
-//            NSArray *teamMembers = (NSMutableArray *)members;
             NSMutableArray *teamMembersUserID = [NSMutableArray new];
             for (NIMTeamMember *member in members) {
                 if ([_team.owner isEqualToString:member.userId]) {

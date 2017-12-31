@@ -34,7 +34,9 @@
 @property (nonatomic, strong) UIImageView *iconImgView;
 @property (nonatomic, strong) UIImage *iconImg;
 
+@property (nonatomic, strong)NSArray<NIMUser *> *members;
 @property (nonatomic, strong)NSMutableArray *teamMemberUserIDs;
+
 @end
 
 @implementation TeamInfoViewController
@@ -50,7 +52,7 @@
     //UserId = 81692
 
     _teamMemberUserIDs = [NSMutableArray new];
-    
+
     // 初始化群资料
     [self initTeamData];
 }
@@ -68,20 +70,27 @@
         if (!error) {
             [_teamMemberUserIDs removeAllObjects];
             for (NIMTeamMember *member in members) {
-                [_teamMemberUserIDs addObject:member.userId];
+                if ([member.userId isEqualToString:_team.owner]) {
+                    [_teamMemberUserIDs insertObject:member.userId atIndex:0];
+                } else {
+                    [_teamMemberUserIDs addObject:member.userId];
+                }
                 // 获取本人群资料
                 if ([member.userId isEqualToString:self.users.userId]) {
-//                    PPLog(@"fetch myself user nickname == %@",member.nickname);
                     if (member.nickname || member.nickname.length ) {
                         self.nickname = member.nickname;
-
-                        // 获取群信息
                         [self fetchTeamInfo];
-
                         [self initTeamData];
-
                     }
                 }
+            }
+            //获取成员信息
+            if (_teamMemberUserIDs.count != 0) {
+                self.members = [NSArray array];
+                [[NIMSDK sharedSDK].userManager fetchUserInfos:_teamMemberUserIDs completion:^(NSArray<NIMUser *> * _Nullable users, NSError * _Nullable error) {
+                    self.members = users;
+                    [self.tableView reloadData];
+                }];
             }
         }
     }];
@@ -177,8 +186,8 @@
                     [cell showRigthArrow:YES];
                 }
             }else {
-                [cell updateFifthCellWithData:dic];
-                
+                [cell updateFifthCellWithData:self.members];
+                // 查看更多群成员
                 __weak typeof(self) weakSelf = self;
                 cell.addMemberBlock = ^{
                     AddMembersViewController *addMember = [[AddMembersViewController alloc] init];
@@ -206,7 +215,7 @@
                     [cell showRigthArrow:YES];
                 }
             }else {
-                [cell updateFifthCellWithData:dic];
+                [cell updateFifthCellWithData:self.members];
                 __weak typeof(self) weakSelf = self;
                 cell.addMemberBlock = ^{
                     if (_team.inviteMode == NIMTeamInviteModeAll) {
@@ -243,6 +252,7 @@
             case 10:
             {//群公告
                 GroupNoticeViewController *gn = [[GroupNoticeViewController alloc] init];
+                gn.team = self.team;
                 [self.navigationController pushViewController:gn animated:YES];
             }
                 break;
@@ -343,8 +353,6 @@
             NIMSession *session = [NIMSession session:self.team.teamId type:NIMSessionTypeTeam];
             TeamSessionRemoteHistoryViewController *rh = [[TeamSessionRemoteHistoryViewController alloc] initWithSession:session];
             [self.navigationController pushViewController:rh animated:YES];
-        }else  if (indexPath.section == 4) {
-            //领队名称、成立时间、所在地区
         }
     }
 }
@@ -366,7 +374,7 @@
         [PPNetworkHelper POST:NSStringFormat(@"%@%@",kApiPrefix,KQiniuToken) parameters:nil success:^(id responseObject) {
             NSString *token = responseObject[@"data"][@"res"][@"token"];
 //            PPLog(@"七牛token = %@",token);
-            NSData *imageData = UIImageJPEGRepresentation(photos[0], 0.5f);
+            NSData *imageData = UIImageJPEGRepresentation(photos[0], 0.1f);
             QNUploadManager *upManager = [[QNUploadManager alloc] init];
             
             [upManager putData:imageData key:nil token:token complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {

@@ -56,7 +56,7 @@
     
     [self initPageController];
     //注：一期不加视频上传功能
-    [self setupUploadBtn];
+//    [self setupUploadBtn];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDistrict) name:@"ChangeDistrict" object:nil];
 }

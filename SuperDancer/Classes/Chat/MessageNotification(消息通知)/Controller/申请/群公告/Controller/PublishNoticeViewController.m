@@ -7,23 +7,15 @@
 //  发布公告
 
 #import "PublishNoticeViewController.h"
-#import "SubmitImageCell.h"
-#import "TZImagePickerController.h"
-
 #define kSizeHeight (kAutoWidth(70))
 
-@interface PublishNoticeViewController ()<UITextViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface PublishNoticeViewController ()<UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *titleBgView;
 @property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
-@property (weak, nonatomic) IBOutlet UIView *imageBgView;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic, strong) NSMutableArray *dataSource;
-@property (nonatomic, strong) NSMutableArray *photos;
-
 
 @end
 
@@ -39,25 +31,53 @@ static NSString *kImageCellIdentifier = @"kImageCellIdentifier";
     self.titleBgView.layer.borderColor = kLineColor.CGColor;
     self.contentTextView.layer.borderWidth = .5;
     self.contentTextView.layer.borderColor = kLineColor.CGColor;
-    self.imageBgView.layer.borderWidth = .5;
-    self.imageBgView.layer.borderColor = kLineColor.CGColor;
-    
     self.view.backgroundColor = kBackgroundColor;
     
     [self setRightItemTitle:@"发布" action:@selector(publishGroupNoticeAction)];
     
-//    self.photos = [NSMutableArray array];
-    
-    [self.collectionView registerNib:NIB_NAMED(@"SubmitImageCell") forCellWithReuseIdentifier:kImageCellIdentifier];
+    self.contentTextView.sd_layout
+    .leftEqualToView(self.view)
+    .rightEqualToView(self.view)
+    .topSpaceToView(self.titleBgView, 10)
+    .heightIs(kAutoHeight(150));
 }
 
-- (void)publishGroupNoticeAction
-{
-    PPLog(@"发布公告");
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.titleTextField endEditing:YES];
+    [self.contentTextView endEditing:YES];
+}
+
+- (void)publishGroupNoticeAction {
+    
+    if (self.titleTextField.text.length < 4 &&self.titleTextField.text.length > 15) {
+        [self toast:@"标题仅限4~15字"];
+        return;
+    }
+    
+    if (self.contentTextView.text.length < 15 && self.contentTextView.text.length > 500) {
+        [self toast:@"正文仅限15~500字"];
+    }
+    
+    [self.titleTextField endEditing:YES];
+    [self.contentTextView endEditing:YES];
+    NSString *title = [self.titleTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *content = [self.contentTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    [self.navigationController popViewControllerAnimated:YES];
+    if([self.delegate respondsToSelector:@selector(publishTeamAnnouncementCompleteWithTitle:content:)]) {
+        [self.delegate publishTeamAnnouncementCompleteWithTitle:title content:content];
+    }
 }
 
 #pragma mark - UITextViewDelegate
-- (void)textViewDidChange:(UITextView *)textView{
+- (void)textViewDidChange:(UITextView *)textView {
+    CGFloat width = CGRectGetWidth(textView.frame);
+    CGFloat height = CGRectGetHeight(textView.frame);
+    CGSize newSize = [textView sizeThatFits:CGSizeMake(width,MAXFLOAT)];
+    CGRect newFrame = textView.frame;
+    newFrame.size = CGSizeMake(fmax(width, newSize.width), fmax(height, newSize.height));
+    textView.frame = newFrame;
+
     long long remainNum ;
     NSString *textContent;
     if (textView.text.length == 0) {
@@ -65,6 +85,7 @@ static NSString *kImageCellIdentifier = @"kImageCellIdentifier";
     }else if(textView.text.length >= 500){
         textView.text = [textView.text substringToIndex:500];
         _placeholderLabel.text = @"";
+        [self toast:@"正文仅限15~500字"];
     }else{
         _placeholderLabel.text = @"";
         textContent = textView.text;
@@ -79,70 +100,6 @@ static NSString *kImageCellIdentifier = @"kImageCellIdentifier";
         return NO;
     }
     return YES;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return [self.photos count] + 1;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake(kSizeHeight, kSizeHeight);
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    SubmitImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kImageCellIdentifier forIndexPath:indexPath];
-    if (indexPath.row == [self.photos count]) {
-        cell.imageView.image = IMAGE_NAMED(@"wd_announcement_ico_add");
-        cell.deleteBtn.hidden = YES;
-    } else {
-        cell.imageView.image = self.photos[indexPath.row];
-        cell.deleteBtn.hidden = NO;
-    }
-    
-    cell.deleteBtn.tag = indexPath.row;
-    [cell.deleteBtn addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
-    return cell;
-}
-
-- (void)deleteAction:(UIButton *)btn {
-    
-    [self.photos removeObjectAtIndex:btn.tag];
-    [self.collectionView performBatchUpdates:^{
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:btn.tag inSection:0];
-        [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
-    } completion:^(BOOL finished) {
-        [self.collectionView reloadData];
-    }];
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == self.photos.count) {
-        @weakify(self);
-        TZImagePickerController *imagePicker = [[TZImagePickerController alloc]init];
-        imagePicker.maxImagesCount = 1;
-        imagePicker.showSelectBtn = NO;
-        imagePicker.allowCrop = NO;
-        imagePicker.needCircleCrop = NO;
-        
-        [imagePicker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
-            @strongify(self);
-            // 本期只允许上传一张
-            self.photos = [NSMutableArray array];
-            [self.photos addObject:photos[0]];
-
-            [self.collectionView reloadData];
-        }];
-        [self presentViewController:imagePicker animated:YES completion:nil];
-    }
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake((80-kSizeHeight)/2, 19, (80-kSizeHeight)/2, 19);
 }
 
 
