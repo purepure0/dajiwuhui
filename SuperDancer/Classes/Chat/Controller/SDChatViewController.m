@@ -45,13 +45,13 @@
 
 - (void)IMConnected:(NSNotification *)noti {
     PPLog(@"%s", __func__);
-    [self hideLoading];
+    [self toast:@"通讯功能连接成功"];
     [self initDataSource];
 }
 
 - (void)IMConneting:(NSNotification *)noti {
     PPLog(@"%s", __func__);
-    [self showLoading];
+    [self toast:@"通讯功能正在连接"];
 }
 
 

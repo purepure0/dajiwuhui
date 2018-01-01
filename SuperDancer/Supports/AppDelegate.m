@@ -240,7 +240,7 @@
     if (step == 5) {
         NSLog(@"%@", [[[NIMSDK sharedSDK] teamManager] allMyTeams]);
         [[NSNotificationCenter defaultCenter] postNotificationName:@"IMConnected" object:nil];
-    }else {
+    }else if (step == 3 || step == 4 || step == 6 || step == 9) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"IMConnecting" object:nil];
         
     }
