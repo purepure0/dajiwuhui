@@ -16,19 +16,26 @@
 #import "FriendListViewController.h"
 #import "NearTeamViewController.h"
 #import "TeamSessionViewController.h"
-@interface SDChatViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchControllerDelegate, NIMSystemNotificationManagerDelegate, NIMTeamManagerDelegate, NIMTeamManagerDelegate>
+
+#import <WMPageController.h>
+
+#import "ConversationViewController.h"//会话
+#import "ContactsViewController.h"//联系人
+
+@interface SDChatViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchControllerDelegate, NIMSystemNotificationManagerDelegate, NIMTeamManagerDelegate, NIMTeamManagerDelegate,WMPageControllerDelegate, WMPageControllerDataSource, WMMenuViewDelegate,WMMenuViewDataSource>
 @property(strong,nonatomic)UITableView              *chatListTableView;
 @property(strong,nonatomic)UISearchController       *chatVCSearchVC;
 @property(strong,nonatomic)NSString                 *searchKeyWords;//搜索关键词
 @property (nonatomic, strong)NSArray *teamList;
 @property (nonatomic, assign)NSInteger unreadCount;
+@property (nonatomic, strong) WMPageController *pageController;
 @end
 
 @implementation SDChatViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"舞 队";
+//    self.navigationItem.title = @"舞 队";
     _unreadCount = 0;
     
     //防止searchbar向上偏移64px
@@ -38,6 +45,8 @@
     //监听系统消息
     [[NIMSDK sharedSDK].systemNotificationManager addDelegate:self];
     
+    
+    [self initPageController];
 }
 
 - (void)onSystemNotificationCountChanged:(NSInteger)unreadCount {
@@ -46,6 +55,92 @@
     NSLog(@"未读消息：%ld", _unreadCount);
     [_chatListTableView reloadData];
 }
+//////////////以下为新加内容
+- (void)initPageController
+{
+    
+    self.pageController = [[WMPageController alloc] initWithViewControllerClasses:@[[ConversationViewController class],[ContactsViewController class],[MessageNotiViewController class]] andTheirTitles:@[@"会话", @"联系人",@"通知"]];
+    self.pageController.delegate = self;
+    self.pageController.dataSource = self;
+    self.pageController.titleSizeNormal = 16;
+    self.pageController.titleSizeSelected = 16;
+    self.pageController.titleColorNormal = kColorRGB(33, 33, 33);
+    self.pageController.titleColorSelected = kColorRGB(140, 50, 180);
+    
+    self.pageController.view.frame = self.view.frame;
+    [self.view addSubview:self.pageController.view];
+    [self addChildViewController:self.pageController];
+    
+    self.pageController.menuView.backgroundColor = [UIColor whiteColor];
+    self.pageController.menuView.dataSource = self;
+    self.pageController.menuView.delegate = self;
+    [self.pageController.menuView setStyle:WMMenuViewStyleLine];
+    self.pageController.menuView.progressWidths = @[@(10),@(10),@(10)];
+    self.pageController.menuView.progressHeight = 3;
+    self.pageController.menuView.progressViewIsNaughty = YES;
+    [self.pageController.menuView setLayoutMode:WMMenuViewLayoutModeCenter];
+    self.pageController.menuView.lineColor = kColorRGB(140, 50, 180);
+    self.pageController.menuView.contentMargin = 20;
+    self.navigationItem.titleView = self.pageController.menuView;
+    
+}
+- (CGRect)pageController:(WMPageController *)pageController preferredFrameForMenuView:(WMMenuView *)menuView {
+    return CGRectMake(0, 0, kScreenWidth-100, 44);
+}
+
+- (CGRect)pageController:(WMPageController *)pageController preferredFrameForContentView:(WMScrollView *)contentView {
+    return pageController.view.frame;
+}
+
+- (void)pageController:(WMPageController *)pageController didEnterViewController:(__kindof UIViewController *)viewController withInfo:(NSDictionary *)info {
+}
+
+#pragma mark - WMMenuViewDelegate
+
+- (void)menuView:(WMMenuView *)menu didSelesctedIndex:(NSInteger)index currentIndex:(NSInteger)currentIndex {
+    PPLog(@"index==%ld  currentIndex==%ld",index,currentIndex);
+    if (index == 0) {
+//        self.pageController.currentViewController = 
+    }
+}
+
+- (UIColor *)menuView:(WMMenuView *)menu titleColorForState:(WMMenuItemState)state atIndex:(NSInteger)index {
+    if (state == WMMenuItemStateSelected) {
+        return [UIColor purpleColor];
+    } else {
+        return [UIColor blackColor];
+    }
+}
+
+#pragma mark - WMMenuViewDataSource
+- (NSInteger)numbersOfTitlesInMenuView:(WMMenuView *)menu {
+    return 3;
+}
+- (NSString *)menuView:(WMMenuView *)menu titleAtIndex:(NSInteger)index {
+    if (index == 0) {
+        return @"会话";
+    } else if (index == 1) {
+        return @"联系人";
+    } else {
+        return @"通知";
+    }
+}
+
+- (UIView *)menuView:(WMMenuView *)menu badgeViewAtIndex:(NSInteger)index {
+    if (index == 2) {
+        UILabel *ureadLabel = [[UILabel alloc] initWithFrame:CGRectMake(45, 2, 16, 16)];
+        ureadLabel.backgroundColor = [UIColor redColor];
+        ureadLabel.textColor = [UIColor whiteColor];
+        ureadLabel.text = @"5";
+        ureadLabel.font = [UIFont systemFontOfSize:12];
+        ureadLabel.textAlignment = NSTextAlignmentCenter;
+        ureadLabel.layer.masksToBounds = YES;
+        ureadLabel.layer.cornerRadius = 8;
+        return ureadLabel;
+    }
+    return nil;
+}
+////////////以上为新加内容
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

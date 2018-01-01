@@ -145,7 +145,6 @@
 
         [self.contentView addSubview:btn];
     }
-    
 }
 
 
@@ -178,19 +177,19 @@
             NIMUser *user = [subarray objectAtIndex:i-1];
             [btn setImageWithURL:[NSURL URLWithString:user.userInfo.avatarUrl] forState:UIControlStateNormal placeholder:IMAGE_NAMED(@"placeholder_img")];
             if (i==1) {
-                UIImageView *creatorView = [[UIImageView alloc] init];
+                UIImageView *creatorView = [UIImageView new];
                 creatorView.image = IMAGE_NAMED(@"icon_team_creator");
                 [memberContainer addSubview:creatorView];
                 creatorView.sd_layout
                 .bottomEqualToView(btn)
                 .rightEqualToView(btn)
-                .widthIs(20)
+                .widthIs(kAutoWidth(20))
                 .heightEqualToWidth();
             }
         }
     }
     
-    [memberContainer setupAutoMarginFlowItems:[temp copy] withPerRowItemsCount:5 itemWidth:50 verticalMargin:10 verticalEdgeInset:4 horizontalEdgeInset:10];
+    [memberContainer setupAutoMarginFlowItems:[temp copy] withPerRowItemsCount:5 itemWidth:kAutoWidth(50) verticalMargin:10 verticalEdgeInset:4 horizontalEdgeInset:10];
     
     memberContainer.sd_layout
     .leftEqualToView(self.contentView)

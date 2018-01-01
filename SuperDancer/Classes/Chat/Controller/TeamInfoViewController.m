@@ -88,8 +88,12 @@
             if (_teamMemberUserIDs.count != 0) {
                 self.members = [NSArray array];
                 [[NIMSDK sharedSDK].userManager fetchUserInfos:_teamMemberUserIDs completion:^(NSArray<NIMUser *> * _Nullable users, NSError * _Nullable error) {
-                    self.members = users;
-                    [self.tableView reloadData];
+                    if (!error) {
+                        self.members = users;
+                        [self.tableView reloadData];
+                    } else {
+                        PPLog(@"load user info error = %@",error.description);
+                    }
                 }];
             }
         }
