@@ -47,12 +47,19 @@ static NSString *kMemberCellIdentifier = @"kMemberCellIdentifier";
     CompleteTeamInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"CompleteTeamInfoCell" owner:self options:nil] objectAtIndex:index];
+        if (index == 1) {
+            [cell showRigthArrow:NO];
+        }
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 
+//显示右边的箭头
+- (void)showRigthArrow:(BOOL)isShow {
+    _rightArrow.hidden = !isShow;
+}
 
 
 
@@ -94,7 +101,7 @@ static NSString *kMemberCellIdentifier = @"kMemberCellIdentifier";
     MemberCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kMemberCellIdentifier forIndexPath:indexPath];
     
     if (indexPath.row == [_showDataSource count]) {
-        cell.iconImg.image = IMAGE_NAMED(@"wd_ico_invite_xiao");
+        cell.iconImg.image = IMAGE_NAMED(@"wd_add_member");
     } else {
         cell.iconImg.image = IMAGE_NAMED(@"pic1");
     }

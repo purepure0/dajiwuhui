@@ -12,7 +12,8 @@
 #import <QiniuSDK.h>
 #import "AddMembersViewController.h"
 #import "TZImagePickerController.h"
-#import "EditTeamAddressViewController.h"
+//#import "EditTeamAddressViewController.h"
+#import "ModifyTeamLocalityViewController.h"
 @interface CompleteTeamInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong)NSArray *data;
@@ -21,7 +22,7 @@
 
 @property (nonatomic, strong)NSMutableArray *members; //成员
 @property (nonatomic, strong)NSString *teamIntro; //舞队介绍
-@property (nonatomic, strong)NSArray *area;
+@property (nonatomic, copy)NSString *area; //地区
 @property (nonatomic, assign)BOOL allowMemberInvite; //允许成员邀请队员
 
 
@@ -34,27 +35,15 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"完善资料";
     _members = [NSMutableArray arrayWithObject:[SDUser sharedUser].userId];
+    _area = @"未设置";
     _allowMemberInvite = NO;
     _teamIntro = @"未填写";
     [self setRightItemTitle:@"完成" action:@selector(finishAction)];
-    _members = [NSMutableArray arrayWithObject:[SDUser sharedUser].userId];
     
 }
 
 
-- (NSArray *)data {
-    if (_data == nil) {
-        _data = @[
-  @[@{}],
-  @[@{},@{}],
-  @[@{@"title": @"领队名称", @"content": [SDUser sharedUser].nickName},
-    @{@"title": @"成立时间", @"content": [self createTime]},
-    @{@"title": @"所在地区", @"content": @"未设置"},
-    @{@"title": @"允许成员邀请队员", @"content": @""}],
-  @[@{@"title": @"舞队介绍", @"content": @""}]];
-    }
-    return _data;
-}
+
 
 - (void)finishAction
 {
@@ -109,12 +98,18 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [self.data count];
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.data[section] count];
+    if (section == 1) {
+        return 2;
+    }else if (section == 2) {
+        return 4;
+    }else {
+        return 1;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -126,17 +121,12 @@
         if (indexPath.section == 1 && indexPath.row == 1) {
             return 70;
         }
-        
         return 50;
     } else {
         return 90;
     }
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 100;
-//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -149,25 +139,32 @@
         
     }else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            cell.textLabel.text = @"舞队成员";
-            cell.detailLabel.text = [NSString stringWithFormat:@"%ld人", _members.count];
+            cell.leftLabel.text = @"舞队成员";
+            cell.rightLabel.text = [NSString stringWithFormat:@"%ld人", _members.count];
         } else {
             cell.dataSource = _members;
         }
     }else if (indexPath.section == 2) {
         
-        if (indexPath.row <= 2) {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        } else {
+        if (indexPath.row == 0) {
+            cell.leftLabel.text = @"领队名称";
+            cell.rightLabel.text = [SDUser sharedUser].nickName;
+        }else if (indexPath.row == 1) {
+            cell.leftLabel.text = @"成立时间";
+            cell.rightLabel.text = [self createTime];
+        }else if (indexPath.row == 2) {
+            cell.leftLabel.text = @"所在地区";
+            cell.rightLabel.text = [_area stringByReplacingOccurrencesOfString:@"," withString:@""];
+            [cell showRigthArrow:YES];
+        }else {
+            cell.leftLabel.text = @"允许成员邀请成员";
+            cell.rightLabel.text = @"";
             UISwitch *s = [[UISwitch alloc] init];
             s.on = _allowMemberInvite;
             s.onTintColor = kBaseColor;
             [s addTarget:self action:@selector(swChangedvalue:) forControlEvents:UIControlEventValueChanged];
             cell.accessoryView = s;
         }
-        
-        cell.textLabel.text = self.data[indexPath.section][indexPath.row][@"title"];
-        cell.detailLabel.text = self.data[indexPath.section][indexPath.row][@"content"];
     }else {
         cell.introduceLabel.text = _teamIntro;
     }
@@ -186,10 +183,16 @@
 //            [weakSelf.tableView reloadData];
 //        };
 //        [self.navigationController pushViewController:addMembers animated:YES];
-    }else if (indexPath.section == 3) {
+    }else if (indexPath.section == 2) {
         if (indexPath.row == 2) {
-            EditTeamAddressViewController *editTeamAddress = [[EditTeamAddressViewController alloc] init];
+            ModifyTeamLocalityViewController *editTeamAddress = [[ModifyTeamLocalityViewController alloc] init];
+            editTeamAddress.isCreating = YES;
+            editTeamAddress.addressBlock = ^(NSString *address) {
+                _area = address;
+                [_tableView reloadData];
+            };
             [self.navigationController pushViewController:editTeamAddress animated:YES];
+            
         }
     }else if (indexPath.section == 3) {
         DisForTeamEditViewController *DDTVC = [[DisForTeamEditViewController alloc]init];

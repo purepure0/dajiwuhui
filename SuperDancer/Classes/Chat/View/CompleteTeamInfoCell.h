@@ -13,8 +13,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *teamName;
 @property (weak, nonatomic) IBOutlet UIButton *changeAvatarBtn;
-@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
-
+@property (weak, nonatomic) IBOutlet UILabel *leftLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rightLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *rightArrow;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 
 
@@ -23,4 +24,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 - (instancetype)initWithTableView:(UITableView *)tableView andIndexPath:(NSIndexPath *)indexPath;
+
+- (void)showRigthArrow:(BOOL)isShow;
 @end

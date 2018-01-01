@@ -7,8 +7,12 @@
 //
 
 #import "BaseViewController.h"
-
+typedef void(^TeamAddressResult)(NSString *address);
 @interface ModifyTeamLocalityViewController : BaseViewController
+
+@property (nonatomic, assign)BOOL isCreating;//区分:创建舞队信息/编辑舞队信息
+
+@property (nonatomic, copy)TeamAddressResult addressBlock;
 
 @property (nonatomic, strong) NIMTeam *team;
 

@@ -44,25 +44,37 @@
 }
 
 - (void)finishAction {
-    NSDictionary *locality = @{@"locality": self.locality};
-    NSData *data = [NSJSONSerialization dataWithJSONObject:@[locality] options:0 error:nil];
-    NSString *loc = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    [self.hud show:YES];
-    [[NIMSDK sharedSDK].teamManager updateTeamCustomInfo:loc teamId:self.team.teamId completion:^(NSError * _Nullable error) {
-        if (!error) {
-            NSString *url = NSStringFormat(@"%@%@",kApiPrefix,kUpdateTeamLocality);
-            [PPNetworkHelper POST:url parameters:@{@"tid":self.team.teamId,@"lat":self.users.latLocation,@"lon":self.users.lonLocation} success:^(id responseObject) {
-                [self.hud hide:YES];
-                NSString *code = NSStringFormat(@"%@",responseObject[@"code"]);
-                if ([code isEqualToString:@"0"]) {
-                    [self toast:@"编辑地址成功"];
-                    [self.navigationController popViewControllerAnimated:YES];
-                }
-            } failure:^(NSError *error) {
-                
-            }];
+    if (_isCreating) {
+        if (self.locality.length == 0) {
+            [self toast:@"请选择地区"];
+            return;
         }
-    }];
+        if (_addressBlock) {
+            _addressBlock(self.locality);
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    }else {
+        NSDictionary *locality = @{@"locality": self.locality};
+        NSData *data = [NSJSONSerialization dataWithJSONObject:@[locality] options:0 error:nil];
+        NSString *loc = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        [self.hud show:YES];
+        [[NIMSDK sharedSDK].teamManager updateTeamCustomInfo:loc teamId:self.team.teamId completion:^(NSError * _Nullable error) {
+            if (!error) {
+                NSString *url = NSStringFormat(@"%@%@",kApiPrefix,kUpdateTeamLocality);
+                [PPNetworkHelper POST:url parameters:@{@"tid":self.team.teamId,@"lat":self.users.latLocation,@"lon":self.users.lonLocation} success:^(id responseObject) {
+                    [self.hud hide:YES];
+                    NSString *code = NSStringFormat(@"%@",responseObject[@"code"]);
+                    if ([code isEqualToString:@"0"]) {
+                        [self toast:@"编辑地址成功"];
+                        [self.navigationController popViewControllerAnimated:YES];
+                    }
+                } failure:^(NSError *error) {
+                    
+                }];
+            }
+        }];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
