@@ -210,6 +210,8 @@
     //用户userId对应IM的account
     [[[NIMSDK sharedSDK] loginManager] login:user.userId token:user.token completion:^(NSError * _Nullable error) {
         PPLog(@"网易云信登录error：%@", error);
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"IMConnected" object:@""];
     }];
     
 }

@@ -239,6 +239,10 @@
     PPLog(@"STEP:%ld", step);
     if (step == 5) {
         NSLog(@"%@", [[[NIMSDK sharedSDK] teamManager] allMyTeams]);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"IMConnected" object:nil];
+    }else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"IMConnecting" object:nil];
+        
     }
 }
 

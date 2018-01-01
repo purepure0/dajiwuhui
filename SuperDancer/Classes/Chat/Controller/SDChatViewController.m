@@ -16,6 +16,8 @@
 #import "FriendListViewController.h"
 #import "NearTeamViewController.h"
 #import "TeamSessionViewController.h"
+#import "LoginViewController.h"
+#import "SDNavigationController.h"
 @interface SDChatViewController ()<UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchControllerDelegate, NIMSystemNotificationManagerDelegate, NIMTeamManagerDelegate, NIMTeamManagerDelegate>
 @property(strong,nonatomic)UITableView              *chatListTableView;
 @property(strong,nonatomic)UISearchController       *chatVCSearchVC;
@@ -37,8 +39,21 @@
     [[NIMSDK sharedSDK].teamManager addDelegate:self];
     //监听系统消息
     [[NIMSDK sharedSDK].systemNotificationManager addDelegate:self];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(IMConnected:) name:@"IMConnected" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(IMConneting:) name:@"IMConnected" object:nil];
 }
+
+- (void)IMConnected:(NSNotification *)noti {
+    PPLog(@"%s", __func__);
+    [self hideLoading];
+    [self initDataSource];
+}
+
+- (void)IMConneting:(NSNotification *)noti {
+    PPLog(@"%s", __func__);
+    [self showLoading];
+}
+
 
 - (void)onSystemNotificationCountChanged:(NSInteger)unreadCount {
     //未读消息数
@@ -49,14 +64,21 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    PPLog(@"%s", __func__);
+    [self initDataSource];
     if ([SDUser sharedUser].userId == nil) {
-        
+        LoginViewController *login = [[LoginViewController alloc] init];
+        SDNavigationController *nav = [[SDNavigationController alloc] initWithRootViewController:login];
+        [self presentViewController:nav animated:YES completion:nil];
     }else {
         [self setRightImageNamed:@"wd_nav_btn_add" action:@selector(addTeamAction)];
         [self initDataSource];
     }
     
 }
+
+
+
 
 - (void)initDataSource {
     _teamList = [[[NIMSDK sharedSDK] teamManager] allMyTeams];
