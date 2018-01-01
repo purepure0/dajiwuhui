@@ -41,6 +41,7 @@
     [[NIMSDK sharedSDK].systemNotificationManager addDelegate:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(IMConnected:) name:@"IMConnected" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(IMConneting:) name:@"IMConnected" object:nil];
+    
 }
 
 - (void)IMConnected:(NSNotification *)noti {
@@ -282,6 +283,7 @@
 
 - (void)onUserInfoChanged:(NIMUser *)user {
     NSLog(@"%@", user.userId);
+    
 }
 
 

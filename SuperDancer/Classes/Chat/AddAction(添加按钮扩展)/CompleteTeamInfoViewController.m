@@ -34,7 +34,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"完善资料";
-    _members = [NSMutableArray arrayWithObject:[SDUser sharedUser].userId];
+    _members = [NSMutableArray arrayWithObject:[[NIMSDK sharedSDK].userManager userInfo:[SDUser sharedUser].userId]];
     _area = @"未设置";
     _allowMemberInvite = NO;
     _teamIntro = @"未填写";
@@ -62,8 +62,19 @@
                       PPLog(@"Qiniu key = %@", key);
                       
                       if (info.ok) {
-                          [self hideLoading];
+                          
                           PPLog(@"成功");
+                          //成员
+                          NSMutableArray *userIDs = [NSMutableArray new];
+                          for (NIMUser *user in _members) {
+                              [userIDs addObject:user.userId];
+                          }
+                          
+                          //地区
+                          NSDictionary *locality = @{@"locality": self.area};
+                          NSData *data = [NSJSONSerialization dataWithJSONObject:@[locality] options:0 error:nil];
+                          NSString *loc = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                          
                           NSString *avatarURL = NSStringFormat(@"%@%@", kQiniuURLHost, resp[@"key"]);
                           NIMCreateTeamOption *option = [[NIMCreateTeamOption alloc] init];
                           option.name = self.teamName;
@@ -73,11 +84,16 @@
                           option.inviteMode = _allowMemberInvite;
                           option.beInviteMode = NIMTeamBeInviteModeNeedAuth;
                           option.intro = _teamIntro;
+                          option.clientCustomInfo = loc;
                           
-                          [[[NIMSDK sharedSDK] teamManager] createTeam:option users:_members completion:^(NSError * _Nullable error, NSString * _Nullable teamId, NSArray<NSString *> * _Nullable failedUserIds) {
+                          [[[NIMSDK sharedSDK] teamManager] createTeam:option users:userIDs completion:^(NSError * _Nullable error, NSString * _Nullable teamId, NSArray<NSString *> * _Nullable failedUserIds) {
                               if (error == nil) {
                                   NSLog(@"%@--%@", teamId, failedUserIds);
-                                  [self.navigationController popToRootViewControllerAnimated:YES];
+                                  [[NIMSDK sharedSDK].teamManager fetchTeamInfo:teamId completion:^(NSError * _Nullable error, NIMTeam * _Nullable team) {
+                                      [self hideLoading];
+                                      [self.navigationController popToRootViewControllerAnimated:YES];
+                                  }];
+                                  
                               }else {
                                   NSLog(@"error:%@", error);
                                   [self toast:@"创建失败"];
@@ -176,13 +192,14 @@
     __weak typeof(self) weakSelf = self;
     
     if (indexPath.section == 1 && indexPath.row == 1) {
-//        AddMembersViewController *addMembers = [[AddMembersViewController alloc] init];
-//        addMembers.members = _members;
-//        addMembers.finished = ^{
-//            NSLog(@"%@", weakSelf.members);
-//            [weakSelf.tableView reloadData];
-//        };
-//        [self.navigationController pushViewController:addMembers animated:YES];
+        AddMembersViewController *addMembers = [[AddMembersViewController alloc] init];
+        addMembers.selectedMembers = _members;
+        addMembers.isCreating = YES;
+        addMembers.finished = ^{
+            NSLog(@"%@", weakSelf.members);
+            [weakSelf.tableView reloadData];
+        };
+        [self.navigationController pushViewController:addMembers animated:YES];
     }else if (indexPath.section == 2) {
         if (indexPath.row == 2) {
             ModifyTeamLocalityViewController *editTeamAddress = [[ModifyTeamLocalityViewController alloc] init];
@@ -204,7 +221,7 @@
             _teamIntro = teamIntro;
             [weakSelf.tableView reloadData];
         };
-        
+    
         [self.navigationController pushViewController:DDTVC animated:YES];
     }
 }

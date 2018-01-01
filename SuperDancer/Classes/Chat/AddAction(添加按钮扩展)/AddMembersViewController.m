@@ -11,7 +11,6 @@
 @interface AddMembersViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)NSMutableArray *friendList;
-@property (nonatomic, strong)NSMutableArray *selectedMembers;
 @end
 
 @implementation AddMembersViewController
@@ -24,7 +23,13 @@
         _teamID = _team.teamId;
     }
     _friendList = [NSMutableArray new];
-    _selectedMembers = [NSMutableArray new];
+    if (_selectedMembers.count == 0) {
+        _selectedMembers = [NSMutableArray new];
+        [self setRightItemTitle:nil titleColor:nil action:nil];
+    }else {
+        [self setRightItemTitle:@"确定" titleColor:[UIColor blackColor] action:@selector(complete:)];
+    }
+    
     
     [self initDataSource];
     _tableView.tableFooterView = [UIView new];
@@ -34,13 +39,22 @@
 
 - (void)initDataSource {
     _friendList = (NSMutableArray *)[[NIMSDK sharedSDK].userManager myFriends];
-    for (NIMUser *user in _friendList) {
-        if ([_teamMemberUserIDs indexOfObject:user.userId] != NSNotFound) {
-            [_friendList removeObject:user];
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"无可添加的成员" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alertView show];
+    PPLog(@"%@", _friendList);
+    if (_isCreating) {
+        
+    }else {
+        for (NIMUser *user in _friendList) {
+            if ([_teamMemberUserIDs indexOfObject:user.userId] != NSNotFound) {
+                [_friendList removeObject:user];
+            }
         }
     }
+    PPLog(@"%@", _friendList);
+    if (_friendList.count == 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"无可添加的好友" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alertView show];
+    }
+    
     NSLog(@"%@", _friendList);
 }
 
@@ -57,11 +71,25 @@
     cell.nicknameLabel.text = user.userInfo.nickName;
     cell.userID = user.userId;
     
-    if ([_selectedMembers indexOfObject:user.userId] == NSNotFound) {
-        [cell setIsSelected:NO];
+    if (_isCreating) {
+        NSMutableArray *userIds = [NSMutableArray new];
+        for (NIMUser *user in _selectedMembers) {
+            [userIds addObject:user.userId];
+        }
+        if ([userIds indexOfObject:user.userId] == NSNotFound) {
+            [cell setIsSelected:NO];
+        }else {
+            [cell setIsSelected:YES];
+        }
     }else {
-        [cell setIsSelected:YES];
+        if ([_selectedMembers indexOfObject:user.userId] == NSNotFound) {
+            [cell setIsSelected:NO];
+        }else {
+            [cell setIsSelected:YES];
+        }
     }
+    
+    
     __weak typeof(self) weakSelf = self;
     cell.selectedBlock = ^(NSString *userId) {
         [weakSelf addMemberWithUserId:userId];
@@ -75,28 +103,56 @@
 }
 
 - (void)addMemberWithUserId:(NSString *)userId {
-    if ([_selectedMembers indexOfObject:userId] == NSNotFound) {
-        [_selectedMembers addObject:userId];
+    
+    if (_isCreating) {
+        NSMutableArray *userIds = [NSMutableArray new];
+        for (NIMUser *user in _selectedMembers) {
+            [userIds addObject:user.userId];
+        }
+        for (NIMUser *user in _friendList) {
+            if ([user.userId isEqualToString:userId]) {
+                if ([userIds indexOfObject:user.userId] == NSNotFound) {
+                    [_selectedMembers addObject:user];
+                }else {
+                    [_selectedMembers removeObject:user];
+                }
+            }
+        }
     }else {
-        [_selectedMembers removeObject:userId];
+        if ([_selectedMembers indexOfObject:userId] == NSNotFound) {
+            [_selectedMembers addObject:userId];
+        }else {
+            [_selectedMembers removeObject:userId];
+        }
+        if (_selectedMembers.count != 0) {
+            [self setRightItemTitle:@"确定" titleColor:[UIColor blackColor] action:@selector(complete:)];
+        }else {
+            [self setRightItemTitle:nil titleColor:nil action:nil];
+        }
     }
     
-    if (_selectedMembers.count != 0) {
-        [self setRightItemTitle:@"确定" titleColor:[UIColor blackColor] action:@selector(complete:)];
-    }else {
-        [self setRightItemTitle:nil titleColor:nil action:nil];
-    }
+    
+    
+    
 }
 
 - (void)complete:(UIButton *)btn {
     NSLog(@"%@", _selectedMembers);
-    [[NIMSDK sharedSDK].teamManager addUsers:_selectedMembers toTeam:_teamID postscript:@"邀请" completion:^(NSError * _Nullable error, NSArray<NIMTeamMember *> * _Nullable members) {
-        if (error) {
-            [self toast:error.description];
-        }else {
-            [self toast:@"邀请发送成功"];
+    if (_isCreating) {
+        if (_finished) {
+            _finished();
+            [self.navigationController popViewControllerAnimated:YES];
         }
-    }];
+    }else {
+        [[NIMSDK sharedSDK].teamManager addUsers:_selectedMembers toTeam:_teamID postscript:@"邀请" completion:^(NSError * _Nullable error, NSArray<NIMTeamMember *> * _Nullable members) {
+            if (error) {
+                [self toast:error.description];
+            }else {
+                [self toast:@"邀请发送成功"];
+            }
+        }];
+    }
+    
 }
 
 

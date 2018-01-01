@@ -227,6 +227,7 @@
             AddMembersViewController *am = [[AddMembersViewController alloc] init];
             am.team = _team;
             am.teamMemberUserIDs = _teamMemberUserIDs;
+            am.isCreating = NO;
             [self.navigationController pushViewController:am animated:YES];
         } else {
             if (_team.inviteMode == NIMTeamInviteModeAll) {
