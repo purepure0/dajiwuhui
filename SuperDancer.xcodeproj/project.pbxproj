@@ -102,6 +102,9 @@
 		3F97B3681FD0F8CC00D0799A /* ThirdRightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F97B3651FD0F8CC00D0799A /* ThirdRightTableViewCell.m */; };
 		3F97B3691FD0F8CC00D0799A /* ThreeRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F97B3671FD0F8CC00D0799A /* ThreeRightView.m */; };
 		9A03DC941FFB68E2006CAC90 /* SessionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A03DC931FFB68E2006CAC90 /* SessionListViewController.m */; };
+		9A03DC971FFB8156006CAC90 /* ContactHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A03DC961FFB8156006CAC90 /* ContactHeaderView.m */; };
+		9A03DC9C1FFBC509006CAC90 /* ContactListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A03DC9A1FFBC509006CAC90 /* ContactListCell.m */; };
+		9A03DC9D1FFBC509006CAC90 /* ContactListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A03DC9B1FFBC509006CAC90 /* ContactListCell.xib */; };
 		9A08B2921F88ACAD00232661 /* SCVerifyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08B2911F88ACAD00232661 /* SCVerifyButton.m */; };
 		9A08B2991F88BFEC00232661 /* DancersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08B2981F88BFEC00232661 /* DancersViewController.m */; };
 		9A08B29E1F88C75500232661 /* UIBarButtonItem+SCItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08B29D1F88C75500232661 /* UIBarButtonItem+SCItem.m */; };
@@ -510,6 +513,11 @@
 		5CAD60E82009A253E3DD84A8 /* Pods-SuperDancer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperDancer.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperDancer/Pods-SuperDancer.release.xcconfig"; sourceTree = "<group>"; };
 		9A03DC921FFB68E2006CAC90 /* SessionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SessionListViewController.h; sourceTree = "<group>"; };
 		9A03DC931FFB68E2006CAC90 /* SessionListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SessionListViewController.m; sourceTree = "<group>"; };
+		9A03DC951FFB8156006CAC90 /* ContactHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactHeaderView.h; sourceTree = "<group>"; };
+		9A03DC961FFB8156006CAC90 /* ContactHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactHeaderView.m; sourceTree = "<group>"; };
+		9A03DC991FFBC509006CAC90 /* ContactListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactListCell.h; sourceTree = "<group>"; };
+		9A03DC9A1FFBC509006CAC90 /* ContactListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactListCell.m; sourceTree = "<group>"; };
+		9A03DC9B1FFBC509006CAC90 /* ContactListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactListCell.xib; sourceTree = "<group>"; };
 		9A08B2901F88ACAD00232661 /* SCVerifyButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCVerifyButton.h; sourceTree = "<group>"; };
 		9A08B2911F88ACAD00232661 /* SCVerifyButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCVerifyButton.m; sourceTree = "<group>"; };
 		9A08B2971F88BFEC00232661 /* DancersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DancersViewController.h; sourceTree = "<group>"; };
@@ -1324,6 +1332,11 @@
 				9A26A3521FF37252008638B8 /* AddTeamMemberCell.xib */,
 				9AFE2DC31FF66CEC00F07BB0 /* ImageScroll.h */,
 				9AFE2DC41FF66CED00F07BB0 /* ImageScroll.m */,
+				9A03DC951FFB8156006CAC90 /* ContactHeaderView.h */,
+				9A03DC961FFB8156006CAC90 /* ContactHeaderView.m */,
+				9A03DC991FFBC509006CAC90 /* ContactListCell.h */,
+				9A03DC9A1FFBC509006CAC90 /* ContactListCell.m */,
+				9A03DC9B1FFBC509006CAC90 /* ContactListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2963,6 +2976,7 @@
 				9A3E24AA1FE8F53300F961AA /* AddMembersViewController.xib in Resources */,
 				049E50C81FA0E51C006C3BF1 /* LocalHeaderReusableView.xib in Resources */,
 				9A3E24AF1FE9010500F961AA /* EditTeamAddressViewController.xib in Resources */,
+				9A03DC9D1FFBC509006CAC90 /* ContactListCell.xib in Resources */,
 				9AC688701FF14F5B00ADEFB1 /* FriendNotiListViewController.xib in Resources */,
 				9A2CB8A01F868DBC00907C72 /* SquareDanceViewController.xib in Resources */,
 				9A33C7F91FE4161B006F7A50 /* InviteMesageViewController.xib in Resources */,
@@ -3125,6 +3139,7 @@
 				9A992DF21FA2392400FBAC21 /* UploadVideoView.m in Sources */,
 				040F832A1F95B276003DA2A0 /* CommentModel.m in Sources */,
 				049E51141FA30AAB006C3BF1 /* MsgCommentCell.m in Sources */,
+				9A03DC9C1FFBC509006CAC90 /* ContactListCell.m in Sources */,
 				9ACA8AFB1F98574C00B73B29 /* ZFPlayerControlView.m in Sources */,
 				9A08B2921F88ACAD00232661 /* SCVerifyButton.m in Sources */,
 				9A08B2B21F88DEF700232661 /* MovePlayerViewController.m in Sources */,
@@ -3157,6 +3172,7 @@
 				9A1DC6A51FA49CF10014E739 /* DownloadViewController.m in Sources */,
 				9ACA8AF31F98574C00B73B29 /* UINavigationController+ZFPlayerRotation.m in Sources */,
 				3F9294121FD4F4B2004CC1E7 /* SGWebView.m in Sources */,
+				9A03DC971FFB8156006CAC90 /* ContactHeaderView.m in Sources */,
 				9A08C2381FCCF32C00F6C54B /* UIImage+CLImage.m in Sources */,
 				041C473E1F9B86AF00A65AC8 /* SaveBrowseRecord.m in Sources */,
 				049E50D11FA1D278006C3BF1 /* CitySelectViewController.m in Sources */,
