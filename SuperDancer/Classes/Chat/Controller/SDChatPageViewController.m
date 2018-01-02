@@ -15,6 +15,9 @@
 #import "CreatDanceTeamViewController.h"
 #import "SearchTeamViewController.h"
 #import "SessionListViewController.h"
+#import "NearTeamViewController.h"
+#import "AddFriendViewController.h"
+
 @interface SDChatPageViewController ()<WMPageControllerDelegate, WMPageControllerDataSource, WMMenuViewDelegate>
 @property (nonatomic, strong) WMPageController *pageController;
 
@@ -33,7 +36,7 @@
 - (void)createTeamAction
 {
     //加号按钮
-    ThreeRightView *view = [[ThreeRightView alloc]initCustomImageArray:@[@"001",@"2.jpg"] textArray:@[@"创建舞队",@"查找舞队"] selfFrame:CGRectMake(kScreenWidth-155,49,150,115)];
+    ThreeRightView *view = [[ThreeRightView alloc]initCustomImageArray:@[@"001",@"2.jpg",@"2.jpg"] textArray:@[@"创建舞队",@"查找舞队",@"添加好友",] selfFrame:CGRectMake(kScreenWidth-155,49,150,165)];
     view.selectRowBlock = ^(NSString *row) {
         switch (row.intValue) {
             case 0:
@@ -47,7 +50,11 @@
                 [self.navigationController pushViewController:STVC animated:YES];
             }
                 break;
-                
+            case 2:{
+                AddFriendViewController *af = [[AddFriendViewController alloc] init];
+                [self.navigationController pushViewController:af animated:YES];
+            }
+                break;
             default:
                 break;
         }

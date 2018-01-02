@@ -51,7 +51,7 @@
         
        
          self.imageArr = imageArr;
-        self.textArray = textArr;
+         self.textArray = textArr;
          [self addSubviews];
     }
     return self;
