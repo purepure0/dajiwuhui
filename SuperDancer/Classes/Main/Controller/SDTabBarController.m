@@ -11,6 +11,7 @@
 #import "SDNavigationController.h"
 #import "SDHomeViewController.h"
 #import "SDChatViewController.h"
+#import "SDChatPageViewController.h"
 #import "SDMineViewController.h"
 #import "UIImage+CLImage.h"
 
@@ -30,7 +31,7 @@
     SDHomeViewController *home = [[SDHomeViewController alloc] init];
     [self setupChildViewController:home image:[UIImage imageNamed:@"wd_tab_btnl_video_nor"] selectImage:[UIImage imageWithOriginalName:@"wd_tab_btnl_video_sel"] title:@"视频"];
     
-    SDChatViewController *chat = [[SDChatViewController alloc] init];
+    SDChatPageViewController *chat = [[SDChatPageViewController alloc] init];
     [self setupChildViewController:chat image:[UIImage imageNamed:@"wd_tab_btnl_chat_nor"] selectImage:[UIImage imageWithOriginalName:@"wd_tab_btnl_chat_sel"] title:@"舞队"];
     
     SDMineViewController *mine = [[SDMineViewController alloc] init];

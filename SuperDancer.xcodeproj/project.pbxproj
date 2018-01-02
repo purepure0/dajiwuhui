@@ -303,6 +303,12 @@
 		9AD960F21F8F2F050024DA43 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9AD960ED1F8F2F040024DA43 /* MBProgressHUD.bundle */; };
 		9AD960F31F8F2F050024DA43 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD960EF1F8F2F040024DA43 /* MBProgressHUD+MJ.m */; };
 		9AD960F41F8F2F050024DA43 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD960F11F8F2F040024DA43 /* MBProgressHUD.m */; };
+		9AEDC5761FFB626800BF4F09 /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDC5741FFB626800BF4F09 /* ConversationViewController.m */; };
+		9AEDC5771FFB626800BF4F09 /* ConversationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEDC5751FFB626800BF4F09 /* ConversationViewController.xib */; };
+		9AEDC57B1FFB630200BF4F09 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDC5791FFB630200BF4F09 /* ContactsViewController.m */; };
+		9AEDC57C1FFB630200BF4F09 /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEDC57A1FFB630200BF4F09 /* ContactsViewController.xib */; };
+		9AEDC5801FFB641900BF4F09 /* SDChatPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDC57E1FFB641900BF4F09 /* SDChatPageViewController.m */; };
+		9AEDC5811FFB641900BF4F09 /* SDChatPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEDC57F1FFB641900BF4F09 /* SDChatPageViewController.xib */; };
 		9AFB537E1FECA8BD008E5BAD /* TeamManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB537C1FECA8BD008E5BAD /* TeamManageViewController.m */; };
 		9AFB537F1FECA8BD008E5BAD /* TeamManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB537D1FECA8BD008E5BAD /* TeamManageViewController.xib */; };
 		9AFB538A1FECE7F9008E5BAD /* MemberManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AFB53831FECE7F9008E5BAD /* MemberManageViewController.m */; };
@@ -841,6 +847,15 @@
 		9AD960EF1F8F2F040024DA43 /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
 		9AD960F01F8F2F040024DA43 /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
 		9AD960F11F8F2F040024DA43 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		9AEDC5731FFB626800BF4F09 /* ConversationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationViewController.h; sourceTree = "<group>"; };
+		9AEDC5741FFB626800BF4F09 /* ConversationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationViewController.m; sourceTree = "<group>"; };
+		9AEDC5751FFB626800BF4F09 /* ConversationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationViewController.xib; sourceTree = "<group>"; };
+		9AEDC5781FFB630200BF4F09 /* ContactsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
+		9AEDC5791FFB630200BF4F09 /* ContactsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+		9AEDC57A1FFB630200BF4F09 /* ContactsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
+		9AEDC57D1FFB641900BF4F09 /* SDChatPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDChatPageViewController.h; sourceTree = "<group>"; };
+		9AEDC57E1FFB641900BF4F09 /* SDChatPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDChatPageViewController.m; sourceTree = "<group>"; };
+		9AEDC57F1FFB641900BF4F09 /* SDChatPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SDChatPageViewController.xib; sourceTree = "<group>"; };
 		9AFB537B1FECA8BD008E5BAD /* TeamManageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamManageViewController.h; sourceTree = "<group>"; };
 		9AFB537C1FECA8BD008E5BAD /* TeamManageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamManageViewController.m; sourceTree = "<group>"; };
 		9AFB537D1FECA8BD008E5BAD /* TeamManageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamManageViewController.xib; sourceTree = "<group>"; };
@@ -1443,6 +1458,9 @@
 				9A08C2281FCC3F2400F6C54B /* SDChatViewController.h */,
 				9A08C2291FCC3F2400F6C54B /* SDChatViewController.m */,
 				9A08C22A1FCC3F2400F6C54B /* SDChatViewController.xib */,
+				9AEDC57D1FFB641900BF4F09 /* SDChatPageViewController.h */,
+				9AEDC57E1FFB641900BF4F09 /* SDChatPageViewController.m */,
+				9AEDC57F1FFB641900BF4F09 /* SDChatPageViewController.xib */,
 				9A0EBBD31FE9F9DD00F31F94 /* TeamSessionViewController.h */,
 				9A0EBBD41FE9F9DD00F31F94 /* TeamSessionViewController.m */,
 				9A0EBBD61FEA170B00F31F94 /* TeamInfoViewController.h */,
@@ -1451,6 +1469,9 @@
 				9A0EBBDB1FEAA21E00F31F94 /* TeamMemmberInfoViewController.h */,
 				9A0EBBDC1FEAA21E00F31F94 /* TeamMemmberInfoViewController.m */,
 				9A0EBBDD1FEAA21E00F31F94 /* TeamMemmberInfoViewController.xib */,
+				9AEDC5721FFB624C00BF4F09 /* 会话 */,
+				9AEDC5711FFB624C00BF4F09 /* 联系人 */,
+				9AEDC5701FFB624C00BF4F09 /* 通知 */,
 				9A58B9831FF8185D00530DBF /* 群公告 */,
 				9AC3667E1FEE266900D6746D /* 好友 */,
 				9AFB53771FECA88C008E5BAD /* 舞队管理 */,
@@ -2547,6 +2568,33 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		9AEDC5701FFB624C00BF4F09 /* 通知 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "通知";
+			sourceTree = "<group>";
+		};
+		9AEDC5711FFB624C00BF4F09 /* 联系人 */ = {
+			isa = PBXGroup;
+			children = (
+				9AEDC5781FFB630200BF4F09 /* ContactsViewController.h */,
+				9AEDC5791FFB630200BF4F09 /* ContactsViewController.m */,
+				9AEDC57A1FFB630200BF4F09 /* ContactsViewController.xib */,
+			);
+			path = "联系人";
+			sourceTree = "<group>";
+		};
+		9AEDC5721FFB624C00BF4F09 /* 会话 */ = {
+			isa = PBXGroup;
+			children = (
+				9AEDC5731FFB626800BF4F09 /* ConversationViewController.h */,
+				9AEDC5741FFB626800BF4F09 /* ConversationViewController.m */,
+				9AEDC5751FFB626800BF4F09 /* ConversationViewController.xib */,
+			);
+			path = "会话";
+			sourceTree = "<group>";
+		};
 		9AFB53771FECA88C008E5BAD /* 舞队管理 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2846,11 +2894,13 @@
 				049E50C31FA0E0E7006C3BF1 /* LocalCell.xib in Resources */,
 				9A61BF001FD1371F00F30888 /* SettingViewController.xib in Resources */,
 				9A08C2341FCCF17100F6C54B /* SDTabBarController.xib in Resources */,
+				9AEDC57C1FFB630200BF4F09 /* ContactsViewController.xib in Resources */,
 				9AC366881FEE2E9400D6746D /* FriendListCell.xib in Resources */,
 				9A2CB88E1F868D5400907C72 /* LocalDanceViewController.xib in Resources */,
 				9A61BEFE1FD1371F00F30888 /* SDMineViewController.xib in Resources */,
 				9A26A35F1FF4044A008638B8 /* TeamSimpleInfoViewController.xib in Resources */,
 				9AFB538B1FECE7F9008E5BAD /* MemberManageViewController.xib in Resources */,
+				9AEDC5771FFB626800BF4F09 /* ConversationViewController.xib in Resources */,
 				9A71FE7D1F8DF37500738680 /* DownloadingCell.xib in Resources */,
 				9A1BB42A1F85E2850067C12C /* SDHomeViewController.xib in Resources */,
 				9AFB539B1FEE4D11008E5BAD /* ModifyTeamLocalityViewController.xib in Resources */,
@@ -2879,6 +2929,7 @@
 				049E510A1FA2FF00006C3BF1 /* MsgCenterViewController.xib in Resources */,
 				9A58B9CF1FF9404700530DBF /* ModifyTeamNameViewController.xib in Resources */,
 				9A58B9F11FF94EA100530DBF /* FSActionSheet_cancel@2x.png in Resources */,
+				9AEDC5811FFB641900BF4F09 /* SDChatPageViewController.xib in Resources */,
 				049E50BE1FA0DDEC006C3BF1 /* LocalSelectViewController.xib in Resources */,
 				9A33C8031FE4169B006F7A50 /* TeamJoinCell.xib in Resources */,
 				04AE23921FA070320034635C /* CollectionDancersViewController.xib in Resources */,
@@ -3092,6 +3143,7 @@
 				9A33C7FD1FE4161B006F7A50 /* TeamJoinViewController.m in Sources */,
 				04EB25041F9A4E61000E2137 /* CommentView.m in Sources */,
 				9AFB538C1FECE7F9008E5BAD /* MemberManageCell.m in Sources */,
+				9AEDC5761FFB626800BF4F09 /* ConversationViewController.m in Sources */,
 				9ACA8AEF1F98574C00B73B29 /* ASValuePopUpView.m in Sources */,
 				9A1BB4401F864D080067C12C /* SDSystemInfo.m in Sources */,
 				9AFB53A71FEE4FAB008E5BAD /* UIButton+CZHExtension.m in Sources */,
@@ -3141,6 +3193,7 @@
 				9AD960CA1F8F14590024DA43 /* Utility.m in Sources */,
 				3F97B3691FD0F8CC00D0799A /* ThreeRightView.m in Sources */,
 				04AE237B1F9F87D50034635C /* CollectionCell.m in Sources */,
+				9AEDC5801FFB641900BF4F09 /* SDChatPageViewController.m in Sources */,
 				9ACA8AFD1F98574C00B73B29 /* ZFPlayerView.m in Sources */,
 				049E50F81FA237BF006C3BF1 /* EditNickNameViewController.m in Sources */,
 				3F573A811FCFB6AE007E81DC /* UIImage+circleImage.m in Sources */,
@@ -3187,6 +3240,7 @@
 				04AE23911FA070320034635C /* CollectionDancersViewController.m in Sources */,
 				9AFB537E1FECA8BD008E5BAD /* TeamManageViewController.m in Sources */,
 				04ECB8711F9200B000186C5B /* BrowsingHistoryViewController.m in Sources */,
+				9AEDC57B1FFB630200BF4F09 /* ContactsViewController.m in Sources */,
 				049E50C21FA0E0E7006C3BF1 /* LocalCell.m in Sources */,
 				9ACA8AF21F98574C00B73B29 /* UIImageView+ZFCache.m in Sources */,
 				9AFE2DF61FF6794300F07BB0 /* ChatVideoViewController.m in Sources */,
