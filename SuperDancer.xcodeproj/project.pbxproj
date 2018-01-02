@@ -101,6 +101,7 @@
 		3F9294121FD4F4B2004CC1E7 /* SGWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9294111FD4F4B2004CC1E7 /* SGWebView.m */; };
 		3F97B3681FD0F8CC00D0799A /* ThirdRightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F97B3651FD0F8CC00D0799A /* ThirdRightTableViewCell.m */; };
 		3F97B3691FD0F8CC00D0799A /* ThreeRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F97B3671FD0F8CC00D0799A /* ThreeRightView.m */; };
+		9A03DC941FFB68E2006CAC90 /* SessionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A03DC931FFB68E2006CAC90 /* SessionListViewController.m */; };
 		9A08B2921F88ACAD00232661 /* SCVerifyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08B2911F88ACAD00232661 /* SCVerifyButton.m */; };
 		9A08B2991F88BFEC00232661 /* DancersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08B2981F88BFEC00232661 /* DancersViewController.m */; };
 		9A08B29E1F88C75500232661 /* UIBarButtonItem+SCItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A08B29D1F88C75500232661 /* UIBarButtonItem+SCItem.m */; };
@@ -501,6 +502,8 @@
 		3F97B3661FD0F8CC00D0799A /* ThreeRightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeRightView.h; sourceTree = "<group>"; };
 		3F97B3671FD0F8CC00D0799A /* ThreeRightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeRightView.m; sourceTree = "<group>"; };
 		5CAD60E82009A253E3DD84A8 /* Pods-SuperDancer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperDancer.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperDancer/Pods-SuperDancer.release.xcconfig"; sourceTree = "<group>"; };
+		9A03DC921FFB68E2006CAC90 /* SessionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SessionListViewController.h; sourceTree = "<group>"; };
+		9A03DC931FFB68E2006CAC90 /* SessionListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SessionListViewController.m; sourceTree = "<group>"; };
 		9A08B2901F88ACAD00232661 /* SCVerifyButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCVerifyButton.h; sourceTree = "<group>"; };
 		9A08B2911F88ACAD00232661 /* SCVerifyButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCVerifyButton.m; sourceTree = "<group>"; };
 		9A08B2971F88BFEC00232661 /* DancersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DancersViewController.h; sourceTree = "<group>"; };
@@ -1454,6 +1457,8 @@
 				9AD925EF1FF09B9500CE1A47 /* 聊天记录 */,
 				9AFB53801FECE7F9008E5BAD /* 成员管理 */,
 				9AFB538E1FECE827008E5BAD /* 舞队二维码 */,
+				9A03DC921FFB68E2006CAC90 /* SessionListViewController.h */,
+				9A03DC931FFB68E2006CAC90 /* SessionListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3037,6 +3042,7 @@
 				9A1BB41A1F85DC210067C12C /* main.m in Sources */,
 				9A53C07B1FDFCF73003CBFD3 /* PublicNoticeDetailViewController.m in Sources */,
 				9AD960F31F8F2F050024DA43 /* MBProgressHUD+MJ.m in Sources */,
+				9A03DC941FFB68E2006CAC90 /* SessionListViewController.m in Sources */,
 				9A58B9EC1FF94EA100530DBF /* UIView+XLExtension.m in Sources */,
 				9AD960EC1F8F2EEA0024DA43 /* SDInterfacedConst.m in Sources */,
 				9A2CB8A71F8725A300907C72 /* HomeCell.m in Sources */,
