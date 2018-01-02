@@ -49,13 +49,13 @@
 
 - (void)updateFriendList {
     _friendList = [[NIMSDK sharedSDK].userManager myFriends];
-    [_tableView reloadSection:0 withRowAnimation:UITableViewRowAnimationNone];
+    [_tableView reloadSection:0 withRowAnimation:UITableViewRowAnimationFade];
     PPLog(@"%@", _friendList);
 }
 
 - (void)updateTeamList {
     _teamList = [[[NIMSDK sharedSDK] teamManager] allMyTeams];
-    [_tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
+    [_tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
     PPLog(@"%@", _teamList);
 }
 

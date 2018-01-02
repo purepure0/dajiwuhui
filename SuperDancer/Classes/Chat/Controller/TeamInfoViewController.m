@@ -97,8 +97,10 @@
 }
 
 - (void)fetchTeamInfo {
+    [self showLoading];
     [[NIMSDK sharedSDK].teamManager fetchTeamInfo:_teamID completion:^(NSError * _Nullable error, NIMTeam * _Nullable team) {
         PPLog(@"Team == %@",team);
+        [self hideLoading];
         if (!error) {
             self.team = team;
             if (team.clientCustomInfo.length) {
