@@ -1478,8 +1478,6 @@
 				9AD925EF1FF09B9500CE1A47 /* 聊天记录 */,
 				9AFB53801FECE7F9008E5BAD /* 成员管理 */,
 				9AFB538E1FECE827008E5BAD /* 舞队二维码 */,
-				9A03DC921FFB68E2006CAC90 /* SessionListViewController.h */,
-				9A03DC931FFB68E2006CAC90 /* SessionListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2588,6 +2586,8 @@
 		9AEDC5721FFB624C00BF4F09 /* 会话 */ = {
 			isa = PBXGroup;
 			children = (
+				9A03DC921FFB68E2006CAC90 /* SessionListViewController.h */,
+				9A03DC931FFB68E2006CAC90 /* SessionListViewController.m */,
 				9AEDC5731FFB626800BF4F09 /* ConversationViewController.h */,
 				9AEDC5741FFB626800BF4F09 /* ConversationViewController.m */,
 				9AEDC5751FFB626800BF4F09 /* ConversationViewController.xib */,

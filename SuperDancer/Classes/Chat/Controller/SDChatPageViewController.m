@@ -14,7 +14,7 @@
 #import "ThreeRightView.h"
 #import "CreatDanceTeamViewController.h"
 #import "SearchTeamViewController.h"
-
+#import "SessionListViewController.h"
 @interface SDChatPageViewController ()<WMPageControllerDelegate, WMPageControllerDataSource, WMMenuViewDelegate>
 @property (nonatomic, strong) WMPageController *pageController;
 
@@ -59,7 +59,7 @@
 - (void)initPageController
 {
     
-    self.pageController = [[WMPageController alloc] initWithViewControllerClasses:@[[ConversationViewController class],[ContactsViewController class],[MessageNotiViewController class]] andTheirTitles:@[@"会话",@"联系人",@"通知"]];
+    self.pageController = [[WMPageController alloc] initWithViewControllerClasses:@[[SessionListViewController class],[ContactsViewController class],[MessageNotiViewController class]] andTheirTitles:@[@"会话",@"联系人",@"通知"]];
     self.pageController.delegate = self;
     self.pageController.dataSource = self;
     self.pageController.titleSizeNormal = 16;
