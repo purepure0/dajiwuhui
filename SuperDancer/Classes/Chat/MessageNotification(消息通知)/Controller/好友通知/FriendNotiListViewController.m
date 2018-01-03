@@ -11,7 +11,7 @@
 
 #import "IMNotificationModel.h"
 #import "FrindAddDetailViewController.h"
-@interface FriendNotiListViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface FriendNotiListViewController ()<UITableViewDelegate, UITableViewDataSource,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)NSMutableArray *modelList;
 @end
@@ -100,7 +100,13 @@
     }
 }
 
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return IMAGE_NAMED(@"nodata");
+}
 
+-(BOOL)emptyDataSetShouldAllowScroll:(UIScrollView*)scrollView {
+    return YES;
+}
 
 
 - (void)didReceiveMemoryWarning {
