@@ -11,7 +11,7 @@
 #import "TeamSessionViewController.h"
 #import "ContactListCell.h"
 #import "ContactHeaderView.h"
-@interface ContactsViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface ContactsViewController ()<UITableViewDelegate, UITableViewDataSource, NIMUserManagerDelegate, NIMTeamManagerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)NSArray *friendList;
 @property (nonatomic, strong)NSArray *teamList;
@@ -45,6 +45,16 @@
     _tableView.tableFooterView = [UIView new];
     [_tableView registerNib:[UINib nibWithNibName:@"FriendListCell" bundle:nil] forCellReuseIdentifier:@"FriendListCellIdentifier"];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDataSource) name:@"kDismissTeamNotification" object:nil];
+    
+    [[NIMSDK sharedSDK].userManager addDelegate:self];
+    [[NIMSDK sharedSDK].teamManager addDelegate:self];
+    
+}
+
+
+- (void)dealloc {
+    [[NIMSDK sharedSDK].userManager removeDelegate:self];
+    [[NIMSDK sharedSDK].teamManager removeDelegate:self];
 }
 
 - (void)updateDataSource {
@@ -147,6 +157,75 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
+//好友相关代理
+/**
+ *  好友状态发生变化 (在线)
+ *  @param user 用户对象
+ */
+- (void)onFriendChanged:(NIMUser *)user {
+    [self updateFriendList];
+}
+
+/**
+ *  黑名单列表发生变化 (在线)
+ */
+- (void)onBlackListChanged {
+    [self updateFriendList];
+}
+
+/**
+ *  静音列表发生变化 (在线)
+ */
+- (void)onMuteListChanged {
+    [self updateFriendList];
+}
+
+/**
+ *  用户个人信息发生变化 (在线)
+ *
+ *  @param user 用户对象
+ *  @discussion 出于性能和上层 APP 处理难易度的考虑，本地调用批量接口获取用户信息时不触发当前回调。
+ */
+- (void)onUserInfoChanged:(NIMUser *)user {
+    [self updateFriendList];
+}
+
+
+//群组相关代理
+/**
+ *  群组增加回调
+ *  @param team 添加的群组
+ */
+- (void)onTeamAdded:(NIMTeam *)team {
+    [self updateTeamList];
+}
+
+/**
+ *  群组更新回调
+ *  @param team 更新的群组
+ */
+- (void)onTeamUpdated:(NIMTeam *)team {
+    [self updateTeamList];
+}
+
+/**
+ *  群组移除回调
+ *  @param team 被移除的群组
+ */
+- (void)onTeamRemoved:(NIMTeam *)team {
+    [self updateTeamList];
+}
+
+/**
+ *  群组成员变动回调,包括数量增减以及成员属性变动
+ *  @param team 变动的群组
+ */
+- (void)onTeamMemberChanged:(NIMTeam *)team {
+    [self updateTeamList];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

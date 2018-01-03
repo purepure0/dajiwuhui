@@ -44,6 +44,10 @@
     
 }
 
+- (void)dealloc {
+    [[NIMSDK sharedSDK].teamManager removeDelegate:self];
+}
+
 - (void)IMConnected:(NSNotification *)noti {
     PPLog(@"%s", __func__);
     [self toast:@"通讯功能连接成功"];
