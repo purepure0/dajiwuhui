@@ -81,7 +81,6 @@ static NSString *kDefaultCellIdentifier = @"DefaultCellIdentifier";
 {
     [_portraitButton setImageWithURL:[NSURL URLWithString:self.users.avatarURL] forState:UIControlStateNormal placeholder:IMAGE_NAMED(@"placeholder_img")];
     _nicknameLabel.text = self.users.nickName ? : @"";
-    PPLog(@"avatar666 == %@-nickname == %@",self.users.avatarURL,self.users.nickName);
 }
 
 - (void)setupTopView

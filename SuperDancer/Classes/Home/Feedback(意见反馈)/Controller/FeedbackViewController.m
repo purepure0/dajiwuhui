@@ -22,6 +22,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"意见反馈";
     self.view.backgroundColor = kBackgroundColor;
+    [self setRightItemTitle:@"提交" action:@selector(submitAction)];
     
     self.textView = [[BVTextView alloc] init];
     [self.view addSubview:self.textView];
@@ -32,6 +33,25 @@
     .topSpaceToView(self.view, 10)
     .heightIs(kAutoHeight(200));
     
+}
+
+- (void)submitAction
+{
+    if (!self.textView.text.length)
+    {
+        return;
+    }
+    [self.hud show:YES];
+    [PPNetworkHelper POST:NSStringFormat(@"%@%@",kApiPrefix,kFeedback) parameters:@{@"content":self.textView.text} success:^(id responseObject) {
+        [self.hud hide:YES];
+        NSString *code = NSStringFormat(@"%@",responseObject[@"code"]);
+        if ([code isEqualToString:@"1"]) {
+            [self toast:@"提交反馈成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } failure:^(NSError *error) {
+        [self.hud hide:YES];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

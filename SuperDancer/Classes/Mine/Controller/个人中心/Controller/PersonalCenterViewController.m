@@ -79,7 +79,6 @@
                 
             } else {
                 self.collectionView.mj_footer.hidden = YES;
-                [self toast:@"已加载全部数据"];
             }
             [self.collectionView reloadData];
             [self.collectionView.mj_footer endRefreshing];

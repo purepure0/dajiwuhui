@@ -44,6 +44,18 @@ _Pragma("clang diagnostic pop") \
     [leftBarView addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBarView];
     self.navigationItem.leftBarButtonItem = leftItem;
+    
+    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
+    [rightBtn setImage:[UIImage imageNamed:@"icon_session_info_normal"] forState:UIControlStateNormal];
+    [rightBtn setImageEdgeInsets: UIEdgeInsetsMake(0, 10, 0, -10)];
+    [rightBtn addTarget:self action:@selector(friendInfo:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+}
+
+- (void)friendInfo:(UIButton *)btn {
+    FriendInfoViewController *fi = [[FriendInfoViewController alloc] init];
+    fi.userId = self.user.userId;
+    [self.navigationController pushViewController:fi animated:YES];
 }
 
 

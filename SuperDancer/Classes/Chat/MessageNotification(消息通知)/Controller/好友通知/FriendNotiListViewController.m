@@ -71,6 +71,12 @@
     return 10;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = kBackgroundColor;
+    return view;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     FrindAddDetailViewController *detail = [[FrindAddDetailViewController alloc] init];
