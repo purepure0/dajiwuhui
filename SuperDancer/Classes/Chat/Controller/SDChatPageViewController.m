@@ -17,10 +17,11 @@
 #import "SessionListViewController.h"
 #import "NearTeamViewController.h"
 #import "AddFriendViewController.h"
-
+#import "SDNavigationController.h"
+#import "LoginViewController.h"
 @interface SDChatPageViewController ()<WMPageControllerDelegate, WMPageControllerDataSource, WMMenuViewDelegate>
 @property (nonatomic, strong) WMPageController *pageController;
-
+@property (nonatomic, strong)UIView *loginView;
 @end
 
 @implementation SDChatPageViewController
@@ -31,6 +32,41 @@
     [self initPageController];
     [self.rightBtn setBackgroundColor:[UIColor redColor]];
     [self setRightImageNamed:@"wd_nav_btn_add" action:@selector(createTeamAction)];
+}
+
+- (UIView *)loginView {
+    if (_loginView == nil) {
+        _loginView = [[UIView alloc] initWithFrame:self.view.bounds];
+        _loginView.backgroundColor = [UIColor whiteColor];
+        _loginView.userInteractionEnabled = YES;
+        UIButton *loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenSize.width / 2 - 50, kScreenSize.height - 200, 100, 45)];
+        [loginBtn setTitle:@"去登陆" forState:UIControlStateNormal];
+        [loginBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        loginBtn.layer.masksToBounds = YES;
+        loginBtn.layer.cornerRadius = 2;
+        loginBtn.layer.borderWidth = 1;
+        loginBtn.layer.borderColor = kColorHexStr(@"#8C32B4").CGColor;
+        [loginBtn addTarget:self action:@selector(goLogin) forControlEvents:UIControlEventTouchUpInside];
+        [_loginView addSubview:loginBtn];
+    }
+    return _loginView;
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if ([SDUser sharedUser].userId == nil) {
+        [self.view addSubview:self.loginView];
+        [self.view bringSubviewToFront:self.loginView];
+    }else {
+        [self.loginView removeFromSuperview];
+    }
+}
+
+- (void)goLogin {
+    LoginViewController *login = [[LoginViewController alloc] init];
+    SDNavigationController *nav = [[SDNavigationController alloc] initWithRootViewController:login];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)createTeamAction
