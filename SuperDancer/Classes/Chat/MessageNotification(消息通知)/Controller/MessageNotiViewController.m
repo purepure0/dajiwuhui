@@ -43,6 +43,8 @@
     [[NIMSDK sharedSDK].userManager fetchUserInfos:@[@"81516"] completion:^(NSArray<NIMUser *> * _Nullable users, NSError * _Nullable error) {
         NSLog(@"user:%@", users);
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchNotidications) name:NOTIFICATION_USER_HAS_LOGIN object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

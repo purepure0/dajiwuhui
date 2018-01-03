@@ -98,6 +98,7 @@
             [self loginNIMSDK];
             //设置请求头
             [self updateHttpHeader];
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_HAS_LOGIN object:nil];
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }
     } failure:^(NSString *error) {
