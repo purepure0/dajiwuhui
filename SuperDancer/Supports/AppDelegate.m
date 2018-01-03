@@ -18,6 +18,7 @@
 #import <JPUSHService.h>
 #import <UserNotifications/UserNotifications.h>
 #import "SDTabBarController.h"
+#import "CustomNIMKitDataProvider.h"
 //#import <Bugtags/Bugtags.h>
 
 #define kAMapApiKey @"2b9d644cfa86764d460dff45bf4f7842"
@@ -227,6 +228,10 @@
     }
     
     [[NIMSDK sharedSDK].chatManager addDelegate:self];
+    
+    //配置NIMKit
+    
+    [NIMKit sharedKit].provider = [[CustomNIMKitDataProvider alloc] init];
 }
 
 - (void)onRecvMessages:(NSArray<NIMMessage *> *)messages {

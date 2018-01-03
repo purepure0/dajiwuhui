@@ -65,7 +65,7 @@ PODS:
   - SDWebImage/Core (4.0.0)
   - SGQRCode (2.1.8)
   - Toast (3.1.0)
-  - TZImagePickerController (1.9.6)
+  - TZImagePickerController (1.9.8)
   - UMengUShare/Core (6.4.5):
     - UMengUShare/Network
   - UMengUShare/Network (6.4.5)
@@ -136,7 +136,7 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SGQRCode: 989df341fb231fc7bf7e82316de2fc8de2961e10
   Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
-  TZImagePickerController: 276dc7c0cc70da9ee354046474b405d87ef81c89
+  TZImagePickerController: 3b9413ae5d049b1fdc5b0c720ad283f35b679a50
   UMengUShare: a5711c54e640b04e3048e931d2b88d50f9cfa55c
   WMPageController: 4c7f2c636675a71aea5eecf8fdc07a0ce86954e3
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
