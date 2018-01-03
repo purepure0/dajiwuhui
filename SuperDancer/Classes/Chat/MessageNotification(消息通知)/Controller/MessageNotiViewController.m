@@ -12,7 +12,7 @@
 #import "TeamNotiListViewController.h"
 #import "FriendNotiListViewController.h"
 #import "IMSystemNotificationClassifier.h"
-@interface MessageNotiViewController ()<UITableViewDelegate, UITableViewDataSource, NIMSystemNotificationManagerDelegate>
+@interface MessageNotiViewController ()<UITableViewDelegate, UITableViewDataSource, NIMSystemNotificationManagerDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)NSArray *messageData;
 @property (nonatomic, strong)NSMutableArray *notifications;
@@ -30,7 +30,6 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"消息通知";
     _messageData = @[
-                     @{@"title": @"系统公告", @"img": @"xx_ico_inform", @"unreadCount": @"0"},
                      @{@"title": @"舞队通知", @"img": @"xx_ico_apply"},
                      @{@"title": @"好友通知", @"img": @"xx_ico_invite"}
                      ];
@@ -86,15 +85,10 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSDictionary *dic = _messageData[indexPath.row];
     if (indexPath.row == 0) {
-        [cell updateCellWithData:dic];
-    }else if (indexPath.row ==1) {
         [cell updateCellWithData:dic andNotifications:_teamNotifications];
-    }else {
+    }else if (indexPath.row == 1) {
         [cell updateCellWithData:dic andNotifications:_friendNotifications];
     }
-    
-    
-    
     return cell;
 }
 
@@ -108,18 +102,23 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        PublicNoticeListViewController *publicNoticeList = [[PublicNoticeListViewController alloc] init];
-        [self.navigationController pushViewController:publicNoticeList animated:YES];
-        
-    }else if (indexPath.row == 1) {
         TeamNotiListViewController *teamNotiListVC = [[TeamNotiListViewController alloc] init];
         teamNotiListVC.notifications = _teamNotifications;
         [self.navigationController pushViewController:teamNotiListVC animated:YES];
-    }else {
+        
+    }else if (indexPath.row == 1) {
         FriendNotiListViewController *friendNotiListVC = [[FriendNotiListViewController alloc] init];
         friendNotiListVC.notifications = _friendNotifications;
         [self.navigationController pushViewController:friendNotiListVC animated:YES];
     }
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return IMAGE_NAMED(@"nodata");
+}
+
+-(BOOL)emptyDataSetShouldAllowScroll:(UIScrollView*)scrollView {
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
