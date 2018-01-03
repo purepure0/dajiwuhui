@@ -30,7 +30,7 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"消息通知";
     _messageData = @[
-                     @{@"title": @"系统公告", @"img": @"xx_ico_inform", @"unreadCount": @"0"},
+//                     @{@"title": @"系统公告", @"img": @"xx_ico_inform", @"unreadCount": @"0"},
                      @{@"title": @"舞队通知", @"img": @"xx_ico_apply"},
                      @{@"title": @"好友通知", @"img": @"xx_ico_invite"}
                      ];
@@ -85,9 +85,10 @@
     MessageNotiCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageNotiCellIdentifier" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSDictionary *dic = _messageData[indexPath.row];
+//    if (indexPath.row == 0) {
+//        [cell updateCellWithData:dic];
+//    }else
     if (indexPath.row == 0) {
-        [cell updateCellWithData:dic];
-    }else if (indexPath.row ==1) {
         [cell updateCellWithData:dic andNotifications:_teamNotifications];
     }else {
         [cell updateCellWithData:dic andNotifications:_friendNotifications];
@@ -107,11 +108,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (indexPath.row == 0) {
+//        PublicNoticeListViewController *publicNoticeList = [[PublicNoticeListViewController alloc] init];
+//        [self.navigationController pushViewController:publicNoticeList animated:YES];
+//
+//    }else
     if (indexPath.row == 0) {
-        PublicNoticeListViewController *publicNoticeList = [[PublicNoticeListViewController alloc] init];
-        [self.navigationController pushViewController:publicNoticeList animated:YES];
-        
-    }else if (indexPath.row == 1) {
         TeamNotiListViewController *teamNotiListVC = [[TeamNotiListViewController alloc] init];
         teamNotiListVC.notifications = _teamNotifications;
         [self.navigationController pushViewController:teamNotiListVC animated:YES];

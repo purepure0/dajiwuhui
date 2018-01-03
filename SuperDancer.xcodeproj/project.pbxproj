@@ -243,6 +243,7 @@
 		9A71FE811F8E01A100738680 /* DownloadedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A71FE7F1F8E01A100738680 /* DownloadedCell.m */; };
 		9A71FE821F8E01A100738680 /* DownloadedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A71FE801F8E01A100738680 /* DownloadedCell.xib */; };
 		9A747A9F1FFC8FB5006DD729 /* CustomNIMKitDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A747A9E1FFC8FB5006DD729 /* CustomNIMKitDataProvider.m */; };
+		9A747AA51FFD33CF006DD729 /* CustomNIMKitConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A747AA41FFD33CF006DD729 /* CustomNIMKitConfig.m */; };
 		9A79BBF21F8D0738004C3879 /* BindingMobileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A79BBF01F8D0738004C3879 /* BindingMobileViewController.m */; };
 		9A79BBF31F8D0738004C3879 /* BindingMobileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A79BBF11F8D0738004C3879 /* BindingMobileViewController.xib */; };
 		9A79BBFB1F8DF13D004C3879 /* MovieDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A79BBF91F8DF13D004C3879 /* MovieDownloadViewController.m */; };
@@ -744,6 +745,8 @@
 		9A71FE801F8E01A100738680 /* DownloadedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DownloadedCell.xib; sourceTree = "<group>"; };
 		9A747A9D1FFC8FB4006DD729 /* CustomNIMKitDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNIMKitDataProvider.h; sourceTree = "<group>"; };
 		9A747A9E1FFC8FB5006DD729 /* CustomNIMKitDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNIMKitDataProvider.m; sourceTree = "<group>"; };
+		9A747AA31FFD33CF006DD729 /* CustomNIMKitConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomNIMKitConfig.h; sourceTree = "<group>"; };
+		9A747AA41FFD33CF006DD729 /* CustomNIMKitConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomNIMKitConfig.m; sourceTree = "<group>"; };
 		9A79BBEF1F8D0738004C3879 /* BindingMobileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindingMobileViewController.h; sourceTree = "<group>"; };
 		9A79BBF01F8D0738004C3879 /* BindingMobileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindingMobileViewController.m; sourceTree = "<group>"; };
 		9A79BBF11F8D0738004C3879 /* BindingMobileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BindingMobileViewController.xib; sourceTree = "<group>"; };
@@ -1591,6 +1594,8 @@
 				04AE23621F9F18C90034635C /* UserModel.m */,
 				9A747A9D1FFC8FB4006DD729 /* CustomNIMKitDataProvider.h */,
 				9A747A9E1FFC8FB5006DD729 /* CustomNIMKitDataProvider.m */,
+				9A747AA31FFD33CF006DD729 /* CustomNIMKitConfig.h */,
+				9A747AA41FFD33CF006DD729 /* CustomNIMKitConfig.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3134,6 +3139,7 @@
 				049E50FF1FA2FECD006C3BF1 /* MsgCommentViewController.m in Sources */,
 				04AE23B41FA07E990034635C /* MyCollectionViewController.m in Sources */,
 				9AFB53A61FEE4FAB008E5BAD /* CZHAddressPickerView.m in Sources */,
+				9A747AA51FFD33CF006DD729 /* CustomNIMKitConfig.m in Sources */,
 				9ACA8AF91F98574C00B73B29 /* ZFBrightnessView.m in Sources */,
 				04927BFB1F974A2300CDD58E /* KeepModel.m in Sources */,
 				9A53C0941FDFD470003CBFD3 /* ApplyMessageListViewController.m in Sources */,
