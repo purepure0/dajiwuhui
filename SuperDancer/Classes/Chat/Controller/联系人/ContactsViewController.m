@@ -44,18 +44,23 @@
     [self updateTeamList];
     _tableView.tableFooterView = [UIView new];
     [_tableView registerNib:[UINib nibWithNibName:@"FriendListCell" bundle:nil] forCellReuseIdentifier:@"FriendListCellIdentifier"];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDataSource) name:@"kDismissTeamNotification" object:nil];
+}
+
+- (void)updateDataSource {
+    [self updateFriendList];
+    [self updateTeamList];
 }
 
 - (void)updateFriendList {
     _friendList = [[NIMSDK sharedSDK].userManager myFriends];
-    [_tableView reloadSection:0 withRowAnimation:UITableViewRowAnimationFade];
+    [_tableView reloadSection:0 withRowAnimation:UITableViewRowAnimationNone];
     PPLog(@"%@", _friendList);
 }
 
 - (void)updateTeamList {
     _teamList = [[[NIMSDK sharedSDK] teamManager] allMyTeams];
-    [_tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
+    [_tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
     PPLog(@"%@", _teamList);
 }
 
