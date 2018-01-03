@@ -20,6 +20,7 @@
     // Do any additional setup after loading the view.
     self.title = @"会话列表";
     self.tableView.frame = CGRectMake(0, 0, kScreenSize.width, kScreenSize.height - 49);
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 }
 
 - (void)didReceiveMemoryWarning {
