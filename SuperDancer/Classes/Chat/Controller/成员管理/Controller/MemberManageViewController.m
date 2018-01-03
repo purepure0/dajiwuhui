@@ -151,7 +151,7 @@ static NSString *kMemberManageCellIdentifier = @"kMemberManageCellIdentifier";
     @weakify(self);
     cell.deleteBlock = ^(NSInteger _index) {
         @strongify(self);
-        [self deleteMember:_index];
+        [self deleteMember:_index+1];
     };
     return cell;
 }
