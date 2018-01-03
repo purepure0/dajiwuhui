@@ -12,6 +12,12 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.heightLayout1.constant = kAutoHeight(40);
+    self.heightLayout2.constant = kAutoHeight(20);
+    
+    self.iconImageView.layer.masksToBounds = YES;
+    self.iconImageView.layer.cornerRadius = kAutoWidth(38);
+    
     if (_cityLabel) {
         _cityLabel.layer.masksToBounds = YES;
         _cityLabel.layer.cornerRadius = 2;
@@ -190,7 +196,7 @@
         }
     }
     
-    [memberContainer setupAutoMarginFlowItems:[temp copy] withPerRowItemsCount:5 itemWidth:50 verticalMargin:10 verticalEdgeInset:4 horizontalEdgeInset:10];
+    [memberContainer setupAutoMarginFlowItems:[temp copy] withPerRowItemsCount:5 itemWidth:kAutoWidth(50) verticalMargin:10 verticalEdgeInset:4 horizontalEdgeInset:10];
     
     memberContainer.sd_layout
     .leftEqualToView(self.contentView)

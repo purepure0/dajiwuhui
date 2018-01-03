@@ -35,7 +35,7 @@ static NSString *kNearTeamCell = @"kNearTeamCell";
 
 - (void)fetchNearbyList {
     [self.hud show:YES];
-    [PPNetworkHelper POST:NSStringFormat(@"%@%@",kApiPrefix,kNearbyTeam) parameters:@{@"lat":self.users.latLocation,@"lon":self.users.lonLocation,@"raidus":@"10000"} success:^(id responseObject) {
+    [PPNetworkHelper POST:NSStringFormat(@"%@%@",kApiPrefix,kNearbyTeam) parameters:@{@"lat":self.users.latLocation,@"lon":self.users.lonLocation,@"raidus":@"10"} success:^(id responseObject) {
         [self.hud hide:YES];
 //        PPLog(@"NearbyTeamList == %@",[self jsonToString:responseObject]);
         NSDictionary *res = responseObject[@"data"][@"res"];
