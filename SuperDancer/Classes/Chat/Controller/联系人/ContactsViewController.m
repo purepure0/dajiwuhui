@@ -42,13 +42,15 @@
     
     [self updateFriendList];
     [self updateTeamList];
-    _tableView.tableFooterView = [UIView new];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenSize.width, 10)];
+    view.backgroundColor = [UIColor whiteColor];
+    _tableView.tableFooterView = view;
     [_tableView registerNib:[UINib nibWithNibName:@"FriendListCell" bundle:nil] forCellReuseIdentifier:@"FriendListCellIdentifier"];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDataSource) name:@"kDismissTeamNotification" object:nil];
     
     [[NIMSDK sharedSDK].userManager addDelegate:self];
     [[NIMSDK sharedSDK].teamManager addDelegate:self];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDataSource) name:NOTIFICATION_USER_HAS_LOGIN object:nil];
 }
 
 
@@ -58,19 +60,21 @@
 }
 
 - (void)updateDataSource {
+    [self showLoading];
     [self updateFriendList];
     [self updateTeamList];
+    [self hideLoading];
 }
 
 - (void)updateFriendList {
     _friendList = [[NIMSDK sharedSDK].userManager myFriends];
-    [_tableView reloadSection:0 withRowAnimation:UITableViewRowAnimationNone];
+    [_tableView reloadSection:0 withRowAnimation:UITableViewRowAnimationAutomatic];
     PPLog(@"%@", _friendList);
 }
 
 - (void)updateTeamList {
     _teamList = [[[NIMSDK sharedSDK] teamManager] allMyTeams];
-    [_tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
+    [_tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationAutomatic];
     PPLog(@"%@", _teamList);
 }
 

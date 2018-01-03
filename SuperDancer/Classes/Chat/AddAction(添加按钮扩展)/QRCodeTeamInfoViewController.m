@@ -76,6 +76,8 @@
                 }
             }];
             NSLog(@"%@--%@--%@--%@--%@--%@--%@", weakSelf.avatarUrl, weakSelf.teamName, weakSelf.city, weakSelf.teamLeader, weakSelf.createTime, weakSelf.address, weakSelf.intro);
+        }else {
+            [self toast:error.localizedDescription];
         }
     }];
 }
@@ -169,7 +171,12 @@
             [self toast:error.localizedDescription];
         }else {
             [self toast:@"申请成功,等待验证通过！"];
-            [self.navigationController popViewControllerAnimated:YES];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                NSArray *vcs = self.navigationController.viewControllers;
+                UIViewController *vc = vcs[vcs.count - 3];
+                [self.navigationController popToViewController:vc animated:YES];
+            });
+            
         }
     }];
     
