@@ -9,8 +9,8 @@
 #import "SessionListViewController.h"
 #import "TeamSessionViewController.h"
 #import "FriendChatViewController.h"
-@interface SessionListViewController ()
-
+@interface SessionListViewController ()<NIMTeamManagerDelegate>
+@property (nonatomic,strong) UIImageView *emptyTipImgView;
 @end
 
 @implementation SessionListViewController
@@ -21,13 +21,38 @@
     self.title = @"会话列表";
     self.tableView.frame = CGRectMake(0, 0, kScreenSize.width, kScreenSize.height - 49);
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    [[NIMSDK sharedSDK].teamManager addDelegate:self];
+    self.tableView.backgroundColor = kBackgroundColor;
+    self.view.backgroundColor = kBackgroundColor;
+    
+    self.emptyTipImgView = [[UIImageView alloc] init];
+    self.emptyTipImgView.image = IMAGE_NAMED(@"nodata");
+    [self.view addSubview:self.emptyTipImgView];
+    self.emptyTipImgView.sd_layout
+    .centerXEqualToView(self.view)
+    .centerYEqualToView(self.view)
+    .heightIs(120)
+    .widthIs(109);
+}
+
+- (void)refresh{
+    [super refresh];
+    self.emptyTipImgView.hidden = self.recentSessions.count;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+//
+//- (void)onTeamRemoved:(NIMTeam *)team {
+//    PPLog(@"onTeamRemoved = %@",team.teamName);
+//
+//}
+//
+//- (void)onTeamMemberChanged:(NIMTeam *)team {
+//    PPLog(@"onTeamMemberChanged = %@",team.teamName);
+//}
 
 - (void)onSelectedRecent:(NIMRecentSession *)recentSession atIndexPath:(NSIndexPath *)indexPath{
     if (recentSession.session.sessionType == NIMSessionTypeTeam) {

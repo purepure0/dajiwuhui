@@ -274,13 +274,55 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     
     if (section == _data.count - 1) {
-        return 75;
+        if (!_isTeamOwner) {
+            return 105;
+        } else {
+            return 75;
+        }
     }
     return 0.1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+
+    if (section == _data.count - 1) {
+        if (!_isTeamOwner) {
+            UIView *bgView = [[UIView alloc] init];
+            bgView.backgroundColor = [UIColor clearColor];
+            
+            UIButton *quitTeamBtn = [[UIButton alloc] init];
+            [bgView addSubview:quitTeamBtn];
+            quitTeamBtn.backgroundColor = kBaseColor;
+            [quitTeamBtn setTitle:@"退出舞队" forState:UIControlStateNormal];
+            [quitTeamBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [quitTeamBtn addTarget:self action:@selector(quitTeamAction) forControlEvents:UIControlEventTouchUpInside];
+            
+            quitTeamBtn.sd_layout
+            .leftSpaceToView(bgView, 15)
+            .rightSpaceToView(bgView, 15)
+            .topSpaceToView(bgView, 30)
+            .heightIs(45);
+            quitTeamBtn.sd_cornerRadius = @(3);
+            
+            return bgView;
+        }
+    }
     return nil;
+}
+
+- (void)quitTeamAction {
+    PPLog(@"退出群聊");
+    [[NIMSDK sharedSDK].teamManager quitTeam:self.team.teamId completion:^(NSError * _Nullable error) {
+        if (!error) {
+            [self toast:@"已退出舞队"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                UIViewController *vcs = self.navigationController.viewControllers[0];
+                [self.navigationController popToViewController:vcs animated:YES];
+            });
+        } else {
+            [self toast:@"退出舞队失败"];
+        }
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
