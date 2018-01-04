@@ -38,13 +38,17 @@ _Pragma("clang diagnostic pop") \
     [super viewDidAppear:animated];
     if (![[NIMSDK sharedSDK].teamManager isMyTeam:_teamID]) {
         if (!_isAlerted) {
-            [DJWYAlertView showTwoActionAlertViewWithTitle:@"温馨提示" message:@"您已经不在当前舞队，是否保留会话？" leftButtonTitle:@"删除" rightButtonTitle:@"保留" leftClick:^{
+            UIAlertController *alertContrller = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"您已经不在当前舞队，是否保留会话？" preferredStyle:(UIAlertControllerStyleAlert)];
+
+            UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"删除" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
                 NIMDeleteMessagesOption *option = [[NIMDeleteMessagesOption alloc] init];
                 option.removeSession = YES;
                 [[NIMSDK sharedSDK].conversationManager deleteAllmessagesInSession:[NIMSession session:_teamID type:NIMSessionTypeTeam] option:option];
-            } rightClick:^{
-                
             }];
+            UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"保留" style:UIAlertActionStyleDefault handler:nil];
+            [alertContrller addAction:deleteAction];
+            [alertContrller addAction:confirmAction];
+            [self presentViewController:alertContrller animated:YES completion:nil];
         }
         
     }
@@ -87,7 +91,10 @@ _Pragma("clang diagnostic pop") \
         teamInfo.team = _team;
         [self.navigationController pushViewController:teamInfo animated:YES];
     }else {//非成员，不能查看群详情
-        [DJWYAlertView showOneButtonWithTitle:@"温馨提示" message:@"非当前舞队的成员，不能查看群详情" buttonTitle:@"确定"];
+        UIAlertController *alertContrller = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"非当前舞队的成员，不能查看群详情" preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:nil];
+        [alertContrller addAction:confirmAction];
+        [self presentViewController:alertContrller animated:YES completion:nil];
     }
     
     

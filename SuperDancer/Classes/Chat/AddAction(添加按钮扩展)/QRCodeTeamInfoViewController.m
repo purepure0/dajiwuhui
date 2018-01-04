@@ -59,10 +59,16 @@
             }else {
                 NSArray *data = [NSJSONSerialization JSONObjectWithData:[team.clientCustomInfo dataUsingEncoding:NSUTF8StringEncoding] options:0 error:0];
                 NSDictionary *teamInfo = [NSMutableArray arrayWithArray:data].lastObject;
-                NSArray *localityArray = [teamInfo[@"locality"] componentsSeparatedByString:@","];
-                weakSelf.city = localityArray[1];
+                if (![teamInfo[@"locality"] isEqualToString:@"未设置"]) {
+                    NSArray *localityArray = [teamInfo[@"locality"] componentsSeparatedByString:@","];
+                    weakSelf.city = localityArray[1];
+                    
+                    weakSelf.address = [NSString stringWithFormat:@"%@%@%@", localityArray[0], localityArray[1], localityArray[2]];
+                }else {
+                    weakSelf.city = @"未设置";
+                    weakSelf.address = @"未设置";
+                }
                 
-                weakSelf.address = [NSString stringWithFormat:@"%@%@%@", localityArray[0], localityArray[1], localityArray[2]];
             }
             
             
