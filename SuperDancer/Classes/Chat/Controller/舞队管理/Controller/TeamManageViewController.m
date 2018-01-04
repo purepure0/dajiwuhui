@@ -208,26 +208,28 @@
 
 - (void)dismissAction
 {
-    UIAlertController *alertContrller = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"该操作无法撤销,是否解散该群?" preferredStyle:(UIAlertControllerStyleAlert)];
-    
-    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-        [self.hud show:YES];
-        [[NIMSDK sharedSDK].teamManager dismissTeam:self.team.teamId completion:^(NSError * _Nullable error) {
-            [self.hud hide:YES];
-            if (!error) {
-                
-                [self toast:@"解散群成功"];
-                [self.navigationController popToRootViewControllerAnimated:YES];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"kDismissTeamNotification" object:nil];
-            } else {
-                [self toast:@"操作失败"];
-            }
-        }];
-    }];
-    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
-    [alertContrller addAction:deleteAction];
-    [alertContrller addAction:confirmAction];
-    [self presentViewController:alertContrller animated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"kDeleteSessionNotification" object:nil userInfo:@{@"teamID": self.team.teamId}];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+//    UIAlertController *alertContrller = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"该操作无法撤销,是否解散该群?" preferredStyle:(UIAlertControllerStyleAlert)];
+//    
+//    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+//        [self.hud show:YES];
+//        [[NIMSDK sharedSDK].teamManager dismissTeam:self.team.teamId completion:^(NSError * _Nullable error) {
+//            [self.hud hide:YES];
+//            if (!error) {
+//                
+//                [self toast:@"解散群成功"];
+//                [[NSNotificationCenter defaultCenter] postNotificationName:@"kDeleteSessionNotification" object:nil userInfo:@{@"teamID": self.team.teamId}];
+//                [self.navigationController popToRootViewControllerAnimated:YES];
+//            } else {
+//                [self toast:@"操作失败"];
+//            }
+//        }];
+//    }];
+//    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+//    [alertContrller addAction:deleteAction];
+//    [alertContrller addAction:confirmAction];
+//    [self presentViewController:alertContrller animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

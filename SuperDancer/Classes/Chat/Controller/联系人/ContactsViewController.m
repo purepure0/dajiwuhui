@@ -46,7 +46,7 @@
     view.backgroundColor = [UIColor whiteColor];
     _tableView.tableFooterView = view;
     [_tableView registerNib:[UINib nibWithNibName:@"FriendListCell" bundle:nil] forCellReuseIdentifier:@"FriendListCellIdentifier"];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDataSource) name:@"kDismissTeamNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDataSource) name:@"kDeleteSessionNotification" object:nil];
     
     [[NIMSDK sharedSDK].userManager addDelegate:self];
     [[NIMSDK sharedSDK].teamManager addDelegate:self];

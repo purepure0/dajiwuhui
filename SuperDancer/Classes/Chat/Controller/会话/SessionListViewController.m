@@ -21,6 +21,31 @@
     self.title = @"会话列表";
     self.tableView.frame = CGRectMake(0, 0, kScreenSize.width, kScreenSize.height - 49);
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeSession:) name:@"kDeleteSessionNotification" object:nil];
+    
+}
+
+- (void)removeSession:(NSNotification *)noti {
+    PPLog(@"noti:%@", noti.userInfo);
+    PPLog(@"%@--%@", [self.recentSessions class], self.recentSessions);
+    NSString *sessionId = noti.userInfo[@"teamID"];
+    NIMRecentSession *delSession = nil;
+    for (NIMRecentSession *recentSession in self.recentSessions) {
+        if ([recentSession.session.sessionId isEqualToString:sessionId]) {
+            delSession = recentSession;
+        }
+    }
+    if (delSession != nil) {
+        [[NIMSDK sharedSDK].conversationManager deleteRecentSession:delSession];
+        [self refresh];
+    }
+}
+
+
+
+
+- (void)refresh {
+    [super refresh];
 }
 
 - (void)didReceiveMemoryWarning {
