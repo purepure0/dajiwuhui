@@ -13,7 +13,7 @@
 #import "ChatImageViewController.h"
 #import "ChatVideoViewController.h"
 #import "ChatLocationViewController.h"
-
+#import "FriendInfoViewController.h"
 #define SuppressPerformSelectorLeakWarning(Stuff) \
 do { \
 _Pragma("clang diagnostic push") \
@@ -95,10 +95,10 @@ _Pragma("clang diagnostic pop") \
 
 - (BOOL)onTapAvatar:(NSString *)userId {
     NSLog(@"点击头像：%@", userId);
-    TeamMemmberInfoViewController *memberInfo = [[TeamMemmberInfoViewController alloc] init];
-    memberInfo.userId = userId;
-    memberInfo.team = self.team;
-    [self.navigationController pushViewController:memberInfo animated:YES];
+
+    FriendInfoViewController *friend = [[FriendInfoViewController alloc] init];
+    friend.userId = userId;
+    [self.navigationController pushViewController:friend animated:YES];
     return YES;
 }
 

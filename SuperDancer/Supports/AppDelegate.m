@@ -325,6 +325,13 @@
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+    SDUser *user = [SDUser sharedUser];
+    if (user.userId != nil && user.token != nil) {
+        NSLog(@"自动登录");
+        [[[NIMSDK sharedSDK] loginManager] addDelegate:self];
+        [[[NIMSDK sharedSDK] loginManager] autoLogin:user.userId token:user.token];
+        
+    }
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 }
 

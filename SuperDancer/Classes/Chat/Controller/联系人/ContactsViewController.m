@@ -157,6 +157,7 @@
         NIMSession *session = [NIMSession session:team.teamId type:NIMSessionTypeTeam];
         TeamSessionViewController *vc = [[TeamSessionViewController alloc] initWithSession:session];
         vc.team = team;
+        vc.teamID = team.teamId;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
