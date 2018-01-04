@@ -143,7 +143,6 @@ UINavigationControllerDelegate, UITextViewDelegate>
                     self.introduceTextView.text = self.users.signature;
                     [self.textViewPlaceHolder setHidden:YES];
                 }
-                
             }
         }
     }
@@ -167,7 +166,6 @@ UINavigationControllerDelegate, UITextViewDelegate>
         if (indexPath.row == 0) {
             [self uploadImage];
         } else {
-            PPLog(@"修改昵称");
             EditNickNameViewController *editNickName = [[EditNickNameViewController alloc] init];
             editNickName.nickNameLabel = self.nickNameLabel;
             [self.navigationController pushViewController:editNickName animated:YES];
@@ -223,11 +221,11 @@ UINavigationControllerDelegate, UITextViewDelegate>
         
         [upManager putData:imageData key:nil token:token
                   complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
-                      PPLog(@"Qiniu info = %@", info);
-                      PPLog(@"Qiniu resp = %@", resp);
-                      PPLog(@"Qiniu key = %@", key);
+//                      PPLog(@"Qiniu info = %@", info);
+//                      PPLog(@"Qiniu resp = %@", resp);
+//                      PPLog(@"Qiniu key = %@", key);
                       if (info.ok) {
-                          PPLog(@"成功");
+//                          PPLog(@"成功");
                           NSString *imgUrl = NSStringFormat(@"%@%@", kQiniuURLHost, resp[@"key"]);
                           [PPNetworkHelper POST:NSStringFormat(@"%@%@", kApiPrefix, kUserUpdata) parameters:@{@"user_headimg": imgUrl} success:^(id responseObject) {
                               PPLog(@"%@", responseObject);

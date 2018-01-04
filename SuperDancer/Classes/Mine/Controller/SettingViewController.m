@@ -88,9 +88,12 @@
 {
     [self.users logout];
     [[[NIMSDK sharedSDK] loginManager] logout:^(NSError * _Nullable error) {
-        PPLog(@"IM登出：%@", error);
+        if (!error) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } else {
+            [self toast:@"退出成功"];
+        }
     }];
-    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
