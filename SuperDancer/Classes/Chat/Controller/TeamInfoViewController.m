@@ -37,6 +37,8 @@
 @property (nonatomic, strong)NSArray<NIMUser *> *members;
 @property (nonatomic, strong)NSMutableArray *teamMemberUserIDs;
 
+@property (nonatomic, strong) NIMTeamMember *myselfInfo;
+
 @end
 
 @implementation TeamInfoViewController
@@ -53,19 +55,21 @@
 
     _teamMemberUserIDs = [NSMutableArray new];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchTeamMembers) name:@"kUpdateTeamMembersNotification" object:nil];
+    
     // 初始化群资料
     [self initTeamData];
-}
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
     // 获取群成员
     [self fetchTeamMembers];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     // 获取群信息
     [self fetchTeamInfo];
 }
+
 - (void)fetchTeamMembers {
-    NSLog(@"%@", _teamID);
     [[NIMSDK sharedSDK].teamManager fetchTeamMembers:_teamID completion:^(NSError * _Nullable error, NSArray<NIMTeamMember *> * _Nullable members) {
         if (!error) {
             [_teamMemberUserIDs removeAllObjects];
@@ -75,16 +79,8 @@
                 } else {
                     [_teamMemberUserIDs addObject:member.userId];
                 }
-                // 获取本人群资料
-                if ([member.userId isEqualToString:self.users.userId]) {
-                    if (member.nickname || member.nickname.length ) {
-                        self.nickname = member.nickname;
-                        [self fetchTeamInfo];
-                        [self initTeamData];
-                    }
-                }
             }
-            //获取成员信息
+            //获取成员
             if (_teamMemberUserIDs.count != 0) {
                 self.members = [NSArray array];
                 [[NIMSDK sharedSDK].userManager fetchUserInfos:_teamMemberUserIDs completion:^(NSArray<NIMUser *> * _Nullable users, NSError * _Nullable error) {
@@ -136,9 +132,15 @@
         self.locality = @"未设置";
     }
     
+    NIMTeamMember *myselfInfo = [[NIMSDK sharedSDK].teamManager teamMember:self.users.userId inTeam:_team.teamId];
+    self.myselfInfo = myselfInfo;
+    if (!myselfInfo.nickname.length) {
+        myselfInfo.nickname = @"未设置";
+    }
+    
     if (_isTeamOwner) {
         _data = @[@[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": self.city,@"isTeamOwner":@(1)}],
-                  @[@{@"title": @"我的舞队名片", @"content": self.nickname},
+                  @[@{@"title": @"", @"content": self.myselfInfo.nickname},
                     @{@"#": @"#"}],
                   @[@{@"title": @"舞队公告", @"content": @""}],
                   @[@{@"title": @"舞队管理", @"content": @""}],
@@ -147,7 +149,7 @@
     } else {
         _data = @[
                   @[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": @"菏泽市",@"isTeamOwner":@(0)}],
-                  @[@{@"title": @"我的舞队名片", @"content": self.nickname},
+                  @[@{@"title": @"我的舞队名片", @"content": self.myselfInfo.nickname},
                     @{@"#": @"#"}],
                   @[@{@"title": @"舞队公告", @"content": @""}],
                   @[@{@"title": @"聊天记录", @"content": @""}],
@@ -331,7 +333,7 @@
             if (!indexPath.row) {//群昵称
                 ModifyTeamNicknameViewController *tn = [[ModifyTeamNicknameViewController alloc] init];
                 tn.team = self.team;
-                tn.nickname = self.nickname;
+                tn.nickname = self.myselfInfo.nickname;
                 [self.navigationController pushViewController:tn animated:YES];
             }else {
                 MemberManageViewController *memberMag = [[MemberManageViewController alloc] init];
@@ -359,7 +361,7 @@
             if (!indexPath.row) {//群昵称
                 ModifyTeamNicknameViewController *tn = [[ModifyTeamNicknameViewController alloc] init];
                 tn.team = self.team;
-                tn.nickname = self.nickname;
+                tn.nickname = self.myselfInfo.nickname;
                 [self.navigationController pushViewController:tn animated:YES];
             }else {
                 MemberManageViewController *memberMag = [[MemberManageViewController alloc] init];

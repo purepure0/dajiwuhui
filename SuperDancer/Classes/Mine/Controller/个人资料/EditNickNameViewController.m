@@ -27,8 +27,8 @@
 
 - (void)saveAction {
     
-    if ([self.nickNameLabel.text isEqualToString:self.nickNameTextFiled.text]) {
-        [MBProgressHUD showError:@"请先修改昵称！" toView:self.view];
+    if (!self.nickNameTextFiled.text.length) {
+        [self toast:@"昵称不能为空"];
         return;
     }
     [self hideLoading];
@@ -39,8 +39,11 @@
         
         if ([code isEqualToString:@"0"]) {
             [MBProgressHUD showSuccess:responseObject[@"message"] toView:self.view];
-            self.nickNameLabel.text = responseObject[@"data"][@"res"][@"nick_name"];
+//            self.nickNameLabel.text = responseObject[@"data"][@"res"][@"nick_name"];
+            self.nickNameLabel.text = _nickNameTextFiled.text;
+            self.users.nickName = _nickNameTextFiled.text;
             [self.navigationController popViewControllerAnimated:YES];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"AcountBtnImgNotification" object:nil];
         }else {
             [MBProgressHUD showError:responseObject[@"message"] toView:self.view];
         }

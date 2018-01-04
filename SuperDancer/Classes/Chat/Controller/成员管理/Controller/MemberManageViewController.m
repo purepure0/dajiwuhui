@@ -176,6 +176,7 @@ static NSString *kMemberManageCellIdentifier = @"kMemberManageCellIdentifier";
                     }
                 }
                 [_tableView deleteRow:index inSection:0 withRowAnimation:UITableViewRowAnimationFade];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"kUpdateTeamMembersNotification" object:nil];
             }
         }];
     }];
