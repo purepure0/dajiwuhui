@@ -22,7 +22,7 @@ Stuff; \
 _Pragma("clang diagnostic pop") \
 } while (0)
 @interface TeamSessionViewController ()
-
+@property (nonatomic, assign)BOOL isAlerted;
 @end
 
 @implementation TeamSessionViewController
@@ -31,6 +31,23 @@ _Pragma("clang diagnostic pop") \
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupCustomNav];
+    _isAlerted = NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (![[NIMSDK sharedSDK].teamManager isMyTeam:_teamID]) {
+        if (!_isAlerted) {
+            [DJWYAlertView showTwoActionAlertViewWithTitle:@"温馨提示" message:@"您已经不在当前舞队，是否保留会话？" leftButtonTitle:@"删除" rightButtonTitle:@"保留" leftClick:^{
+                NIMDeleteMessagesOption *option = [[NIMDeleteMessagesOption alloc] init];
+                option.removeSession = YES;
+                [[NIMSDK sharedSDK].conversationManager deleteAllmessagesInSession:[NIMSession session:_teamID type:NIMSessionTypeTeam] option:option];
+            } rightClick:^{
+                
+            }];
+        }
+        
+    }
 }
 
 - (void)setupCustomNav {
@@ -64,10 +81,15 @@ _Pragma("clang diagnostic pop") \
 
 - (void)teamInfo:(UIButton *)btn {
     NSLog(@"teamInfo");
-    TeamInfoViewController *teamInfo = [[TeamInfoViewController alloc] init];
-    teamInfo.teamID = _teamID;
-    teamInfo.team = _team;
-    [self.navigationController pushViewController:teamInfo animated:YES];
+    if ([[NIMSDK sharedSDK].teamManager isMyTeam:_teamID]) {
+        TeamInfoViewController *teamInfo = [[TeamInfoViewController alloc] init];
+        teamInfo.teamID = _teamID;
+        teamInfo.team = _team;
+        [self.navigationController pushViewController:teamInfo animated:YES];
+    }else {//非成员，不能查看群详情
+        [DJWYAlertView showOneButtonWithTitle:@"温馨提示" message:@"非当前舞队的成员，不能查看群详情" buttonTitle:@"确定"];
+    }
+    
     
 }
 

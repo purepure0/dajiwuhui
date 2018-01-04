@@ -28,36 +28,18 @@
     self.emptyTipImgView = [[UIImageView alloc] init];
     self.emptyTipImgView.image = IMAGE_NAMED(@"nodata");
     [self.view addSubview:self.emptyTipImgView];
+    self.emptyTipImgView.hidden = self.recentSessions.count;
     self.emptyTipImgView.sd_layout
     .centerXEqualToView(self.view)
     .centerYEqualToView(self.view)
     .heightIs(120)
     .widthIs(109);
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeSession:) name:@"kDeleteSessionNotification" object:nil];
-    
-}
-
-- (void)removeSession:(NSNotification *)noti {
-    PPLog(@"noti:%@", noti.userInfo);
-    PPLog(@"%@--%@", [self.recentSessions class], self.recentSessions);
-    NSString *sessionId = noti.userInfo[@"teamID"];
-    NIMRecentSession *delSession = nil;
-    for (NIMRecentSession *recentSession in self.recentSessions) {
-        if ([recentSession.session.sessionId isEqualToString:sessionId]) {
-            delSession = recentSession;
-        }
-    }
-    if (delSession != nil) {
-        [[NIMSDK sharedSDK].conversationManager deleteRecentSession:delSession];
-        [self refresh];
-    }
 }
 
 
 - (void)refresh {
     [super refresh];
-    self.emptyTipImgView.hidden = self.recentSessions.count;
-    
+    self.emptyTipImgView.hidden = self.recentSessions.count;    
 }
 
 

@@ -19,6 +19,7 @@ Stuff; \
 _Pragma("clang diagnostic pop") \
 } while (0)
 @interface FriendChatViewController ()
+@property (nonatomic, assign)BOOL isAlerted;
 
 @end
 
@@ -28,7 +29,25 @@ _Pragma("clang diagnostic pop") \
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupCustomNav];
+    _isAlerted = NO;
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (![[NIMSDK sharedSDK].userManager isMyFriend:_user.userId]) {
+        if (!_isAlerted) {
+            [DJWYAlertView showTwoActionAlertViewWithTitle:@"温馨提示" message:@"好友关系已经解除，是否保留会话？" leftButtonTitle:@"删除" rightButtonTitle:@"保留" leftClick:^{
+                NIMDeleteMessagesOption *option = [[NIMDeleteMessagesOption alloc] init];
+                option.removeSession = YES;
+                [[NIMSDK sharedSDK].conversationManager deleteAllmessagesInSession:[NIMSession session:_user.userId type:NIMSessionTypeP2P] option:option];
+            } rightClick:^{
+                
+            }];
+        }
+        
+    }
+}
+
 
 - (void)setupCustomNav {
     
