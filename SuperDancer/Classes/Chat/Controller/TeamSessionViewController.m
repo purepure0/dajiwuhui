@@ -36,22 +36,22 @@ _Pragma("clang diagnostic pop") \
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (![[NIMSDK sharedSDK].teamManager isMyTeam:_teamID]) {
-        if (!_isAlerted) {
-            UIAlertController *alertContrller = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"您已经不在当前舞队，是否保留会话？" preferredStyle:(UIAlertControllerStyleAlert)];
-
-            UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"删除" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-                NIMDeleteMessagesOption *option = [[NIMDeleteMessagesOption alloc] init];
-                option.removeSession = YES;
-                [[NIMSDK sharedSDK].conversationManager deleteAllmessagesInSession:[NIMSession session:_teamID type:NIMSessionTypeTeam] option:option];
-            }];
-            UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"保留" style:UIAlertActionStyleDefault handler:nil];
-            [alertContrller addAction:deleteAction];
-            [alertContrller addAction:confirmAction];
-            [self presentViewController:alertContrller animated:YES completion:nil];
-        }
-        
-    }
+//    if (![[NIMSDK sharedSDK].teamManager isMyTeam:_teamID]) {
+//        if (!_isAlerted) {
+//            UIAlertController *alertContrller = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"您已经不在当前舞队，是否保留会话？" preferredStyle:(UIAlertControllerStyleAlert)];
+//
+//            UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"删除" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+//                NIMDeleteMessagesOption *option = [[NIMDeleteMessagesOption alloc] init];
+//                option.removeSession = YES;
+//                [[NIMSDK sharedSDK].conversationManager deleteAllmessagesInSession:[NIMSession session:_teamID type:NIMSessionTypeTeam] option:option];
+//            }];
+//            UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"保留" style:UIAlertActionStyleDefault handler:nil];
+//            [alertContrller addAction:deleteAction];
+//            [alertContrller addAction:confirmAction];
+//            [self presentViewController:alertContrller animated:YES completion:nil];
+//        }
+//
+//    }
 }
 
 - (void)setupCustomNav {
@@ -85,17 +85,21 @@ _Pragma("clang diagnostic pop") \
 
 - (void)teamInfo:(UIButton *)btn {
     NSLog(@"teamInfo");
-    if ([[NIMSDK sharedSDK].teamManager isMyTeam:_teamID]) {
-        TeamInfoViewController *teamInfo = [[TeamInfoViewController alloc] init];
-        teamInfo.teamID = _teamID;
-        teamInfo.team = _team;
-        [self.navigationController pushViewController:teamInfo animated:YES];
-    }else {//非成员，不能查看群详情
-        UIAlertController *alertContrller = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"非当前舞队的成员，不能查看群详情" preferredStyle:(UIAlertControllerStyleAlert)];
-        UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:nil];
-        [alertContrller addAction:confirmAction];
-        [self presentViewController:alertContrller animated:YES completion:nil];
-    }
+    TeamInfoViewController *teamInfo = [[TeamInfoViewController alloc] init];
+    teamInfo.teamID = _teamID;
+    teamInfo.team = _team;
+    [self.navigationController pushViewController:teamInfo animated:YES];
+//    if ([[NIMSDK sharedSDK].teamManager isMyTeam:_teamID]) {
+//        TeamInfoViewController *teamInfo = [[TeamInfoViewController alloc] init];
+//        teamInfo.teamID = _teamID;
+//        teamInfo.team = _team;
+//        [self.navigationController pushViewController:teamInfo animated:YES];
+//    }else {//非成员，不能查看群详情
+//        UIAlertController *alertContrller = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"非当前舞队的成员，不能查看群详情" preferredStyle:(UIAlertControllerStyleAlert)];
+//        UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:nil];
+//        [alertContrller addAction:confirmAction];
+//        [self presentViewController:alertContrller animated:YES completion:nil];
+//    }
     
     
 }
