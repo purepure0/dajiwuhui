@@ -61,6 +61,7 @@
         {
             DancersViewController *dancer = [[DancersViewController alloc] init];
             dancer.type = 3;
+            [MobClick event:@"click1"];
             [self.navigationController pushViewController:dancer animated:YES];
         }
             break;
@@ -68,12 +69,13 @@
         {
             MusicViewController *music = [[MusicViewController alloc] init];
             music.type = @"3";
+            [MobClick event:@"click2"];
             [self.navigationController pushViewController:music animated:YES];
         }
             break;
         case 3:{
             DanceTypeViewController *danceType = [[DanceTypeViewController alloc] init];
-            
+            [MobClick event:@"click3"];
             [self.navigationController pushViewController:danceType animated:YES];
         }
             break;

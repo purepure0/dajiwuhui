@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSArray *data;
 @property (nonatomic, assign) BOOL isMe; //是否是自己
 @property (nonatomic, assign) BOOL isMyFriend; //是否是好友
+//@property (nonatomic, assign) BOOL isOwner; //是否是群主
 @property (nonatomic, strong) NIMUser *user;
 @property (nonatomic, copy) NSString *nickname;
 
@@ -86,7 +87,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -127,26 +128,27 @@
     }else if (indexPath.section == 2) {
         cell.topLabel.text = @"个人介绍";
         cell.bottomLabel.text = self.user.userInfo.sign.length ? self.user.userInfo.sign:@"未设置";
-    }else {
-        if (self.isMe) {
-            cell.leftLabel.text = @"领队名称";
-            cell.rightLabel.text = self.ownername;
-            [cell showRigthArrow:NO];
-        } else {
-            cell.leftLabel.text = @"发言记录";
-            cell.rightLabel.text = @"";
-            [cell showRigthArrow:YES];
-        }
     }
+//    else {
+//        if (self.isMe) {
+//            cell.leftLabel.text = @"领队名称";
+//            cell.rightLabel.text = self.ownername;
+//            [cell showRigthArrow:NO];
+//        } else {
+//            cell.leftLabel.text = @"发言记录";
+//            cell.rightLabel.text = @"";
+//            [cell showRigthArrow:YES];
+//        }
+//    }
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return section == 3 ? 105:10;
+    return section == 2 ? 105:10;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if (section == 3) {
+    if (section == 2) {
         if (!self.isMe) {
             if (!self.isMyFriend) {
                 UIView *bgView = [[UIView alloc] init];

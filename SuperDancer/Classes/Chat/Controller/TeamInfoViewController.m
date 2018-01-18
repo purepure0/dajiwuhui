@@ -37,6 +37,8 @@
 @property (nonatomic, strong)NSArray<NIMUser *> *members;
 @property (nonatomic, strong)NSMutableArray *teamMemberUserIDs;
 
+@property (nonatomic, strong) NIMTeamMember *myselfInfo;
+
 @end
 
 @implementation TeamInfoViewController
@@ -53,19 +55,21 @@
 
     _teamMemberUserIDs = [NSMutableArray new];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchTeamMembers) name:@"kUpdateTeamMembersNotification" object:nil];
+    
     // 初始化群资料
     [self initTeamData];
-}
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
     // 获取群成员
     [self fetchTeamMembers];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     // 获取群信息
     [self fetchTeamInfo];
 }
+
 - (void)fetchTeamMembers {
-    NSLog(@"%@", _teamID);
     [[NIMSDK sharedSDK].teamManager fetchTeamMembers:_teamID completion:^(NSError * _Nullable error, NSArray<NIMTeamMember *> * _Nullable members) {
         if (!error) {
             [_teamMemberUserIDs removeAllObjects];
@@ -75,25 +79,13 @@
                 } else {
                     [_teamMemberUserIDs addObject:member.userId];
                 }
-                // 获取本人群资料
-                if ([member.userId isEqualToString:self.users.userId]) {
-                    if (member.nickname || member.nickname.length ) {
-                        self.nickname = member.nickname;
-                        [self fetchTeamInfo];
-                        [self initTeamData];
-                    }
-                }
             }
-            //获取成员信息
+            //获取成员
             if (_teamMemberUserIDs.count != 0) {
                 self.members = [NSArray array];
                 [[NIMSDK sharedSDK].userManager fetchUserInfos:_teamMemberUserIDs completion:^(NSArray<NIMUser *> * _Nullable users, NSError * _Nullable error) {
-                    if (!error) {
-                        self.members = users;
-                        [self.tableView reloadData];
-                    } else {
-                        PPLog(@"load user info error = %@",error.description);
-                    }
+                    self.members = users;
+                    [self.tableView reloadData];
                 }];
             }
         }
@@ -101,8 +93,10 @@
 }
 
 - (void)fetchTeamInfo {
+    [self showLoading];
     [[NIMSDK sharedSDK].teamManager fetchTeamInfo:_teamID completion:^(NSError * _Nullable error, NIMTeam * _Nullable team) {
         PPLog(@"Team == %@",team);
+        [self hideLoading];
         if (!error) {
             self.team = team;
             if (team.clientCustomInfo.length) {
@@ -138,9 +132,15 @@
         self.locality = @"未设置";
     }
     
+    NIMTeamMember *myselfInfo = [[NIMSDK sharedSDK].teamManager teamMember:self.users.userId inTeam:_team.teamId];
+    self.myselfInfo = myselfInfo;
+    if (!myselfInfo.nickname.length) {
+        myselfInfo.nickname = @"未设置";
+    }
+    
     if (_isTeamOwner) {
         _data = @[@[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": self.city,@"isTeamOwner":@(1)}],
-                  @[@{@"title": @"我的舞队名片", @"content": self.nickname},
+                  @[@{@"title": @"", @"content": self.myselfInfo.nickname},
                     @{@"#": @"#"}],
                   @[@{@"title": @"舞队公告", @"content": @""}],
                   @[@{@"title": @"舞队管理", @"content": @""}],
@@ -149,7 +149,7 @@
     } else {
         _data = @[
                   @[@{@"icon": self.team.avatarUrl, @"nickname": self.team.teamName, @"city": @"菏泽市",@"isTeamOwner":@(0)}],
-                  @[@{@"title": @"我的舞队名片", @"content": self.nickname},
+                  @[@{@"title": @"我的舞队名片", @"content": self.myselfInfo.nickname},
                     @{@"#": @"#"}],
                   @[@{@"title": @"舞队公告", @"content": @""}],
                   @[@{@"title": @"聊天记录", @"content": @""}],
@@ -231,6 +231,7 @@
             AddMembersViewController *am = [[AddMembersViewController alloc] init];
             am.team = _team;
             am.teamMemberUserIDs = _teamMemberUserIDs;
+            am.isCreating = NO;
             [self.navigationController pushViewController:am animated:YES];
         } else {
             if (_team.inviteMode == NIMTeamInviteModeAll) {
@@ -275,13 +276,55 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     
     if (section == _data.count - 1) {
-        return 75;
+        if (!_isTeamOwner) {
+            return 105;
+        } else {
+            return 75;
+        }
     }
     return 0.1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+
+    if (section == _data.count - 1) {
+        if (!_isTeamOwner) {
+            UIView *bgView = [[UIView alloc] init];
+            bgView.backgroundColor = [UIColor clearColor];
+            
+            UIButton *quitTeamBtn = [[UIButton alloc] init];
+            [bgView addSubview:quitTeamBtn];
+            quitTeamBtn.backgroundColor = kBaseColor;
+            [quitTeamBtn setTitle:@"退出舞队" forState:UIControlStateNormal];
+            [quitTeamBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [quitTeamBtn addTarget:self action:@selector(quitTeamAction) forControlEvents:UIControlEventTouchUpInside];
+            
+            quitTeamBtn.sd_layout
+            .leftSpaceToView(bgView, 15)
+            .rightSpaceToView(bgView, 15)
+            .topSpaceToView(bgView, 30)
+            .heightIs(45);
+            quitTeamBtn.sd_cornerRadius = @(3);
+            
+            return bgView;
+        }
+    }
     return nil;
+}
+
+- (void)quitTeamAction {
+    PPLog(@"退出群聊");
+    [[NIMSDK sharedSDK].teamManager quitTeam:self.team.teamId completion:^(NSError * _Nullable error) {
+        if (!error) {
+            [self toast:@"已退出舞队"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                UIViewController *vcs = self.navigationController.viewControllers[0];
+                [self.navigationController popToViewController:vcs animated:YES];
+            });
+        } else {
+            [self toast:@"退出舞队失败"];
+        }
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -290,7 +333,7 @@
             if (!indexPath.row) {//群昵称
                 ModifyTeamNicknameViewController *tn = [[ModifyTeamNicknameViewController alloc] init];
                 tn.team = self.team;
-                tn.nickname = self.nickname;
+                tn.nickname = self.myselfInfo.nickname;
                 [self.navigationController pushViewController:tn animated:YES];
             }else {
                 MemberManageViewController *memberMag = [[MemberManageViewController alloc] init];
@@ -318,7 +361,7 @@
             if (!indexPath.row) {//群昵称
                 ModifyTeamNicknameViewController *tn = [[ModifyTeamNicknameViewController alloc] init];
                 tn.team = self.team;
-                tn.nickname = self.nickname;
+                tn.nickname = self.myselfInfo.nickname;
                 [self.navigationController pushViewController:tn animated:YES];
             }else {
                 MemberManageViewController *memberMag = [[MemberManageViewController alloc] init];

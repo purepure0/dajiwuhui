@@ -13,7 +13,6 @@
 #import "MBProgressHUD+MJ.h"
 #import "UserModel.h"
 
-#define kAcountBtnImgNotification @"AcountBtnImgNotification"
 
 @interface BaseViewController ()
 
@@ -389,7 +388,7 @@
             self.users.avatarURL = userModel.user_headimg;
             self.users.background = userModel.background;
             self.users.signature = userModel.signature;
-            [[NSNotificationCenter defaultCenter] postNotificationName:kAcountBtnImgNotification object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"AcountBtnImgNotification" object:nil];
         }
     } failure:^(NSError *error) {
         

@@ -18,6 +18,9 @@
 #import <JPUSHService.h>
 #import <UserNotifications/UserNotifications.h>
 #import "SDTabBarController.h"
+#import "CustomNIMKitDataProvider.h"
+#import "CustomNIMKitConfig.h"
+#import "UMMobClick/MobClick.h"
 //#import <Bugtags/Bugtags.h>
 
 #define kAMapApiKey @"2b9d644cfa86764d460dff45bf4f7842"
@@ -43,6 +46,9 @@
 //    [Bugtags startWithAppKey:@"08202dec433c4ed124ec3d36ee834d3e" invocationEvent:BTGInvocationEventBubble];
     ///<6>网易IM
     [self setupNIMSDK];
+    ///<7>友盟统计
+    [self initUMengAnalytic];
+    
     [self registerPushService];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -204,7 +210,11 @@
     //并请对应更换 Demo 代码中的获取好友列表、个人信息等网易云信 SDK 未提供的接口。
     NSString *appKey        = @"45f097c6ebe072b28422e670ce15824b";
     NIMSDKOption *option    = [NIMSDKOption optionWithAppKey:appKey];
-    option.apnsCername      = @"DJWHPushDevelopment";
+   // 测试推送证书，测试模式
+//    option.apnsCername      = @"DJWHPushDevelopment";
+    //生产模式
+    option.apnsCername      = @"DJWHPushDistribution";
+    
     option.pkCername        = nil;
     [[NIMSDK sharedSDK] registerWithOption:option];
     
@@ -227,6 +237,21 @@
     }
     
     [[NIMSDK sharedSDK].chatManager addDelegate:self];
+    
+    //配置NIMKit
+    
+    [NIMKit sharedKit].provider = [[CustomNIMKitDataProvider alloc] init];
+    [NIMKit sharedKit].config = [[CustomNIMKitConfig alloc] init];
+}
+//友盟统计
+- (void)initUMengAnalytic{
+    UMConfigInstance.appKey = @"59e061b0aed179475c0001d7";
+    //可以通过代码设置发送策略，也可以在后台进行设置，后台配置的优先级高于本地配置
+    UMConfigInstance.ePolicy = SEND_INTERVAL;
+    //以App打包时的Build号作为应用程序的版本标识
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    [MobClick setAppVersion:version];
+    [MobClick startWithConfigure:UMConfigInstance];
 }
 
 - (void)onRecvMessages:(NSArray<NIMMessage *> *)messages {
@@ -240,7 +265,7 @@
     if (step == 5) {
         NSLog(@"%@", [[[NIMSDK sharedSDK] teamManager] allMyTeams]);
         [[NSNotificationCenter defaultCenter] postNotificationName:@"IMConnected" object:nil];
-    }else {
+    }else if (step == 3 || step == 4 || step == 6 || step == 9) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"IMConnecting" object:nil];
         
     }
@@ -318,6 +343,13 @@
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+    SDUser *user = [SDUser sharedUser];
+    if (user.userId != nil && user.token != nil) {
+        NSLog(@"自动登录");
+        [[[NIMSDK sharedSDK] loginManager] addDelegate:self];
+        [[[NIMSDK sharedSDK] loginManager] autoLogin:user.userId token:user.token];
+        
+    }
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 }
 

@@ -33,6 +33,10 @@
     [self getFriendList];
 }
 
+- (void)dealloc {
+    [[NIMSDK sharedSDK].userManager removeDelegate:self];
+}
+
 - (void)getFriendList {
     _friendList = (NSMutableArray *)[[NIMSDK sharedSDK].userManager myFriends];
     NSLog(@"好友列表：%@", _friendList);

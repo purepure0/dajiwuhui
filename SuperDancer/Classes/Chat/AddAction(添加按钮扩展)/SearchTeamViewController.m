@@ -55,6 +55,7 @@
     if(indexPath.row == 1){
         // 1、 获取摄像设备
         AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        [MobClick event:@"click8"];
         if (device) {
             AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
             if (status == AVAuthorizationStatusNotDetermined) {
@@ -83,6 +84,7 @@
             [DJWYAlertView showOneButtonWithTitle:@"温馨提示" message:@"未检测到您的摄像头" buttonTitle:@"确定"];
         }
     } else {
+        [MobClick event:@"click7"];
         NearTeamViewController *nearTeam = [[NearTeamViewController alloc] init];
         [self.navigationController pushViewController:nearTeam animated:YES];
     }

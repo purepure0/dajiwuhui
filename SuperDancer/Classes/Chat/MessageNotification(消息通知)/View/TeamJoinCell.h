@@ -36,7 +36,9 @@ typedef void(^IconImgBlock)(void);
 @property (weak, nonatomic) IBOutlet UIButton *qcodeBtn;
 
 @property (weak, nonatomic) IBOutlet UILabel *teamMemberLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightLayout1;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightLayout2;
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *rightArrow;

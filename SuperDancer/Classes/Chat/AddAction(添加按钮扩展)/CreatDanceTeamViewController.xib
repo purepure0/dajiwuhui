@@ -60,7 +60,7 @@
                         <constraint firstAttribute="height" constant="45" id="rSr-HL-SOq"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="提 交">
+                    <state key="normal" title="下一步">
                         <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </state>
                     <connections>

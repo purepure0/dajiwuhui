@@ -100,10 +100,17 @@ static NSString *kMemberCellIdentifier = @"kMemberCellIdentifier";
 {
     MemberCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kMemberCellIdentifier forIndexPath:indexPath];
     
-    if (indexPath.row == [_showDataSource count]) {
+    if (indexPath.row == 0) {
         cell.iconImg.image = IMAGE_NAMED(@"wd_add_member");
     } else {
-        cell.iconImg.image = IMAGE_NAMED(@"pic1");
+        NIMUser *user = _showDataSource[indexPath.row - 1];
+        NSString *avatarUrl = @"";
+        if (user.userInfo.avatarUrl.length > 10) {
+            avatarUrl = user.userInfo.avatarUrl;
+        }else {
+            avatarUrl = user.userInfo.thumbAvatarUrl;
+        }
+        [cell.iconImg setImageWithURL:[NSURL URLWithString:avatarUrl] placeholder:[UIImage imageNamed:@"myaccount"]];
     }
     
     return cell;

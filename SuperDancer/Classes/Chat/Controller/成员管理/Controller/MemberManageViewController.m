@@ -151,7 +151,7 @@ static NSString *kMemberManageCellIdentifier = @"kMemberManageCellIdentifier";
     @weakify(self);
     cell.deleteBlock = ^(NSInteger _index) {
         @strongify(self);
-        [self deleteMember:_index];
+        [self deleteMember:_index+1];
     };
     return cell;
 }
@@ -176,6 +176,7 @@ static NSString *kMemberManageCellIdentifier = @"kMemberManageCellIdentifier";
                     }
                 }
                 [_tableView deleteRow:index inSection:0 withRowAnimation:UITableViewRowAnimationFade];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"kUpdateTeamMembersNotification" object:nil];
             }
         }];
     }];

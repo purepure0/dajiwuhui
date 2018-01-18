@@ -164,22 +164,70 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (!indexPath.section) {
-        if (indexPath.row == 2) {// 所在地区
+        if (indexPath.row == 2) {
             ModifyTeamLocalityViewController *teamLocality = [[ModifyTeamLocalityViewController alloc] init];
             teamLocality.team = self.team;
             teamLocality.locality = self.locality;
             [self.navigationController pushViewController:teamLocality animated:YES];
-        } else if (!indexPath.row) {// 领队名称
+        } else if (!indexPath.row) {
             ModifyTeamNameViewController *tn = [[ModifyTeamNameViewController alloc] init];
             tn.team = self.team;
             [self.navigationController pushViewController:tn animated:YES];
         }
-    } else { // 群介绍
+    } else {
         ModifyTeamIntroduceViewController *teamIntro = [[ModifyTeamIntroduceViewController alloc] init];
         teamIntro.intro = self.intro;
         teamIntro.team = self.team;
         [self.navigationController pushViewController:teamIntro animated:YES];
     }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if (section == 1) {
+        UIView *bgView = [[UIView alloc] init];
+        bgView.backgroundColor = [UIColor clearColor];
+        
+        UIButton *dismissBtn = [[UIButton alloc] init];
+        [bgView addSubview:dismissBtn];
+        [dismissBtn setBackgroundColor:kBaseColor];
+        [dismissBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [dismissBtn setTitle:@"解散群" forState:UIControlStateNormal];
+        [dismissBtn addTarget:self action:@selector(dismissAction) forControlEvents:UIControlEventTouchUpInside];
+        
+        dismissBtn.sd_layout
+        .leftSpaceToView(bgView, 15)
+        .rightSpaceToView(bgView, 15)
+        .centerYEqualToView(bgView)
+        .heightIs(45);
+        dismissBtn.sd_cornerRadius = @(3);
+        
+        return bgView;
+    }
+    return nil;
+}
+
+- (void)dismissAction
+{
+    UIAlertController *alertContrller = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"该操作无法撤销,是否解散该群?" preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        [self.hud show:YES];
+        [[NIMSDK sharedSDK].teamManager dismissTeam:self.team.teamId completion:^(NSError * _Nullable error) {
+            [self.hud hide:YES];
+            if (!error) {
+                
+                [self toast:@"解散群成功"];
+                
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            } else {
+                [self toast:@"操作失败"];
+            }
+        }];
+    }];
+    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    [alertContrller addAction:deleteAction];
+    [alertContrller addAction:confirmAction];
+    [self presentViewController:alertContrller animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -189,7 +237,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 0.001;
+    return section ? 80:0.001;
 }
 
 - (NSArray *)titles {

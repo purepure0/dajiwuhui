@@ -29,7 +29,8 @@ pod 'Reachability'
 pod 'UMengUShare/UI'
 pod 'UMengUShare/Social/WeChat'
 pod 'UMengUShare/Social/QQ'
-
+#友盟统计
+pod 'UMengAnalytics'
 pod 'Qiniu', '~> 7.1'
 
 pod 'AMapLocation'

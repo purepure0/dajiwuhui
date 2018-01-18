@@ -129,6 +129,7 @@
 
 - (void)pageController:(WMPageController *)pageController didEnterViewController:(__kindof UIViewController *)viewController withInfo:(NSDictionary *)info {
     if ([viewController isKindOfClass:[LocalDanceViewController class]]) {
+        [MobClick event:@"click9"];
         if (self.users.districtSelected) {
             [self setRightImageNamed:@"location" title:self.users.districtSelected action:@selector(changeAreaAction)];
         }else {

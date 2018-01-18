@@ -59,10 +59,16 @@
             }else {
                 NSArray *data = [NSJSONSerialization JSONObjectWithData:[team.clientCustomInfo dataUsingEncoding:NSUTF8StringEncoding] options:0 error:0];
                 NSDictionary *teamInfo = [NSMutableArray arrayWithArray:data].lastObject;
-                NSArray *localityArray = [teamInfo[@"locality"] componentsSeparatedByString:@","];
-                weakSelf.city = localityArray[1];
+                if (![teamInfo[@"locality"] isEqualToString:@"未设置"]) {
+                    NSArray *localityArray = [teamInfo[@"locality"] componentsSeparatedByString:@","];
+                    weakSelf.city = localityArray[1];
+                    
+                    weakSelf.address = [NSString stringWithFormat:@"%@%@%@", localityArray[0], localityArray[1], localityArray[2]];
+                }else {
+                    weakSelf.city = @"未设置";
+                    weakSelf.address = @"未设置";
+                }
                 
-                weakSelf.address = [NSString stringWithFormat:@"%@%@%@", localityArray[0], localityArray[1], localityArray[2]];
             }
             
             
@@ -76,6 +82,8 @@
                 }
             }];
             NSLog(@"%@--%@--%@--%@--%@--%@--%@", weakSelf.avatarUrl, weakSelf.teamName, weakSelf.city, weakSelf.teamLeader, weakSelf.createTime, weakSelf.address, weakSelf.intro);
+        }else {
+            [self toast:error.localizedDescription];
         }
     }];
 }
@@ -169,7 +177,12 @@
             [self toast:error.localizedDescription];
         }else {
             [self toast:@"申请成功,等待验证通过！"];
-            [self.navigationController popViewControllerAnimated:YES];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                NSArray *vcs = self.navigationController.viewControllers;
+                UIViewController *vc = vcs[vcs.count - 3];
+                [self.navigationController popToViewController:vc animated:YES];
+            });
+            
         }
     }];
     

@@ -41,6 +41,8 @@
     #import "UIImage+circleImage.h"
     #import <NIMSDK/NIMSDK.h>
     #import <NIMKit.h>
+    #import "UMMobClick/MobClick.h"
+
 #pragma mark -- Umeng
 
 #define UMengAppkey @"59e061b0aed179475c0001d7"

@@ -22,7 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"消息中心";
-    UISegmentedControl *segment = [[UISegmentedControl alloc] initWithItems:@[@"会话",@"联系人"]];
     [self initPageController];
 }
 
@@ -65,13 +64,14 @@
     PPLog(@"currentIndex == %ld",currentIndex);
 }
 
-- (void)pageController:(WMPageController *)pageController didEnterViewController:(__kindof UIViewController *)viewController withInfo:(NSDictionary *)info {
-//    if ([viewController isKindOfClass:[MsgCommentViewController class]]) {
-//        self.segment.selectedSegmentIndex = 0;
-//    } else {
-//        self.segment.selectedSegmentIndex = 1;
-//    }
+- (void)pageController:(WMPageController *)pageController willEnterViewController:(__kindof UIViewController *)viewController withInfo:(NSDictionary *)info {
+    //    if ([viewController isKindOfClass:[LocalDanceViewController class]]) {
+    //        [self setRightImageNamed:@"location" title:@"牡丹区" action:@selector(changeAreaAction)];
+    //    } else {
+    //        self.navigationItem.rightBarButtonItem = nil;
+    //    }
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

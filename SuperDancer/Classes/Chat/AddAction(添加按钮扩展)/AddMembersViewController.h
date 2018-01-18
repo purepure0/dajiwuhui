@@ -8,10 +8,12 @@
 
 #import "BaseViewController.h"
 typedef void(^AddFinishedBlock)(void);
-@interface AddMembersViewController : BaseViewController
 
+@interface AddMembersViewController : BaseViewController
+@property (nonatomic, assign)BOOL isCreating;
 @property (nonatomic, strong)NSString *teamID;
 @property (nonatomic, strong)NIMTeam *team;
+@property (nonatomic, strong)NSMutableArray *selectedMembers;
 @property (nonatomic, strong)NSMutableArray *teamMemberUserIDs;
 @property (nonatomic, copy)AddFinishedBlock finished;
 

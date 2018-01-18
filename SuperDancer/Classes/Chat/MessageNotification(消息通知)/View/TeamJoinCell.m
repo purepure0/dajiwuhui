@@ -12,6 +12,12 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.heightLayout1.constant = kAutoHeight(40);
+    self.heightLayout2.constant = kAutoHeight(20);
+    
+    self.iconImageView.layer.masksToBounds = YES;
+    self.iconImageView.layer.cornerRadius = kAutoWidth(38);
+    
     if (_cityLabel) {
         _cityLabel.layer.masksToBounds = YES;
         _cityLabel.layer.cornerRadius = 2;
@@ -145,6 +151,7 @@
 
         [self.contentView addSubview:btn];
     }
+    
 }
 
 
@@ -177,13 +184,13 @@
             NIMUser *user = [subarray objectAtIndex:i-1];
             [btn setImageWithURL:[NSURL URLWithString:user.userInfo.avatarUrl] forState:UIControlStateNormal placeholder:IMAGE_NAMED(@"placeholder_img")];
             if (i==1) {
-                UIImageView *creatorView = [UIImageView new];
+                UIImageView *creatorView = [[UIImageView alloc] init];
                 creatorView.image = IMAGE_NAMED(@"icon_team_creator");
                 [memberContainer addSubview:creatorView];
                 creatorView.sd_layout
                 .bottomEqualToView(btn)
                 .rightEqualToView(btn)
-                .widthIs(kAutoWidth(20))
+                .widthIs(20)
                 .heightEqualToWidth();
             }
         }

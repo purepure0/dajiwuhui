@@ -19,6 +19,7 @@ Stuff; \
 _Pragma("clang diagnostic pop") \
 } while (0)
 @interface FriendChatViewController ()
+@property (nonatomic, assign)BOOL isAlerted;
 
 @end
 
@@ -28,7 +29,29 @@ _Pragma("clang diagnostic pop") \
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupCustomNav];
+    _isAlerted = NO;
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+//    if (![[NIMSDK sharedSDK].userManager isMyFriend:_user.userId]) {
+//        if (!_isAlerted) {
+//            UIAlertController *alertContrller = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"好友关系已经解除，是否保留会话？" preferredStyle:(UIAlertControllerStyleAlert)];
+//            
+//            UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"删除" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+//                NIMDeleteMessagesOption *option = [[NIMDeleteMessagesOption alloc] init];
+//                option.removeSession = YES;
+//                [[NIMSDK sharedSDK].conversationManager deleteAllmessagesInSession:[NIMSession session:_user.userId type:NIMSessionTypeP2P] option:option];
+//            }];
+//            UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"保留" style:UIAlertActionStyleDefault handler:nil];
+//            [alertContrller addAction:deleteAction];
+//            [alertContrller addAction:confirmAction];
+//            [self presentViewController:alertContrller animated:YES completion:nil];
+//        }
+//        
+//    }
+}
+
 
 - (void)setupCustomNav {
     
@@ -44,6 +67,18 @@ _Pragma("clang diagnostic pop") \
     [leftBarView addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBarView];
     self.navigationItem.leftBarButtonItem = leftItem;
+    
+    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
+    [rightBtn setImage:[UIImage imageNamed:@"icon_session_info_normal"] forState:UIControlStateNormal];
+    [rightBtn setImageEdgeInsets: UIEdgeInsetsMake(0, 10, 0, -10)];
+    [rightBtn addTarget:self action:@selector(friendInfo:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+}
+
+- (void)friendInfo:(UIButton *)btn {
+    FriendInfoViewController *fi = [[FriendInfoViewController alloc] init];
+    fi.userId = self.user.userId;
+    [self.navigationController pushViewController:fi animated:YES];
 }
 
 

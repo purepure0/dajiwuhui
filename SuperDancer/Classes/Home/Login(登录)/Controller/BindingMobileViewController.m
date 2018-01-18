@@ -53,7 +53,7 @@
 
 - (IBAction)bingingMobileAction:(id)sender
 {
-    if (_mobileTextField.text.length < 11 || _verifyTextField.text.length < 6) {
+    if (_mobileTextField.text.length < 11 || _verifyTextField.text.length != 4) {
         [MBProgressHUD showError:@"请确认手机号和验证码！" toView:self.view];
         return;
     }

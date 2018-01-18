@@ -11,7 +11,7 @@
 #import "IMNotificationModel.h"
 #import "TeamSimpleInfoViewController.h"
 #import "FrindAddDetailViewController.h"
-@interface TeamNotiListViewController ()
+@interface TeamNotiListViewController ()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)NSMutableArray *modelList;
 @end
@@ -71,6 +71,12 @@
     return 10;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = kBackgroundColor;
+    return view;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     IMNotificationModel *model = _modelList[indexPath.row];
@@ -100,6 +106,14 @@
         [_tableView deleteRow:indexPath.row inSection:0 withRowAnimation:UITableViewRowAnimationFade];
         [[NIMSDK sharedSDK].systemNotificationManager deleteNotification:model.notification];
     }
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return IMAGE_NAMED(@"nodata");
+}
+
+-(BOOL)emptyDataSetShouldAllowScroll:(UIScrollView*)scrollView {
+    return YES;
 }
 
 
